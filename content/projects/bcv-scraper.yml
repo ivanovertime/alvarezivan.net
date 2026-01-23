@@ -1,0 +1,10 @@
+title: "BCV Scraper"
+description: "A Python + FastAPI scraper that exposes Banco Central de Venezuela exchange rates for e-commerce workflows."
+image: "/blog/bcv-scraper/featuredImage.jpg"
+url: "https://github.com/ivanovertime/bcv_scraper"
+tags:
+  - "Python"
+  - "FastAPI"
+  - "Web Scraping"
+  - "E-commerce"
+date: "2024-01-19"
