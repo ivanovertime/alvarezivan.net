@@ -8,6 +8,7 @@ defineProps<{
 
 <template>
   <UPageSection
+    v-if="page.testimonials?.length"
     :ui="{
       container: 'px-0 !pt-0'
     }"

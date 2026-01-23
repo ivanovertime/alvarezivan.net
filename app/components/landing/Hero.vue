@@ -38,6 +38,8 @@ defineProps<{
           :light="global.picture?.light!"
           :dark="global.picture?.dark!"
           :alt="global.picture?.alt!"
+          :width="144"
+          :height="144"
         />
       </Motion>
     </template>
