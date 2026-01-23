@@ -1,11 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 @import "tailwindcss";
 @import "@nuxt/ui";
 
 @source "../../../content/**/*";
 
 @theme static {
-  --font-sans: 'Public Sans', sans-serif;
-  --font-serif: 'Instrument Serif', serif;
+  --font-sans: 'Atkinson Hyperlegible', sans-serif;
+  --font-serif: 'Atkinson Hyperlegible', serif;
 }
 
 :root {
