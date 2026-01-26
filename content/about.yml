@@ -1,15 +1,13 @@
 title: About
 description: Information Engineer from Valencia, Venezuela.
 content: |
-  Hi, I'm an Information Engineer from Valencia, Venezuela.
+  Hi, I'm an Information Engineer and Full Stack Developer based in Valencia, Venezuela.
 
-  I'm really curious and like to figure out how things work. I like movies, cooking and anything related to data. I like to explore different cultures and perspectives, especially from Japan.
+  I specialize in building scalable web applications and robust data solutions. As a versatile engineer, I enjoy wearing many hats—navigating the entire stack from backend architecture to frontend performance. I have deep hands-on experience with composable commerce solutions and thrive on solving complex technical challenges.
 
-  I usually work as a full stack developer, and I'm used to wearing many hats. I enjoy working with data and developing scalable web applications. I have hands-on experience in building composable commerce solutions but I'm always open to new challenges.
+  Beyond code, I am curious by nature. You'll often find me exploring cinema, cooking, or broadening my perspectives through Japanese language and culture.
 
   [Curriculum (ES)](/CV-ES-Ivan-Alvarez.pdf)
 images:
-  - src: /avatar.jpg
-    alt: Iván Álvarez
-  - src: /hero/random-1.avif
-    alt: Photo grid accent
+  - src: /hero/full-stacked.jpg
+    alt: "Full stacked developer"
