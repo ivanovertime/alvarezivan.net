@@ -112,14 +112,6 @@ export default defineContentConfig({
         content: z.string(),
         images: z.array(createImageSchema())
       })
-    }),
-    uses: defineCollection({
-      type: 'page',
-      source: 'uses.md',
-      schema: z.object({
-        title: z.string(),
-        description: z.string()
-      })
     })
   }
 })
