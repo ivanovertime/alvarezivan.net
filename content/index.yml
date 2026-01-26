@@ -17,7 +17,7 @@ experience:
   title: Work Experience
   items:
     - position: "Full Stack Developer (Contractor)"
-      date: "2023-12-01"
+      date: "2025-12-22"
       company:
         name: "Crazy Imagine Software"
         logo: "i-lucide-briefcase"
@@ -33,7 +33,7 @@ experience:
     - position: "Full Stack Developer (Contractor)"
       date: "2023-12-01"
       company:
-        name: ""
+        name: "Self Employed"
         logo: "i-lucide-briefcase"
         url: "https://alvarezivan.net.ve"
         color: "#6b7280"

@@ -12,8 +12,8 @@ defineProps<{
   <UPageHero
     :ui="{
       headline: 'flex items-center justify-center',
-      title: 'text-shadow-md max-w-lg mx-auto',
-      links: 'mt-4 flex-col justify-center items-center'
+      title: 'text-shadow-md max-w-lg mx-auto px-4 sm:px-0',
+      links: 'mt-4 flex-col justify-center items-center px-4 sm:px-0'
     }"
   >
     <template #headline>
@@ -34,7 +34,7 @@ defineProps<{
         }"
       >
         <UColorModeAvatar
-          class="size-18 ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
+          class="size-14 sm:size-18 ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
           :light="global.picture?.light!"
           :dark="global.picture?.dark!"
           :alt="global.picture?.alt!"
@@ -105,13 +105,13 @@ defineProps<{
       >
         <div
           v-if="page.hero.links"
-          class="flex items-center gap-2"
+          class="flex w-full flex-col items-center gap-2 sm:w-auto sm:flex-row"
         >
-          <UButton v-bind="page.hero.links[0]" />
+          <UButton class="w-full sm:w-auto" v-bind="page.hero.links[0]" />
           <UButton
             :color="global.available ? 'success' : 'error'"
             variant="ghost"
-            class="gap-2"
+            class="gap-2 w-full sm:w-auto"
             :to="global.available ? global.meetingLink : ''"
             :label="global.available ? 'Available for new projects' : 'Not available at the moment'"
           >
@@ -131,7 +131,7 @@ defineProps<{
         </div>
       </Motion>
 
-      <div class="gap-x-4 inline-flex mt-4">
+      <div class="gap-2 sm:gap-x-4 inline-flex flex-wrap justify-center mt-4">
         <Motion
           v-for="(link, index) of footer?.links"
           :key="index"
