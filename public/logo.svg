@@ -1,0 +1,48 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="gradTopLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#e4e4e7" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#71717a" stop-opacity="0.85"/>
+        </linearGradient>
+
+        <linearGradient id="gradBottomLeft" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#52525b" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#27272a" stop-opacity="0.85"/>
+        </linearGradient>
+
+        <linearGradient id="gradRight" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#a1a1aa" stop-opacity="0.75"/>
+            <stop offset="100%" stop-color="#52525b" stop-opacity="0.75"/>
+        </linearGradient>
+
+        <linearGradient id="glassEdge" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#f4f4f5" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#f4f4f5" stop-opacity="0.15"/>
+        </linearGradient>
+
+        <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <g id="layer1" filter="url(#softGlow)">
+        <path
+           id="rect932"
+           style="fill:url(#gradRight); stroke:url(#glassEdge); stroke-width:2;"
+           d="M 262.28877,95.001235 V 463.55555 L 423.44853,424.9483 V 48.444454 Z" />
+
+        <path
+           id="rect932-3"
+           style="fill:url(#gradBottomLeft); stroke:url(#glassEdge); stroke-width:2;"
+           d="M 71.395287,293.57582 V 452.09094 L 232.55559,411.66452 v -161.9342 z" />
+
+        <path
+           id="rect932-3-6"
+           style="fill:url(#gradTopLeft); stroke:url(#glassEdge); stroke-width:2;"
+           d="M 71.395047,97.484898 V 256 L 232.55535,215.57359 V 53.639381 Z" />
+    </g>
+</svg>
