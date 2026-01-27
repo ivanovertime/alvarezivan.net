@@ -59,4 +59,17 @@ Preview the production build locally:
 pnpm preview
 ```
 
+## Cloudflare Pages
+
+This repo is configured to deploy on Cloudflare Pages using Nitro’s `cloudflare_pages` preset.
+
+1. Connect the GitHub repo in Cloudflare Pages.
+2. Use these build settings:
+	- Framework preset: **Nuxt**
+	- Build command: `pnpm install && pnpm build`
+	- Build output directory: `.output/public`
+3. Deploy.
+
+If you want a different runtime or output, adjust the Nitro preset in [nuxt.config.ts](nuxt.config.ts).
+
 See the Nuxt deployment guide for options and providers: https://nuxt.com/docs/getting-started/deployment
