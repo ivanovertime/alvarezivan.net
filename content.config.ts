@@ -66,7 +66,8 @@ export default defineContentConfig({
               questions: z.array(
                 z.object({
                   label: z.string().nonempty(),
-                  content: z.string().nonempty()
+                  content: z.string().nonempty(),
+                  icon: z.string().optional().editor({ input: 'icon' })
                 })
               )
             }))

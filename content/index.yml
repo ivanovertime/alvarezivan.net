@@ -97,3 +97,57 @@ faq:
         - label: Do you offer retainers or ongoing support?
           content: |
             Yes. For teams that need ongoing feature development, maintenance, or performance work, I offer monthly retainers tailored to scope and response time.
+    - title: Tech Skills
+      questions:
+        - label: Languages
+          icon: i-lucide-code
+          content: |
+            - PHP
+            - JavaScript/TypeScript
+            - Python
+            - Dart
+            - SQL
+        - label: Frontend
+          icon: i-lucide-layout
+          content: |
+            - Vue.js
+            - Nuxt.js
+            - Angular
+            - PrimeVue
+            - Livewire
+            - Flutter
+        - label: Backend
+          icon: i-lucide-server
+          content: |
+            - Laravel
+            - NestJS
+            - Express.js
+            - Node.js
+        - label: Databases
+          icon: i-lucide-database
+          content: |
+            - MySQL
+            - PostgreSQL
+            - MongoDB
+            - Redis
+        - label: Cloud & DevOps
+          icon: i-lucide-cloud
+          content: |
+            - Docker
+            - CI/CD
+            - Ubuntu Server
+            - Windows Server
+        - label: E-commerce & CMS
+          icon: i-lucide-shopping-cart
+          content: |
+            - WooCommerce
+            - Magento 2
+            - Odoo
+            - Strapi CMS
+            - CS-Cart
+        - label: Integrations
+          icon: i-lucide-plug
+          content: |
+            - SAP
+            - REST APIs
+            - Web Scraping
