@@ -4,6 +4,13 @@ import { mapContentNavigation } from '@nuxt/ui/utils/content'
 import { findPageBreadcrumb } from '@nuxt/content/utils'
 
 const route = useRoute()
+const config = useRuntimeConfig()
+const requestUrl = useRequestURL()
+
+const baseUrl = computed(() => config.public.siteUrl || requestUrl.origin)
+const canonicalUrl = computed(() => `${baseUrl.value}${route.path === '/' ? '' : route.path}`)
+const withBase = (url: string) =>
+  url?.startsWith('http') ? url : `${baseUrl.value}${url?.startsWith('/') ? '' : '/'}${url}`
 
 const { data: page } = await useAsyncData(route.path, () =>
   queryCollection('blog').path(route.path).first()
@@ -23,17 +30,22 @@ const breadcrumb = computed(() => mapContentNavigation(findPageBreadcrumb(blogNa
 const title = page.value?.seo?.title || page.value?.title
 const description = page.value?.seo?.description || page.value?.description
 const ogImage = computed(() => page.value?.image || '/avatar.jpg')
+const absoluteOgImage = computed(() => withBase(ogImage.value))
+const publishedTime = computed(() => page.value?.date ? new Date(page.value.date).toISOString() : undefined)
 
 useSeoMeta({
   title,
   description,
   ogDescription: description,
   ogTitle: title,
-  ogImage,
-  twitterImage: ogImage
+  ogType: 'article',
+  ogUrl: canonicalUrl,
+  ogImage: absoluteOgImage,
+  twitterImage: absoluteOgImage,
+  articlePublishedTime: publishedTime
 })
 
-const articleLink = computed(() => `${window?.location}`)
+const articleLink = computed(() => canonicalUrl.value)
 
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('en-US', {

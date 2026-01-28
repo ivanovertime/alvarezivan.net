@@ -1,7 +1,15 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
+const route = useRoute()
+const config = useRuntimeConfig()
+const requestUrl = useRequestURL()
 
 const color = computed(() => colorMode.value === 'dark' ? '#020618' : 'white')
+const baseUrl = computed(() => config.public.siteUrl || requestUrl.origin)
+const canonicalUrl = computed(() => `${baseUrl.value}${route.path === '/' ? '' : route.path}`)
+
+const withBase = (url: string) =>
+  url?.startsWith('http') ? url : `${baseUrl.value}${url?.startsWith('/') ? '' : '/'}${url}`
 
 useHead({
   meta: [
@@ -15,7 +23,8 @@ useHead({
     { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
     { rel: 'shortcut icon', href: '/favicon.ico' },
     { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
-    { rel: 'manifest', href: '/site.webmanifest' }
+    { rel: 'manifest', href: '/site.webmanifest' },
+    { rel: 'canonical', href: canonicalUrl }
   ],
   htmlAttrs: {
     lang: 'en'
@@ -24,8 +33,11 @@ useHead({
 
 useSeoMeta({
   titleTemplate: '%s - Ivan Over Time',
-  ogImage: '/avatar.jpg',
-  twitterImage: '/avatar.jpg',
+  ogSiteName: 'Ivan Over Time',
+  ogType: 'website',
+  ogUrl: canonicalUrl,
+  ogImage: () => withBase('/avatar.jpg'),
+  twitterImage: () => withBase('/avatar.jpg'),
   twitterCard: 'summary_large_image'
 })
 
