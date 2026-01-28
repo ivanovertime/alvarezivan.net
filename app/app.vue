@@ -24,7 +24,13 @@ useHead({
     { rel: 'shortcut icon', href: '/favicon.ico' },
     { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
     { rel: 'manifest', href: '/site.webmanifest' },
-    { rel: 'canonical', href: canonicalUrl }
+    { rel: 'canonical', href: canonicalUrl },
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap'
+    }
   ],
   htmlAttrs: {
     lang: 'en'

@@ -83,6 +83,15 @@ const formatDate = (dateString: string) => {
             :src="page.image"
             :alt="page.title"
             class="rounded-lg w-full h-[300px] object-cover object-center"
+            sizes="100vw sm:640px md:768px lg:1024px"
+            width="1200"
+            height="630"
+            preload
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            format="webp"
+            quality="70"
           />
           <h1 class="text-4xl text-center font-medium max-w-3xl mx-auto mt-4">
             {{ page.title }}
