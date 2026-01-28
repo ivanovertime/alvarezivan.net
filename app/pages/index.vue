@@ -21,6 +21,7 @@ useSeoMeta({
 <template>
   <UPage v-if="page">
     <LandingHero :page />
+    <LandingFAQ :page />
     <UPageSection
       :ui="{
         container: '!pt-0 flex flex-col gap-8'
@@ -30,6 +31,5 @@ useSeoMeta({
     </UPageSection>
     <LandingBlog :page />
     <LandingTestimonials :page />
-    <LandingFAQ :page />
   </UPage>
 </template>

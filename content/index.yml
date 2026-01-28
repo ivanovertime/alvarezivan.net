@@ -49,54 +49,9 @@ blog:
   title: "Latest Articles"
   description: "Notes on data, software, and language learning."
 faq:
-  title: FAQ
-  description: Quick answers to common questions.
+  title: What I do and how I work
+  description: Friendly answers about my skills, tools, and process.
   categories:
-    - title: Uses
-      questions:
-        - label: What hardware do you use?
-          content: |
-            **ASUS N550LF (Laptop)**
-            - NixOS 24.05 (Uakari) — [Dotfiles](https://github.com/ivanovertime/.dotfiles)
-            - KDE Plasma 6
-            - CPU: Intel i7-4500U (4) @ 3.000GHz
-            - GPU: NVIDIA GeForce GT 745M
-            - Memory: 16GB
-
-            **HP Prodesk (Homelab)**
-            - Proxmox VE 8.0
-              - Ubuntu Server as a Control Plane for VPS where I host.
-              - Windows Server 2019 for things that require a Windows machine.
-            - CPU: Intel i5-4570 (4) @ 3.20GHz (1 Socket)
-            - Memory: 32GB
-        - label: What software do you use?
-          content: |
-            **Development**
-            - VSCode
-            - Obsidian
-            - GitHub
-
-            **Hosting**
-            - Coolify
-            - Portainer
-
-            **CI/CD**
-            - Netlify
-            - GitHub Actions
-    - title: Pricing & Timelines
-      questions:
-        - label: How much does a project typically cost?
-          content: |
-            Project costs vary based on scope, complexity, and systems involved. Typical engagements start at **$800** for small fixes or audits, with most builds landing between **$2,500–$8,000**. For ongoing support or short advisory work, I offer hourly or day-rate consulting at competitive rates.
-        - label: What are your payment terms?
-          content: |
-            I generally require a 40% deposit to schedule the project and begin work, with the remaining 60% due upon delivery. I accept payments via bank transfer or PayPal.
-        - label: How long does a typical project take?
-          content: |
-            Timelines depend on scope and integrations. Smaller projects take **2–4 weeks**, while larger platforms range **6–12 weeks**. I provide a detailed timeline after discovery.
-        - label: Do you offer retainers or ongoing support?
-          content: |
-            Yes. For teams that need ongoing feature development, maintenance, or performance work, I offer monthly retainers tailored to scope and response time.
     - title: Tech Skills
       questions:
         - label: Languages
@@ -149,5 +104,54 @@ faq:
           icon: i-lucide-plug
           content: |
             - SAP
+            - Odoo ERP
+            - Payment Gateways (PayPal, Stripe, Merchant)
+            - Shipping Providers (Zoom, MRW)
             - REST APIs
             - Web Scraping
+    - title: Uses
+      questions:
+        - label: What hardware do you use?
+          content: |
+            **ASUS N550LF (Laptop)**
+            - NixOS 24.05 (Uakari) — [Dotfiles](https://github.com/ivanovertime/.dotfiles)
+            - KDE Plasma 6
+            - CPU: Intel i7-4500U (4) @ 3.000GHz
+            - GPU: NVIDIA GeForce GT 745M
+            - Memory: 16GB
+
+            **HP Prodesk (Homelab)**
+            - Proxmox VE 8.0
+              - Ubuntu Server as a Control Plane for VPS where I host.
+              - Windows Server 2019 for things that require a Windows machine.
+            - CPU: Intel i5-4570 (4) @ 3.20GHz (1 Socket)
+            - Memory: 32GB
+        - label: What software do you use?
+          content: |
+            **Development**
+            - VSCode
+            - Obsidian
+            - GitHub
+
+            **Hosting**
+            - Coolify
+            - Portainer
+
+            **CI/CD**
+            - Netlify
+            - GitHub Actions
+    - title: Pricing & Timelines
+      questions:
+        - label: How much does a project typically cost?
+          content: |
+            Project costs vary based on scope, complexity, and systems involved. Typical engagements start at **$800** for small fixes or audits, with most builds landing between **$2,500–$8,000**. For ongoing support or short advisory work, I offer hourly or day-rate consulting at competitive rates.
+        - label: What are your payment terms?
+          content: |
+            I generally require a 40% deposit to schedule the project and begin work, with the remaining 60% due upon delivery. I accept payments via bank transfer or PayPal.
+        - label: How long does a typical project take?
+          content: |
+            Timelines depend on scope and integrations. Smaller projects take **2–4 weeks**, while larger platforms range **6–12 weeks**. I provide a detailed timeline after discovery.
+        - label: Do you offer retainers or ongoing support?
+          content: |
+            Yes. For teams that need ongoing feature development, maintenance, or performance work, I offer monthly retainers tailored to scope and response time.
+
