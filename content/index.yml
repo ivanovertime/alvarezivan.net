@@ -16,29 +16,29 @@ about:
 experience:
   title: Work Experience
   items:
-    - position: "Full Stack Developer (Contractor)"
-      date: "2025-12-22"
+    - position: "Senior Full Stack Engineer (Remote)"
+      date: "Dec 2025 – Present"
       company:
         name: "Crazy Imagine Software"
         logo: "i-lucide-briefcase"
         url: "https://crazyimagine.com/"
         color: "#6b7280"
-    - position: "Tech Lead"
-      date: "2024-10-01"
+    - position: "Full Stack Developer / Development Consultant"
+      date: "Oct 2024 – Dec 2025"
       company:
         name: "Tiendas Daka C.A."
         logo: "i-lucide-building-2"
         url: "https://www.tiendasdaka.com/"
         color: "#facc15"
-    - position: "Full Stack Developer (Contractor)"
-      date: "2023-12-01"
+    - position: "Freelance Developer"
+      date: "Dec 2023 – Dec 2024"
       company:
         name: "Self Employed"
         logo: "i-lucide-briefcase"
         url: "https://alvarezivan.net.ve"
         color: "#6b7280"
-    - position: "Programmer at"
-      date: "2022-11-01"
+    - position: "Full Stack Developer / Programmer"
+      date: "Nov 2022 – Nov 2023"
       company:
         name: "Biomercados C.A."
         logo: "i-lucide-store"
@@ -96,10 +96,11 @@ faq:
         - label: E-commerce & CMS
           icon: i-lucide-shopping-cart
           content: |
+            - Odoo
+            - Medusa JS
+            - Strapi CMS
             - WooCommerce
             - Magento 2
-            - Odoo
-            - Strapi CMS
             - CS-Cart
         - label: Integrations
           icon: i-lucide-plug
