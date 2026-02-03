@@ -1,6 +1,6 @@
 ---
-title: "From Nuxt to Hugo"
-description: "Notes on migrating this site from Nuxt 2 to Hugo—why the switch made sense, what changed, and the steps that kept the move manageable."
+title: "From Nuxt to Hugo and Back Again"
+description: "Why I migrated this site from Nuxt 2 to Hugo and later returned to Nuxt—what changed, what stayed, and the decisions that kept the rebuild manageable."
 date: "2024-05-12"
 minRead: 4
 image: "/blog/from-nuxt-to-hugo/featuredImage.png"
@@ -9,28 +9,30 @@ author:
   username: "ivanovertime"
   to: "https://github.com/ivanovertime"
   avatar:
-      src: "/avatar.jpg"
+    src: "/avatar.jpg"
     alt: "Iván Álvarez"
 ---
 # Situation
-I had wanted to use Hugo for a while, and when it came time to move my Nuxt 2 site forward I chose to migrate instead of upgrading to Nuxt 3. Nuxt excels at dynamic Vue apps, but this project is a content-first site. Hugo's static build pipeline, multi-language support, and minimal runtime footprint were a much better fit.
+I originally migrated this site from Nuxt 2 to Hugo to simplify a content‑first build and reduce runtime complexity. Later, I moved back to Nuxt to regain a richer component system, content tooling, and a more flexible UI layer.
 
-# Solution
-1. **Map the objectives**
-   - Audit what Nuxt is doing for you: data fetching, dynamic routes, plugins, and middleware.
-   - Decide what can become pre-generated content versus what still needs runtime logic.
-2. **Move the content first**
-   - Export Markdown from the Nuxt Content module (or your CMS) and drop it into Hugo's `content/` tree.
-   - Translate front matter into TOML/YAML front matter so Hugo can read titles, dates, and taxonomies.
-3. **Recreate layouts intentionally**
-   - Identify Nuxt layouts and Vue components that map to Hugo templates or partials.
-   - Rebuild only what adds value; Hugo's Go templates often need fewer abstractions.
-4. **Replace dynamic features**
-   - For features like search, consider Hugo's JSON outputs plus a lightweight client-side index.
-   - For forms or comments, integrate external services or serverless functions instead of writing Vue logic.
-5. **Tighten the build & deploy loop**
-   - `hugo server -D` gives fast local previews; `hugo --gc --minify` mirrors production.
-   - Deployment shrinks to uploading the `public/` folder or letting Netlify handle it.
+[Check the repo](https://github.com/ivanovertime/alvarezivan.net)
+
+This post documents that round‑trip and highlights an additional goal: exploring Cloudflare Pages as the hosting target, including build limits, cache behavior, and deployment ergonomics.
+
+# What changed
+1. **Content model**
+   - Hugo proved fast and lean for static content, but the authoring workflow and UI composition were more constrained than I wanted.
+2. **Rendering strategy**
+   - Moving back to Nuxt restored dynamic layouts, component reuse, and flexible data sourcing without sacrificing static performance.
+3. **Deploy & hosting**
+   - Cloudflare Pages made preview deployments frictionless, with simple caching rules and edge delivery that fit a static‑first site.
+
+# Tech used
+- **Frameworks:** Hugo, Nuxt (Vue)
+- **Content:** Markdown with front matter
+- **Styling:** Tailwind CSS
+- **Hosting:** Cloudflare Pages
+- **Tooling:** pnpm, GitHub Actions
 
 > It's not DNS <br>
 > It cannot be DNS <br>
