@@ -80,6 +80,24 @@ useSeoMeta({
             wrapper: 'max-sm:order-last'
           }"
         >
+          <template #description>
+            <div class="space-y-3">
+              <p>{{ project.description }}</p>
+              <div
+                v-if="project.tags?.length"
+                class="flex flex-wrap gap-2"
+              >
+                <UBadge
+                  v-for="tag in project.tags"
+                  :key="tag"
+                  color="neutral"
+                  variant="soft"
+                >
+                  {{ tag }}
+                </UBadge>
+              </div>
+            </div>
+          </template>
           <template #leading>
             <span class="text-sm text-muted">
               {{ new Date(project.date).getFullYear() }}
