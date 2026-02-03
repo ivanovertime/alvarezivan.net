@@ -75,6 +75,7 @@ faq:
           icon: i-lucide-server
           content: |
             - Laravel
+            - FastAPI
             - NestJS
             - Express.js
             - Node.js
