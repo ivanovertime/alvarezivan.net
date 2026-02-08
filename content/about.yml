@@ -7,7 +7,7 @@ content: |
 
   Beyond code, I am curious by nature. You'll often find me exploring cinema, cooking, or broadening my perspectives through Japanese language and culture.
 
-  [Curriculum (ES)](/CV-ES-Ivan-Alvarez.pdf)
+  <a href="/CV-ES-Ivan-Alvarez.pdf" target="_blank" rel="noopener" download="CV-ES-Ivan-Alvarez.pdf">Curriculum (ES)</a>
 images:
   - src: /hero/full-stacked.jpg
     alt: "Full stacked developer"
