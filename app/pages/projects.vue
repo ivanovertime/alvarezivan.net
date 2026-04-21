@@ -43,7 +43,6 @@ useSeoMeta({
         >
           <UButton
             v-if="page.links[0] && global.meetingLink"
-            :label="page.links[0]?.label"
             :to="global.meetingLink"
             v-bind="page.links[0]"
           />

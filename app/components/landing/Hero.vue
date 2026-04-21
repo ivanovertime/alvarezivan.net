@@ -107,7 +107,10 @@ defineProps<{
           v-if="page.hero.links"
           class="flex w-full flex-col items-center gap-2 sm:w-auto sm:flex-row"
         >
-          <UButton class="w-full sm:w-auto" v-bind="page.hero.links[0]" />
+          <UButton
+            class="w-full sm:w-auto"
+            v-bind="page.hero.links[0]"
+          />
           <UButton
             :color="global.available ? 'success' : 'error'"
             variant="ghost"
@@ -157,6 +160,5 @@ defineProps<{
         </Motion>
       </div>
     </template>
-
   </UPageHero>
 </template>

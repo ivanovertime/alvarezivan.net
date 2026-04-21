@@ -15,13 +15,13 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  compatibilityDate: '2024-11-01',
-
   runtimeConfig: {
     public: {
       siteUrl: 'https://alvarezivan.net'
     }
   },
+
+  compatibilityDate: '2024-11-01',
 
   nitro: {
     preset: 'cloudflare_pages',
