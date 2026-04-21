@@ -8,7 +8,23 @@ const { footer } = useAppConfig()
     :ui="{ left: 'text-muted text-xs' }"
   >
     <template #left>
-      {{ footer.credits }}
+      <div class="flex flex-col items-center gap-2 sm:flex-row sm:items-center sm:gap-3">
+        <NuxtLink
+          to="/"
+          aria-label="Ivan Over Time home"
+          class="inline-flex items-center justify-center"
+        >
+          <img
+            src="/logo.svg"
+            alt="Ivan Over Time logo"
+            width="32"
+            height="32"
+            class="h-8 w-8"
+          >
+        </NuxtLink>
+
+        <span>{{ footer.credits }}</span>
+      </div>
     </template>
 
     <template #right>
