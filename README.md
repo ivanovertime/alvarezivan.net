@@ -26,6 +26,46 @@ Install dependencies:
 pnpm install
 ```
 
+## NixOS / Nix Setup (Recommended)
+
+This repository includes a `flake.nix` development shell for reproducible tooling.
+
+### One-time setup
+
+Use `direnv` with `nix-direnv` so the shell auto-loads when entering the repo.
+
+On NixOS, ensure these are available in your system or home configuration:
+
+- `direnv`
+- `nix-direnv`
+
+Then allow the project environment:
+
+```bash
+direnv allow
+```
+
+Without `direnv`, you can enter the same environment manually:
+
+```bash
+nix develop
+```
+
+### Install and run in the Nix shell
+
+```bash
+pnpm install
+pnpm dev
+```
+
+### Validation commands
+
+```bash
+pnpm lint
+pnpm typecheck
+pnpm build
+```
+
 ## Development
 
 Start the dev server on `http://localhost:3000`:
