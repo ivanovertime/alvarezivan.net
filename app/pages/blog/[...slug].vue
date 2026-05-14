@@ -20,7 +20,7 @@ const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
 
 const title = page.value?.seo?.title || page.value?.title
 const description = page.value?.seo?.description || page.value?.description
-const ogImage = computed(() => page.value?.image || '/avatar.jpg')
+const ogImage = computed(() => page.value?.ogImage || page.value?.image || '/avatar.jpg')
 const absoluteOgImage = computed(() => withBase(ogImage.value))
 const publishedTime = computed(() => page.value?.date ? new Date(page.value.date).toISOString() : undefined)
 
@@ -59,7 +59,39 @@ const formatDate = (dateString: string) => {
           Blog
         </ULink>
         <div class="flex flex-col gap-3 mt-8">
-          <div class="flex text-xs text-muted items-center justify-center gap-2">
+          <div class="flex flex-wrap text-xs text-muted items-center justify-center gap-2">
+            <UBadge
+              v-if="(page.category ?? 'article') === 'article'"
+              color="neutral"
+              variant="soft"
+              size="xs"
+              icon="i-lucide-newspaper"
+              label="Article"
+            />
+            <UBadge
+              v-if="page.category === 'case-study'"
+              color="neutral"
+              variant="soft"
+              size="xs"
+              icon="i-lucide-briefcase-business"
+              label="Case Study"
+            />
+            <UBadge
+              v-if="page.category === 'side-project'"
+              color="neutral"
+              variant="soft"
+              size="xs"
+              icon="i-lucide-flask-conical"
+              label="Side Project"
+            />
+            <UBadge
+              v-if="page.pillar"
+              color="neutral"
+              variant="soft"
+              size="xs"
+              icon="i-lucide-tag"
+              :label="page.pillar"
+            />
             <span v-if="page.date">
               {{ formatDate(page.date) }}
             </span>
@@ -71,6 +103,7 @@ const formatDate = (dateString: string) => {
             </span>
           </div>
           <NuxtImg
+            v-if="page.image"
             :src="page.image"
             :alt="page.title"
             class="rounded-lg w-full h-[300px] object-cover object-center"
@@ -87,9 +120,41 @@ const formatDate = (dateString: string) => {
           <h1 class="text-4xl text-center font-medium max-w-3xl mx-auto mt-4">
             {{ page.title }}
           </h1>
-          <p class="text-muted text-center max-w-2xl mx-auto">
+          <p
+            v-if="page.outcome_headline"
+            class="text-muted text-center text-lg max-w-2xl mx-auto"
+          >
+            {{ page.outcome_headline }}
+          </p>
+          <p
+            v-else-if="page.description"
+            class="text-muted text-center max-w-2xl mx-auto"
+          >
             {{ page.description }}
           </p>
+          <div
+            v-if="page.category === 'case-study'"
+            class="flex flex-wrap items-center justify-center gap-2 text-xs text-muted"
+          >
+            <span v-if="page.year">{{ page.year }}</span>
+            <span v-if="page.client">· {{ page.client }}</span>
+            <span v-if="page.role">· {{ page.role }}</span>
+            <span v-if="page.team_size">· Team of {{ page.team_size }}</span>
+          </div>
+          <div
+            v-if="page.stack?.length"
+            class="flex flex-wrap justify-center gap-2"
+          >
+            <UBadge
+              v-for="s in page.stack"
+              :key="s"
+              color="neutral"
+              variant="soft"
+              size="xs"
+            >
+              {{ s }}
+            </UBadge>
+          </div>
           <div class="flex items-center justify-center gap-2 mt-2">
             <UUser
               orientation="vertical"
