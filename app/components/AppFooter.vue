@@ -9,21 +9,14 @@ const { footer } = useAppConfig()
   >
     <template #left>
       <div class="flex flex-col items-center gap-2 sm:flex-row sm:items-center sm:gap-3">
-        <NuxtLink
-          to="/"
-          aria-label="Ivan Over Time home"
-          class="inline-flex items-center justify-center"
-        >
-          <img
-            src="/logo.svg"
-            alt="Ivan Over Time logo"
-            width="32"
-            height="32"
-            class="h-8 w-8"
-          >
-        </NuxtLink>
-
         <span>{{ footer.credits }}</span>
+        <span class="hidden sm:inline text-default/30">·</span>
+        <NuxtLink
+          to="/contact"
+          class="text-muted hover:text-primary transition-colors"
+        >
+          Open to Senior/Lead roles
+        </NuxtLink>
       </div>
     </template>
 
@@ -35,6 +28,19 @@ const { footer } = useAppConfig()
           v-bind="{ size: 'xs', color: 'neutral', variant: 'ghost', ...link }"
         />
       </template>
+      <NuxtLink
+        to="/"
+        aria-label="Ivan Over Time home"
+        class="inline-flex h-6 items-center justify-center px-1 pb-px opacity-80 hover:opacity-100 transition-opacity"
+      >
+        <img
+          src="/logo.svg"
+          alt="Ivan Over Time logo"
+          width="28"
+          height="16"
+          class="h-4 w-auto object-contain"
+        >
+      </NuxtLink>
     </template>
   </UFooter>
 </template>
