@@ -36,9 +36,9 @@ const createTestimonialSchema = () => z.object({
 
 export default defineContentConfig({
   collections: {
-    index: defineCollection({
+    home: defineCollection({
       type: 'page',
-      source: 'index.yml',
+      source: 'home.yml',
       schema: z.object({
         hero: z.object({
           links: z.array(createButtonSchema()),
@@ -74,44 +74,40 @@ export default defineContentConfig({
         })
       })
     }),
-    projects: defineCollection({
-      type: 'data',
-      source: 'projects/*.yml',
-      schema: z.object({
-        title: z.string().nonempty(),
-        description: z.string().nonempty(),
-        image: z.string().nonempty().editor({ input: 'media' }),
-        url: z.string().nonempty(),
-        tags: z.array(z.string()),
-        date: z.date()
-      })
-    }),
     blog: defineCollection({
       type: 'page',
-      source: 'blog/*.md',
+      source: 'blog/**/*.md',
       schema: z.object({
-        minRead: z.number(),
+        minRead: z.number().optional(),
         date: z.date(),
-        image: z.string().nonempty().editor({ input: 'media' }),
-        author: createAuthorSchema()
+        image: z.string().optional().editor({ input: 'media' }),
+        author: createAuthorSchema(),
+        category: z.enum(['article', 'case-study', 'side-project']).default('article'),
+        client: z.string().optional(),
+        year: z.number().optional(),
+        pillar: z.string().optional(),
+        type: z.enum(['rescue', 'greenfield', 'side-project']).optional(),
+        stack: z.array(z.string()).optional(),
+        team_size: z.number().optional(),
+        role: z.string().optional(),
+        outcome_headline: z.string().optional(),
+        featured: z.boolean().default(false),
+        ogImage: z.string().optional()
       })
     }),
     pages: defineCollection({
       type: 'page',
       source: [
-        { include: 'projects.yml' },
-        { include: 'blog.yml' }
+        { include: 'about.md' },
+        { include: 'blog.md' },
+        { include: 'contact.md' },
+        { include: 'now.md' },
+        { include: 'uses.md' }
       ],
       schema: z.object({
-        links: z.array(createButtonSchema())
-      })
-    }),
-    about: defineCollection({
-      type: 'page',
-      source: 'about.yml',
-      schema: z.object({
-        content: z.string(),
-        images: z.array(createImageSchema())
+        updated: z.date().optional(),
+        ogImage: z.string().optional(),
+        links: z.array(createButtonSchema()).optional()
       })
     })
   }

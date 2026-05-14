@@ -1,46 +1,48 @@
 seo:
-  title: "Iván Álvarez"
-  description: "I try to turn data into information, usually with code."
+  title: "Iván Álvarez · Rescue Architect"
+  description: "Rescue Architect for e-commerce & data platforms. I stabilize broken systems and rebuild them cloud-native — six platforms recovered, one serving 30,000+ users."
 title: "Hi, I'm Iván Álvarez"
-description: "Information Engineer from Valencia, Venezuela. I turn data into useful software and scalable web applications."
+description: |
+  **Rescue Architect for e-commerce & data platforms.** I stabilize broken systems and rebuild them cloud-native. Six platforms recovered — one serving 30,000+ users. Now extending the same playbook to GCP DataOps.
 hero:
   links:
-    - label: "View Projects"
-      to: "/projects"
+    - label: "Read the blog"
+      to: "/blog"
       color: "neutral"
+      trailingIcon: "i-lucide-arrow-right"
 
 about:
   title: "About"
   description: |
-    Information Engineer based in Valencia, Venezuela. I specialize in building scalable web applications, robust data solutions, and composable commerce systems.
+    I'm the engineer companies call when the e-commerce platform is on fire, the SAP integration is broken, and nobody knows how it was deployed. I stabilize it, containerize it, and hand back an automated platform the team can actually run.
 experience:
   title: Work Experience
   items:
-    - position: "Senior Full Stack Engineer (Remote)"
+    - position: "Full-Stack Developer & Platform Architect"
       date: "Dec 2025 – Present"
       company:
         name: "Crazy Imagine Software"
         logo: "i-lucide-briefcase"
         url: "https://crazyimagine.com/"
         color: "#6b7280"
-    - position: "Full Stack Developer / Development Consultant"
+    - position: "Software Development Consultant"
       date: "Oct 2024 – Dec 2025"
       company:
         name: "Tiendas Daka C.A."
         logo: "i-lucide-building-2"
         url: "https://www.tiendasdaka.com/"
         color: "#facc15"
-    - position: "Freelance Developer"
-      date: "Dec 2023 – Dec 2024"
+    - position: "Freelance Full-Stack Developer"
+      date: "Dec 2022 – Sep 2024"
       company:
         name: "Self Employed"
         logo: "i-lucide-briefcase"
-        url: "https://alvarezivan.net.ve"
+        url: "https://alvarezivan.net"
         color: "#6b7280"
-    - position: "Full Stack Developer / Programmer"
-      date: "Nov 2022 – Nov 2023"
+    - position: "Programmer"
+      date: "Oct 2021 – Nov 2022"
       company:
-        name: "Biomercados C.A."
+        name: "Biomercados (Alimentos FM)"
         logo: "i-lucide-store"
         url: "#"
         color: "#0f766e"
@@ -54,14 +56,23 @@ faq:
   categories:
     - title: Tech Skills
       questions:
-        - label: Languages
-          icon: i-lucide-code
+        - label: Cloud & DevOps
+          icon: i-lucide-cloud
           content: |
-            - PHP
-            - JavaScript/TypeScript
-            - Python
-            - Dart
-            - SQL
+            - Docker
+            - Kubernetes (learning at depth)
+            - CI/CD (GitLab, GitHub Actions)
+            - Proxmox
+            - Ubuntu Server
+            - Windows Server
+        - label: Backend
+          icon: i-lucide-server
+          content: |
+            - Laravel
+            - NestJS
+            - Node.js
+            - Express.js
+            - FastAPI
         - label: Frontend
           icon: i-lucide-layout
           content: |
@@ -69,16 +80,10 @@ faq:
             - Nuxt.js
             - Angular
             - PrimeVue
+            - Inertia.js
+            - Filament
             - Livewire
             - Flutter
-        - label: Backend
-          icon: i-lucide-server
-          content: |
-            - Laravel
-            - FastAPI
-            - NestJS
-            - Express.js
-            - Node.js
         - label: Databases
           icon: i-lucide-database
           content: |
@@ -86,13 +91,7 @@ faq:
             - PostgreSQL
             - MongoDB
             - Redis
-        - label: Cloud & DevOps
-          icon: i-lucide-cloud
-          content: |
-            - Docker
-            - CI/CD
-            - Ubuntu Server
-            - Windows Server
+            - BigQuery (current focus)
         - label: E-commerce & CMS
           icon: i-lucide-shopping-cart
           content: |
@@ -107,41 +106,19 @@ faq:
           content: |
             - SAP
             - Odoo ERP
+            - HubSpot
             - Payment Gateways (PayPal, Stripe, Merchant)
             - Shipping Providers (Zoom, MRW)
             - REST APIs
             - Web Scraping
-    - title: Uses
-      questions:
-        - label: What hardware do you use?
+        - label: Languages
+          icon: i-lucide-code
           content: |
-            **ASUS N550LF (Laptop)**
-            - NixOS 24.05 (Uakari) — [Dotfiles](https://github.com/ivanovertime/.dotfiles)
-            - KDE Plasma 6
-            - CPU: Intel i7-4500U (4) @ 3.000GHz
-            - GPU: NVIDIA GeForce GT 745M
-            - Memory: 16GB
-
-            **HP Prodesk (Homelab)**
-            - Proxmox VE 8.0
-              - Ubuntu Server as a Control Plane for VPS where I host.
-              - Windows Server 2019 for things that require a Windows machine.
-            - CPU: Intel i5-4570 (4) @ 3.20GHz (1 Socket)
-            - Memory: 32GB
-        - label: What software do you use?
-          content: |
-            **Development**
-            - VSCode
-            - Obsidian
-            - GitHub
-
-            **Hosting**
-            - Coolify
-            - Portainer
-
-            **CI/CD**
-            - Netlify
-            - GitHub Actions
+            - PHP
+            - JavaScript / TypeScript
+            - Python
+            - Dart
+            - SQL
     - title: Pricing & Timelines
       questions:
         - label: How much does a project typically cost?
@@ -156,4 +133,3 @@ faq:
         - label: Do you offer retainers or ongoing support?
           content: |
             Yes. For teams that need ongoing feature development, maintenance, or performance work, I offer monthly retainers tailored to scope and response time.
-

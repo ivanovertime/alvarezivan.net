@@ -2,6 +2,7 @@
 title: "Using the official exchange rate in Venezuela's e-commerce"
 description: "Venezuela has unique challenges for e-commerce. Local laws and tax regulations require invoices in bolívares while prices are quoted in USD. A simple Python and FastAPI scraper helps developers fetch the Banco Central de Venezuela exchange rate—here's when it makes sense and how to build it."
 date: "2024-01-19"
+category: "side-project"
 minRead: 7
 image: "/blog/bcv-scraper/featuredImage.jpg"
 author:

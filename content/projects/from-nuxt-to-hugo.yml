@@ -1,9 +1,0 @@
-title: "From Nuxt to Hugo and Back Again"
-description: "A case study of migrating my personal site from Nuxt 2 to Hugo—and later returning to Nuxt—covering content modeling, performance tradeoffs, and the rebuild that powers the current site."
-image: "/blog/from-nuxt-to-hugo/featuredImage.png"
-url: "/blog/from-nuxt-to-hugo"
-tags:
-  - "Nuxt"
-  - "Hugo"
-  - "Migration"
-date: "2024-05-12"

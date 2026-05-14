@@ -2,6 +2,7 @@
 title: "From Nuxt to Hugo and Back Again"
 description: "Why I migrated this site from Nuxt 2 to Hugo and later returned to Nuxt—what changed, what stayed, and the decisions that kept the rebuild manageable."
 date: "2024-05-12"
+category: "side-project"
 minRead: 4
 image: "/blog/from-nuxt-to-hugo/featuredImage.png"
 author:
