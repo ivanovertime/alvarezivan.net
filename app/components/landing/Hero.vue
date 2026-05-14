@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { IndexCollectionItem } from '@nuxt/content'
+import type { HomeCollectionItem } from '@nuxt/content'
 
 const { footer, global } = useAppConfig()
 
 defineProps<{
-  page: IndexCollectionItem
+  page: HomeCollectionItem
 }>()
 </script>
 
@@ -82,7 +82,11 @@ defineProps<{
           delay: 0.3
         }"
       >
-        {{ page.description }}
+        <MDC
+          :value="page.description"
+          unwrap="p"
+          class="prose prose-sm sm:prose-base dark:prose-invert mx-auto max-w-2xl text-pretty"
+        />
       </Motion>
     </template>
 

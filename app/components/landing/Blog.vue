@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { IndexCollectionItem } from '@nuxt/content'
+import type { HomeCollectionItem } from '@nuxt/content'
 
 defineProps<{
-  page: IndexCollectionItem
+  page: HomeCollectionItem
 }>()
 
 const { data: posts } = await useAsyncData('index-blogs', () =>

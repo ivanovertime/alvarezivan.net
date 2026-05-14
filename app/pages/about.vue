@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data: page } = await useAsyncData('about', () => {
-  return queryCollection('about').first()
+  return queryCollection('pages').path('/about').first()
 })
 if (!page.value) {
   throw createError({
@@ -53,24 +53,12 @@ useSeoMeta({
         :transition="{ delay: 0.4 }"
         :in-view-options="{ once: true }"
       >
-        <MDC
-          :value="page.content"
-        />
-      </Motion>
-      <Motion
-        :initial="{ opacity: 0, transform: 'translateY(20px)' }"
-        :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-        :transition="{ delay: 0.6 }"
-        :in-view-options="{ once: true }"
-      >
-        <div class="flex flex-row justify-center items-center py-10 space-x-[-2rem]">
-          <PolaroidItem
-            v-for="(image, index) in page.images"
-            :key="index"
-            :image="image"
-            :index
+        <UPageBody class="max-w-3xl mx-auto">
+          <ContentRenderer
+            v-if="page.body"
+            :value="page"
           />
-        </div>
+        </UPageBody>
       </Motion>
     </UPageSection>
   </UPage>
