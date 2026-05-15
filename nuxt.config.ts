@@ -36,7 +36,11 @@ export default defineNuxtConfig({
       routes: [
         '/'
       ],
-      crawlLinks: true
+      crawlLinks: true,
+      // Emit `dist/about.html` instead of `dist/about/index.html`.
+      // Stops Cloudflare Pages from 308-redirecting `/about` -> `/about/`
+      // and avoids trailing-slash mismatches that 404 on hard reload.
+      autoSubfolderIndex: false
     }
   },
 
