@@ -1,7 +1,7 @@
 # Personal Brand Strategy — Ivan Alvarez
 
 Source inputs: `reference/ivan/linkedin-profile.md`, `reference/ivan/study-plan.md`.
-Audience: recruiters and hiring managers for Senior/Lead Platform, Data, and Full-Stack roles ($140k–$210k).
+Audience: recruiters and hiring managers for Senior/Lead Platform, Data, and Full-Stack roles.
 Channels: LinkedIn (primary), personal site `alvarezivan.net` (owned, with `alvarezivan.net.ve` redirecting to it), GitHub (proof).
 
 ---
@@ -15,7 +15,7 @@ This is the North Star. Every headline, bio, and post should ladder up to it.
 ### Why this works
 - **Credible today**: matches what's been shipped (Daka, Biomercados, Crazy Imagine).
 - **Aspirational tomorrow**: aligns with the Senior/Lead Data Architect target.
-- **Scarce**: very few people credibly combine *e-commerce rescue + platform recovery* + *DevOps* + *GCP DataOps*. That's the moat.
+- **Differentiated**: not many engineers combine *e-commerce rescue + platform recovery* + *DevOps* + *GCP DataOps*. That's the angle to lean on.
 
 ---
 
@@ -36,7 +36,7 @@ Pick once, post against forever. Maps to the study plan's Hirability Scorecard.
 
 ## 3. Narrative Arc ("The Story")
 
-Recruiters and clients buy *stories*, not skill lists.
+Recruiters and clients tend to remember a clear story more than a skill list.
 
 > **"E-commerce Rescue & Platform Recovery."** — *"I usually work on teams where the e-commerce platform is under pressure, SAP integration is brittle, or deployment workflows need clarity. I help recover the system, containerize it, and hand back a platform the team can run confidently."*
 
@@ -135,9 +135,9 @@ Structure as a **portfolio of rescues**, not a resume.
 
 ## 9. What to *stop* doing
 
-- Listing every framework in the headline. (Signals junior.)
+- Listing every framework in the headline. Reads as generic and doesn't differentiate.
 - Generic "passionate developer" language in the summary.
-- Posting tutorials that 10,000 others have written. Post **decisions and trade-offs** instead — that's senior signal.
+- Posting tutorials that 10,000 others have written. Lean on **decisions and trade-offs** instead — that's the harder thing to copy.
 
 ---
 

@@ -32,12 +32,12 @@ Suggested composition:
 
 **Alternate (more outcome-led):**
 
-> I turn complex e-commerce & data platforms into automated, cloud-native systems · 6+ major projects delivered · DevOps + GCP DataOps · Laravel / NestJS / K8s · Senior/Lead Architect
+> I turn complex e-commerce & data platforms into automated, cloud-native systems · 6+ projects shipped · DevOps + GCP DataOps · Laravel / NestJS / K8s · Senior/Lead Architect
 
 ---
 
 ## 5. Current Position (shown under name)
-- **Title:** Full-Stack Developer & Platform Architect
+- **Title:** Senior Full Stack Engineer
 - **Company:** Crazy Imagine Software
 - **Location:** Naguanagua, Carabobo, Venezuela (Remote)
 
@@ -51,10 +51,10 @@ SAP integration is brittle, and deployment workflows need to be clarified.
 I help recover the system, containerize it, and hand back an automated
 platform the team can actually run.
 
-Over the last four years I've led e-commerce rescue and platform recovery work,
-platforms serving 30,000+ users, directed teams of up to 15 developers,
-and shipped more than six production systems across e-commerce,
-mobile, and enterprise integration:
+Over the last four years I've worked on e-commerce rescue and platform recovery,
+on platforms serving 30,000+ users, alongside teams of up to 15 developers
+(sometimes leading, sometimes contributing), and shipped more than six
+production systems across e-commerce, mobile, and enterprise integration:
 
 • At Tiendas Daka, I led a team of 15 and delivered 6 complex projects —
   stabilizing a NestJS/Strapi e-commerce platform, architecting a nationwide
@@ -73,7 +73,7 @@ CI/CD, Proxmox, Ubuntu / Windows Server, SAP integration, and a working
 fluency with Gemini and AI-augmented engineering workflows.
 
 What's next: I'm deepening Google Cloud (Professional Data Engineer)
-and DataOps so I can bring the same rescue-and-automate playbook to
+and DataOps so I can bring the same rescue-and-automate approach to
 data platforms — BigQuery, Vertex AI, Airflow, and the reliability
 practices that keep them honest.
 
@@ -90,16 +90,16 @@ teams shipping to GCP.
 
 ## 7. Featured Section (pin 3 items)
 1. **Personal site** — `https://alvarezivan.net` (custom thumbnail with positioning statement).
-2. **Case study post** — "How we rescued a NestJS + Strapi e-commerce platform at Daka" (LinkedIn article).
-3. **Open-source repo** — first published tool from the brand-strategy roadmap (e.g., Laravel → BigQuery sync).
+2. **Case study — Daka NestJS + Strapi e-commerce rescue** — link to `/blog/case-studies/daka-ecommerce-rescue`.
+3. **Case study — Biomercados 30k-user PWA** — link to `/blog/case-studies/biomercados-pwa`.
 
-*(Until items 2 and 3 exist, pin: site + Coursera DevOps cert + a long-form post.)*
+*(Rotate in the open-source repo and the Daka SAP quotation case study once each is ready to be the lead.)*
 
 ---
 
 ## 8. Experience
 
-### 8.1 Crazy Imagine Software — Full-Stack Developer
+### 8.1 Crazy Imagine Software — Senior Full Stack Engineer
 **Dec 2025 – Present · Remote**
 Stack: Laravel, Vue, Inertia.js, Laravel Nova, HubSpot API, Markdown.
 
@@ -125,7 +125,7 @@ Stack: Laravel, Filament, NestJS, PrimeVue, Strapi, Nuxt, Odoo, Flutter, Livewir
 
 ```
 Technical leadership across 6+ concurrent platforms for one of
-Venezuela's largest retail chains. Acted as the bridge between
+Venezuela's largest retail chains. Worked as a bridge between
 business stakeholders, infrastructure teams, and 15 developers.
 
 • Led a team of 15 engineers and delivered 6 complex projects from
@@ -248,7 +248,7 @@ Planned (add as completed, per `study-plan.md`):
 
 ## 13. Contact Info
 - **Email:** alvarezlopezivanenrique@gmail.com
-- **Phone:** +58 414 430 9079
+- **Phone:** *(set directly in LinkedIn — not stored in this public draft)*
 - **Website:** https://alvarezivan.net (label: *Personal site & case studies*)
 - **LinkedIn URL (custom):** linkedin.com/in/ialvarez93 ✅ already clean
 
@@ -259,7 +259,7 @@ Add as additional websites:
 
 ## 14. Open To Work / Services
 **Open to Work (visible to recruiters only — recommended):**
-- Job titles: Senior Software Engineer · Lead Full-Stack Engineer · Platform Engineer · Data Engineer · Cloud Architect · Engineering Manager
+- Job titles: Senior Software Engineer · Lead Full-Stack Engineer · Platform Engineer · Data Engineer · Cloud Architect
 - Locations: Remote (Worldwide / Americas / EU)
 - Job types: Full-time · Contract
 - Start date: Immediately
