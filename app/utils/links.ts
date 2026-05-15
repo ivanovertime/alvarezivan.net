@@ -13,11 +13,11 @@ export const navLinks: NavigationMenuItem[] = [{
   icon: 'i-lucide-radio',
   to: '/now'
 }, {
-  label: 'Uses',
-  icon: 'i-lucide-wrench',
-  to: '/uses'
-}, {
   label: 'About',
   icon: 'i-lucide-user',
   to: '/about'
+}, {
+  label: 'Contact',
+  icon: 'i-lucide-mail',
+  to: '/contact'
 }]

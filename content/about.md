@@ -94,4 +94,10 @@ A short, opinionated list — not exhaustive.
 
 ---
 
+## Tools and setup
+
+Curious about the hardware, OS, and software I work on every day? See [/uses](/uses) for the full list.
+
+---
+
 ![Full stacked developer](/hero/full-stacked.jpg)
