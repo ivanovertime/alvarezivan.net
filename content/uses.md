@@ -5,7 +5,7 @@ description: "The hardware, OS, and software I actually use day to day."
 
 # Uses
 
-What I actually use to ship software — hardware, OS, editor, terminal, and the cloud tooling that comes up most often. The real source of truth is my NixOS configuration: [github.com/ivanovertime/nixos](https://github.com/ivanovertime/nixos).
+What I actually use to ship software — hardware, OS, editor, terminal, and the cloud tooling that comes up most often. The real source of truth is [my NixOS configuration](https://github.com/ivanovertime/nixos).
 
 _Last updated: May 15, 2026._
 

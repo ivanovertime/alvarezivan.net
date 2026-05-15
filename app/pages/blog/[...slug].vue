@@ -36,6 +36,17 @@ useSeoMeta({
   articlePublishedTime: publishedTime
 })
 
+// Per-page JSON-LD: Article. Person/WebSite are already declared globally
+// in app.vue, so this just adds the Article node graph for this URL.
+useSchemaOrg([
+  defineArticle({
+    headline: title,
+    description,
+    image: absoluteOgImage.value,
+    datePublished: publishedTime.value
+  })
+])
+
 const articleLink = computed(() => canonicalUrl.value)
 
 const formatDate = (dateString: string) => {

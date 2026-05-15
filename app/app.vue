@@ -50,6 +50,27 @@ defineOgImageComponent('NuxtSeo' as never, {
   siteName: 'Ivan Over Time'
 })
 
+// Global JSON-LD: declare the site's Person + WebSite once.
+// Page-specific schemas (Article, etc.) are added on the relevant pages.
+useSchemaOrg([
+  definePerson({
+    name: 'Iván Álvarez',
+    alternateName: 'Ivan Alvarez',
+    jobTitle: 'Full-Stack Engineer',
+    url: baseUrl.value,
+    image: `${baseUrl.value}/avatar.jpg`,
+    sameAs: [
+      'https://www.linkedin.com/in/ivanovertime/',
+      'https://github.com/ivanovertime'
+    ]
+  }),
+  defineWebSite({
+    name: 'Ivan Over Time',
+    url: baseUrl.value
+  }),
+  defineWebPage()
+])
+
 const [{ data: navigation }, { data: files }] = await Promise.all([
   useAsyncData('navigation', () => {
     return Promise.all([

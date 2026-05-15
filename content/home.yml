@@ -52,7 +52,7 @@ blog:
   description: "Notes on data, software, and language learning."
 faq:
   title: What I do and how I work
-  description: Friendly answers about my skills, tools, and process.
+  description: "Got questions about my stack, how I work, pricing, or timelines? You're in the right place. You can also check out the [Uses](/uses) page."
   categories:
     - title: Tech Skills
       questions:

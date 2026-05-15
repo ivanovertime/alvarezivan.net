@@ -22,6 +22,7 @@
     "motion-v": "^1.7.3",
     "nuxt": "^4.2.2",
     "nuxt-og-image": "^6.5.0",
+    "nuxt-schema-org": "^6.0.4",
     "satori": "^0.26.0"
   },
   "devDependencies": {
