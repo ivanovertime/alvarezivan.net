@@ -29,7 +29,7 @@ description: >
   paired engagement; the rebuild that followed is its own story.
 ---
 
-> 📎 **Part of a pair.** This is Act 1 of two consecutive Daka e-commerce engagements. The follow-on — the from-scratch rebuild on NestJS + Next.js + Medusa — is here: [*Rebuilding Daka's e-commerce in three months*](/blog/case-studies/daka-ecommerce-rebuild).
+> :u-icon{name="i-lucide-paperclip" class="inline mr-1 align-[-2px]"} **Part of a pair.** This is Act 1 of two consecutive Daka e-commerce engagements. The follow-on — the from-scratch rebuild on NestJS + Next.js + Medusa — is here: [*Rebuilding Daka's e-commerce in three months*](/blog/case-studies/daka-ecommerce-rebuild).
 
 ## TL;DR
 
@@ -48,7 +48,7 @@ Tiendas Daka is one of Venezuela's largest retail chains. When I joined as a con
 
 The brief was simple to state and harder to do: *make this thing safe to release again.*
 
-> ⚠️ **Author note (please confirm before publishing):** a scale indicator for the platform at the time — orders/week, GMV, MAU, anything you can share — would strengthen the Context. Even a rough order of magnitude beats adjectives.
+<!-- > ⚠️ **Author note (please confirm before publishing):** a scale indicator for the platform at the time — orders/week, GMV, MAU, anything you can share — would strengthen the Context. Even a rough order of magnitude beats adjectives. -->
 
 ## Constraints
 
@@ -119,7 +119,7 @@ By the end of the engagement:
 - The product team **resumed planning a roadmap** instead of triaging a backlog.
 - The integration-module pattern became the **single most reusable asset** of the engagement, carried forward into the rebuild and into the [SAP quotation app](/blog/case-studies/daka-sap-quotation-app).
 
-> ⚠️ **Author note (please confirm before publishing):** drop in concrete numbers if you have them — release cadence before/after, P1 incidents avoided, mean-time-to-recover. Even rough numbers from memory beat adjectives.
+<!-- > ⚠️ **Author note (please confirm before publishing):** drop in concrete numbers if you have them — release cadence before/after, P1 incidents avoided, mean-time-to-recover. Even rough numbers from memory beat adjectives. -->
 
 The deeper outcome was the one that made Act 2 possible at all: once the runtime was no longer on fire, the business asked the more interesting question — *"if you had three months, how would you build this from scratch?"* That answer is its own case study: [*Rebuilding Daka's e-commerce in three months*](/blog/case-studies/daka-ecommerce-rebuild).
 

@@ -29,7 +29,7 @@ description: >
   cutover from day one.
 ---
 
-> 📎 **Part of a pair.** This is Act 2 of two consecutive Daka e-commerce engagements. The recovery that made it possible — stabilizing the inherited NestJS + Strapi platform — is here: [*Stabilizing a failing e-commerce platform inherited from a third party*](/blog/case-studies/daka-ecommerce-recovery).
+> :u-icon{name="i-lucide-paperclip" class="inline mr-1 align-[-2px]"} **Part of a pair.** This is Act 2 of two consecutive Daka e-commerce engagements. The recovery that made it possible — stabilizing the inherited NestJS + Strapi platform — is here: [*Stabilizing a failing e-commerce platform inherited from a third party*](/blog/case-studies/daka-ecommerce-recovery).
 
 ## TL;DR
 
@@ -116,7 +116,7 @@ By the end of the three months:
 - The product team continued to plan a roadmap on a platform they could now actually ship against.
 - The integration-module pattern became reusable across **the other Daka platforms** my team worked on — most directly the [SAP quotation app](/blog/case-studies/daka-sap-quotation-app).
 
-> ⚠️ **Author note (please confirm before publishing):** drop in concrete numbers if you have them — release cadence on the new platform, time-to-cutover, Lighthouse / perf wins, conversion lift, anything customer-facing. Even rough numbers from memory beat adjectives.
+<!-- > ⚠️ **Author note (please confirm before publishing):** drop in concrete numbers if you have them — release cadence on the new platform, time-to-cutover, Lighthouse / perf wins, conversion lift, anything customer-facing. Even rough numbers from memory beat adjectives. -->
 
 The deeper lesson is the one that made the engagement work at all: **diagnose, contain, then \(only then\) consider rebuilding** — never all three on the same day. The recovery earned the right to do this.
 
