@@ -30,7 +30,7 @@ description: >
 ## TL;DR
 
 - Daka's nationwide sales teams were quoting customers from paper, spreadsheets, and outdated catalogs — every quote was a guess.
-- I architected and shipped a **mobile-first quotation app** on Laravel + Filament, with SAP as the source of truth, leading a team of 3.
+- I led the architecture and led a team of 3 to ship a **mobile-first quotation app** on Laravel + Filament, with SAP as the source of truth.
 - The app rolled out to sales staff across the country, replaced the manual flow, and gave the business a real-time view of demand it had never had before.
 
 ## Context
@@ -68,7 +68,7 @@ The temptation in 2025 was to reach for a fashionable stack. The right answer fo
 | A bespoke SPA + custom admin | Months of UI work before the back-office could see anything | |
 | Laravel + Filament for the back-office; a thin mobile-first PWA for the salesperson surface | Filament gives a production-grade admin in days; Laravel handles the SAP integration cleanly; the team already knew the stack | ✅ |
 
-**Boring on purpose.** The novelty budget went into the SAP integration, not the framework choice.
+Boring on purpose. The novelty budget went into the SAP integration, not the framework choice.
 
 ### Decision 2 — Mobile-first PWA, not a native app
 
@@ -90,7 +90,7 @@ SAP was the system of record. It wasn't, however, fast or always available. If t
 | Call SAP synchronously for every read and write | Simplest mental model; the salesperson lives at SAP's mercy | |
 | Project SAP catalog and pricing into the app's own store; queue writes back to SAP | More moving parts; the salesperson always sees a usable catalog and the system tolerates SAP outages | ✅ |
 
-This is the pattern I carried over from the e-commerce rescue: **a single integration module with a typed interface, observable, retry-aware, and replaceable.** The app reads from a local projection and writes through the module — SAP is the contract, not the runtime.
+This is the pattern I carried over from the e-commerce rescue: a single integration module with a typed interface, observable, retry-aware, and replaceable. The app reads from a local projection and writes through the module — SAP is the contract, not the runtime.
 
 ### Decision 4 — Design for variable connectivity from day one
 
@@ -101,7 +101,7 @@ Sales sites don't have a uniform network story. Treating offline as an exception
 | Assume the network and add offline later | Offline becomes a perpetually-postponed Phase 2 | |
 | Cache the catalog locally, queue quotes, sync when online | Up-front design cost; the app behaves the same in the warehouse and on a highway | ✅ |
 
-The business outcome of this decision was simple: **a salesperson on a bad connection still closes the quote.**
+The business outcome of this decision was simple: a salesperson on a bad connection still closes the quote.
 
 ### Decision 5 — Filament as the back-office, not as the strategy
 
@@ -128,7 +128,7 @@ This was one of six platforms my team and I worked on at Daka, and the one that 
 
 ## What I'd do on GCP today
 
-Same brief in 2026, same constraints, same SAP. The architecture instincts wouldn't change; the platform underneath would.
+Same brief today, same constraints, same SAP. The architecture instincts wouldn't change; the platform underneath would.
 
 - **Back-office runtime:** containerize the Laravel app for **Cloud Run**. Same artifact, no host-management work.
 - **SAP integration:** keep the single-module pattern. Move the writes onto **Pub/Sub** so the app never blocks on SAP, and the integration module becomes a Pub/Sub consumer with retries and a dead-letter topic.
@@ -137,8 +137,8 @@ Same brief in 2026, same constraints, same SAP. The architecture instincts would
 - **Real-time demand view:** stream quote events into BigQuery and surface them in **Looker Studio** for the business — the data surface that was a side-effect on-prem becomes a first-class deliverable.
 - **Delivery:** **GitHub Actions → Cloud Run + Firebase**, preview environment per PR. The same predictability we earned manually, but for free.
 
-The pattern is the same as the rescues — **boring framework, single integration boundary, offline-first surface, observability from day one** — but the platform underneath does most of the work.
+The shape of the work is the same as the rescues — a boring framework, a single integration boundary, an offline-first surface, and observability from day one — but the platform underneath does most of the heavy lifting.
 
 ---
 
-*If you have a SAP-coupled process that runs on paper and goodwill, that's usually where a small, focused build pays back fastest. [Get in touch](/contact) — I do this work.*
+*If you have a SAP-coupled process running on paper and goodwill, I'd be glad to compare notes on what a small focused build could look like. [Reach out here](/contact).*

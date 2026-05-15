@@ -30,8 +30,8 @@ description: >
 ## TL;DR
 
 - A Node.js + Angular e-commerce project at a regional supermarket chain had stalled before launch — code existed, but nothing was reliably deployable.
-- I picked it up as a single engineer, finished the platform, and shipped it as a **PWA + mobile apps to 30,000+ customers**.
-- Along the way I built the **Docker image registry and CI/CD pipeline** that made continuous delivery possible — for this project and the ones that followed.
+- I joined as the second engineer on a two-person team, finished the platform, and shipped it as a **PWA + mobile apps to 30,000+ customers**.
+- Along the way we built the **Docker image registry and CI/CD pipeline** that made continuous delivery possible — for this project and the ones that followed.
 
 ## Context
 
@@ -50,7 +50,7 @@ The brief was simple in one sentence and hard in practice: *finish it and ship i
 
 | Constraint | Reality |
 |---|---|
-| Team size | 1 engineer (me), embedded with the business |
+| Team size | 2 engineers total, including me, embedded with the business |
 | Calendar | Months, not quarters — the chain had already waited too long |
 | Stack inherited | Node.js backend, Angular frontend, no deploy story |
 | Customer surface | Needed to reach customers on phones, fast, without an app-store gauntlet |
@@ -80,7 +80,7 @@ Tempting as it was to chase the feature backlog, the bottleneck wasn't features 
 | Hand-deploy until launch, automate later | Faster on day one; every deploy after that costs the same hour | |
 | Stand up a private Docker registry + a thin CI/CD pipeline first | Two weeks of platform work before any new feature shipped; every deploy after that was free | ✅ |
 
-This is the same principle as the Daka rescue, applied earlier: **stabilize the runtime before you race the roadmap.** The pipeline I built outlived the project — the team after me kept using it for the Node.js and Angular services that came next.
+Same principle as the Daka rescue, applied earlier: stabilize the runtime before chasing the roadmap. The pipeline outlived the project — the team after me kept using it for the Node.js and Angular services that came next.
 
 ### Decision 3 — Treat customer segmentation as a small, useful side-quest
 
@@ -102,7 +102,7 @@ Pricing in Venezuela depends on the official exchange rate, which someone on the
 | Keep doing it manually | Free until it isn't — a single typo moves prices on a whole catalog | |
 | Scrape the official rate on a schedule and push it into the platform | A small ingestion job; removes a daily chore and a class of pricing bugs | ✅ |
 
-This is the seed of the BCV-scraper work I later wrote about publicly. The lesson it taught: **the smallest automations are often the highest-leverage ones**, because they remove a recurring human failure mode.
+This is the seed of the BCV-scraper work I later wrote about publicly. Small automations like this one tend to pay back quickly, mostly because they remove a recurring human failure mode rather than because they save time directly.
 
 ## Outcome
 
@@ -115,11 +115,11 @@ By the end of the engagement:
 
 <!-- > ⚠️ **Author note (placeholder, please confirm):** if you have any of these handy, drop them in to replace this callout — *time-from-takeover-to-launch*, *number of releases per week after CI/CD landed*, *uptime numbers*, or *order volume in the first month*. Even rough numbers from memory beat adjectives. -->
 
-The single-engineer scope is part of the point: with the right sequencing — **deploy path first, customer surface second, side-quests third** — one person can move a stalled platform across the line.
+In hindsight, the sequencing mattered more than the headcount: getting the deploy path in place before chasing the feature backlog is what made the rest of it shippable by a small team.
 
 ## What I'd do on GCP today
 
-Same brief in 2026, same team size, same constraints. The instincts wouldn't change; the targets would.
+Same brief today, same team size, same constraints. The instincts wouldn't change; the targets would.
 
 - **Frontend:** ship the PWA the same way, but host it on **Firebase Hosting** or **Cloudflare Pages** with a CDN edge in front. Lighthouse perf as a CI gate, not an afterthought.
 - **Backend:** containerize the Node.js services for **Cloud Run**. No private registry to maintain — **Artifact Registry** comes with the platform.
@@ -128,8 +128,8 @@ Same brief in 2026, same team size, same constraints. The instincts wouldn't cha
 - **Exchange-rate ingestion:** **Cloud Scheduler → Cloud Run job → Pub/Sub → BigQuery + the storefront cache**. The scraper still runs; everything around it stops being a cron on a single VM.
 - **Mobile apps:** Capacitor or PWABuilder wrapping the same PWA, signed and shipped through **Firebase App Distribution** for staged rollouts.
 
-The shape of the rescue stays the same: **one engineer, deploy path first, then the customer surface, then the side-quests that pay for themselves.** GCP just removes most of the platform work that used to be the job.
+The shape of the work stays the same — deploy path first, customer surface next, the smaller automations after that. GCP just removes a lot of the platform plumbing that used to be the job.
 
 ---
 
-*If your e-commerce project has been "almost ready" for longer than anyone is comfortable admitting, that's usually the moment a rescue is cheaper than a restart. [Get in touch](/contact) — I do this work.*
+*If you're working through something similar and want a second pair of eyes, I'm happy to talk it through — [reach out here](/contact).*

@@ -30,7 +30,7 @@ description: >
 ## TL;DR
 
 - A NestJS + Strapi storefront for a nationwide retail chain had stalled — every release introduced regressions and the roadmap was frozen.
-- I led a team of 4 to stabilize the runtime, contain the integration debt with SAP, and put a delivery process in place.
+- I joined a team of 4 as tech lead, and together we stabilized the runtime, contained the integration debt with SAP, and put a delivery process in place.
 - Three months later the platform was shipping on a predictable cadence again, and product had a credible path forward without a full rewrite.
 
 ## Context
@@ -41,7 +41,7 @@ Tiendas Daka is one of Venezuela's largest retail chains. Its e‑commerce platf
 - Integration with SAP (the source of truth for catalog, pricing, and inventory) was brittle and partially manual.
 - The product team had stopped asking for new features because the engineering team couldn't promise dates.
 
-The business had two options on the table: keep patching, or rewrite. Both were expensive. The third option — *rescue and re-architect in place* — needed someone to underwrite the risk.
+The business had two options on the table: keep patching, or rewrite. Both were expensive. The third option — *rescue and re-architect in place* — was the one we ended up taking.
 
 <!-- > ⚠️ **Author note (placeholder, please confirm):** the platform's monthly active users, GMV, or order volume at the time would strengthen this section. Replace this callout with a one-line scale indicator before publishing. -->
 
@@ -55,7 +55,7 @@ The business had two options on the table: keep patching, or rewrite. Both were 
 | Off-limits | A full rewrite — the business needed continuity, not a 12-month freeze |
 | Deployment | No standardized CI/CD; deploys were manual and tribal |
 
-The non-negotiable: keep the storefront online for customers throughout the rescue.
+The non-negotiable: keep the stack intact throughout the rescue.
 
 ## Decisions
 
@@ -90,7 +90,7 @@ We already had Docker experience on the team. Rather than chase a new platform t
 | Migrate to a managed PaaS | Modern, but introduces a second migration on top of a rescue | |
 | Containerize in place + a thin CI/CD pipeline | Familiar tooling, fast payoff, leaves the door open for Kubernetes or Cloud Run later | ✅ |
 
-This is the recurring rescue pattern: **fewer moving parts at first, more options later.**
+This is a recurring rescue pattern: fewer moving parts at first, more options later.
 
 ### Decision 4 — Make Strapi a content tool, not a control plane
 
@@ -116,7 +116,7 @@ This was one of six platforms my team and I worked on at Daka over the engagemen
 
 ## What I'd do on GCP today
 
-If I were running this rescue in 2026 with the same team and the same constraints, the in-place philosophy wouldn't change — but the targets would.
+If I were running this rescue today with the same team and constraints, the in-place philosophy wouldn't change — but the targets would.
 
 - **Runtime:** containerize for **Cloud Run** rather than self-managed Docker hosts. Same container artifact, none of the host-management work.
 - **SAP integration:** keep the single-module pattern, but add **Pub/Sub** between SAP events and the NestJS consumer so the storefront degrades gracefully when SAP is slow.
@@ -128,4 +128,4 @@ The pattern is the same. The leverage is higher.
 
 ---
 
-*If you're staring at a platform that feels too risky to release and too expensive to rewrite, that's usually the sweet spot for a rescue. [Get in touch](/contact) — I do this work.*
+*If you're somewhere in this shape — a platform that feels too risky to release and too expensive to rewrite — I'm happy to compare notes. [Reach out here](/contact).*
