@@ -90,8 +90,8 @@ A short, opinionated list — not exhaustive.
 
 ## CV
 
-- [Curriculum (EN)](/CV-EN-Ivan-Alvarez.pdf)
-- [Curriculum (ES)](/CV-ES-Ivan-Alvarez.pdf)
+- [Download CV — English (PDF)](/CV-EN-Ivan-Alvarez.pdf)
+- [Descargar CV — Español (PDF)](/CV-ES-Ivan-Alvarez.pdf)
 
 ---
 

@@ -14,7 +14,7 @@ hero:
 about:
   title: "About"
   description: |
-    I've spent the last few years on platforms that needed a bit of TLC — e-commerce stores, SAP integrations, internal tools — and I've genuinely come to enjoy that kind of work: read the code, talk to the people, leave it in a healthier state than I found it. I'm just as happy contributing to a strong team as I am leading one.
+    I've spent the last few years on platforms that needed help — e-commerce stores, SAP integrations, internal tools — and I've come to enjoy that kind of work: read the code, talk to the people, leave it in a healthier state than I found it. I'm just as happy contributing to a strong team as I am leading one.
 experience:
   title: Work Experience
   items:
@@ -52,7 +52,7 @@ blog:
   description: "Notes on data, software, and language learning."
 faq:
   title: What I do and how I work
-  description: "A quick map of the stack I reach for and how I tend to work. The [Uses](/uses) page goes deeper on the day-to-day tools."
+  description: "A quick map of the stack I reach for and how I tend to work. The [/uses](/uses) page goes deeper on the day-to-day tools."
   categories:
     - title: Tech Skills
       questions:

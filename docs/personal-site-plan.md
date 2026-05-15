@@ -271,7 +271,7 @@ Order:
 - [x] Build `/now` page + first quarterly entry.
 - [x] Add `/now` to nav.
 - [ ] Restructure `/about` per §2.4 (preserve the personal voice).
-- [ ] Generate and link `CV-EN.pdf` from this Curriculums repo.
+- [x] Generate and link `CV-EN.pdf` alongside `CV-ES.pdf` on `/about`.
 - [x] Promote `/uses` to its own page.
 
 ### Sprint 4 — Volume + polish
