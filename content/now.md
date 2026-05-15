@@ -8,11 +8,11 @@ updated: 2026-05-13
 
 _Last updated: May 13, 2026._
 
-## <UIcon name="i-lucide-hammer" class="mr-1 align-[-2px]" /> Working on
+## :u-icon{name="i-lucide-hammer" class="mr-2 align-[-2px]"} Working on
 
 - **Crazy Imagine Software (full-time, remote).** Building a unified support and notification system on **Laravel + Vue + Inertia.js**, integrated with HubSpot for CRM handoff. The companion piece is a **Knowledge Base on Inertia.js + Laravel Nova** with full-text search and Markdown-driven authoring — turning internal documentation into a first-class product surface.
 
-## <UIcon name="i-lucide-book-open" class="mr-1 align-[-2px]" /> Learning
+## :u-icon{name="i-lucide-book-open" class="mr-2 align-[-2px]"} Learning
 
 I'm executing a deliberate, sequenced study plan with one goal: become the kind of senior engineer who can architect data platforms on GCP without giving up the full-stack and DevOps fluency I already have.
 
@@ -24,20 +24,20 @@ This quarter's focus:
 
 Next up (Q3): **Google Cloud Professional Data Engineer** and **DataOps: Automation & Reliability**.
 
-## <UIcon name="i-lucide-rocket" class="mr-1 align-[-2px]" /> Shipping next
+## :u-icon{name="i-lucide-rocket" class="mr-2 align-[-2px]"} Shipping next
 
 - **Case study #1 — [Daka NestJS + Strapi rescue](/blog/case-studies/daka-ecommerce-rescue).** First in a short series of senior-engineer case studies on the platforms I've rescued and rebuilt over the last four years.
 - **Two more case studies queued:** [Biomercados 30k-user PWA](/blog/case-studies/biomercados-pwa) and the [Daka nationwide SAP quotation app](/blog/case-studies/daka-sap-quotation-app).
 - **One open-source repo** to publish this quarter — likely a small, useful tool at the intersection of Laravel and BigQuery. (TBD; I'd rather ship one good thing than three half-finished ones.)
 - **English CV** added to `/about` alongside the Spanish one.
 
-## <UIcon name="i-lucide-book-marked" class="mr-1 align-[-2px]" /> Reading & watching
+## :u-icon{name="i-lucide-book-marked" class="mr-2 align-[-2px]"} Reading & watching
 
 - Re-reading the SRE book chapters on **error budgets and toil** — they read very differently when your study plan has "DataOps" in it.
 - A steady diet of **GCP architecture talks** from the last two Cloud Next conferences. Less about features, more about how the senior practitioners frame trade-offs.
 - Slow-cooking my way through more Japanese — currently somewhere on the long road between "comfortable with kana" and "comfortable with kanji."
 
-## <UIcon name="i-lucide-briefcase" class="mr-1 align-[-2px]" /> Available for
+## :u-icon{name="i-lucide-briefcase" class="mr-2 align-[-2px]"} Available for
 
 I'm currently full-time at Crazy Imagine, and I'm **selectively open** to:
 

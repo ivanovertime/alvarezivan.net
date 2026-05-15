@@ -6,21 +6,42 @@ ogImage: "/og/contact.png"
 
 # Contact
 
-The fastest way to talk is to **book a 30-minute call** — calendar below. Otherwise, email is the next-fastest, and async DMs on LinkedIn work too.
+The fastest way to talk is to **book a 30-minute call**. Email and LinkedIn DMs work too — I read every message and usually reply **within two business days**.
 
-I'm currently full-time at Crazy Imagine Software and **selectively open** to Senior or Lead roles in Platform Engineering, Data Architecture, or Full-Stack leadership — remote-first, ideally with teams shipping to GCP. Also available for fractional architecture engagements and code/architecture audits on e-commerce or SAP-integrated platforms.
+I'm currently full-time at Crazy Imagine Software and **selectively open** to senior engagements that fit the Rescue Architect playbook — stabilizing broken systems and rebuilding them cloud-native, with a growing focus on GCP DataOps.
 
-## Direct links
+## :u-icon{name="i-lucide-link" class="mr-2 align-[-2px]"} Direct links
 
-- 📅 **Book a 30-min call** — [calendar](https://calendar.app.google/mdouT7hy7xS8XUcd9)
-- 📬 **Email** — [alvarezlopezivanenrique@gmail.com](mailto:alvarezlopezivanenrique@gmail.com)
-- 💼 **LinkedIn** — [linkedin.com/in/ialvarez93](https://www.linkedin.com/in/ialvarez93/)
-- 🐙 **GitHub** — [github.com/ivanovertime](https://github.com/ivanovertime)
+- :u-icon{name="i-lucide-calendar" class="mr-1 align-[-2px]"} **Book a 30-min call** — [calendar](https://calendar.app.google/mdouT7hy7xS8XUcd9)
+- :u-icon{name="i-lucide-mail" class="mr-1 align-[-2px]"} **Email** — [alvarezlopezivanenrique@gmail.com](mailto:alvarezlopezivanenrique@gmail.com)
+- :u-icon{name="i-lucide-linkedin" class="mr-1 align-[-2px]"} **LinkedIn** — [linkedin.com/in/ialvarez93](https://www.linkedin.com/in/ialvarez93/)
+- :u-icon{name="i-lucide-github" class="mr-1 align-[-2px]"} **GitHub** — [github.com/ivanovertime](https://github.com/ivanovertime)
 
-## What's useful in your first message
+## :u-icon{name="i-lucide-handshake" class="mr-2 align-[-2px]"} What I'm open to
 
-- The shape of the problem (rescue, greenfield, audit, advisory).
-- The stack and team size, if you know them.
-- A rough timeline and what "done" looks like to you.
+- **Senior or Lead roles** in Platform Engineering, Data Architecture, or Full-Stack leadership — remote-first, ideally with teams shipping to GCP.
+- **Fractional architecture engagements** — typically 1–3 days a week for a defined window (rescue, migration, or platform stand-up).
+- **Code or architecture audits** on e-commerce or SAP-integrated platforms — a focused 1–2 week deliverable.
+- **Advisory** for founders or small teams making early platform / data-stack decisions.
 
-I read every message. I usually reply within two business days.
+## :u-icon{name="i-lucide-message-square" class="mr-2 align-[-2px]"} What's useful in your first message
+
+- The **shape of the problem** — rescue, greenfield, audit, or advisory.
+- The **stack and team size**, if you know them.
+- A **rough timeline** and what "done" looks like to you.
+- The **constraint that hurts most** right now (deploys, data, integrations, hiring, runway).
+
+## :u-icon{name="i-lucide-info" class="mr-2 align-[-2px]"} Practical info
+
+- :u-icon{name="i-lucide-globe" class="mr-1 align-[-2px]"} **Based in** Valencia, Venezuela — timezone **VET (UTC−4)**, comfortable working with EU and Americas teams.
+- :u-icon{name="i-lucide-languages" class="mr-1 align-[-2px]"} **Languages:** English (professional) and Spanish (native).
+- :u-icon{name="i-lucide-clock" class="mr-1 align-[-2px]"} **Response time:** within two business days, usually less.
+- :u-icon{name="i-lucide-shield-check" class="mr-1 align-[-2px]"} **NDAs / contracts:** happy to sign before any sensitive details are shared.
+
+## :u-icon{name="i-lucide-octagon-x" class="mr-2 align-[-2px]"} Probably not the right fit if…
+
+- You need a junior or mid-level individual contributor.
+- The work is purely WordPress, Wix, or no-code site builds.
+- You're looking for someone to manage a team without doing technical work.
+
+If any of that sounds close to what you need, the calendar above is the fastest path. Otherwise, email me with the four points above and I'll come back with a clear yes / no / referral.
