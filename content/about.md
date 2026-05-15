@@ -1,18 +1,20 @@
 ---
 title: "About"
-description: "Information Engineer and Full Stack Developer based in Valencia, Venezuela. Rescue Architect for e-commerce and data platforms."
+description: "Full-stack engineer based in Valencia, Venezuela. I enjoy untangling messy systems and shipping platforms teams can actually run."
 ogImage: "/og/about.png"
 ---
 
 ## The short version
 
-I'm the engineer companies call when the e-commerce platform is on fire, the SAP integration is broken, and nobody knows how it was deployed. I stabilize it, containerize it, and hand back an automated platform the team can actually run.
+I'm a full-stack engineer based in Valencia, Venezuela. Most of my work has been on platforms that needed help — e-commerce stores under load, SAP integrations nobody fully understood, deployments held together with luck and a single laptop. I enjoy that kind of work: reading the code, talking to the people, and leaving things in a healthier state than I found them.
 
-Over the last four years I've led the rescue and re-architecture of platforms serving 30,000+ users, directed teams of up to 15 developers, and shipped more than six production systems across e-commerce, mobile, and enterprise integration. I'm now extending the same playbook to data platforms on Google Cloud — see [/now](/now) for what that looks like this quarter.
+Over the last four years I've helped recover and re-architect platforms serving up to 30,000 users, worked with teams of various sizes (sometimes leading, sometimes contributing), and shipped six-plus production systems across e-commerce, mobile, and enterprise integration. Right now I'm learning data platforms on Google Cloud — see [/now](/now) for what that looks like this quarter.
+
+I'm just as happy joining a strong team as a senior IC as I am leading one. The constant is the work itself.
 
 ## Beyond code
 
-I am curious by nature. You'll often find me exploring cinema, cooking, or broadening my perspectives through Japanese language and culture.
+I'm curious by nature. You'll often find me exploring cinema, cooking, or learning Japanese — currently somewhere on the long road between "comfortable with kana" and "comfortable with kanji."
 
 ---
 
@@ -22,7 +24,7 @@ I am curious by nature. You'll often find me exploring cinema, cooking, or broad
 Building a unified support and notification system on Laravel + Vue + Inertia.js, integrated with HubSpot. Companion Knowledge Base on Inertia.js + Laravel Nova.
 
 **Oct 2024 – Dec 2025 · Tiendas Daka · Software Development Consultant**
-Led 15 engineers across 6+ rescues and greenfield builds — e-commerce platforms, a nationwide SAP-integrated quotation app, a multi-stack support platform, and a captive-portal solution. See the [case studies](/blog?category=case-study).
+Worked with a team of around 15 engineers on six-plus rescues and greenfield builds — e-commerce platforms, a nationwide SAP-integrated quotation app, a multi-stack support platform, and a captive-portal solution. See the [case studies](/blog?category=case-study).
 
 **Dec 2022 – Sep 2024 · Freelance · Full-Stack Developer**
 Restored a multi-tenant CS-Cart deployment, modernized WooCommerce + Nuxt stores, and worked with cross-functional teams on coding standards.
@@ -37,7 +39,7 @@ Engineer's degree, Informatics.
 
 ## Currently studying
 
-Sequenced study plan toward Senior/Lead Data Architect on GCP. Always-current detail on [/now](/now).
+A sequenced study plan toward data engineering on GCP, while keeping the full-stack and DevOps fluency I already have. Always-current detail on [/now](/now).
 
 This quarter (Q2 2026):
 

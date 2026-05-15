@@ -1,9 +1,9 @@
 seo:
-  title: "Iván Álvarez · Rescue Architect"
-  description: "Rescue Architect for e-commerce & data platforms. I stabilize broken systems and rebuild them cloud-native — six platforms recovered, one serving 30,000+ users."
+  title: "Iván Álvarez · Full-Stack Engineer"
+  description: "Full-stack engineer who enjoys untangling messy systems and shipping platforms teams can run with confidence. Six platforms shipped, one serving 30,000+ users. Now learning GCP DataOps."
 title: "Hi, I'm Iván Álvarez"
 description: |
-  **Rescue Architect for e-commerce & data platforms.** I stabilize broken systems and rebuild them cloud-native. Six platforms recovered — one serving 30,000+ users. Now extending the same playbook to GCP DataOps.
+  Full-stack engineer based in Valencia, Venezuela. I enjoy untangling messy systems, shipping things teams can actually run, and learning alongside good people. Lately I'm focused on data platforms on Google Cloud.
 hero:
   links:
     - label: "Read the blog"
@@ -14,7 +14,7 @@ hero:
 about:
   title: "About"
   description: |
-    I'm the engineer companies call when the e-commerce platform is on fire, the SAP integration is broken, and nobody knows how it was deployed. I stabilize it, containerize it, and hand back an automated platform the team can actually run.
+    I've spent the last few years on platforms that needed a bit of TLC — e-commerce stores, SAP integrations, internal tools — and I've genuinely come to enjoy that kind of work: read the code, talk to the people, leave it in a healthier state than I found it. I'm just as happy contributing to a strong team as I am leading one.
 experience:
   title: Work Experience
   items:

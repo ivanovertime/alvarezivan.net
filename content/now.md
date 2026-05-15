@@ -14,19 +14,19 @@ _Last updated: May 13, 2026._
 
 ## :u-icon{name="i-lucide-book-open" class="mr-2 align-[-2px]"} Learning
 
-I'm executing a deliberate, sequenced study plan with one goal: become the kind of senior engineer who can architect data platforms on GCP without giving up the full-stack and DevOps fluency I already have.
+I'm working through a sequenced study plan with one goal: get good enough at data platforms on GCP to contribute meaningfully on those teams, without giving up the full-stack and DevOps fluency I already have.
 
 This quarter's focus:
 
-- **IBM DevOps & Software Engineering Professional Certificate** — currently working through the **Containers & Kubernetes** and **CI/CD** modules. The leverage from getting these two right is bigger than any single language or framework choice.
-- **Generative AI for Software Developers (IBM)** — using AI to build the infrastructure I'm learning about, not to replace the thinking that goes into it.
+- **IBM DevOps & Software Engineering Professional Certificate** — currently working through the **Containers & Kubernetes** and **CI/CD** modules. Getting these two right pays off across almost any project.
+- **Generative AI for Software Developers (IBM)** — using AI as a tool in the loop, not a replacement for the thinking.
 - **First GCP labs** — small, scoped experiments on **Cloud Run + BigQuery** to make the destination concrete before the certification track starts in earnest.
 
 Next up (Q3): **Google Cloud Professional Data Engineer** and **DataOps: Automation & Reliability**.
 
 ## :u-icon{name="i-lucide-rocket" class="mr-2 align-[-2px]"} Shipping next
 
-- **Case study #1 — [Daka NestJS + Strapi rescue](/blog/case-studies/daka-ecommerce-rescue).** First in a short series of senior-engineer case studies on the platforms I've rescued and rebuilt over the last four years.
+- **Case study #1 — [Daka NestJS + Strapi rescue](/blog/case-studies/daka-ecommerce-rescue).** First in a short series of write-ups on platforms I've helped recover and rebuild over the last few years.
 - **Two more case studies queued:** [Biomercados 30k-user PWA](/blog/case-studies/biomercados-pwa) and the [Daka nationwide SAP quotation app](/blog/case-studies/daka-sap-quotation-app).
 - **One open-source repo** to publish this quarter — likely a small, useful tool at the intersection of Laravel and BigQuery. (TBD; I'd rather ship one good thing than three half-finished ones.)
 - **English CV** added to `/about` alongside the Spanish one.
@@ -34,17 +34,17 @@ Next up (Q3): **Google Cloud Professional Data Engineer** and **DataOps: Automat
 ## :u-icon{name="i-lucide-book-marked" class="mr-2 align-[-2px]"} Reading & watching
 
 - Re-reading the SRE book chapters on **error budgets and toil** — they read very differently when your study plan has "DataOps" in it.
-- A steady diet of **GCP architecture talks** from the last two Cloud Next conferences. Less about features, more about how the senior practitioners frame trade-offs.
+- A steady diet of **GCP architecture talks** from the last two Cloud Next conferences. Less about features, more about how experienced practitioners frame trade-offs.
 - Slow-cooking my way through more Japanese — currently somewhere on the long road between "comfortable with kana" and "comfortable with kanji."
 
 ## :u-icon{name="i-lucide-briefcase" class="mr-2 align-[-2px]"} Available for
 
-I'm currently full-time at Crazy Imagine, and I'm **selectively open** to:
+I'm currently full-time at Crazy Imagine, and I'm **open to a conversation** about:
 
-- **Senior or Lead roles** in Platform Engineering, Data Architecture, or Full-Stack leadership — remote-first, ideally with teams shipping to GCP.
-- **Fractional architecture engagements** and **code or architecture audits** on e-commerce or SAP-integrated platforms.
+- **Full-time roles** — mid-level IC, senior, or lead — in Full-Stack, Platform, or Data Engineering. Remote-first, ideally with teams shipping (or moving) to GCP.
+- **Fractional engagements** and **code or architecture audits** on e-commerce or SAP-integrated platforms.
 
-If that sounds like your situation, **[book a 30-minute call](https://calendar.app.google/mdouT7hy7xS8XUcd9)** or [drop me an email](/contact).
+If any of that sounds like your situation, **[book a 30-minute call](https://calendar.app.google/mdouT7hy7xS8XUcd9)** or [drop me an email](/contact). No pressure — even an exploratory chat is welcome.
 
 ---
 
