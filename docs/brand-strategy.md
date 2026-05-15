@@ -8,14 +8,14 @@ Channels: LinkedIn (primary), personal site `alvarezivan.net` (owned, with `alva
 
 ## 1. Positioning Statement (the "one line")
 
-> **"I help engineering teams turn complex e-commerce and data platforms into automated, cloud-native systems — bridging full-stack delivery with DataOps on GCP."**
+> **"I help engineering teams recover complex e-commerce platforms and evolve them toward automated, cloud-native systems — with a growing focus on GCP and DataOps."**
 
 This is the North Star. Every headline, bio, and post should ladder up to it.
 
 ### Why this works
 - **Credible today**: matches what's been shipped (Daka, Biomercados, Crazy Imagine).
-- **Aspirational tomorrow**: aligns with the Senior/Lead Data Architect target.
-- **Differentiated**: not many engineers combine *e-commerce rescue + platform recovery* + *DevOps* + *GCP DataOps*. That's the angle to lean on.
+- **Honest about the trajectory**: GCP/DataOps is in progress, not claimed as already done.
+- **Differentiated**: not many engineers combine *e-commerce rescue + platform recovery* + *DevOps* + a serious move into *GCP DataOps*. That's the angle to lean on.
 
 ---
 
@@ -56,14 +56,14 @@ Future chapter being written via the study plan: **"…and now I do it on GCP at
 Current: *"Full Stack Developer | E-commerce Specialist | PHP, Vue.js, Laravel, Docker"* — generic, lists tech, no outcome.
 
 Options:
-- **"E-commerce Rescue & Platform Recovery Engineer · DevOps + GCP · Laravel / NestJS / Kubernetes"**
-- **"I stabilize complex platforms and evolve them cloud-native · Full-Stack → DataOps · GCP · Docker · Laravel · NestJS"**
+- **"Senior Full-Stack Engineer · E-commerce Rescue & Platform Recovery · DevOps + GCP (in progress) · Laravel / NestJS / Kubernetes"**
+- **"I help recover complex platforms and evolve them cloud-native · Senior Full-Stack → Platform / DataOps on GCP · Docker · Laravel · NestJS"**
 
 ### About (rewrite skeleton)
 1. **Hook (1 line)** — the positioning statement.
 2. **Proof (3 bullets)** — Daka (15 devs, 6 projects), Biomercados (30k users), SAP integrations.
 3. **What I'm building toward** — "Currently deepening GCP Data Engineering and DataOps to bring the same rescue-and-automate playbook to data platforms."
-4. **CTA** — "Open to Senior/Lead roles in Platform Engineering, Data Architecture, or Full-Stack leadership. DM me or visit alvarezivan.net."
+4. **CTA** — "Open to Senior Full-Stack, Platform / DevOps, or Tech Lead roles — remote-first, ideally on or moving to GCP. DM me or visit alvarezivan.net."
 
 ### Featured section
 Pin 3 things: (1) personal site, (2) one case-study post per pillar, (3) a certification badge once GCP lands.

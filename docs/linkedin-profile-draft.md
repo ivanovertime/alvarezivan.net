@@ -28,11 +28,11 @@ Suggested composition:
 ## 4. Headline (220 char max)
 **Primary (recommended):**
 
-> E-commerce Rescue & Platform Recovery Engineer · I recover complex systems and evolve them cloud-native · DevOps + GCP · Laravel · NestJS · Kubernetes · Open to Senior/Lead roles
+> Senior Full-Stack Engineer · E-commerce Rescue & Platform Recovery · DevOps + GCP (in progress) · Laravel · NestJS · Kubernetes · Open to Senior IC / Tech Lead roles
 
 **Alternate (more outcome-led):**
 
-> I turn complex e-commerce & data platforms into automated, cloud-native systems · 6+ projects shipped · DevOps + GCP DataOps · Laravel / NestJS / K8s · Senior/Lead Architect
+> I help recover complex e-commerce platforms and evolve them cloud-native · 6+ projects shipped · DevOps + GCP DataOps in progress · Laravel / NestJS / K8s
 
 ---
 
@@ -77,9 +77,9 @@ and DataOps so I can bring the same rescue-and-automate approach to
 data platforms — BigQuery, Vertex AI, Airflow, and the reliability
 practices that keep them honest.
 
-I'm open to Senior or Lead roles in Platform Engineering, Data
-Architecture, or Full-Stack leadership — remote-first, ideally with
-teams shipping to GCP.
+I'm open to Senior Full-Stack, Platform / DevOps, or Tech Lead
+roles — remote-first, ideally with teams already on or moving
+to GCP. Just as happy joining a strong team as a senior IC.
 
 📬  alvarezlopezivanenrique@gmail.com
 🌐  alvarezivan.net
@@ -259,7 +259,7 @@ Add as additional websites:
 
 ## 14. Open To Work / Services
 **Open to Work (visible to recruiters only — recommended):**
-- Job titles: Senior Software Engineer · Lead Full-Stack Engineer · Platform Engineer · Data Engineer · Cloud Architect
+- Job titles: Senior Software Engineer · Senior Full-Stack Engineer · Tech Lead · Platform Engineer · DevOps Engineer
 - Locations: Remote (Worldwide / Americas / EU)
 - Job types: Full-time · Contract
 - Start date: Immediately
@@ -267,7 +267,7 @@ Add as additional websites:
 ---
 
 ## 15. Services (Provider Hub — optional but increases inbound)
-- Web Development · Custom Software Development · Mobile Application Development · Cloud Architecture · DevOps Engineering · Database Development · Technical Consulting
+- Web Development · Custom Software Development · Mobile Application Development · DevOps Engineering · Database Development · Technical Consulting
 
 Description (700 char max):
 

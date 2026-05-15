@@ -17,7 +17,7 @@ The fastest way to talk is to **book a 30-minute call**. Email and LinkedIn DMs 
 
 ## :u-icon{name="i-lucide-handshake" class="mr-2 align-[-2px]"} What I'm open to
 
-- **Senior or Lead roles** in Platform Engineering, Data Architecture, or Full-Stack — remote-first, ideally with teams shipping to GCP. Happy to join a strong team as a senior IC too.
+- **Senior Full-Stack, Platform / DevOps, or Tech Lead roles** — remote-first, ideally with teams already on or moving to GCP. Happy to join a strong team as a senior IC.
 - **Fractional engagements** — typically 1–3 days a week for a defined window (e-commerce rescue/recovery, migration, or platform stand-up).
 - **Code or architecture audits** on e-commerce or SAP-integrated platforms — a focused 1–2 week deliverable.
 - **Advisory** for founders or small teams making early platform or data-stack decisions.
