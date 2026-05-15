@@ -60,7 +60,7 @@ useSchemaOrg([
     url: baseUrl.value,
     image: `${baseUrl.value}/avatar.jpg`,
     sameAs: [
-      'https://www.linkedin.com/in/ivanovertime/',
+      'https://www.linkedin.com/in/ialvarez93/',
       'https://github.com/ivanovertime'
     ]
   }),
