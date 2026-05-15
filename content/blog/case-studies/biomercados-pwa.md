@@ -1,6 +1,6 @@
 ---
 title: "Shipping a 30,000-user PWA from a stalled e-commerce project"
-date: "2022-11-30"
+date: "2026-05-15"
 category: "case-study"
 client: "Biomercados (Alimentos FM, C.A.)"
 year: 2022

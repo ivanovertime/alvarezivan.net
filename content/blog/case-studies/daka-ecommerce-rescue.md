@@ -1,6 +1,6 @@
 ---
 title: "Rescuing a NestJS + Strapi e-commerce platform"
-date: "2025-12-01"
+date: "2026-05-15"
 category: "case-study"
 client: "Tiendas Daka"
 year: 2025

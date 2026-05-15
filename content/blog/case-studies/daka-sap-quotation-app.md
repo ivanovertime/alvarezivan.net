@@ -1,6 +1,6 @@
 ---
 title: "A nationwide mobile sales-quotation app, integrated with SAP"
-date: "2025-08-01"
+date: "2026-05-15"
 category: "case-study"
 client: "Tiendas Daka"
 year: 2025
