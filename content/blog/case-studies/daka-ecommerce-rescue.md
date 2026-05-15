@@ -11,8 +11,8 @@ team_size: 4
 role: "Tech Lead"
 outcome_headline: "Restored delivery cadence and unblocked the roadmap"
 featured: true
-ogImage: "/og/daka-ecommerce-rescue.png"
-image: "/og/daka-ecommerce-rescue.png"
+ogImage: "/blog/case-studies/daka-ecommerce-rescue/featuredImage.jpg"
+image: "/blog/case-studies/daka-ecommerce-rescue/featuredImage.jpg"
 author:
   name: "Iván Álvarez"
   username: "ivanovertime"
@@ -43,7 +43,7 @@ Tiendas Daka is one of Venezuela's largest retail chains. Its e‑commerce platf
 
 The business had two options on the table: keep patching, or rewrite. Both were expensive. The third option — *rescue and re-architect in place* — needed someone to underwrite the risk.
 
-> ⚠️ **Author note (placeholder, please confirm):** the platform's monthly active users, GMV, or order volume at the time would strengthen this section. Replace this callout with a one-line scale indicator before publishing.
+<!-- > ⚠️ **Author note (placeholder, please confirm):** the platform's monthly active users, GMV, or order volume at the time would strengthen this section. Replace this callout with a one-line scale indicator before publishing. -->
 
 ## Constraints
 
@@ -110,7 +110,7 @@ By the end of the engagement:
 - Deployments moved from **tribal and manual** to **containerized and reproducible**.
 - The product team **resumed planning a roadmap** instead of triaging a backlog.
 
-> ⚠️ **Author note (placeholder, please confirm):** drop in concrete numbers before publishing if you have them — e.g. *"deploys went from N/month to N/week"*, *"P1 incidents dropped from N to N"*, *"page-load p95 improved by N%"*. Even rough numbers from memory are worth more than adjectives here.
+<!-- > ⚠️ **Author note (placeholder, please confirm):** drop in concrete numbers before publishing if you have them — e.g. *"deploys went from N/month to N/week"*, *"P1 incidents dropped from N to N"*, *"page-load p95 improved by N%"*. Even rough numbers from memory are worth more than adjectives here. -->
 
 This was one of six platforms my team and I worked on at Daka over the engagement, and it set the template for the others: diagnose, contain, then modernize — never all three at once.
 

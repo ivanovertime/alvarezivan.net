@@ -11,8 +11,8 @@ team_size: 3
 role: "Architect & Tech Lead"
 outcome_headline: "Replaced a paper-and-spreadsheet quotation flow with a mobile-first app rolled out nationwide"
 featured: true
-ogImage: "/og/daka-sap-quotation.png"
-image: "/og/daka-sap-quotation.png"
+ogImage: "/blog/case-studies/daka-sap-quotation-app/featuredImage.jpg"
+image: "/blog/case-studies/daka-sap-quotation-app/featuredImage.jpg"
 author:
   name: "Iván Álvarez"
   username: "ivanovertime"
@@ -122,7 +122,7 @@ By rollout:
 - The business gained a **real-time view of quotation activity** — a data surface it had never had before.
 - The SAP integration module became a **reusable pattern** for the other Daka platforms my team worked on.
 
-> ⚠️ **Author note (placeholder, please confirm):** drop in concrete numbers before publishing — *number of stores or sales staff onboarded*, *quotes generated per week vs. before*, *time-to-quote reduction*, or *quote-to-order conversion lift*. Even rough numbers from memory are stronger than adjectives.
+<!-- > ⚠️ **Author note (placeholder, please confirm):** drop in concrete numbers before publishing — *number of stores or sales staff onboarded*, *quotes generated per week vs. before*, *time-to-quote reduction*, or *quote-to-order conversion lift*. Even rough numbers from memory are stronger than adjectives. -->
 
 This was one of six platforms my team and I worked on at Daka, and the one that proved the integration-module pattern was generalizable: write the SAP boundary once, reuse it across products.
 

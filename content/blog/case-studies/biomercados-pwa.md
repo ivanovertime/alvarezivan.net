@@ -11,8 +11,8 @@ team_size: 1
 role: "Programmer"
 outcome_headline: "Recovered a stalled project and shipped to 30,000+ customers"
 featured: true
-ogImage: "/og/biomercados-pwa.png"
-image: "/og/biomercados-pwa.png"
+ogImage: "/blog/case-studies/biomercados-pwa/featuredImage.jpg"
+image: "/blog/case-studies/biomercados-pwa/featuredImage.jpg"
 author:
   name: "Iván Álvarez"
   username: "ivanovertime"
@@ -113,7 +113,7 @@ By the end of the engagement:
 - Marketing had **RFM-based customer segments** they could act on, drawn from the platform's own data.
 - Pricing ran on an **automated exchange-rate feed** instead of a daily copy-paste.
 
-> ⚠️ **Author note (placeholder, please confirm):** if you have any of these handy, drop them in to replace this callout — *time-from-takeover-to-launch*, *number of releases per week after CI/CD landed*, *uptime numbers*, or *order volume in the first month*. Even rough numbers from memory beat adjectives.
+<!-- > ⚠️ **Author note (placeholder, please confirm):** if you have any of these handy, drop them in to replace this callout — *time-from-takeover-to-launch*, *number of releases per week after CI/CD landed*, *uptime numbers*, or *order volume in the first month*. Even rough numbers from memory beat adjectives. -->
 
 The single-engineer scope is part of the point: with the right sequencing — **deploy path first, customer surface second, side-quests third** — one person can move a stalled platform across the line.
 
