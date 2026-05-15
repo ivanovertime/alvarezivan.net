@@ -8,14 +8,14 @@ Channels: LinkedIn (primary), personal site `alvarezivan.net` (owned, with `alva
 
 ## 1. Positioning Statement (the "one line")
 
-> **"I help engineering teams turn fragile e-commerce and data platforms into automated, cloud-native systems — bridging full-stack delivery with DataOps on GCP."**
+> **"I help engineering teams turn complex e-commerce and data platforms into automated, cloud-native systems — bridging full-stack delivery with DataOps on GCP."**
 
 This is the North Star. Every headline, bio, and post should ladder up to it.
 
 ### Why this works
 - **Credible today**: matches what's been shipped (Daka, Biomercados, Crazy Imagine).
 - **Aspirational tomorrow**: aligns with the Senior/Lead Data Architect target.
-- **Scarce**: very few people credibly combine *e-commerce rescue* + *DevOps* + *GCP DataOps*. That's the moat.
+- **Scarce**: very few people credibly combine *e-commerce platform stabilization* + *DevOps* + *GCP DataOps*. That's the moat.
 
 ---
 
@@ -38,10 +38,10 @@ Pick once, post against forever. Maps to the study plan's Hirability Scorecard.
 
 Recruiters and clients buy *stories*, not skill lists.
 
-> **"Rescue Architect."** — *"I'm the engineer companies call when the e-commerce platform is on fire, the SAP integration is broken, and nobody knows how it was deployed. I stabilize it, containerize it, and hand back an automated platform the team can actually run."*
+> **"Platform Stabilization & Architecture."** — *"I usually work on teams where the e-commerce platform is under pressure, SAP integration is brittle, or deployment workflows need clarity. I help stabilize the system, containerize it, and hand back a platform the team can run confidently."*
 
 Frames every past role consistently:
-- **Biomercados** → "rescued and shipped to 30k users"
+- **Biomercados** → "stabilized and shipped to 30k users"
 - **Daka** → "led recovery and re-architecture of 6 platforms"
 - **Freelance** → "evaluated and restored multi-tenant CS-Cart"
 - **Crazy Imagine** → "built support + KB system from scratch" *(new chapter: greenfield, not just rescue)*
@@ -56,8 +56,8 @@ Future chapter being written via the study plan: **"…and now I do it on GCP at
 Current: *"Full Stack Developer | E-commerce Specialist | PHP, Vue.js, Laravel, Docker"* — generic, lists tech, no outcome.
 
 Options:
-- **"Rescue Architect for E-commerce & Data Platforms · DevOps + GCP · Laravel / NestJS / Kubernetes"**
-- **"I stabilize broken platforms and rebuild them cloud-native · Full-Stack → DataOps · GCP · Docker · Laravel · NestJS"**
+- **"Platform Engineer for E-commerce & Data Systems · DevOps + GCP · Laravel / NestJS / Kubernetes"**
+- **"I stabilize complex platforms and evolve them cloud-native · Full-Stack → DataOps · GCP · Docker · Laravel · NestJS"**
 
 ### About (rewrite skeleton)
 1. **Hook (1 line)** — the positioning statement.
@@ -116,7 +116,7 @@ Structure as a **portfolio of rescues**, not a resume.
 
 ## 7. Visibility Tactics (multipliers)
 
-1. **Build in public.** Push DevOps + GCP labs to GitHub with READMEs that read like case studies. Recruiters Google.
+1. **Build in public.** Push DevOps + GCP labs to GitHub with READMEs that read like case studies. Recruiters do look.
 2. **Comment strategically.** 15 min/day commenting thoughtfully on posts by GCP, NestJS, Laravel thought leaders. Grows reach faster than posting.
 3. **Open-source one tool.** Even small — e.g., a Laravel→BigQuery sync package, or a Filament SAP connector. One repo with stars = instant credibility.
 4. **Speak.** Submit to local meetups (Caracas/remote LATAM tech) on "Rescuing Legacy E-commerce" — a topic owned.

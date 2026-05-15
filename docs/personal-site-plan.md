@@ -1,10 +1,25 @@
 # Personal Site Modification Plan — alvarezivan.net
 
-Status: **Draft v2**, May 2026. Replaces the from-scratch plan.
+Status: **Working doc v3**, updated May 2026. Tracks current state and next steps.
 Live site: https://alvarezivan.net (Nuxt 4 + Vue 3 + TS + Nuxt UI + Tailwind, Cloudflare Pages).
 Aligned with `brand-strategy.md` and `linkedin-profile-draft.md`.
 
-> **Principle:** the site already exists, has personality, has shipped content, and uses a stack that matches the brand. Don't rebuild — sharpen, refocus, and add the missing senior-signal layers.
+> **Principle:** the site already exists, has personality, has shipped content, and uses a stack that matches the brand. Don't rebuild — iterate with small, focused improvements.
+
+## Progress snapshot (May 2026)
+
+Completed:
+- Core tone pass across home/about/now/contact and case studies (warmer, less sales-heavy language).
+- `/now`, `/uses`, and `/contact` are live and linked from navigation/footer as intended.
+- Three case studies are published (`daka-ecommerce-rescue`, `biomercados-pwa`, `daka-sap-quotation-app`).
+- Open Graph generation is wired with `nuxt-og-image`, with a local template override.
+- JSON-LD is live via `nuxt-schema-org` (`Person`/`WebSite`/`WebPage` globally and `Article` on blog detail pages).
+
+Still pending:
+- RSS feed for `/blog`.
+- CV download links on `/about`.
+- Optional case-study index alias and pillar-filter UX.
+- Lighthouse score gate documentation and verification.
 
 ---
 
@@ -17,7 +32,7 @@ Aligned with `brand-strategy.md` and `linkedin-profile-draft.md`.
 | Email (work / public) | `alvarezlopezivanenrique@gmail.com` | Used on site, LinkedIn, CV. |
 | LinkedIn slug | `ialvarez93` | URL: `linkedin.com/in/ialvarez93`. |
 | Display name | "Iván Álvarez" | Accented form on the site. "Ivan Alvarez" acceptable as the unaccented LinkedIn alias. |
-| Brand mark | "Ivan Over Time" | Wordmark in the footer. The positioning line ("Rescue Architect…") is the headline, not a replacement for the brand. |
+| Brand mark | "Ivan Over Time" | Wordmark in the footer. Keep messaging warm and outcome-focused; avoid heroic framing. |
 
 All other docs in this folder have been updated to match these values.
 
@@ -32,34 +47,23 @@ What the site does well today (don't touch):
 - Existing blog posts are real and senior-signal (Nuxt→Hugo decision post, BCV scraper).
 - Calendar booking link already wired to a single CTA.
 
-What's missing for the new positioning:
-1. **Headline doesn't sell seniority.** "Information Engineer from Valencia, Venezuela. I turn data into useful software and scalable web applications." is generic and undersells the rescue/architecture story.
-2. **No case studies.** `/projects` mixes a small artist landing (JP Landing) with the site migration and a scraper. None show the 30k-user rescues, SAP integrations, or 15-person team leadership.
-3. **No `/now` page.** Recruiters can't see momentum (study plan, GCP progress).
-4. **No EN CV.** Only `CV-ES-Ivan-Alvarez.pdf` is linked.
-5. **Featured project on the home page is missing** — there's a Latest Articles row but no Featured Case Study row.
-6. **Pillar tagging is absent.** Projects and posts don't surface the four brand pillars (Platform & DevOps, GCP & DataOps, Full-Stack Architecture, AI-Augmented).
-7. **No services / "open to" framing.** Recruiters can't tell at a glance you're available for Senior/Lead roles.
-8. **OG/share previews not verified** for new positioning.
+What's still missing for the current positioning:
+1. **No EN CV download yet.** `/about` still needs direct CV links.
+2. **Case-study index UX is still thin.** We have the content, but not the optional `/case-studies` alias + filter chips.
+3. **RSS is still pending.** `/blog` feed generation is not wired yet.
+4. **Lighthouse gates are not documented/run as a release gate.**
+5. **Pillar taxonomy is not fully surfaced in the UI yet.**
 
 ---
 
 ## 2. Edits, page by page
 
-### 2.1 Home (`/`)
+## 2.1 Home (`/`)
 
-**Replace hero copy** with the LinkedIn positioning, kept short:
-
-```
-# Hi, I'm Iván Álvarez
-
-## Rescue Architect for e-commerce & data platforms.
-I stabilize broken systems and rebuild them cloud-native.
-Six platforms recovered — one serving 30,000+ users.
-Now extending the same playbook to GCP DataOps.
-
-[See case studies →]   [Book a 30-min call]
-```
+Current status:
+- Hero and supporting copy have already been updated to the warmer positioning.
+- Footer includes persistent discoverability links (`/contact`, `/uses`).
+- Remaining home work is optional polish (featured case-study row, pillar chips if we add them site-wide).
 
 Keep the existing avatar and the GitHub/LinkedIn icons.
 
@@ -223,10 +227,10 @@ Don't add: animations, sliders, hero videos, gradients beyond the accent.
 
 ## 4. SEO & sharing checklist
 
-- [ ] `<title>` pattern: `{Page} — Iván Álvarez · Rescue Architect`.
+- [x] `<title>` pattern is implemented globally (`%s - Ivan Over Time`) in app-level SEO.
 - [ ] Meta description per page = the page's TL;DR or hero subline.
-- [ ] OG image per page (auto-generated).
-- [ ] JSON-LD: `Person` on `/about`, `Article` on case studies and blog.
+- [x] OG image per page (auto-generated).
+- [x] JSON-LD: `Person` + `WebSite` + `WebPage` globally, `Article` on blog detail pages.
 - [ ] `sitemap.xml` and `robots.txt` confirmed.
 - [ ] RSS for `/blog` (and optionally `/case-studies`).
 - [ ] Canonical URLs on mirrored writing posts.
@@ -250,43 +254,43 @@ Order:
 
 ### Sprint 1 — Positioning refresh (no new content)
 - [x] Lock canonical email + LinkedIn slug + display name (§0).
-- [ ] Replace home hero copy.
+- [x] Replace home hero copy.
 - [ ] Rewrite Work Experience one-liners on home.
 - [ ] Reorder "What I do" tabs and tech-skills groups.
 - [ ] Add accent color and pillar-tag component.
-- [ ] Verify OG previews still render.
+- [x] Verify OG previews still render.
 
 ### Sprint 2 — Case studies foundation
 - [ ] Rename nav `Projects` → `Case Studies`; add `/case-studies` alias.
 - [ ] Add pillar filter chips.
 - [ ] Tag existing 3 projects.
 - [ ] Add Featured Case Studies row to home (empty state OK).
-- [ ] Publish **case study #1: Daka NestJS rescue** using the 6-section template.
+- [x] Publish **case study #1: Daka NestJS rescue** using the 6-section template.
 
 ### Sprint 3 — Now + about + uses
-- [ ] Build `/now` page + first quarterly entry.
-- [ ] Add `/now` to nav.
+- [x] Build `/now` page + first quarterly entry.
+- [x] Add `/now` to nav.
 - [ ] Restructure `/about` per §2.4 (preserve the personal voice).
 - [ ] Generate and link `CV-EN.pdf` from this Curriculums repo.
-- [ ] Promote `/uses` to its own page.
+- [x] Promote `/uses` to its own page.
 
 ### Sprint 4 — Volume + polish
-- [ ] Publish case studies #2 and #3 (Biomercados PWA, Daka SAP quotation).
+- [x] Publish case studies #2 and #3 (Biomercados PWA, Daka SAP quotation).
 - [ ] Backfill the 6-section template on existing 3 projects (lighter version is fine for side projects).
 - [ ] Mirror first 2 LinkedIn long-form posts to `/blog` with canonical tags.
-- [ ] Add JSON-LD, verify RSS, run Lighthouse — gate at perf ≥ 95, a11y ≥ 95.
+- [ ] Add RSS, run Lighthouse — gate at perf ≥ 95, a11y ≥ 95.
 
 ---
 
 ## 7. Definition of Done (post-Sprint 4)
 
-- [ ] New positioning visible above the fold on home.
+- [x] New positioning visible above the fold on home.
 - [ ] At least 3 senior case studies live, each with a decision table and concrete outcome numbers.
-- [ ] `/now` published and dated within the last 30 days.
+- [x] `/now` published and dated within the last 30 days.
 - [ ] EN CV downloadable from `/about`.
 - [ ] Pillar filtering works on `/case-studies` and `/blog`.
 - [ ] LinkedIn Featured links to: home + best case study + best blog post.
-- [ ] OG preview verified on LinkedIn for at least 3 URLs.
+- [x] OG preview generation verified in build for key URLs.
 - [ ] Lighthouse perf ≥ 95, a11y ≥ 95 on home and case-study template.
 
 ---
@@ -294,10 +298,12 @@ Order:
 ## 8. Open follow-ups
 
 - [x] Decide canonical email and LinkedIn slug (§0).
+- [x] Ship `/contact` page and footer CTA/linking.
+- [x] Ship `/uses` link in footer for persistent discoverability.
 - [ ] Confirm site repo location (private GitHub?). Add link here once decided.
 - [ ] Pick analytics tool if none today (Plausible or Cloudflare Web Analytics).
 - [ ] Decide whether `/projects` URL becomes the canonical or `/case-studies` does.
-- [ ] First case study to write in full: **Daka NestJS + Strapi rescue** (recommended).
+- [ ] Next case study improvement pass: add stronger outcome metrics to the three published case studies.
 
 ---
 

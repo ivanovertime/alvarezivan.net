@@ -19,7 +19,7 @@ Use: copy each block directly into LinkedIn. Character counts noted where Linked
 
 ## 3. Background Banner (1584 × 396 px)
 Suggested composition:
-- Left third: tagline in mono font — **"Rescue Architect · Platforms that don't break."**
+- Left third: tagline in mono font — **"Platform Engineer · Systems teams can run."**
 - Right two-thirds: faint architecture diagram (containers → pipeline → cloud) in single accent color on dark background.
 - Bottom-right: `alvarezivan.net`
 
@@ -28,11 +28,11 @@ Suggested composition:
 ## 4. Headline (220 char max)
 **Primary (recommended):**
 
-> Rescue Architect for E-commerce & Data Platforms · I stabilize broken systems and rebuild them cloud-native · DevOps + GCP · Laravel · NestJS · Kubernetes · Open to Senior/Lead roles
+> Platform Engineer for E-commerce & Data Systems · I stabilize complex systems and evolve them cloud-native · DevOps + GCP · Laravel · NestJS · Kubernetes · Open to Senior/Lead roles
 
 **Alternate (more outcome-led):**
 
-> I turn fragile e-commerce & data platforms into automated, cloud-native systems · 6+ rescues delivered · DevOps + GCP DataOps · Laravel / NestJS / K8s · Senior/Lead Architect
+> I turn complex e-commerce & data platforms into automated, cloud-native systems · 6+ major projects delivered · DevOps + GCP DataOps · Laravel / NestJS / K8s · Senior/Lead Architect
 
 ---
 
@@ -46,18 +46,18 @@ Suggested composition:
 ## 6. About / Summary (2,600 char max — draft is ~2,100)
 
 ```
-I'm the engineer companies call when the e-commerce platform is on fire,
-the SAP integration is broken, and nobody knows how it was deployed.
-I stabilize it, containerize it, and hand back an automated platform
-the team can actually run.
+I usually work with teams where e-commerce platforms are under pressure,
+SAP integration is brittle, and deployment workflows need to be clarified.
+I help stabilize the system, containerize it, and hand back an automated
+platform the team can actually run.
 
-Over the last four years I've led the rescue and re-architecture of
+Over the last four years I've led stabilization and re-architecture of
 platforms serving 30,000+ users, directed teams of up to 15 developers,
 and shipped more than six production systems across e-commerce,
 mobile, and enterprise integration:
 
 • At Tiendas Daka, I led a team of 15 and delivered 6 complex projects —
-  rescuing a NestJS/Strapi e-commerce platform, architecting a nationwide
+  stabilizing a NestJS/Strapi e-commerce platform, architecting a nationwide
   Laravel/Filament sales-quotation app with SAP integration, and rebuilding
   a multi-stack support platform spanning Flutter, Laravel, Express, and
   Livewire.
@@ -66,14 +66,14 @@ mobile, and enterprise integration:
   Docker registry and CI/CD pipeline that made continuous delivery possible.
 • As a freelance consultant, I restored multi-tenant CS-Cart and
   WooCommerce/Nuxt platforms for clients who'd been told their systems
-  were unrecoverable.
+  needed careful stabilization work.
 
 My toolkit: Laravel, NestJS, Vue, Angular, Filament, Docker, Kubernetes,
 CI/CD, Proxmox, Ubuntu / Windows Server, SAP integration, and a working
 fluency with Gemini and AI-augmented engineering workflows.
 
 What's next: I'm deepening Google Cloud (Professional Data Engineer)
-and DataOps so I can bring the same rescue-and-automate playbook to
+and DataOps so I can bring the same stabilize-and-automate playbook to
 data platforms — BigQuery, Vertex AI, Airflow, and the reliability
 practices that keep them honest.
 
@@ -90,7 +90,7 @@ teams shipping to GCP.
 
 ## 7. Featured Section (pin 3 items)
 1. **Personal site** — `https://alvarezivan.net` (custom thumbnail with positioning statement).
-2. **Case study post** — "How we rescued a NestJS + Strapi e-commerce platform at Daka" (LinkedIn article).
+2. **Case study post** — "How we stabilized a NestJS + Strapi e-commerce platform at Daka" (LinkedIn article).
 3. **Open-source repo** — first published tool from the brand-strategy roadmap (e.g., Laravel → BigQuery sync).
 
 *(Until items 2 and 3 exist, pin: site + Coursera DevOps cert + a long-form post.)*
@@ -132,7 +132,7 @@ business stakeholders, infrastructure teams, and 15 developers.
   discovery to production.
 • Drove stakeholder consultations to define scope, architecture, and
   roadmap — keeping technical decisions tied to revenue outcomes.
-• Rescued a critical e-commerce platform (NestJS backend, Strapi CMS),
+• Stabilized a critical e-commerce platform (NestJS backend, Strapi CMS),
   resolving scalability bottlenecks and integration debt with a team
   of 4.
 • Architected a nationwide, mobile-first sales-quotation app
@@ -156,7 +156,7 @@ business stakeholders, infrastructure teams, and 15 developers.
 Stack: WordPress, WooCommerce, Nuxt, CS-Cart.
 
 ```
-Independent engagements focused on rescuing and modernizing
+Independent engagements focused on stabilizing and modernizing
 e-commerce platforms that other teams had walked away from.
 
 • Built and optimized WordPress + WooCommerce stores with Nuxt
@@ -175,7 +175,7 @@ Stack: Node.js, Angular, Docker, PWA, mobile.
 Took over a stalled e-commerce initiative and shipped it end-to-end
 to a customer base of 30,000+.
 
-• Rescued and completed an e-commerce project, deploying a PWA and
+• Stabilized and completed an e-commerce project, deploying a PWA and
   mobile apps used by 30,000+ customers.
 • Designed and ran a Docker build pipeline and private image
   registry, enabling continuous delivery for Node.js and Angular
