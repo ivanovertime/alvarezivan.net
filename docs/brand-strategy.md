@@ -15,7 +15,7 @@ This is the North Star. Every headline, bio, and post should ladder up to it.
 ### Why this works
 - **Credible today**: matches what's been shipped (Daka, Biomercados, Crazy Imagine).
 - **Aspirational tomorrow**: aligns with the Senior/Lead Data Architect target.
-- **Scarce**: very few people credibly combine *e-commerce platform stabilization* + *DevOps* + *GCP DataOps*. That's the moat.
+- **Scarce**: very few people credibly combine *e-commerce rescue + platform recovery* + *DevOps* + *GCP DataOps*. That's the moat.
 
 ---
 
@@ -38,10 +38,10 @@ Pick once, post against forever. Maps to the study plan's Hirability Scorecard.
 
 Recruiters and clients buy *stories*, not skill lists.
 
-> **"Platform Stabilization & Architecture."** — *"I usually work on teams where the e-commerce platform is under pressure, SAP integration is brittle, or deployment workflows need clarity. I help stabilize the system, containerize it, and hand back a platform the team can run confidently."*
+> **"E-commerce Rescue & Platform Recovery."** — *"I usually work on teams where the e-commerce platform is under pressure, SAP integration is brittle, or deployment workflows need clarity. I help recover the system, containerize it, and hand back a platform the team can run confidently."*
 
 Frames every past role consistently:
-- **Biomercados** → "stabilized and shipped to 30k users"
+- **Biomercados** → "rescued and shipped to 30k users"
 - **Daka** → "led recovery and re-architecture of 6 platforms"
 - **Freelance** → "evaluated and restored multi-tenant CS-Cart"
 - **Crazy Imagine** → "built support + KB system from scratch" *(new chapter: greenfield, not just rescue)*
@@ -56,7 +56,7 @@ Future chapter being written via the study plan: **"…and now I do it on GCP at
 Current: *"Full Stack Developer | E-commerce Specialist | PHP, Vue.js, Laravel, Docker"* — generic, lists tech, no outcome.
 
 Options:
-- **"Platform Engineer for E-commerce & Data Systems · DevOps + GCP · Laravel / NestJS / Kubernetes"**
+- **"E-commerce Rescue & Platform Recovery Engineer · DevOps + GCP · Laravel / NestJS / Kubernetes"**
 - **"I stabilize complex platforms and evolve them cloud-native · Full-Stack → DataOps · GCP · Docker · Laravel · NestJS"**
 
 ### About (rewrite skeleton)

@@ -28,7 +28,7 @@ Suggested composition:
 ## 4. Headline (220 char max)
 **Primary (recommended):**
 
-> Platform Engineer for E-commerce & Data Systems · I stabilize complex systems and evolve them cloud-native · DevOps + GCP · Laravel · NestJS · Kubernetes · Open to Senior/Lead roles
+> E-commerce Rescue & Platform Recovery Engineer · I recover complex systems and evolve them cloud-native · DevOps + GCP · Laravel · NestJS · Kubernetes · Open to Senior/Lead roles
 
 **Alternate (more outcome-led):**
 
@@ -48,10 +48,10 @@ Suggested composition:
 ```
 I usually work with teams where e-commerce platforms are under pressure,
 SAP integration is brittle, and deployment workflows need to be clarified.
-I help stabilize the system, containerize it, and hand back an automated
+I help recover the system, containerize it, and hand back an automated
 platform the team can actually run.
 
-Over the last four years I've led stabilization and re-architecture of
+Over the last four years I've led e-commerce rescue and platform recovery work,
 platforms serving 30,000+ users, directed teams of up to 15 developers,
 and shipped more than six production systems across e-commerce,
 mobile, and enterprise integration:
@@ -73,7 +73,7 @@ CI/CD, Proxmox, Ubuntu / Windows Server, SAP integration, and a working
 fluency with Gemini and AI-augmented engineering workflows.
 
 What's next: I'm deepening Google Cloud (Professional Data Engineer)
-and DataOps so I can bring the same stabilize-and-automate playbook to
+and DataOps so I can bring the same rescue-and-automate playbook to
 data platforms — BigQuery, Vertex AI, Airflow, and the reliability
 practices that keep them honest.
 
@@ -90,7 +90,7 @@ teams shipping to GCP.
 
 ## 7. Featured Section (pin 3 items)
 1. **Personal site** — `https://alvarezivan.net` (custom thumbnail with positioning statement).
-2. **Case study post** — "How we stabilized a NestJS + Strapi e-commerce platform at Daka" (LinkedIn article).
+2. **Case study post** — "How we rescued a NestJS + Strapi e-commerce platform at Daka" (LinkedIn article).
 3. **Open-source repo** — first published tool from the brand-strategy roadmap (e.g., Laravel → BigQuery sync).
 
 *(Until items 2 and 3 exist, pin: site + Coursera DevOps cert + a long-form post.)*

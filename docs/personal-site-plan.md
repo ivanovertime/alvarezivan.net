@@ -32,7 +32,7 @@ Still pending:
 | Email (work / public) | `alvarezlopezivanenrique@gmail.com` | Used on site, LinkedIn, CV. |
 | LinkedIn slug | `ialvarez93` | URL: `linkedin.com/in/ialvarez93`. |
 | Display name | "Iván Álvarez" | Accented form on the site. "Ivan Alvarez" acceptable as the unaccented LinkedIn alias. |
-| Brand mark | "Ivan Over Time" | Wordmark in the footer. Keep messaging warm and outcome-focused; avoid heroic framing. |
+| Brand mark | "Ivan Over Time" | Wordmark in the footer. Keep messaging warm and outcome-focused, with "rescue/recovery" used as context rather than bravado. |
 
 All other docs in this folder have been updated to match these values.
 
@@ -152,7 +152,7 @@ Keep the personality (cinema, cooking, Japanese) — that's the moat against bla
 
 **New structure:**
 
-1. **One-paragraph story** — the "Rescue Architect" narrative, slightly longer than the home hero. Pull from `linkedin-profile-draft.md` §6, paragraph 1.
+1. **One-paragraph story** — the "E-commerce rescue & platform recovery" narrative, slightly longer than the home hero. Pull from `linkedin-profile-draft.md` §6, paragraph 1.
 2. **Existing "curious by nature" paragraph** — keep verbatim. This is the human layer.
 3. **Timeline** — vertical, year on the left, role + 1-line outcome on the right. Same data as home but with more detail.
 4. **Currently studying** — link to `/now`.
@@ -178,7 +178,7 @@ Inspired by [nownownow.com/about](https://nownownow.com/about). Single page, upd
 - Generative AI for Software Developers (IBM).
 
 ## Shipping next
-- First case study: Daka NestJS + Strapi rescue.
+- First case study: Daka NestJS + Strapi e-commerce rescue.
 - One open-source repo (Laravel ↔ BigQuery sync — TBD).
 
 ## Available for
@@ -245,7 +245,7 @@ Current site is EN with an ES CV. Recommend adding ES content via Nuxt i18n only
 Order:
 1. ES home + about (high-traffic, easy).
 2. ES `/now`.
-3. Translate top 2 case studies (Daka rescue + Biomercados PWA).
+3. Translate top 2 case studies (Daka e-commerce rescue + Biomercados PWA).
 4. Mark ES-only posts in `/blog` with a flag; don't force translation parity.
 
 ---
@@ -265,7 +265,7 @@ Order:
 - [ ] Add pillar filter chips.
 - [ ] Tag existing 3 projects.
 - [ ] Add Featured Case Studies row to home (empty state OK).
-- [x] Publish **case study #1: Daka NestJS rescue** using the 6-section template.
+- [x] Publish **case study #1: Daka NestJS e-commerce rescue** using the 6-section template.
 
 ### Sprint 3 — Now + about + uses
 - [x] Build `/now` page + first quarterly entry.
@@ -324,7 +324,7 @@ I'm sharing three reference docs from my Curriculums repo:
 
 Treat `personal-site-plan.md` as the source of truth for what to
 change. Treat `brand-strategy.md` as the source of truth for tone
-and positioning ("Rescue Architect", decisions and trade-offs over
+and positioning ("E-commerce rescue & platform recovery", decisions and trade-offs over
 feature lists).
 
 Ground rules:
@@ -353,7 +353,7 @@ Your job, in this order, one PR per sprint:
 3. **Sprint 2 — Case studies foundation** (per §6 Sprint 2).
    Rename nav, add pillar filters, tag existing projects, add the
    Featured Case Studies row to the home, and publish the first new
-   case study (Daka NestJS rescue) using the 6-section template
+  case study (Daka NestJS e-commerce rescue) using the 6-section template
    from §2.2 with frontmatter.
 
 4. **Sprint 3 — `/now`, `/about` restructure, `/uses` split,

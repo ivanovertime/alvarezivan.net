@@ -5,7 +5,7 @@ description: "Full-stack engineer based in Valencia, Venezuela. I enjoy improvin
 
 ## The short version
 
-I'm a full-stack engineer based in Valencia, Venezuela. Most of my work has been on platforms that needed help — e-commerce stores under load, SAP integrations with limited documentation, and deployment processes that needed to be stabilized. I enjoy that kind of work: reading the code, talking to the people, and leaving things in a healthier state than I found them.
+I'm a full-stack engineer based in Valencia, Venezuela. Most of my work has been on platforms that needed help — e-commerce stores under load, SAP integrations with limited documentation, and deployment processes that needed recovery. I enjoy that kind of work: reading the code, talking to the people, and leaving things in a healthier state than I found them.
 
 Over the last four years I've helped recover and re-architect platforms serving up to 30,000 users, worked with teams of various sizes (sometimes leading, sometimes contributing), and shipped six-plus production systems across e-commerce, mobile, and enterprise integration. Right now I'm learning data platforms on Google Cloud — see [/now](/now) for what that looks like this quarter.
 
