@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     '@vueuse/nuxt',
-    'motion-v/nuxt'
+    'motion-v/nuxt',
+    'nuxt-og-image'
   ],
 
   devtools: {
@@ -14,6 +15,11 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
+
+  site: {
+    url: 'https://alvarezivan.net',
+    name: 'Iván Álvarez'
+  },
 
   runtimeConfig: {
     public: {

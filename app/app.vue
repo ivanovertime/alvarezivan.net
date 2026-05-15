@@ -8,9 +8,6 @@ const color = computed(() => colorMode.value === 'dark' ? '#020618' : 'white')
 const baseUrl = computed(() => config.public.siteUrl || requestUrl.origin)
 const canonicalUrl = computed(() => `${baseUrl.value}${route.path === '/' ? '' : route.path}`)
 
-const withBase = (url: string) =>
-  url?.startsWith('http') ? url : `${baseUrl.value}${url?.startsWith('/') ? '' : '/'}${url}`
-
 useHead({
   meta: [
     { charset: 'utf-8' },
@@ -42,9 +39,15 @@ useSeoMeta({
   ogSiteName: 'Ivan Over Time',
   ogType: 'website',
   ogUrl: canonicalUrl,
-  ogImage: () => withBase('/avatar.jpg'),
-  twitterImage: () => withBase('/avatar.jpg'),
   twitterCard: 'summary_large_image'
+})
+
+// Auto-generate per-page Open Graph images via nuxt-og-image.
+// Pages with their own ogImage in frontmatter (e.g. case studies)
+// override this through useSeoMeta() in their page component.
+// Component-name typing is generated from .nuxt; cast keeps tsc happy.
+defineOgImageComponent('NuxtSeo' as never, {
+  siteName: 'Ivan Over Time'
 })
 
 const [{ data: navigation }, { data: files }] = await Promise.all([

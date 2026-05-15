@@ -1,7 +1,6 @@
 ---
 title: "Contact"
 description: "The fastest ways to reach me — email, calendar, LinkedIn, GitHub."
-ogImage: "/og/contact.png"
 ---
 
 # Contact

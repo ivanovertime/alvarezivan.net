@@ -20,10 +20,13 @@
     "@vueuse/nuxt": "^14.1.0",
     "better-sqlite3": "^12.5.0",
     "motion-v": "^1.7.3",
-    "nuxt": "^4.2.2"
+    "nuxt": "^4.2.2",
+    "nuxt-og-image": "^6.5.0",
+    "satori": "^0.26.0"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.12.1",
+    "@nuxt/fonts": "^0.14.0",
     "eslint": "^9.39.2",
     "typescript": "^5.9.3",
     "vue-tsc": "^3.2.1"

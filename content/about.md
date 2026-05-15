@@ -1,7 +1,6 @@
 ---
 title: "About"
 description: "Full-stack engineer based in Valencia, Venezuela. I enjoy untangling messy systems and shipping platforms teams can actually run."
-ogImage: "/og/about.png"
 ---
 
 ## The short version
