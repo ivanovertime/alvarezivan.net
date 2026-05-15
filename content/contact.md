@@ -19,7 +19,7 @@ I'm currently full-time at Crazy Imagine Software and **open to a conversation**
 ## :u-icon{name="i-lucide-handshake" class="mr-2 align-[-2px]"} What I'm open to
 
 - **Full-time roles** — mid-level IC, senior, or lead — in Full-Stack, Platform, or Data Engineering. Remote-first, ideally with teams shipping (or moving) to GCP.
-- **Fractional engagements** — typically a few days a week for a defined window (rescue, migration, or platform stand-up).
+- **Fractional engagements** — typically a few days a week for a defined window (stabilization, migration, or platform stand-up).
 - **Code or architecture reviews** on e-commerce or SAP-integrated platforms — a focused 1–2 week piece of work.
 - **Advisory chats** with founders or small teams making early platform / data-stack decisions. Often the first call is enough.
 
@@ -27,7 +27,7 @@ I'm currently full-time at Crazy Imagine Software and **open to a conversation**
 
 Not required — just helpful if you have them handy:
 
-- The **shape of the problem** — rescue, greenfield, audit, or just an open conversation.
+- The **shape of the problem** — stabilization, greenfield, audit, or just an open conversation.
 - The **stack and team size**, if you know them.
 - A **rough timeline** and what "done" looks like to you.
 - The **part that hurts most** right now (deploys, data, integrations, hiring, runway).
