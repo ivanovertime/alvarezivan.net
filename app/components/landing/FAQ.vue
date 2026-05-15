@@ -28,13 +28,21 @@ const ui = {
   <UPageSection
     v-if="page.faq?.categories?.length"
     :title="page.faq.title"
-    :description="page.faq.description"
     :ui="{
       container: 'px-0 !pt-0 gap-4 sm:gap-4',
       title: 'text-left text-xl sm:text-xl lg:text-2xl font-medium',
       description: 'text-left mt-2 text-sm sm:text-md lg:text-sm text-muted'
     }"
   >
+    <template
+      v-if="page.faq.description"
+      #description
+    >
+      <MDC
+        :value="page.faq.description"
+        unwrap="p"
+      />
+    </template>
     <UTabs
       :items
       orientation="horizontal"
