@@ -7,7 +7,7 @@ year: 2022
 pillar: "Platform & DevOps"
 type: "rescue"
 stack: ["Node.js", "Angular", "PWA", "Docker", "CI/CD"]
-team_size: 1
+team_size: 2
 role: "Programmer"
 outcome_headline: "Recovered a stalled project and shipped to 30,000+ customers"
 featured: true
