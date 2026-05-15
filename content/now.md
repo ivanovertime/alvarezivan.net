@@ -26,8 +26,8 @@ Next up (Q3): **Google Cloud Professional Data Engineer** and **DataOps: Automat
 
 ## :u-icon{name="i-lucide-rocket" class="mr-2 align-[-2px]"} Shipping next
 
-- **Case study #1 — [Daka NestJS + Strapi e-commerce rescue](/blog/case-studies/daka-ecommerce-rescue).** First in a short series of write-ups on platforms I've helped recover and rebuild over the last few years.
-- **Two more case studies queued:** [Biomercados 30k-user PWA](/blog/case-studies/biomercados-pwa) and the [Daka nationwide SAP quotation app](/blog/case-studies/daka-sap-quotation-app).
+- **The paired Daka e-commerce case studies (recovery + rebuild)** — [Act 1: stabilizing the inherited platform](/blog/case-studies/daka-ecommerce-recovery) and [Act 2: rebuilding it in three months](/blog/case-studies/daka-ecommerce-rebuild). One engagement, two pages — first in a short series on platforms I've helped recover and rebuild.
+- **Two more case studies in the series:** [Biomercados 30k-user PWA](/blog/case-studies/biomercados-pwa) and the [Daka nationwide SAP quotation app](/blog/case-studies/daka-sap-quotation-app).
 - **One open-source repo** to publish this quarter — likely a small, useful tool at the intersection of Laravel and BigQuery. (TBD; I'd rather ship one good thing than three half-finished ones.)
 - **English CV** added to `/about` alongside the Spanish one.
 

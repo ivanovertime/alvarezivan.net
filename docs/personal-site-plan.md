@@ -11,7 +11,7 @@ Aligned with `brand-strategy.md` and `linkedin-profile-draft.md`.
 Completed:
 - Core tone pass across home/about/now/contact and case studies (warmer, less sales-heavy language).
 - `/now`, `/uses`, and `/contact` are live and linked from navigation/footer as intended.
-- Three case studies are published (`daka-ecommerce-rescue`, `biomercados-pwa`, `daka-sap-quotation-app`).
+- Four case studies are published: the Daka e-commerce **pair** (`daka-ecommerce-recovery` + `daka-ecommerce-rebuild`), `biomercados-pwa`, and `daka-sap-quotation-app`.
 - Open Graph generation is wired with `nuxt-og-image`, with a local template override.
 - JSON-LD is live via `nuxt-schema-org` (`Person`/`WebSite`/`WebPage` globally and `Article` on blog detail pages).
 
@@ -119,17 +119,17 @@ Don't delete the existing 3 projects; reclassify and add to them.
 Frontmatter to add to the Nuxt content collection:
 
 ```yaml
-title: "Rescuing a NestJS + Strapi e-commerce platform"
+title: "Stabilizing a failing e-commerce platform inherited from a third party"
 client: "Tiendas Daka"
 year: 2025
 pillar: "Full-Stack Architecture"
-type: "rescue"          # rescue | greenfield | side-project
-stack: ["NestJS", "Strapi", "Docker", "Laravel", "SAP"]
+type: "recovery"       # recovery | greenfield | side-project
+stack: ["NestJS", "Strapi", "Docker", "SAP", "CI/CD"]
 team_size: 4
 role: "Tech Lead"
-outcome_headline: "Restored delivery cadence and unblocked the roadmap"
+outcome_headline: "Turned a fragile third-party storefront into a predictable, releasable system"
 featured: true          # surfaces on home
-ogImage: "/og/daka-ecommerce-rescue.png"
+ogImage: "/blog/case-studies/daka-ecommerce-rescue/featuredImage.jpg"
 ```
 
 ---
@@ -265,7 +265,7 @@ Order:
 - [ ] Add pillar filter chips.
 - [ ] Tag existing 3 projects.
 - [ ] Add Featured Case Studies row to home (empty state OK).
-- [x] Publish **case study #1: Daka NestJS e-commerce rescue** using the 6-section template.
+- [x] Publish **the Daka e-commerce pair** (`daka-ecommerce-recovery` + `daka-ecommerce-rebuild`) using the 6-section template, with a "📎 Part of a pair" callout cross-linking the two.
 
 ### Sprint 3 — Now + about + uses
 - [x] Build `/now` page + first quarterly entry.
