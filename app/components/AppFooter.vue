@@ -17,6 +17,13 @@ const { footer } = useAppConfig()
         >
           Open to Senior/Lead roles
         </NuxtLink>
+        <span class="hidden sm:inline text-default/30">·</span>
+        <NuxtLink
+          to="/uses"
+          class="text-muted hover:text-primary transition-colors"
+        >
+          /uses
+        </NuxtLink>
       </div>
     </template>
 
