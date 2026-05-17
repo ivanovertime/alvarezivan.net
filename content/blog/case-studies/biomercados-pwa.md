@@ -67,7 +67,7 @@ The fastest path to a phone screen wasn't an iOS/Android binary — it was a Pro
 | Option | Trade-off | Chose |
 |---|---|---|
 | Build native iOS + Android apps from day one | Months of platform-specific work; app-store review on every change | |
-| Ship a PWA from the existing Angular code, wrap as mobile apps later | Web-first surface available in days, not months; one codebase to maintain | ✅ |
+| Ship a PWA from the existing Angular code, wrap as mobile apps later | Web-first surface available in days, not months; one codebase to maintain | <DecisionCheck /> |
 
 The mobile apps came after, on the foundation the PWA had already proven.
 
@@ -78,7 +78,7 @@ Tempting as it was to chase the feature backlog, the bottleneck wasn't features 
 | Option | Trade-off | Chose |
 |---|---|---|
 | Hand-deploy until launch, automate later | Faster on day one; every deploy after that costs the same hour | |
-| Stand up a private Docker registry + a thin CI/CD pipeline first | Two weeks of platform work before any new feature shipped; every deploy after that was free | ✅ |
+| Stand up a private Docker registry + a thin CI/CD pipeline first | Two weeks of platform work before any new feature shipped; every deploy after that was free | <DecisionCheck /> |
 
 Same principle as the Daka rescue, applied earlier: stabilize the runtime before chasing the roadmap. The pipeline outlived the project — the team after me kept using it for the Node.js and Angular services that came next.
 
@@ -89,7 +89,7 @@ Marketing wanted to know which customers to talk to and when. I ran an **RFM ana
 | Option | Trade-off | Chose |
 |---|---|---|
 | Wait until a dedicated data team exists | Months of waiting on insight the business needed now | |
-| Run RFM on the existing data, hand the segments to marketing | Lightweight, immediately useful, and proved the new platform's data was worth something | ✅ |
+| Run RFM on the existing data, hand the segments to marketing | Lightweight, immediately useful, and proved the new platform's data was worth something | <DecisionCheck /> |
 
 It wasn't a "data platform." It was a one-engineer analysis that paid for itself the first week marketing used it.
 
@@ -100,7 +100,7 @@ Pricing in Venezuela depends on the official exchange rate, which someone on the
 | Option | Trade-off | Chose |
 |---|---|---|
 | Keep doing it manually | Free until it isn't — a single typo moves prices on a whole catalog | |
-| Scrape the official rate on a schedule and push it into the platform | A small ingestion job; removes a daily chore and a class of pricing bugs | ✅ |
+| Scrape the official rate on a schedule and push it into the platform | A small ingestion job; removes a daily chore and a class of pricing bugs | <DecisionCheck /> |
 
 This is the seed of the BCV-scraper work I later wrote about publicly. Small automations like this one tend to pay back quickly, mostly because they remove a recurring human failure mode rather than because they save time directly.
 

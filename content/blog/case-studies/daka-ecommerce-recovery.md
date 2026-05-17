@@ -72,7 +72,7 @@ The first two weeks were diagnosis only. We wrote down what we found, what we'd 
 | Option | Trade-off | Chose |
 |---|---|---|
 | Fix the highest-priority bug list first | Visible to stakeholders, but each fix risked another regression on a fragile runtime | |
-| Freeze features for two weeks, audit and instrument the runtime | Feels slow to the business; pays back the moment the next bug lands | ✅ |
+| Freeze features for two weeks, audit and instrument the runtime | Feels slow to the business; pays back the moment the next bug lands | <DecisionCheck /> |
 
 We bought predictability before we bought velocity. Every subsequent change landed on a runtime we actually understood.
 
@@ -83,7 +83,7 @@ The SAP integration was the single biggest source of incidents. Catalog and pric
 | Option | Trade-off | Chose |
 |---|---|---|
 | Refactor the integration in place, file by file | Low blast radius per PR, but no clear "done" line | |
-| Introduce a single integration module with a typed interface and route every call through it | Higher up-front cost; produces one place to harden, log, and (later) cache | ✅ |
+| Introduce a single integration module with a typed interface and route every call through it | Higher up-front cost; produces one place to harden, log, and (later) cache | <DecisionCheck /> |
 
 The module became the seam that made everything else easier — observability, retries, caching. It also turned out to be the single most reusable artifact of the whole engagement: it survived the rebuild that followed, and the [SAP quotation app](/blog/case-studies/daka-sap-quotation-app) is built on the same pattern.
 
@@ -94,7 +94,7 @@ Rather than chase a new platform target during recovery, we containerized the ex
 | Option | Trade-off | Chose |
 |---|---|---|
 | Migrate to a managed PaaS in the middle of a recovery | Modern, but introduces a second migration on top of an unstable baseline | |
-| Containerize in place + a thin CI/CD pipeline | Familiar tooling, fast payoff, leaves the door open for Kubernetes or Cloud Run later | ✅ |
+| Containerize in place + a thin CI/CD pipeline | Familiar tooling, fast payoff, leaves the door open for Kubernetes or Cloud Run later | <DecisionCheck /> |
 
 The recurring pattern in this kind of work: **fewer moving parts at first, more options later.**
 
@@ -105,7 +105,7 @@ Strapi had drifted into being used for things it isn't good at — pricing rules
 | Option | Trade-off | Chose |
 |---|---|---|
 | Leave the responsibilities where they were and document them | Cheaper now; pays the same incident tax forever | |
-| Pull business logic back into NestJS; restrict Strapi to editorial content | More work now; clears a category of surprise entirely | ✅ |
+| Pull business logic back into NestJS; restrict Strapi to editorial content | More work now; clears a category of surprise entirely | <DecisionCheck /> |
 
 This bought breathing room and — as it turned out — clarified what a follow-on rebuild would and would not need to replace.
 

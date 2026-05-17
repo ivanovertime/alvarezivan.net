@@ -66,7 +66,7 @@ The temptation in 2025 was to reach for a fashionable stack. The right answer fo
 | Option | Trade-off | Chose |
 |---|---|---|
 | A bespoke SPA + custom admin | Months of UI work before the back-office could see anything | |
-| Laravel + Filament for the back-office; a thin mobile-first PWA for the salesperson surface | Filament gives a production-grade admin in days; Laravel handles the SAP integration cleanly; the team already knew the stack | ✅ |
+| Laravel + Filament for the back-office; a thin mobile-first PWA for the salesperson surface | Filament gives a production-grade admin in days; Laravel handles the SAP integration cleanly; the team already knew the stack | <DecisionCheck /> |
 
 Boring on purpose. The novelty budget went into the SAP integration, not the framework choice.
 
@@ -77,7 +77,7 @@ Same reasoning as the Biomercados PWA, applied at higher stakes.
 | Option | Trade-off | Chose |
 |---|---|---|
 | Native iOS + Android | App-store gauntlet on every release; longer build cycles; device fragmentation | |
-| Mobile-first PWA, installable from a link | Same codebase as the back-office; instant updates; deploys decoupled from app stores | ✅ |
+| Mobile-first PWA, installable from a link | Same codebase as the back-office; instant updates; deploys decoupled from app stores | <DecisionCheck /> |
 
 For a tool used by employees rather than customers, a PWA was the obvious right answer — fewer moving parts, faster iteration, no rollout choreography.
 
@@ -88,7 +88,7 @@ SAP was the system of record. It wasn't, however, fast or always available. If t
 | Option | Trade-off | Chose |
 |---|---|---|
 | Call SAP synchronously for every read and write | Simplest mental model; the salesperson lives at SAP's mercy | |
-| Project SAP catalog and pricing into the app's own store; queue writes back to SAP | More moving parts; the salesperson always sees a usable catalog and the system tolerates SAP outages | ✅ |
+| Project SAP catalog and pricing into the app's own store; queue writes back to SAP | More moving parts; the salesperson always sees a usable catalog and the system tolerates SAP outages | <DecisionCheck /> |
 
 This is the pattern I carried over from the e-commerce rescue: a single integration module with a typed interface, observable, retry-aware, and replaceable. The app reads from a local projection and writes through the module — SAP is the contract, not the runtime.
 
@@ -99,7 +99,7 @@ Sales sites don't have a uniform network story. Treating offline as an exception
 | Option | Trade-off | Chose |
 |---|---|---|
 | Assume the network and add offline later | Offline becomes a perpetually-postponed Phase 2 | |
-| Cache the catalog locally, queue quotes, sync when online | Up-front design cost; the app behaves the same in the warehouse and on a highway | ✅ |
+| Cache the catalog locally, queue quotes, sync when online | Up-front design cost; the app behaves the same in the warehouse and on a highway | <DecisionCheck /> |
 
 The business outcome of this decision was simple: a salesperson on a bad connection still closes the quote.
 
@@ -110,7 +110,7 @@ Filament made the admin surface cheap to build. That meant we could spend the sa
 | Option | Trade-off | Chose |
 |---|---|---|
 | Build a custom admin from scratch | Fully bespoke, fully ours, fully unfinished | |
-| Lean on Filament for the back-office and put the engineering time into integration and mobile UX | The interesting work goes where the leverage is | ✅ |
+| Lean on Filament for the back-office and put the engineering time into integration and mobile UX | The interesting work goes where the leverage is | <DecisionCheck /> |
 
 ## Outcome
 

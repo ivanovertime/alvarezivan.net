@@ -69,7 +69,7 @@ Three months and four engineers is not the budget for novelty risk. We picked to
 | Option | Trade-off | Chose |
 |---|---|---|
 | Pick the most fashionable e-commerce framework of 2025 | Novelty risk on a three-month deadline; longer ramp; smaller community when stuck | |
-| **NestJS** for the backend (we already knew it from the recovery), **Next.js** for the storefront, **Medusa** as the commerce engine | Each piece is mature, well-documented, and replaceable; the team could ramp in days, not weeks | ✅ |
+| **NestJS** for the backend (we already knew it from the recovery), **Next.js** for the storefront, **Medusa** as the commerce engine | Each piece is mature, well-documented, and replaceable; the team could ramp in days, not weeks | <DecisionCheck /> |
 
 The novelty budget went into the SAP integration and the cutover plan, not into the framework choice. **Boring on purpose.**
 
@@ -80,7 +80,7 @@ The integration module from the recovery had a clear contract: typed interface, 
 | Option | Trade-off | Chose |
 |---|---|---|
 | Build a new SAP integration alongside the old one | Two places to maintain; long parallel-run window; two sets of bugs | |
-| Lift the boundary contract from the recovery, port the implementation onto the new stack | Requires the recovery to actually be reusable; pays back the entire cost of having built it cleanly | ✅ |
+| Lift the boundary contract from the recovery, port the implementation onto the new stack | Requires the recovery to actually be reusable; pays back the entire cost of having built it cleanly | <DecisionCheck /> |
 
 This is the hidden return on the recovery work: **the integration boundary became an asset, not a sunk cost.** The same pattern carries into the [SAP quotation app](/blog/case-studies/daka-sap-quotation-app).
 
@@ -91,7 +91,7 @@ The previous build had let Strapi drift into a control plane for everything. We 
 | Option | Trade-off | Chose |
 |---|---|---|
 | Stretch Medusa to cover editorial content, marketing pages, business logic | One tool for everything; everything becomes coupled to a commerce framework's release cycle | |
-| Keep Medusa to commerce: catalog, cart, checkout, orders. Editorial content stays in a content tool. SAP stays the system of record. | Each piece has one job; each piece is replaceable | ✅ |
+| Keep Medusa to commerce: catalog, cart, checkout, orders. Editorial content stays in a content tool. SAP stays the system of record. | Each piece has one job; each piece is replaceable | <DecisionCheck /> |
 
 **One typed boundary per external system, one tool per job.** The discipline is the same as the SAP boundary, applied internally.
 
@@ -102,7 +102,7 @@ Three months meant we couldn't afford to run both storefronts in parallel indefi
 | Option | Trade-off | Chose |
 |---|---|---|
 | Soft launch behind a flag, indefinite parallel run | Delays the moment of truth; doubles ops cost; tempts the team to keep adding to both | |
-| Plan the cutover from day one — same SAP source of truth, same payment surfaces, scheduled switchover | Forces honest scope; turns the deadline into a real ship date | ✅ |
+| Plan the cutover from day one — same SAP source of truth, same payment surfaces, scheduled switchover | Forces honest scope; turns the deadline into a real ship date | <DecisionCheck /> |
 
 Same SAP. Same payments. A real cutover date on the calendar from week one. The deadline became a feature.
 
