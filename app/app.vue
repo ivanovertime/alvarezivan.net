@@ -43,14 +43,6 @@ useSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-// Auto-generate per-page Open Graph images via nuxt-og-image.
-// Pages with their own ogImage in frontmatter (e.g. case studies)
-// override this through useSeoMeta() in their page component.
-// Component-name typing is generated from .nuxt; cast keeps tsc happy.
-defineOgImageComponent('NuxtSeo' as never, {
-  siteName: 'Ivan Over Time'
-})
-
 // Global JSON-LD: declare the site's Person + WebSite once.
 // Page-specific schemas (Article, etc.) are added on the relevant pages.
 useSchemaOrg([
