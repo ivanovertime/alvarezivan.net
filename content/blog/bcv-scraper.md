@@ -12,8 +12,22 @@ author:
   avatar:
     src: "/avatar.jpg"
     alt: "Iván Álvarez"
+pillar: "Full-Stack Architecture"
+type: "side-project"
+stack: ["Python", "FastAPI", "Web Scraping", "REST API"]
+team_size: 1
+role: "Engineer"
+year: 2024
+outcome_headline: "Published an open-source scraper that solves daily manual exchange-rate entry for Venezuelan e-commerce teams"
+featured: false
 ---
 ## Situation
+
+## TL;DR
+
+Venezuelan e-commerce platforms are required by law to invoice in bolívares while most catalog pricing stays in USD. Manual daily exchange-rate entry is error-prone and not scalable. This post walks through the scraping approach, a simple FastAPI microservice that can be deployed anywhere, and when you'd actually use it vs. a third-party rate API.
+
+## Context
 
 Venezuela's e-commerce sector is expected to grow thanks to increasing internet penetration, an evolving legal framework, and banks that now provide more secure transactions [^1]. After the pandemic, business boomed; the law requires invoices in the national currency (Bs.), but most products and transactions are advertised in USD. Let's look at two examples:
 
@@ -32,6 +46,19 @@ They appear to use Angular with what looks like an Express backend, although I c
 If you use a service like [Exchange Rate API](https://www.exchangerate-api.com/) you can get the daily exchange rate, but you could get rate-limited quickly.
 
 ## Solution
+
+## Decision: API service or scheduled job?
+
+You have two paths here:
+
+| Option | Trade-off | Chose |
+|---|---|---|
+| Third-party exchange rate API (e.g., exchangerate-api.com) | You pay per request or per month; rate-limited on free tier; adds a dependency | |
+| Build your own scraper + microservice | Runs on your infrastructure; handles bursts free; full control of the rate feed | <DecisionCheck /> |
+
+For Venezuelan platforms, the scraper wins: the Banco Central publishes daily, regulation requires the official rate, and you avoid external rate limits. Deploy it on the infrastructure you already have.
+
+## Implementation
 ### If you have hardware
 Creating a web scraper and using it with [crawlab](https://www.crawlab.cn/en) as storage in MongoDB is a great solution.
 
@@ -50,6 +77,11 @@ I published a starter implementation in this [repo](https://github.com/ivanovert
 Let me know if you have any questions.
 
 # References
+## Outcome
+
+The BCV scraper is now published as an open-source starter repo. It eliminates a recurring manual task (daily copy-paste of exchange rates) and becomes a building block for any Venezuelan e-commerce or SaaS platform that needs rate compliance. Developers can fork it, customize it for their needs, and deploy it on the infrastructure they already have.
+
+## References
 Photo by [Frederick Medina](https://unsplash.com/@frederickjmedina?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/person-holding-two-brown-doughnuts-LxyT2CgQSj8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
 
