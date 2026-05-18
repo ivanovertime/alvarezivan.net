@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     'motion-v/nuxt',
-    'nuxt-schema-org'
+    'nuxt-schema-org',
+    'nuxt-og-image'
   ],
 
   devtools: {
@@ -52,5 +53,11 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
+  },
+
+  ogImage: {
+    // Disable all runtime generation — images are prerendered at build time.
+    // This avoids Cloudflare Pages edge incompatibilities (no node:stream).
+    zeroRuntime: true
   }
 })

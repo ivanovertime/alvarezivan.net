@@ -30,6 +30,17 @@ useHead({
       href: 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap'
     }
   ],
+  script: [
+    {
+      key: 'gtag-src',
+      async: true,
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-HM1BLYRYW0'
+    },
+    {
+      key: 'gtag-init',
+      innerHTML: 'window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag(\'js\', new Date()); gtag(\'config\', \'G-HM1BLYRYW0\');'
+    }
+  ],
   htmlAttrs: {
     lang: 'en'
   }
@@ -41,6 +52,14 @@ useSeoMeta({
   ogType: 'website',
   ogUrl: canonicalUrl,
   twitterCard: 'summary_large_image'
+})
+
+// Auto-generate per-page Open Graph images via nuxt-og-image.
+// Pages with their own ogImage in frontmatter (e.g. case studies)
+// override this through useSeoMeta() in their page component.
+// Component-name typing is generated from .nuxt; cast keeps tsc happy.
+defineOgImageComponent('NuxtSeo' as never, {
+  siteName: 'Ivan Over Time'
 })
 
 // Global JSON-LD: declare the site's Person + WebSite once.
