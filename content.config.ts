@@ -8,6 +8,8 @@ const createBaseSchema = () => z.object({
 const createButtonSchema = () => z.object({
   label: z.string(),
   icon: z.string().optional(),
+  leadingIcon: z.string().optional(),
+  trailingIcon: z.string().optional(),
   to: z.string().optional(),
   color: z.enum(['primary', 'neutral', 'success', 'warning', 'error', 'info']).optional(),
   size: z.enum(['xs', 'sm', 'md', 'lg', 'xl']).optional(),
@@ -42,12 +44,12 @@ export default defineContentConfig({
       schema: z.object({
         hero: z.object({
           links: z.array(createButtonSchema()),
-          images: z.array(createImageSchema())
+          images: z.array(createImageSchema()).optional()
         }),
         about: createBaseSchema(),
         experience: createBaseSchema().extend({
           items: z.array(z.object({
-            date: z.date(),
+            date: z.string(),
             position: z.string(),
             company: z.object({
               name: z.string(),

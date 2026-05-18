@@ -34,7 +34,9 @@ export default defineNuxtConfig({
     preset: 'cloudflare_pages',
     prerender: {
       routes: [
-        '/'
+        '/',
+        '/sitemap.xml',
+        '/rss.xml'
       ],
       crawlLinks: true,
       // Emit `dist/about.html` instead of `dist/about/index.html`.
