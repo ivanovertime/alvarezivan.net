@@ -90,6 +90,7 @@ export default defineContentConfig({
         pillar: z.string().optional(),
         type: z.enum(['rescue', 'greenfield', 'side-project']).optional(),
         stack: z.array(z.string()).optional(),
+        repoUrl: z.string().url().optional(),
         team_size: z.number().optional(),
         role: z.string().optional(),
         outcome_headline: z.string().optional(),

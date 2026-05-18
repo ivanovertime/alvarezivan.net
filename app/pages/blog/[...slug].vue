@@ -23,6 +23,7 @@ const description = page.value?.seo?.description || page.value?.description
 const ogImage = computed(() => page.value?.ogImage || page.value?.image || '/avatar.jpg')
 const absoluteOgImage = computed(() => withBase(ogImage.value))
 const publishedTime = computed(() => page.value?.date ? new Date(page.value.date).toISOString() : undefined)
+const showRepoCta = computed(() => page.value?.category === 'side-project' && Boolean(page.value?.repoUrl))
 
 useSeoMeta({
   title,
@@ -143,6 +144,20 @@ const formatDate = (dateString: string) => {
           >
             {{ page.description }}
           </p>
+          <div
+            v-if="showRepoCta"
+            class="flex justify-center mt-2"
+          >
+            <UButton
+              :to="page.repoUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="neutral"
+              variant="soft"
+              icon="i-lucide-github"
+              label="View Repository"
+            />
+          </div>
           <div
             v-if="page.category === 'case-study'"
             class="flex flex-wrap items-center justify-center gap-2 text-xs text-muted"

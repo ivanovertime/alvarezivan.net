@@ -274,7 +274,7 @@ Order:
 
 ### Sprint 4 — Volume + polish
 - [x] Publish case studies #2 and #3 (Biomercados PWA, Daka SAP quotation).
-- [ ] Backfill the 6-section template on existing 3 projects (2/3 done; JP Landing pending).
+- [x] Backfill the 6-section template on existing 3 projects.
 - [ ] Mirror first 2 LinkedIn long-form posts to `/blog` with canonical tags.
 - [ ] Run Lighthouse — gate at perf ≥ 95, a11y ≥ 95.
 

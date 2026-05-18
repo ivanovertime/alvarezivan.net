@@ -15,6 +15,7 @@ author:
 pillar: "Full-Stack Architecture"
 type: "side-project"
 stack: ["Python", "FastAPI", "Web Scraping", "REST API"]
+repoUrl: "https://github.com/ivanovertime/bcv_scraper"
 team_size: 1
 role: "Engineer"
 year: 2024

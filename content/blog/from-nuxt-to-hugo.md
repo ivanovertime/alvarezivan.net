@@ -15,6 +15,7 @@ author:
 pillar: "Full-Stack Architecture"
 type: "side-project"
 stack: ["Hugo", "Nuxt", "Vue", "Tailwind CSS", "Cloudflare Pages"]
+repoUrl: "https://github.com/ivanovertime/alvarezivan.net"
 team_size: 1
 role: "Engineer"
 year: 2024
