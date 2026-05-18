@@ -1,6 +1,6 @@
 # Personal Site Modification Plan — alvarezivan.net
 
-Status: **Working doc v3**, updated May 2026. Tracks current state and next steps.
+Status: **Working doc v4**, updated May 2026. Tracks current state and next steps.
 Live site: https://alvarezivan.net (Nuxt 4 + Vue 3 + TS + Nuxt UI + Tailwind, Cloudflare Pages).
 Aligned with `brand-strategy.md` and `linkedin-profile-draft.md`.
 
@@ -16,9 +16,8 @@ Completed:
 - JSON-LD is live via `nuxt-schema-org` (`Person`/`WebSite`/`WebPage` globally and `Article` on blog detail pages).
 
 Still pending:
-- RSS feed for `/blog`.
-- CV download links on `/about`.
-- Optional case-study index alias and pillar-filter UX.
+- Pillar-filter UX on existing routes (`/blog` with case-study filtering).
+- Mirror first two LinkedIn long-form posts with canonical tags.
 - Lighthouse score gate documentation and verification.
 
 ---
@@ -48,11 +47,10 @@ What the site does well today (don't touch):
 - Calendar booking link already wired to a single CTA.
 
 What's still missing for the current positioning:
-1. **No EN CV download yet.** `/about` still needs direct CV links.
-2. **Case-study index UX is still thin.** We have the content, but not the optional `/case-studies` alias + filter chips.
-3. **RSS is still pending.** `/blog` feed generation is not wired yet.
-4. **Lighthouse gates are not documented/run as a release gate.**
-5. **Pillar taxonomy is not fully surfaced in the UI yet.**
+1. **Case-study index UX is still thin.** We have the content, but pillar chips/filtering are not surfaced yet.
+2. **Lighthouse gates are not documented/run as a release gate.**
+3. **Pillar taxonomy is not fully surfaced in the UI yet.**
+4. **LinkedIn mirror workflow is not implemented yet.**
 
 ---
 
@@ -85,11 +83,11 @@ Keep the existing avatar and the GitHub/LinkedIn icons.
 
 ---
 
-### 2.2 Projects (`/projects`) → reframe as Case Studies index
+### 2.2 Case studies discovery (via `/blog`)
 
 Don't delete the existing 3 projects; reclassify and add to them.
 
-**Rename in the nav:** `Projects` → `Case Studies`. Keep `/projects` URL for SEO; add `/case-studies` as an alias.
+**Decision (May 2026):** keep case studies under `/blog` and do **not** add `/projects` or `/case-studies` routes/nav shortcuts.
 
 **Add filter chips by pillar:** `Platform & DevOps · GCP & DataOps · Full-Stack Architecture · AI-Augmented · Side Project`.
 
@@ -228,11 +226,11 @@ Don't add: animations, sliders, hero videos, gradients beyond the accent.
 ## 4. SEO & sharing checklist
 
 - [x] `<title>` pattern is implemented globally (`%s - Ivan Over Time`) in app-level SEO.
-- [ ] Meta description per page = the page's TL;DR or hero subline.
+- [x] Meta description per page = the page's TL;DR or hero subline.
 - [x] OG image per page (auto-generated).
 - [x] JSON-LD: `Person` + `WebSite` + `WebPage` globally, `Article` on blog detail pages.
-- [ ] `sitemap.xml` and `robots.txt` confirmed.
-- [ ] RSS for `/blog` (and optionally `/case-studies`).
+- [x] `sitemap.xml` and `robots.txt` confirmed.
+- [x] RSS for `/blog`.
 - [ ] Canonical URLs on mirrored writing posts.
 - [ ] LinkedIn Featured section pinned to: home + 1 case study + 1 blog post.
 
@@ -261,7 +259,7 @@ Order:
 - [x] Verify OG previews still render.
 
 ### Sprint 2 — Case studies foundation
-- [ ] Rename nav `Projects` → `Case Studies`; add `/case-studies` alias.
+- [x] Keep case studies under `/blog` (no `/projects` or `/case-studies` route, by decision).
 - [ ] Add pillar filter chips.
 - [ ] Tag existing 3 projects.
 - [ ] Add Featured Case Studies row to home (empty state OK).
@@ -276,9 +274,9 @@ Order:
 
 ### Sprint 4 — Volume + polish
 - [x] Publish case studies #2 and #3 (Biomercados PWA, Daka SAP quotation).
-- [ ] Backfill the 6-section template on existing 3 projects (lighter version is fine for side projects).
+- [ ] Backfill the 6-section template on existing 3 projects (2/3 done; JP Landing pending).
 - [ ] Mirror first 2 LinkedIn long-form posts to `/blog` with canonical tags.
-- [ ] Add RSS, run Lighthouse — gate at perf ≥ 95, a11y ≥ 95.
+- [ ] Run Lighthouse — gate at perf ≥ 95, a11y ≥ 95.
 
 ---
 
@@ -287,8 +285,8 @@ Order:
 - [x] New positioning visible above the fold on home.
 - [ ] At least 3 senior case studies live, each with a decision table and concrete outcome numbers.
 - [x] `/now` published and dated within the last 30 days.
-- [ ] EN CV downloadable from `/about`.
-- [ ] Pillar filtering works on `/case-studies` and `/blog`.
+- [x] EN CV downloadable from `/about`.
+- [ ] Pillar filtering works on `/blog`.
 - [ ] LinkedIn Featured links to: home + best case study + best blog post.
 - [x] OG preview generation verified in build for key URLs.
 - [ ] Lighthouse perf ≥ 95, a11y ≥ 95 on home and case-study template.
@@ -302,7 +300,7 @@ Order:
 - [x] Ship `/uses` link in footer for persistent discoverability.
 - [ ] Confirm site repo location (private GitHub?). Add link here once decided.
 - [ ] Pick analytics tool if none today (Plausible or Cloudflare Web Analytics).
-- [ ] Decide whether `/projects` URL becomes the canonical or `/case-studies` does.
+- [x] Keep case studies under `/blog` (no `/projects` or `/case-studies` aliases).
 - [ ] Next case study improvement pass: add stronger outcome metrics to the three published case studies.
 
 ---
@@ -333,7 +331,7 @@ Ground rules:
   cooking), and the existing blog posts and projects.
 - Add the new accent color, pillar-tag component, and OG generator —
   don't redesign the site.
-- Keep all existing URLs working. Add aliases instead of replacing.
+- Keep all existing URLs working. Case studies stay under `/blog`; do not add `/projects` or `/case-studies` aliases.
 - Do not invent experience, metrics, or certifications I don't
   already have in the reference docs.
 
@@ -351,8 +349,8 @@ Your job, in this order, one PR per sprint:
    component. No new pages.
 
 3. **Sprint 2 — Case studies foundation** (per §6 Sprint 2).
-   Rename nav, add pillar filters, tag existing projects, add the
-   Featured Case Studies row to the home, and publish the first new
+  Keep case studies under `/blog`, add pillar filters, tag existing projects, add the
+  Featured Case Studies row to the home, and publish the first new
   case study (Daka NestJS e-commerce rescue) using the 6-section template
    from §2.2 with frontmatter.
 
