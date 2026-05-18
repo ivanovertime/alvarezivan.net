@@ -32,6 +32,11 @@ if (!posts.value) {
         :key="index"
         orientation="horizontal"
         variant="naked"
+        data-analytics-event="blog_card_click"
+        data-analytics-category="content"
+        :data-analytics-label="post.title"
+        data-analytics-location="home_blog"
+        :data-analytics-destination="post.path"
         v-bind="post"
         :to="post.path"
         :ui="{

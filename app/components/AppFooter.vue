@@ -13,6 +13,11 @@ const { footer } = useAppConfig()
         <span class="hidden sm:inline text-default/30">·</span>
         <NuxtLink
           to="/contact"
+          data-analytics-event="cta_click"
+          data-analytics-category="conversion"
+          data-analytics-label="footer_contact"
+          data-analytics-location="footer"
+          data-analytics-destination="/contact"
           class="text-muted hover:text-primary transition-colors"
         >
           Open to Senior/Lead roles
@@ -20,6 +25,11 @@ const { footer } = useAppConfig()
         <span class="hidden sm:inline text-default/30">·</span>
         <NuxtLink
           to="/uses"
+          data-analytics-event="navigation_click"
+          data-analytics-category="navigation"
+          data-analytics-label="footer_uses"
+          data-analytics-location="footer"
+          data-analytics-destination="/uses"
           class="text-muted hover:text-primary transition-colors"
         >
           /uses
@@ -32,12 +42,22 @@ const { footer } = useAppConfig()
         <UButton
           v-for="(link, index) of footer?.links"
           :key="index"
+          data-analytics-event="social_click"
+          data-analytics-category="social"
+          :data-analytics-label="link['aria-label'] || link.to"
+          data-analytics-location="footer"
+          :data-analytics-destination="link.to"
           v-bind="{ size: 'xs', color: 'neutral', variant: 'ghost', ...link }"
         />
       </template>
       <NuxtLink
         to="/"
         aria-label="Ivan Over Time home"
+        data-analytics-event="navigation_click"
+        data-analytics-category="navigation"
+        data-analytics-label="footer_home_logo"
+        data-analytics-location="footer"
+        data-analytics-destination="/"
         class="inline-flex h-6 items-center justify-center px-1 pb-px opacity-80 hover:opacity-100 transition-opacity"
       >
         <img

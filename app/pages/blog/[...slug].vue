@@ -65,6 +65,11 @@ const formatDate = (dateString: string) => {
       <UPage v-if="page">
         <ULink
           to="/blog"
+          data-analytics-event="navigation_click"
+          data-analytics-category="navigation"
+          data-analytics-label="back_to_blog"
+          data-analytics-location="blog_post"
+          data-analytics-destination="/blog"
           class="text-sm flex items-center gap-1"
         >
           <UIcon name="lucide:chevron-left" />
@@ -152,6 +157,11 @@ const formatDate = (dateString: string) => {
               :to="page.repoUrl"
               target="_blank"
               rel="noopener noreferrer"
+              data-analytics-event="repo_click"
+              data-analytics-category="conversion"
+              :data-analytics-label="page.title"
+              data-analytics-location="blog_post"
+              :data-analytics-destination="page.repoUrl"
               color="neutral"
               variant="soft"
               icon="i-lucide-github"
@@ -203,6 +213,11 @@ const formatDate = (dateString: string) => {
               variant="link"
               color="neutral"
               label="Copy link"
+              data-analytics-event="copy_link_click"
+              data-analytics-category="engagement"
+              :data-analytics-label="page.title"
+              data-analytics-location="blog_post"
+              :data-analytics-destination="articleLink"
               @click="copyToClipboard(articleLink, 'Article link copied to clipboard')"
             />
           </div>

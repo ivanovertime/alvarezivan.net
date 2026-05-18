@@ -90,6 +90,11 @@ useSeoMeta({
           size="sm"
           :icon="filter.icon"
           :label="filter.label"
+          data-analytics-event="blog_filter_click"
+          data-analytics-category="content_discovery"
+          :data-analytics-label="filter.key"
+          data-analytics-location="blog_index"
+          :data-analytics-destination="filter.key === 'all' ? '/blog' : `/blog?category=${filter.key}`"
           @click="setCategory(filter.key)"
         />
       </div>
@@ -105,6 +110,11 @@ useSeoMeta({
           <UBlogPost
             variant="naked"
             orientation="horizontal"
+            data-analytics-event="blog_card_click"
+            data-analytics-category="content"
+            :data-analytics-label="post.title"
+            data-analytics-location="blog_index"
+            :data-analytics-destination="post.path"
             :to="post.path"
             v-bind="post"
             :ui="{

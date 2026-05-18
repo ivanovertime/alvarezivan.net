@@ -113,12 +113,21 @@ defineProps<{
         >
           <UButton
             class="w-full sm:w-auto"
+            data-analytics-event="cta_click"
+            data-analytics-category="conversion"
+            data-analytics-label="hero_primary"
+            data-analytics-location="home_hero"
             v-bind="page.hero.links[0]"
           />
           <UButton
             :color="global.available ? 'success' : 'error'"
             variant="ghost"
             class="gap-2 w-full sm:w-auto"
+            :data-analytics-event="global.available ? 'meeting_click' : 'availability_click'"
+            data-analytics-category="conversion"
+            data-analytics-label="hero_availability"
+            data-analytics-location="home_hero"
+            :data-analytics-destination="global.available ? global.meetingLink : ''"
             :to="global.available ? global.meetingLink : ''"
             :label="global.available ? 'Available for new projects' : 'Not available at the moment'"
           >
@@ -159,6 +168,11 @@ defineProps<{
           }"
         >
           <UButton
+            data-analytics-event="social_click"
+            data-analytics-category="social"
+            :data-analytics-label="link['aria-label'] || link.to"
+            data-analytics-location="home_hero"
+            :data-analytics-destination="link.to"
             v-bind="{ size: 'md', color: 'neutral', variant: 'ghost', ...link }"
           />
         </Motion>
