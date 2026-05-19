@@ -12,6 +12,17 @@ if (!page.value) {
 
 const { global } = useAppConfig()
 
+const cvLinks = [
+  {
+    label: 'Download CV (English)',
+    to: '/cv-en-ivan-alvarez.pdf'
+  },
+  {
+    label: 'Descargar CV (Espanol)',
+    to: '/cv-es-ivan-alvarez.pdf'
+  }
+]
+
 useSeoMeta({
   title: page.value?.seo?.title || page.value?.title,
   ogTitle: page.value?.seo?.title || page.value?.title,
@@ -58,6 +69,25 @@ useSeoMeta({
             v-if="page.body"
             :value="page"
           />
+
+          <div class="mt-8 flex flex-col gap-2 sm:flex-row sm:gap-3">
+            <UButton
+              v-for="link in cvLinks"
+              :key="link.to"
+              :to="link.to"
+              target="_blank"
+              rel="noopener noreferrer"
+              icon="i-lucide-download"
+              color="neutral"
+              variant="soft"
+              :label="link.label"
+              data-analytics-event="cv_download_click"
+              data-analytics-category="conversion"
+              :data-analytics-label="link.label"
+              data-analytics-location="about_page"
+              :data-analytics-destination="link.to"
+            />
+          </div>
         </UPageBody>
       </Motion>
     </UPageSection>
