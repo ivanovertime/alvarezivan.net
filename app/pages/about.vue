@@ -70,16 +70,17 @@ useSeoMeta({
             :value="page"
           />
 
-          <div class="mt-8 flex flex-col gap-2 sm:flex-row sm:gap-3">
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
             <UButton
-              v-for="link in cvLinks"
+              v-for="(link, index) in cvLinks"
               :key="link.to"
               :to="link.to"
               target="_blank"
               rel="noopener noreferrer"
               icon="i-lucide-download"
-              color="neutral"
-              variant="soft"
+              size="lg"
+              color="primary"
+              :variant="index === 0 ? 'solid' : 'outline'"
               :label="link.label"
               data-analytics-event="cv_download_click"
               data-analytics-category="conversion"
