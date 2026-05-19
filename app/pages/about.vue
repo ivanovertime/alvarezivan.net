@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { cvLinks as canonicalCvLinks } from '~/utils/links'
+
 const { data: page } = await useAsyncData('about', () => {
   return queryCollection('pages').path('/about').first()
 })
@@ -15,11 +17,11 @@ const { global } = useAppConfig()
 const cvLinks = [
   {
     label: 'Download CV (English)',
-    to: '/files/cv/ivan-alvarez-en.pdf'
+    to: canonicalCvLinks.en
   },
   {
     label: 'Descargar CV (Espanol)',
-    to: '/files/cv/ivan-alvarez-es.pdf'
+    to: canonicalCvLinks.es
   }
 ]
 

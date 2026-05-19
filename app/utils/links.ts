@@ -1,5 +1,10 @@
 import type { NavigationMenuItem } from '@nuxt/ui'
 
+export const cvLinks = {
+  en: '/files/cv/ivan-alvarez-en.pdf',
+  es: '/files/cv/ivan-alvarez-es.pdf'
+} as const
+
 export const navLinks: NavigationMenuItem[] = [{
   label: 'Home',
   icon: 'i-lucide-home',
