@@ -65,12 +65,7 @@ useSeoMeta({
         :in-view-options="{ once: true }"
       >
         <UPageBody class="max-w-3xl mx-auto">
-          <ContentRenderer
-            v-if="page.body"
-            :value="page"
-          />
-
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div class="mb-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <UButton
               v-for="(link, index) in cvLinks"
               :key="link.to"
@@ -89,6 +84,11 @@ useSeoMeta({
               :data-analytics-destination="link.to"
             />
           </div>
+
+          <ContentRenderer
+            v-if="page.body"
+            :value="page"
+          />
         </UPageBody>
       </Motion>
     </UPageSection>

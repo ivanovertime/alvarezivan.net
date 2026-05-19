@@ -88,13 +88,6 @@ A short, opinionated list — not exhaustive.
 
 ---
 
-## CV
-
-- [Download CV — English (PDF)](/cv-en-ivan-alvarez.pdf)
-- [Descargar CV — Español (PDF)](/cv-es-ivan-alvarez.pdf)
-
----
-
 ## Tools and setup
 
 Curious about the hardware, OS, and software I work on every day? See [/uses](/uses) for the full list.
