@@ -23,6 +23,21 @@ const description = page.value?.seo?.description || page.value?.description
 const ogImage = computed(() => page.value?.ogImage || page.value?.image || '/avatar.jpg')
 const absoluteOgImage = computed(() => withBase(ogImage.value))
 const publishedTime = computed(() => page.value?.date ? new Date(page.value.date).toISOString() : undefined)
+const author = computed(() => ({
+  ['@type']: 'Person' as const,
+  name: page.value?.author?.name,
+  url: page.value?.author?.to || `${baseUrl.value}/about`,
+  image: page.value?.author?.avatar?.src ? withBase(page.value.author.avatar.src) : `${baseUrl.value}/avatar.jpg`
+}))
+const publisher = computed(() => ({
+  ['@type']: 'Organization' as const,
+  name: 'Ivan Over Time',
+  url: baseUrl.value,
+  logo: {
+    ['@type']: 'ImageObject' as const,
+    url: `${baseUrl.value}/avatar.jpg`
+  }
+}))
 const showRepoCta = computed(() => page.value?.category === 'side-project' && Boolean(page.value?.repoUrl))
 
 useSeoMeta({
@@ -43,8 +58,12 @@ useSchemaOrg([
   defineArticle({
     headline: title,
     description,
+    url: canonicalUrl.value,
     image: absoluteOgImage.value,
-    datePublished: publishedTime.value
+    datePublished: publishedTime.value,
+    dateModified: publishedTime.value,
+    author: author.value,
+    publisher: publisher.value
   })
 ])
 
