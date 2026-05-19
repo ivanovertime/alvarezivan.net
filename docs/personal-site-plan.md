@@ -17,7 +17,6 @@ Completed:
 
 Still pending:
 - Pillar-filter UX on existing routes (`/blog` with case-study filtering).
-- Mirror first two LinkedIn long-form posts with canonical tags.
 - Lighthouse score gate documentation and verification.
 
 ---
@@ -137,7 +136,6 @@ ogImage: "/blog/case-studies/daka-ecommerce-rescue/featuredImage.jpg"
 Keep as-is. Add:
 - **Pillar tag** to each post (extend frontmatter).
 - **Tag index pages** under `/blog/tag/[pillar]`.
-- **"Originally on LinkedIn" footer** for posts mirrored from LinkedIn articles.
 - **RSS feed** if not already present.
 
 Existing posts already align well; no rewrites needed.
@@ -231,7 +229,6 @@ Don't add: animations, sliders, hero videos, gradients beyond the accent.
 - [x] JSON-LD: `Person` + `WebSite` + `WebPage` globally, `Article` on blog detail pages.
 - [x] `sitemap.xml` and `robots.txt` confirmed.
 - [x] RSS for `/blog`.
-- [ ] Canonical URLs on mirrored writing posts.
 - [ ] LinkedIn Featured section pinned to: home + 1 case study + 1 blog post.
 
 ---
@@ -275,7 +272,6 @@ Order:
 ### Sprint 4 — Volume + polish
 - [x] Publish case studies #2 and #3 (Biomercados PWA, Daka SAP quotation).
 - [x] Backfill the 6-section template on existing 3 projects.
-- [ ] Mirror first 2 LinkedIn long-form posts to `/blog` with canonical tags.
 - [ ] Run Lighthouse — gate at perf ≥ 95, a11y ≥ 95.
 
 ---
