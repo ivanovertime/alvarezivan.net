@@ -15,11 +15,11 @@ const { global } = useAppConfig()
 const cvLinks = [
   {
     label: 'Download CV (English)',
-    to: '/cv-en-ivan-alvarez.pdf'
+    to: '/files/cv/ivan-alvarez-en.pdf'
   },
   {
     label: 'Descargar CV (Espanol)',
-    to: '/cv-es-ivan-alvarez.pdf'
+    to: '/files/cv/ivan-alvarez-es.pdf'
   }
 ]
 
