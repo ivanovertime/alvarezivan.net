@@ -74,7 +74,7 @@ useSeoMeta({
             <UButton
               v-for="(link, index) in cvLinks"
               :key="link.to"
-              :to="link.to"
+              :href="link.to"
               target="_blank"
               rel="noopener noreferrer"
               icon="i-lucide-download"
