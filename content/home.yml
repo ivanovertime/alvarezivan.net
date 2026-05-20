@@ -123,7 +123,7 @@ faq:
       questions:
         - label: How much does a project typically cost?
           content: |
-            Project costs vary based on scope, complexity, and systems involved. Typical engagements start at **$800** for small fixes or audits, with most builds landing between **$2,500–$8,000**. For ongoing support or short advisory work, I offer hourly or day-rate consulting at competitive rates.
+            Costs vary based on scope, technical complexity, and the systems involved. Target engineering engagements start at $800 for specialized technical audits or optimizations. Most end-to-end platform builds land between $2,500 and $8,000. For ongoing platform support, DevOps automation, or short-term advisory work, I offer competitive hourly and day-rate consulting.
         - label: What are your payment terms?
           content: |
             I generally require a 40% deposit to schedule the project and begin work, with the remaining 60% due upon delivery. I accept payments via bank transfer or PayPal.
