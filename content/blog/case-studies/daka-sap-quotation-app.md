@@ -4,7 +4,10 @@ date: "2026-05-15"
 category: "case-study"
 client: "Tiendas Daka"
 year: 2025
-pillar: "Full-Stack Architecture"
+tags:
+  - "e-commerce"
+  - "integrations"
+  - "sap"
 type: "greenfield"
 stack: ["Laravel", "Filament", "SAP", "Mobile-first PWA", "Docker"]
 team_size: 3

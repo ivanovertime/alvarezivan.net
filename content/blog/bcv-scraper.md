@@ -12,7 +12,9 @@ author:
   avatar:
     src: "/avatar.jpg"
     alt: "Iván Álvarez"
-pillar: "Full-Stack Architecture"
+tags:
+  - "venezuela"
+  - "integrations"
 type: "side-project"
 stack: ["Python", "FastAPI", "Web Scraping", "REST API"]
 repoUrl: "https://github.com/ivanovertime/bcv_scraper"

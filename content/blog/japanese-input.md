@@ -10,7 +10,9 @@ author:
   to: "https://github.com/ivanovertime"
   avatar:
       src: "/avatar.jpg"
-    alt: "Iván Álvarez"
+      alt: "Iván Álvarez"
+tags:
+   - "linux"
 ---
 # Situation
 

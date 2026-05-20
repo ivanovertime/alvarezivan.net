@@ -39,6 +39,7 @@ const publisher = computed(() => ({
   }
 }))
 const showRepoCta = computed(() => page.value?.category === 'side-project' && Boolean(page.value?.repoUrl))
+const postTags = computed(() => ((page.value as { tags?: string[] } | undefined)?.tags ?? []))
 
 useSeoMeta({
   title,
@@ -120,13 +121,11 @@ const formatDate = (dateString: string) => {
               icon="i-lucide-flask-conical"
               label="Side Project"
             />
-            <UBadge
-              v-if="page.pillar"
-              color="neutral"
-              variant="soft"
+            <BlogTag
+              v-for="tag in postTags"
+              :key="tag"
+              :tag="tag"
               size="xs"
-              icon="i-lucide-tag"
-              :label="page.pillar"
             />
             <span v-if="page.date">
               {{ formatDate(page.date) }}

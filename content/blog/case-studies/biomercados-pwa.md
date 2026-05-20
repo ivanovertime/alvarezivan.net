@@ -4,7 +4,10 @@ date: "2026-05-15"
 category: "case-study"
 client: "Biomercados (Alimentos FM, C.A.)"
 year: 2022
-pillar: "Platform & DevOps"
+tags:
+  - "e-commerce"
+  - "platform-recovery"
+  - "devops"
 type: "rescue"
 stack: ["Node.js", "Angular", "PWA", "Docker", "CI/CD"]
 team_size: 2

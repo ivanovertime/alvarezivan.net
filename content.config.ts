@@ -87,7 +87,7 @@ export default defineContentConfig({
         category: z.enum(['article', 'case-study', 'side-project']).default('article'),
         client: z.string().optional(),
         year: z.number().optional(),
-        pillar: z.string().optional(),
+        tags: z.array(z.string()).optional(),
         type: z.enum(['rescue', 'greenfield', 'side-project']).optional(),
         stack: z.array(z.string()).optional(),
         repoUrl: z.string().url().optional(),

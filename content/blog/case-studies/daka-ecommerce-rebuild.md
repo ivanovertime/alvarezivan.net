@@ -4,7 +4,10 @@ date: "2026-05-14"
 category: "case-study"
 client: "Tiendas Daka"
 year: 2025
-pillar: "Full-Stack Architecture"
+tags:
+  - "e-commerce"
+  - "nestjs"
+  - "nuxt"
 type: "greenfield"
 stack: ["NestJS", "Next.js", "Medusa", "Docker", "SAP", "CI/CD"]
 team_size: 4

@@ -12,7 +12,9 @@ author:
   avatar:
     src: "/avatar.jpg"
     alt: "Iván Álvarez"
-pillar: "Full-Stack Architecture"
+tags:
+   - "nuxt"
+   - "platform-recovery"
 type: "side-project"
 stack: ["Hugo", "Nuxt", "Vue", "Tailwind CSS", "Cloudflare Pages"]
 repoUrl: "https://github.com/ivanovertime/alvarezivan.net"

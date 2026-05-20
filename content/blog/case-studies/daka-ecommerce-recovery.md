@@ -4,7 +4,11 @@ date: "2026-05-15"
 category: "case-study"
 client: "Tiendas Daka"
 year: 2025
-pillar: "Full-Stack Architecture"
+tags:
+  - "e-commerce"
+  - "platform-recovery"
+  - "integrations"
+  - "nestjs"
 type: "recovery"
 stack: ["NestJS", "Strapi", "Docker", "SAP", "CI/CD"]
 team_size: 4

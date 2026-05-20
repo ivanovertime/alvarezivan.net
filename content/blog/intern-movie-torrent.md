@@ -11,6 +11,8 @@ author:
   avatar:
     src: "/avatar.jpg"
     alt: "Iván Álvarez"
+tags:
+  - "venezuela"
 ---
 ![Pie chart of types of torrents](/blog/intern-movie-torrent/venezuela_torrent.png)
 # Situation

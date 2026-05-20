@@ -12,7 +12,9 @@ author:
   avatar:
     src: "/avatar.jpg"
     alt: "Iván Álvarez"
-pillar: "Full-Stack Architecture"
+tags:
+  - "nuxt"
+  - "side-project"
 type: "side-project"
 stack: ["Nuxt", "Vue", "Tailwind CSS"]
 repoUrl: "https://github.com/ivanovertime/jp-landing"
