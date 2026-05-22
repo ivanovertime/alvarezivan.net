@@ -1,5 +1,5 @@
 ---
-title: "Stabilizing a failing e-commerce platform inherited from a third party"
+title: "Stabilizing an inherited e-commerce platform on NestJS + Strapi"
 date: "2026-05-15"
 category: "case-study"
 client: "Tiendas Daka"
@@ -13,7 +13,7 @@ type: "recovery"
 stack: ["NestJS", "Strapi", "Docker", "SAP", "CI/CD"]
 team_size: 4
 role: "Tech Lead"
-outcome_headline: "Turned a fragile third-party storefront into a predictable, releasable system — and earned the trust to be asked the next, harder question"
+outcome_headline: "Built a predictable release path on an inherited stack and a clean SAP integration boundary that set up the work that came next"
 featured: true
 ogImage: "/blog/case-studies/daka-ecommerce-rescue/featuredImage.jpg"
 image: "/blog/case-studies/daka-ecommerce-rescue/featuredImage.jpg"
@@ -25,11 +25,10 @@ author:
     src: "/avatar.jpg"
     alt: "Iván Álvarez"
 description: >
-  Tiendas Daka inherited a NestJS + Strapi storefront built by a
-  third-party provider that nobody was confident enough to release.
-  We stabilized the runtime, contained the SAP integration behind a
-  single boundary, containerized the deploy path, and pulled Strapi
-  back to being a content tool. This is the recovery half of a
+  A recovery-shaped engagement on an inherited NestJS + Strapi
+  storefront: stabilize the runtime, contain the SAP integration
+  behind a single boundary, containerize the deploy path, and keep
+  Strapi to editorial content. This is the recovery half of a
   paired engagement; the rebuild that followed is its own story.
 ---
 
@@ -37,20 +36,20 @@ description: >
 
 ## TL;DR
 
-- Tiendas Daka inherited a **NestJS + Strapi** storefront from a third-party provider. It nominally worked, but every release introduced regressions, the SAP integration was brittle, and the product team had stopped asking for new features.
-- Over the engagement, with a team of 4, we **stabilized the runtime first**, **contained SAP behind a single integration boundary**, **containerized the deploy path**, and **pulled Strapi back to being a content tool** rather than a control plane for business logic.
-- The result: a storefront the team was confident to release, and a clean enough integration boundary that the business could ask the next, harder question — which became the [rebuild case study](/blog/case-studies/daka-ecommerce-rebuild).
+- Joined as tech lead on an inherited **NestJS + Strapi** e-commerce stack with a SAP source of truth.
+- With a team of 4 we **stabilized the runtime first**, **contained SAP behind a single integration boundary**, **containerized the deploy path**, and **kept Strapi to editorial content** rather than letting it drift into a control plane for business logic.
+- The result was a release cadence the team was comfortable shipping on, and an integration boundary clean enough to carry forward into the [rebuild case study](/blog/case-studies/daka-ecommerce-rebuild).
 
 ## Context
 
-Tiendas Daka is one of Venezuela's largest retail chains. When I joined as a consultant, the e-commerce situation was the kind of thing every senior engineer recognises:
+Tiendas Daka is one of Venezuela's largest retail chains. The engagement is a familiar shape to anyone who has done platform-recovery work:
 
-- A previous third-party provider had delivered a NestJS backend with a Strapi CMS. It nominally worked.
-- Every release introduced regressions. People had learned to deploy on Friday afternoon and then *not* go home.
-- The SAP integration — catalog, pricing, inventory — was brittle and partially manual. Discrepancies surfaced in front of the customer.
-- The product team had stopped asking for new features because nothing could be promised.
+- An inherited NestJS + Strapi codebase, with SAP behind it as the source of truth for catalog, pricing, and inventory.
+- A release path that the team didn't fully trust, in the way platforms tend to drift when they've been built by hands no longer on the keyboard.
+- A SAP integration spread across the codebase, each call site with its own retry logic and failure modes — a common shape, not anything specific to Daka.
+- A roadmap that the team wanted to be able to plan against with confidence again.
 
-The brief was simple to state and harder to do: *make this thing safe to release again.*
+The brief was simple to state and harder to do: *make this safe to release on a cadence.*
 
 <!-- > ⚠️ **Author note (please confirm before publishing):** a scale indicator for the platform at the time — orders/week, GMV, MAU, anything you can share — would strengthen the Context. Even a rough order of magnitude beats adjectives. -->
 
@@ -60,10 +59,10 @@ The brief was simple to state and harder to do: *make this thing safe to release
 |---|---|
 | Team size | 4 engineers, with me as tech lead |
 | Calendar | One quarter to show measurable stability |
-| Inherited stack | NestJS + Strapi from a third-party provider |
+| Inherited stack | NestJS + Strapi |
 | Source of truth | SAP — for catalog, pricing, inventory |
 | Off-limits | A full rewrite. The storefront had to keep serving customers throughout. |
-| Existing test coverage | Sparse. Most of the safety net had to be built before it could be relied on. |
+| Safety net | Whatever automated coverage we wanted to lean on, we'd be building as we went. |
 
 The non-negotiable: **keep the storefront online for customers, every day, throughout the recovery.**
 
@@ -75,14 +74,14 @@ The first two weeks were diagnosis only. We wrote down what we found, what we'd 
 
 | Option | Trade-off | Chose |
 |---|---|---|
-| Fix the highest-priority bug list first | Visible to stakeholders, but each fix risked another regression on a fragile runtime | |
-| Freeze features for two weeks, audit and instrument the runtime | Feels slow to the business; pays back the moment the next bug lands | <DecisionCheck /> |
+| Fix the highest-priority bug list first | Visible to stakeholders, but every fix on an unfamiliar runtime is its own risk | |
+| Freeze features for two weeks, audit and instrument the runtime | Feels slow to the business; pays back the moment the next change lands | <DecisionCheck /> |
 
 We bought predictability before we bought velocity. Every subsequent change landed on a runtime we actually understood.
 
 ### Decision 2 — Contain SAP integration behind a single explicit boundary
 
-The SAP integration was the single biggest source of incidents. Catalog and pricing reads were scattered across the codebase, each with its own retry logic, timeouts, and failure modes.
+The SAP integration was the highest-leverage place to invest. Catalog and pricing reads were spread across the codebase, each call site with its own retry logic, timeouts, and failure modes — a pattern any engineer who has worked alongside an ERP will recognise.
 
 | Option | Trade-off | Chose |
 |---|---|---|
@@ -117,15 +116,13 @@ This bought breathing room and — as it turned out — clarified what a follow-
 
 By the end of the engagement:
 
-- The storefront shipped on a **predictable, repeatable cadence** — releases stopped being events.
-- **SAP-related incidents dropped sharply** once every read and write went through the integration module.
+- The storefront shipped on a **predictable, repeatable cadence**.
+- Every SAP read and write flowed through the **single integration module**, which became the one place to harden, log, and cache.
 - **Deployments became reproducible** — same artifact, same path, every time.
-- The product team **resumed planning a roadmap** instead of triaging a backlog.
-- The integration-module pattern became the **single most reusable asset** of the engagement, carried forward into the rebuild and into the [SAP quotation app](/blog/case-studies/daka-sap-quotation-app).
+- The product team had a platform they could plan a roadmap against.
+- The integration-module pattern became the **most reusable asset** of the engagement, carried forward into the rebuild and into the [SAP quotation app](/blog/case-studies/daka-sap-quotation-app).
 
-<!-- > ⚠️ **Author note (please confirm before publishing):** drop in concrete numbers if you have them — release cadence before/after, P1 incidents avoided, mean-time-to-recover. Even rough numbers from memory beat adjectives. -->
-
-The deeper outcome was the one that made Act 2 possible at all: once the runtime was no longer on fire, the business asked the more interesting question — *"if you had three months, how would you build this from scratch?"* That answer is its own case study: [*Rebuilding Daka's e-commerce in three months*](/blog/case-studies/daka-ecommerce-rebuild).
+The deeper outcome was the one that made Act 2 possible at all: with the runtime stable, the business asked the more interesting question — *"if you had three months, how would you build this from scratch?"* That answer is its own case study: [*Rebuilding Daka's e-commerce in three months*](/blog/case-studies/daka-ecommerce-rebuild).
 
 ## What I'd do on GCP today
 
@@ -141,4 +138,4 @@ The pattern is the same. The leverage is higher.
 
 ---
 
-*If you're staring at a third-party platform that feels too risky to release and too expensive to rewrite, the answer is rarely either-or. Recover first, then earn the right to rebuild. Happy to talk through it — [get in touch](/contact).*
+*If you're staring at an inherited platform that feels too risky to release and too expensive to rewrite, the answer is rarely either-or. Recover first, then earn the right to rebuild. Happy to talk through it — [get in touch](/contact).*

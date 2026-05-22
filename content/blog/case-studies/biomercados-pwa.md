@@ -40,12 +40,11 @@ description: >
 
 Biomercados (Alimentos FM, C.A.) is a Venezuelan supermarket chain. The e‑commerce initiative had been in flight for a while when I joined: there was a Node.js backend, an Angular frontend, and a customer base waiting for it. What was missing was the path from "code in a repo" to "an app customers actually use."
 
-The symptoms were the ones a stalled greenfield project usually has:
+The shape of the work is one any engineer who has joined a pre-launch greenfield will recognise:
 
-- The code worked on a developer's machine and almost nowhere else.
-- There was no repeatable build or deploy — every environment was a snowflake.
-- Nobody had decided whether the customer surface was a PWA, native apps, or both.
-- Adjacent business needs (customer segmentation, exchange-rate ingestion) were stuck in a queue that had no owner.
+- A codebase that ran in development but didn't yet have a repeatable build or deploy path.
+- An open question about the customer surface — PWA, native apps, or both.
+- Adjacent business needs (customer segmentation, exchange-rate ingestion) waiting on someone with the bandwidth to pick them up.
 
 The brief was simple in one sentence and hard in practice: *finish it and ship it.*
 

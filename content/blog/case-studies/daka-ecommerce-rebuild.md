@@ -24,29 +24,27 @@ author:
     src: "/avatar.jpg"
     alt: "Iván Álvarez"
 description: >
-  After stabilizing the inherited storefront, Tiendas Daka asked the
-  more interesting question: "if you had three months, how would you
-  build this from scratch?" This is the answer — a from-scratch
-  e-commerce platform on NestJS + Next.js + Medusa, delivered with a
-  team of 4, with SAP as the unchanged source of truth and a planned
-  cutover from day one.
+  After the recovery, the next engagement was a from-scratch
+  e-commerce build on NestJS + Next.js + Medusa, delivered with a
+  team of 4 inside a three-month window. SAP stayed as the source
+  of truth, the integration boundary from the recovery was reused
+  as a contract, and the cutover was planned from day one.
 ---
 
 > :u-icon{name="i-lucide-paperclip" class="inline mr-1 align-[-2px]"} **Part of a pair.** This is Act 2 of two consecutive Daka e-commerce engagements. The recovery that made it possible — stabilizing the inherited NestJS + Strapi platform — is here: [*Stabilizing a failing e-commerce platform inherited from a third party*](/blog/case-studies/daka-ecommerce-recovery).
 
 ## TL;DR
 
-- After stabilizing the inherited storefront ([the recovery case study](/blog/case-studies/daka-ecommerce-recovery)), Tiendas Daka asked: *"if you had three months, how would you build this from scratch?"*
-- I led the answer: a from-scratch e-commerce platform on **NestJS + Next.js + Medusa**, with a team of 4, delivered inside the three-month window.
+- Follow-on to [the recovery case study](/blog/case-studies/daka-ecommerce-recovery): a from-scratch e-commerce platform on **NestJS + Next.js + Medusa**, with a team of 4, delivered inside a three-month window.
 - We **reused the SAP integration boundary** from the recovery as a contract, kept Medusa to commerce (not as a CMS), and **planned the cutover from day one** instead of letting it slip into "soft launch" purgatory.
 
 ## Context
 
-The recovery had bought the platform back its credibility. The storefront released on a cadence, SAP incidents had dropped, the team was no longer spending Friday afternoons in the office "just in case." With the runtime stable, the question changed:
+The recovery had earned the platform back its release cadence and a stable SAP integration boundary. With the runtime settled, the question changed:
 
 > *"If you started over, what would you build?"*
 
-The business gave us three months.
+The brief was a three-month window for a from-scratch rebuild.
 
 That kind of brief — a real budget, a real deadline, a real reason to start fresh — is rare. The temptation is to spend it on novelty. The right answer was to spend it on the things that would still be true a year later.
 

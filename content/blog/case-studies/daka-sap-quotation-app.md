@@ -32,18 +32,17 @@ description: >
 
 ## TL;DR
 
-- Daka's nationwide sales teams were quoting customers from paper, spreadsheets, and outdated catalogs — every quote was a guess.
+- Greenfield brief: replace a manual, offline-tolerant quotation flow with a mobile-first app for nationwide sales teams.
 - I led the architecture and led a team of 3 to ship a **mobile-first quotation app** on Laravel + Filament, with SAP as the source of truth.
-- The app rolled out to sales staff across the country, replaced the manual flow, and gave the business a real-time view of demand it had never had before.
+- The app rolled out to sales staff across the country and gave the business a real-time view of quotation activity alongside the existing SAP flow.
 
 ## Context
 
-Tiendas Daka has sales teams across the country handling business-to-business and high-value retail quotations. The flow at the time was the kind of process every rescue engineer recognises:
+Tiendas Daka has sales teams across the country handling business-to-business and high-value retail quotations. The shape of the brief is one anyone who has digitized a sales process will recognise:
 
-- A salesperson pulled prices from a catalog that was sometimes days behind.
-- Quotes were written on paper or built in Excel, then re-keyed into SAP later.
-- Stock and pricing inconsistencies surfaced *after* the customer had been quoted.
-- The business had no live picture of demand — only what eventually landed in SAP.
+- A salesperson surface that needed to work on a phone, in a store, on a variable connection.
+- A quotation flow whose system of record was SAP, with everything else expected to converge on it.
+- A business that wanted a live picture of quotation activity rather than only what eventually landed downstream.
 
 The mandate was different from the rescues: this one was **greenfield**, but with a hard integration constraint. SAP was the system of record and was not going to move. Anything new had to plug into it without becoming another fragile bridge.
 
@@ -120,14 +119,11 @@ Filament made the admin surface cheap to build. That meant we could spend the sa
 By rollout:
 
 - The app was **deployed nationwide**, across multiple sales teams.
-- The manual paper-and-spreadsheet flow was **retired** for the use cases the app covered.
-- Quotes were **consistent with SAP catalog and pricing** at the moment of generation, not days later.
-- The business gained a **real-time view of quotation activity** — a data surface it had never had before.
-- The SAP integration module became a **reusable pattern** for the other Daka platforms my team worked on.
+- Quotes were **consistent with SAP catalog and pricing** at the moment of generation.
+- The business gained a **real-time view of quotation activity** alongside the SAP-of-record view.
+- The SAP integration module became a **reusable pattern** across the other platforms my team worked on in the same engagement.
 
-<!-- > ⚠️ **Author note (placeholder, please confirm):** drop in concrete numbers before publishing — *number of stores or sales staff onboarded*, *quotes generated per week vs. before*, *time-to-quote reduction*, or *quote-to-order conversion lift*. Even rough numbers from memory are stronger than adjectives. -->
-
-This was one of six platforms my team and I worked on at Daka, and the one that proved the integration-module pattern was generalizable: write the SAP boundary once, reuse it across products.
+This was the build where the integration-module pattern proved generalizable: write the SAP boundary once, reuse it across products.
 
 ## What I'd do on GCP today
 
