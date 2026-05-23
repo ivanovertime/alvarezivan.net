@@ -1,8 +1,8 @@
 ---
-title: "Shipping a 30,000-user PWA from a stalled e-commerce project"
+title: "Shipping a high-scale PWA from an inherited e-commerce project"
 date: "2026-05-15"
 category: "case-study"
-client: "Biomercados (Alimentos FM, C.A.)"
+client: " Supermarket Client (LatAm)"
 year: 2022
 tags:
   - "e-commerce"
@@ -12,10 +12,10 @@ type: "rescue"
 stack: ["Node.js", "Angular", "PWA", "Docker", "CI/CD"]
 team_size: 2
 role: "Programmer"
-outcome_headline: "Recovered a stalled project and shipped to 30,000+ customers"
+outcome_headline: "Recovered an inherited project and shipped to a high-volume customer base"
 featured: true
-ogImage: "/blog/case-studies/biomercados-pwa/featuredImage.jpg"
-image: "/blog/case-studies/biomercados-pwa/featuredImage.jpg"
+ogImage: "/blog/case-studies/supermarket-pwa-recovery/featuredImage.jpg"
+image: "/blog/case-studies/supermarket-pwa-recovery/featuredImage.jpg"
 author:
   name: "Iván Álvarez"
   username: "ivanovertime"
@@ -26,19 +26,19 @@ author:
 description: >
   How a stalled Node.js + Angular e-commerce project was diagnosed,
   recovered, and shipped end-to-end as a PWA and mobile apps for
-  30,000+ customers — with a Docker registry and CI/CD pipeline that
+  a high-volume customer base — with a Docker registry and CI/CD pipeline that
   made continuous delivery possible for the team that came after.
 ---
 
 ## TL;DR
 
-- A Node.js + Angular e-commerce project at a regional supermarket chain had stalled before launch — code existed, but nothing was reliably deployable.
-- I joined as the second engineer on a two-person team, finished the platform, and shipped it as a **PWA + mobile apps to 30,000+ customers**.
+- A Node.js + Angular e-commerce project at a regional supermarket chain had reached pre-launch with no reliable deploy path.
+- I joined as the second engineer on a two-person team, finished the platform, and shipped it as a **PWA + mobile apps to a high-volume customer base**.
 - Along the way we built the **Docker image registry and CI/CD pipeline** that made continuous delivery possible — for this project and the ones that followed.
 
 ## Context
 
-Biomercados (Alimentos FM, C.A.) is a Venezuelan supermarket chain. The e‑commerce initiative had been in flight for a while when I joined: there was a Node.js backend, an Angular frontend, and a customer base waiting for it. What was missing was the path from "code in a repo" to "an app customers actually use."
+A regional supermarket chain in Venezuela had an e-commerce initiative in flight when I joined: there was a Node.js backend, an Angular frontend, and a customer base waiting for it. What was missing was the path from "code in a repo" to "an app customers actually use."
 
 The shape of the work is one any engineer who has joined a pre-launch greenfield will recognise:
 
@@ -82,7 +82,7 @@ Tempting as it was to chase the feature backlog, the bottleneck wasn't features 
 | Hand-deploy until launch, automate later | Faster on day one; every deploy after that costs the same hour | |
 | Stand up a private Docker registry + a thin CI/CD pipeline first | Two weeks of platform work before any new feature shipped; every deploy after that was free | <DecisionCheck /> |
 
-Same principle as the Daka rescue, applied earlier: stabilize the runtime before chasing the roadmap. The pipeline outlived the project — the team after me kept using it for the Node.js and Angular services that came next.
+Same principle as similar rescue work: stabilize the runtime before chasing the roadmap. The pipeline outlived the project — the team after me kept using it for the Node.js and Angular services that came next.
 
 ### Decision 3 — Treat customer segmentation as a small, useful side-quest
 
@@ -110,7 +110,7 @@ This is the seed of the BCV-scraper work I later wrote about publicly. Small aut
 
 By the end of the engagement:
 
-- The platform shipped as a **PWA + mobile apps used by 30,000+ customers**.
+- The platform shipped as a **PWA + mobile apps used by a high-volume customer base**.
 - The company had a **private Docker registry and a working CI/CD pipeline** for Node.js and Angular services — the foundation for everything that came after.
 - Marketing had **RFM-based customer segments** they could act on, drawn from the platform's own data.
 - Pricing ran on an **automated exchange-rate feed** instead of a daily copy-paste.

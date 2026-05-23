@@ -24,6 +24,17 @@ This repository is a Nuxt 4 personal site built with TypeScript, Nuxt UI, and Nu
 - Avoid introducing new dependencies unless they are clearly necessary.
 - Remove unused imports, variables, and dead code when touching a file.
 
+## NDA-Safe Content Rules
+
+When writing or editing public-facing content in `content/` (especially case studies, about pages, and marketing copy), default to NDA-safe wording unless the user explicitly provides written approval to publish client specifics.
+
+- Do not include real client names, legal entities, direct identifiers, or external client URLs.
+- Do not include exact  metrics (for example user counts, revenue, GMV, conversion, incident counts, release frequency, or SLA figures).
+- Do not disclose internal operational states or negative characterizations of client systems, teams, vendors, or incidents.
+- Do not expose internal architecture specifics that can reveal proprietary implementation details, security posture, or integration internals.
+- Prefer anonymized descriptors (for example `regional retailer`, `enterprise client`, `high-volume platform`) and qualitative outcomes (`improved reliability`, `predictable release cadence`).
+- Keep content focused on reusable patterns, technical trade-offs, and lessons learned rather than client-specific state.
+
 ## Validation Before Finishing
 
 Run these commands when making code changes:

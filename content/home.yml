@@ -1,6 +1,6 @@
 seo:
   title: "Iván Álvarez · Full-Stack Engineer"
-  description: "Full-stack engineer who enjoys improving complex systems and shipping platforms teams can run with confidence. Six platforms shipped, one serving 30,000+ users. Now learning GCP DataOps."
+  description: "Full-stack engineer who enjoys improving complex systems and shipping platforms teams can run with confidence. Multiple platforms shipped, including high-volume systems. Now learning GCP DataOps."
 title: "Hi, I'm Iván Álvarez"
 description: |
   Full-stack engineer based in Valencia, Venezuela. I enjoy improving complex systems, shipping things teams can actually run, and learning alongside good people. Lately I'm focused on data platforms on Google Cloud.
@@ -28,9 +28,9 @@ experience:
     - position: "Software Development Consultant"
       date: "Oct 2024 – Dec 2025"
       company:
-        name: "Tiendas Daka C.A."
+        name: " Retail Client (LatAm)"
         logo: "i-lucide-building-2"
-        url: "https://www.tiendasdaka.com/"
+        url: "#"
         color: "#facc15"
     - position: "Freelance Full-Stack Developer"
       date: "Dec 2022 – Sep 2024"
@@ -42,7 +42,7 @@ experience:
     - position: "Programmer"
       date: "Oct 2021 – Nov 2022"
       company:
-        name: "Biomercados (Alimentos FM)"
+        name: " Supermarket Client (LatAm)"
         logo: "i-lucide-store"
         url: "#"
         color: "#0f766e"

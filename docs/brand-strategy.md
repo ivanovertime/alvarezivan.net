@@ -13,7 +13,7 @@ Channels: LinkedIn (primary), personal site `alvarezivan.net` (owned, with `alva
 This is the North Star. Every headline, bio, and post should ladder up to it.
 
 ### Why this works
-- **Credible today**: matches what's been shipped (Daka, Biomercados, Crazy Imagine).
+- **Credible today**: matches what's been shipped ( Retail Client,  Supermarket Client, Crazy Imagine).
 - **Honest about the trajectory**: GCP/DataOps is in progress, not claimed as already done.
 - **Differentiated**: not many engineers combine *e-commerce rescue + platform recovery* + *DevOps* + a serious move into *GCP DataOps*. That's the angle to lean on.
 
@@ -25,9 +25,9 @@ Pick once, post against forever. Maps to the study plan's Hirability Scorecard.
 
 | Pillar | % of content | Themes | Existing proof |
 |---|---|---|---|
-| **🛠 Platform & DevOps** | 35% | Docker, K8s, CI/CD, Proxmox, IaC | Docker registry at Biomercados, captive portal architecture |
+| **🛠 Platform & DevOps** | 35% | Docker, K8s, CI/CD, Proxmox, IaC | Docker registry at  Supermarket Client, captive portal architecture |
 | **☁️ GCP & DataOps** | 30% | BigQuery, Vertex AI, Airflow, data reliability | RFM segmentation, web scraping pipelines (reframe these) |
-| **🧩 Full-Stack Architecture** | 20% | NestJS, Laravel, Vue/Angular, SAP integration | 6+ delivered projects at Daka, SPA + SAP work |
+| **🧩 Full-Stack Architecture** | 20% | NestJS, Laravel, Vue/Angular, SAP integration | 6+ delivered projects at  Retail Client, SPA + SAP work |
 | **🤖 AI-Augmented Engineering** | 15% | Gemini, agentic workflows, AI for infra | Listed Top Skill + GenAI for Devs add-on |
 
 **Rule:** never post outside these four. Discipline = recognizable brand.
@@ -41,8 +41,8 @@ Recruiters and clients tend to remember a clear story more than a skill list.
 > **"E-commerce Rescue & Platform Recovery."** — *"I usually work on teams where the e-commerce platform is under pressure, SAP integration is brittle, or deployment workflows need clarity. I help recover the system, containerize it, and hand back a platform the team can run confidently."*
 
 Frames every past role consistently:
-- **Biomercados** → "rescued and shipped to 30k users"
-- **Daka** → "led recovery and re-architecture of 6 platforms"
+- ** Supermarket Client** → "rescued and shipped to 30k users"
+- ** Retail Client** → "led recovery and re-architecture of 6 platforms"
 - **Freelance** → "evaluated and restored multi-tenant CS-Cart"
 - **Crazy Imagine** → "built support + KB system from scratch" *(new chapter: greenfield, not just rescue)*
 
@@ -61,7 +61,7 @@ Options:
 
 ### About (rewrite skeleton)
 1. **Hook (1 line)** — the positioning statement.
-2. **Proof (3 bullets)** — Daka (15 devs, 6 projects), Biomercados (30k users), SAP integrations.
+2. **Proof (3 bullets)** —  Retail Client (15 devs, 6 projects),  Supermarket Client (30k users), SAP integrations.
 3. **What I'm building toward** — "Currently deepening GCP Data Engineering and DataOps to bring the same rescue-and-automate playbook to data platforms."
 4. **CTA** — "Open to Senior Full-Stack, Platform / DevOps, or Tech Lead roles — remote-first, ideally on or moving to GCP. DM me or visit alvarezivan.net."
 
@@ -110,7 +110,7 @@ Structure as a **portfolio of rescues**, not a resume.
 | 1×/month | Long-form case study | Site + LinkedIn article |
 | 1×/quarter | Update `/now` page + a "what I learned" retrospective | Site |
 
-**Content engine trick:** every Coursera module finished = 1 post ("Today I learned X, here's how I'd apply it to a Daka-style problem"). The study plan *is* the content calendar.
+**Content engine trick:** every Coursera module finished = 1 post ("Today I learned X, here's how I'd apply it to a  Retail Client-style problem"). The study plan *is* the content calendar.
 
 ---
 
@@ -127,9 +127,9 @@ Structure as a **portfolio of rescues**, not a resume.
 ## 8. 90-Day Rollout
 
 - **Weeks 1–2** — Rewrite LinkedIn headline + About. Pick accent color. Set up `/now` page.
-- **Weeks 3–6** — Publish 2 case studies (Daka e-commerce rescue, Biomercados PWA). Start 2×/week posting cadence.
+- **Weeks 3–6** — Publish 2 case studies ( Retail Client e-commerce rescue,  Supermarket Client PWA). Start 2×/week posting cadence.
 - **Weeks 7–10** — Finish DevOps K8s + CI/CD modules; post a build log per week. Launch one open-source repo.
-- **Weeks 11–13** — Publish first GCP-flavored case study ("How I'd rebuild Biomercados on BigQuery + Cloud Run"). Update `/about` with new positioning.
+- **Weeks 11–13** — Publish first GCP-flavored case study ("How I'd rebuild  Supermarket Client on BigQuery + Cloud Run"). Update `/about` with new positioning.
 
 ---
 

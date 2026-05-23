@@ -52,17 +52,17 @@ I help recover the system, containerize it, and hand back an automated
 platform the team can actually run.
 
 Over the last four years I've worked on e-commerce rescue and platform recovery,
-on platforms serving 30,000+ users, alongside teams of up to 15 developers
+on platforms serving high-volume users, alongside teams of up to 15 developers
 (sometimes leading, sometimes contributing), and shipped more than six
 production systems across e-commerce, mobile, and enterprise integration:
 
-• At Tiendas Daka, I led a team of 15 and delivered 6 complex projects —
+• At  Retail Client (LatAm), I led a team of 15 and delivered 6 complex projects —
   stabilizing a NestJS/Strapi e-commerce platform, architecting a nationwide
   Laravel/Filament sales-quotation app with SAP integration, and rebuilding
   a multi-stack support platform spanning Flutter, Laravel, Express, and
   Livewire.
-• At Biomercados, I recovered a stalled e-commerce project and shipped
-  a PWA + mobile apps used by 30,000+ customers, while standing up the
+• At  Supermarket Client, I recovered a stalled e-commerce project and shipped
+  a PWA + mobile apps used by high-volume customers, while standing up the
   Docker registry and CI/CD pipeline that made continuous delivery possible.
 • As a freelance consultant, I restored multi-tenant CS-Cart and
   WooCommerce/Nuxt platforms for clients who'd been told their systems
@@ -90,10 +90,10 @@ to GCP. Just as happy joining a strong team as a senior IC.
 
 ## 7. Featured Section (pin 3 items)
 1. **Personal site** — `https://alvarezivan.net` (custom thumbnail with positioning statement).
-2. **Case study — Daka NestJS + Strapi e-commerce rescue** — link to `/blog/case-studies/daka-ecommerce-rescue`.
-3. **Case study — Biomercados 30k-user PWA** — link to `/blog/case-studies/biomercados-pwa`.
+2. **Case study —  Retail Client NestJS + Strapi e-commerce rescue** — link to `/blog/case-studies/retail-ecommerce-recovery`.
+3. **Case study —  Supermarket Client high-scale PWA** — link to `/blog/case-studies/supermarket-pwa-recovery`.
 
-*(Rotate in the open-source repo and the Daka SAP quotation case study once each is ready to be the lead.)*
+*(Rotate in the open-source repo and the  Retail Client SAP quotation case study once each is ready to be the lead.)*
 
 ---
 
@@ -119,7 +119,7 @@ unified, searchable systems.
 Stack: Laravel · Vue · Inertia.js · Laravel Nova · HubSpot API.
 ```
 
-### 8.2 Tiendas Daka — Software Development Consultant
+### 8.2  Retail Client (LatAm) — Software Development Consultant
 **Oct 2024 – Dec 2025 · Naguanagua, Venezuela · Hybrid**
 Stack: Laravel, Filament, NestJS, PrimeVue, Strapi, Nuxt, Odoo, Flutter, Livewire, SAP, Unifi, TP-Link.
 
@@ -167,16 +167,16 @@ e-commerce platforms that other teams had walked away from.
   practices that kept delivery predictable.
 ```
 
-### 8.4 Alimentos FM, C.A. (Biomercados) — Programmer
+### 8.4  Supermarket Client (LatAm) — Programmer
 **Oct 2021 – Nov 2022 · Carabobo, Venezuela**
 Stack: Node.js, Angular, Docker, PWA, mobile.
 
 ```
 Took over a stalled e-commerce initiative and shipped it end-to-end
-to a customer base of 30,000+.
+to a customer base of high-volume.
 
 • Stabilized and completed an e-commerce project, deploying a PWA and
-  mobile apps used by 30,000+ customers.
+  mobile apps used by high-volume customers.
 • Designed and ran a Docker build pipeline and private image
   registry, enabling continuous delivery for Node.js and Angular
   services.
@@ -284,8 +284,8 @@ for fractional architecture, code audits, and end-to-end delivery.
 
 ## 16. Recommendations Strategy
 Request 3 within the first 30 days, one from each chapter:
-1. **Daka** — a stakeholder or peer who saw the e-commerce rescue.
-2. **Biomercados** — someone who can speak to the 30k-user PWA launch.
+1. ** Retail Client** — a stakeholder or peer who saw the e-commerce rescue.
+2. ** Supermarket Client** — someone who can speak to the high-scale PWA launch.
 3. **Crazy Imagine** — current colleague, vouch for the support/KB system.
 
 Suggested ask template:
@@ -305,12 +305,12 @@ Per `brand-strategy.md` — 2 short posts/week + 1 build log/week.
 
 Suggested first 8 posts (in order):
 1. **Intro / re-introduction post** — announce the new positioning.
-2. **Case study teaser** — 1 paragraph on the Daka NestJS rescue.
+2. **Case study teaser** — 1 paragraph on the  Retail Client NestJS rescue.
 3. **Build log #1** — finishing the IBM DevOps K8s module.
 4. **Decision-and-trade-off post** — "When to rescue vs. rebuild an e-commerce platform."
 5. **Carousel** — "5 signs your e-commerce platform needs a rescue, not a refactor."
 6. **Build log #2** — first GCP lab (Cloud Run + BigQuery).
-7. **Long-form article** — "Rescuing a 30k-user platform: what I'd do differently on GCP today."
+7. **Long-form article** — "Rescuing a high-scale platform: what I'd do differently on GCP today."
 8. **Open-source announcement** — first repo published.
 
 ---

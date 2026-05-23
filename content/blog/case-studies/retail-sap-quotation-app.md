@@ -2,7 +2,7 @@
 title: "A nationwide mobile sales-quotation app, integrated with SAP"
 date: "2026-05-15"
 category: "case-study"
-client: "Tiendas Daka"
+client: " Retail Client (LatAm)"
 year: 2025
 tags:
   - "e-commerce"
@@ -14,8 +14,8 @@ team_size: 3
 role: "Architect & Tech Lead"
 outcome_headline: "Replaced a paper-and-spreadsheet quotation flow with a mobile-first app rolled out nationwide"
 featured: true
-ogImage: "/blog/case-studies/daka-sap-quotation-app/featuredImage.jpg"
-image: "/blog/case-studies/daka-sap-quotation-app/featuredImage.jpg"
+ogImage: "/blog/case-studies/retail-sap-quotation-app/featuredImage.jpg"
+image: "/blog/case-studies/retail-sap-quotation-app/featuredImage.jpg"
 author:
   name: "Iván Álvarez"
   username: "ivanovertime"
@@ -32,13 +32,13 @@ description: >
 
 ## TL;DR
 
-- Greenfield brief: replace a manual, offline-tolerant quotation flow with a mobile-first app for nationwide sales teams.
+- Greenfield brief: replace an inconsistent, offline-tolerant quotation flow with a mobile-first app for distributed sales teams.
 - I led the architecture and led a team of 3 to ship a **mobile-first quotation app** on Laravel + Filament, with SAP as the source of truth.
 - The app rolled out to sales staff across the country and gave the business a real-time view of quotation activity alongside the existing SAP flow.
 
 ## Context
 
-Tiendas Daka has sales teams across the country handling business-to-business and high-value retail quotations. The shape of the brief is one anyone who has digitized a sales process will recognise:
+The client had sales teams across the country handling business-to-business and high-value retail quotations. The shape of the brief is one anyone who has digitized a sales process will recognise:
 
 - A salesperson surface that needed to work on a phone, in a store, on a variable connection.
 - A quotation flow whose system of record was SAP, with everything else expected to converge on it.
@@ -74,7 +74,7 @@ Boring on purpose. The novelty budget went into the SAP integration, not the fra
 
 ### Decision 2 — Mobile-first PWA, not a native app
 
-Same reasoning as the Biomercados PWA, applied at higher stakes.
+Same reasoning as earlier PWA work, applied at higher stakes.
 
 | Option | Trade-off | Chose |
 |---|---|---|
@@ -118,7 +118,7 @@ Filament made the admin surface cheap to build. That meant we could spend the sa
 
 By rollout:
 
-- The app was **deployed nationwide**, across multiple sales teams.
+- The app was **deployed across multiple regions**, covering multiple sales teams.
 - Quotes were **consistent with SAP catalog and pricing** at the moment of generation.
 - The business gained a **real-time view of quotation activity** alongside the SAP-of-record view.
 - The SAP integration module became a **reusable pattern** across the other platforms my team worked on in the same engagement.
@@ -140,4 +140,4 @@ The shape of the work is the same as the rescues — a boring framework, a singl
 
 ---
 
-*If you have a SAP-coupled process running on paper and goodwill, I'd be glad to compare notes on what a small focused build could look like. [Reach out here](/contact).*
+*If you have a SAP-coupled process that still depends on manual coordination, I'd be glad to compare notes on what a small focused build could look like. [Reach out here](/contact).*

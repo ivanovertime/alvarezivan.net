@@ -1,8 +1,8 @@
 ---
-title: "Rebuilding Daka's e-commerce on NestJS + Next.js + Medusa in three months"
+title: "Rebuilding an e-commerce platform on NestJS + Next.js + Medusa in three months"
 date: "2026-05-14"
 category: "case-study"
-client: "Tiendas Daka"
+client: " Retail Client (LatAm)"
 year: 2025
 tags:
   - "e-commerce"
@@ -14,8 +14,8 @@ team_size: 4
 role: "Tech Lead"
 outcome_headline: "Greenfield e-commerce platform delivered inside the three-month window, reusing the SAP integration boundary built during the recovery"
 featured: true
-ogImage: "/blog/case-studies/daka-ecommerce-rescue/featuredImage.jpg"
-image: "/blog/case-studies/daka-ecommerce-rescue/featuredImage.jpg"
+ogImage: "/blog/case-studies/retail-ecommerce-core/featuredImage.jpg"
+image: "/blog/case-studies/retail-ecommerce-core/featuredImage.jpg"
 author:
   name: "Iván Álvarez"
   username: "ivanovertime"
@@ -31,11 +31,11 @@ description: >
   as a contract, and the cutover was planned from day one.
 ---
 
-> :u-icon{name="i-lucide-paperclip" class="inline mr-1 align-[-2px]"} **Part of a pair.** This is Act 2 of two consecutive Daka e-commerce engagements. The recovery that made it possible — stabilizing the inherited NestJS + Strapi platform — is here: [*Stabilizing a failing e-commerce platform inherited from a third party*](/blog/case-studies/daka-ecommerce-recovery).
+> :u-icon{name="i-lucide-paperclip" class="inline mr-1 align-[-2px]"} **Part of a pair.** This is Act 2 of two consecutive e-commerce engagements with the same retail organization. The recovery that made it possible — stabilizing the inherited NestJS + Strapi platform — is here: [*Stabilizing an inherited e-commerce platform on NestJS + Strapi*](/blog/case-studies/retail-ecommerce-recovery).
 
 ## TL;DR
 
-- Follow-on to [the recovery case study](/blog/case-studies/daka-ecommerce-recovery): a from-scratch e-commerce platform on **NestJS + Next.js + Medusa**, with a team of 4, delivered inside a three-month window.
+- Follow-on to [the recovery case study](/blog/case-studies/retail-ecommerce-recovery): a from-scratch e-commerce platform on **NestJS + Next.js + Medusa**, with a team of 4, delivered inside a three-month window.
 - We **reused the SAP integration boundary** from the recovery as a contract, kept Medusa to commerce (not as a CMS), and **planned the cutover from day one** instead of letting it slip into "soft launch" purgatory.
 
 ## Context
@@ -83,7 +83,7 @@ The integration module from the recovery had a clear contract: typed interface, 
 | Build a new SAP integration alongside the old one | Two places to maintain; long parallel-run window; two sets of bugs | |
 | Lift the boundary contract from the recovery, port the implementation onto the new stack | Requires the recovery to actually be reusable; pays back the entire cost of having built it cleanly | <DecisionCheck /> |
 
-This is the hidden return on the recovery work: **the integration boundary became an asset, not a sunk cost.** The same pattern carries into the [SAP quotation app](/blog/case-studies/daka-sap-quotation-app).
+This is the hidden return on the recovery work: **the integration boundary became an asset, not a sunk cost.** The same pattern carries into the [SAP quotation app](/blog/case-studies/retail-sap-quotation-app).
 
 ### Decision 3 — Medusa as a commerce engine, not a CMS
 
@@ -112,10 +112,10 @@ Same SAP. Same payments. A real cutover date on the calendar from week one. The 
 By the end of the three months:
 
 - A from-scratch **NestJS + Next.js + Medusa** platform was **delivered inside the window** the business had set.
-- The **SAP integration boundary** built during the recovery was reused as the contract, validated by a second consumer, and is still the pattern reached for at Daka today.
+- The **SAP integration boundary** built during the recovery was reused as the contract and validated by a second consumer.
 - **Customer continuity was preserved** through cutover — same source of truth, scheduled switchover, no extended dual-run.
 - The product team continued to plan a roadmap on a platform they could now actually ship against.
-- The integration-module pattern became reusable across **the other Daka platforms** my team worked on — most directly the [SAP quotation app](/blog/case-studies/daka-sap-quotation-app).
+- The integration-module pattern proved reusable across other platforms in the same engagement — most directly the [SAP quotation app](/blog/case-studies/retail-sap-quotation-app).
 
 <!-- > ⚠️ **Author note (please confirm before publishing):** drop in concrete numbers if you have them — release cadence on the new platform, time-to-cutover, Lighthouse / perf wins, conversion lift, anything customer-facing. Even rough numbers from memory beat adjectives. -->
 

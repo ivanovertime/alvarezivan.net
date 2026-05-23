@@ -2,7 +2,7 @@
 title: "Stabilizing an inherited e-commerce platform on NestJS + Strapi"
 date: "2026-05-15"
 category: "case-study"
-client: "Tiendas Daka"
+client: " Retail Client (LatAm)"
 year: 2025
 tags:
   - "e-commerce"
@@ -15,8 +15,8 @@ team_size: 4
 role: "Tech Lead"
 outcome_headline: "Built a predictable release path on an inherited stack and a clean SAP integration boundary that set up the work that came next"
 featured: true
-ogImage: "/blog/case-studies/daka-ecommerce-rescue/featuredImage.jpg"
-image: "/blog/case-studies/daka-ecommerce-rescue/featuredImage.jpg"
+ogImage: "/blog/case-studies/retail-ecommerce-core/featuredImage.jpg"
+image: "/blog/case-studies/retail-ecommerce-core/featuredImage.jpg"
 author:
   name: "Iván Álvarez"
   username: "ivanovertime"
@@ -32,21 +32,21 @@ description: >
   paired engagement; the rebuild that followed is its own story.
 ---
 
-> :u-icon{name="i-lucide-paperclip" class="inline mr-1 align-[-2px]"} **Part of a pair.** This is Act 1 of two consecutive Daka e-commerce engagements. The follow-on — the from-scratch rebuild on NestJS + Next.js + Medusa — is here: [*Rebuilding Daka's e-commerce in three months*](/blog/case-studies/daka-ecommerce-rebuild).
+> :u-icon{name="i-lucide-paperclip" class="inline mr-1 align-[-2px]"} **Part of a pair.** This is Act 1 of two consecutive e-commerce engagements with the same retail organization. The follow-on — the from-scratch rebuild on NestJS + Next.js + Medusa — is here: [*Rebuilding an e-commerce platform in three months*](/blog/case-studies/retail-ecommerce-rebuild).
 
 ## TL;DR
 
 - Joined as tech lead on an inherited **NestJS + Strapi** e-commerce stack with a SAP source of truth.
 - With a team of 4 we **stabilized the runtime first**, **contained SAP behind a single integration boundary**, **containerized the deploy path**, and **kept Strapi to editorial content** rather than letting it drift into a control plane for business logic.
-- The result was a release cadence the team was comfortable shipping on, and an integration boundary clean enough to carry forward into the [rebuild case study](/blog/case-studies/daka-ecommerce-rebuild).
+- The result was a release cadence the team was comfortable shipping on, and an integration boundary clean enough to carry forward into the [rebuild case study](/blog/case-studies/retail-ecommerce-rebuild).
 
 ## Context
 
-Tiendas Daka is one of Venezuela's largest retail chains. The engagement is a familiar shape to anyone who has done platform-recovery work:
+This engagement was with a large retail organization in Venezuela. The shape of the work is familiar to anyone who has done platform-recovery work:
 
 - An inherited NestJS + Strapi codebase, with SAP behind it as the source of truth for catalog, pricing, and inventory.
 - A release path that the team didn't fully trust, in the way platforms tend to drift when they've been built by hands no longer on the keyboard.
-- A SAP integration spread across the codebase, each call site with its own retry logic and failure modes — a common shape, not anything specific to Daka.
+- A SAP integration spread across the codebase, each call site with its own retry logic and failure modes — a common shape, not specific to any one client.
 - A roadmap that the team wanted to be able to plan against with confidence again.
 
 The brief was simple to state and harder to do: *make this safe to release on a cadence.*
@@ -88,7 +88,7 @@ The SAP integration was the highest-leverage place to invest. Catalog and pricin
 | Refactor the integration in place, file by file | Low blast radius per PR, but no clear "done" line | |
 | Introduce a single integration module with a typed interface and route every call through it | Higher up-front cost; produces one place to harden, log, and (later) cache | <DecisionCheck /> |
 
-The module became the seam that made everything else easier — observability, retries, caching. It also turned out to be the single most reusable artifact of the whole engagement: it survived the rebuild that followed, and the [SAP quotation app](/blog/case-studies/daka-sap-quotation-app) is built on the same pattern.
+The module became the seam that made everything else easier — observability, retries, caching. It also turned out to be the single most reusable artifact of the whole engagement: it survived the rebuild that followed, and the [SAP quotation app](/blog/case-studies/retail-sap-quotation-app) reused the same pattern.
 
 ### Decision 3 — Containerize the deploy path, don't rebuild the platform
 
@@ -120,9 +120,9 @@ By the end of the engagement:
 - Every SAP read and write flowed through the **single integration module**, which became the one place to harden, log, and cache.
 - **Deployments became reproducible** — same artifact, same path, every time.
 - The product team had a platform they could plan a roadmap against.
-- The integration-module pattern became the **most reusable asset** of the engagement, carried forward into the rebuild and into the [SAP quotation app](/blog/case-studies/daka-sap-quotation-app).
+- The integration-module pattern became the **most reusable asset** of the engagement, carried forward into the rebuild and into the [SAP quotation app](/blog/case-studies/retail-sap-quotation-app).
 
-The deeper outcome was the one that made Act 2 possible at all: with the runtime stable, the business asked the more interesting question — *"if you had three months, how would you build this from scratch?"* That answer is its own case study: [*Rebuilding Daka's e-commerce in three months*](/blog/case-studies/daka-ecommerce-rebuild).
+The deeper outcome was the one that made Act 2 possible at all: with the runtime stable, the business asked the more interesting question — *"if you had three months, how would you build this from scratch?"* That answer is its own case study: [*Rebuilding an e-commerce platform in three months*](/blog/case-studies/retail-ecommerce-rebuild).
 
 ## What I'd do on GCP today
 

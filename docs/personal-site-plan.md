@@ -11,7 +11,7 @@ Aligned with `brand-strategy.md` and `linkedin-profile-draft.md`.
 Completed:
 - Core tone pass across home/about/now/contact and case studies (warmer, less sales-heavy language).
 - `/now`, `/uses`, and `/contact` are live and linked from navigation/footer as intended.
-- Four case studies are published: the Daka e-commerce **pair** (`daka-ecommerce-recovery` + `daka-ecommerce-rebuild`), `biomercados-pwa`, and `daka-sap-quotation-app`.
+- Four case studies are published: the  Retail Client e-commerce **pair** (`retail-ecommerce-recovery` + `retail-ecommerce-rebuild`), `supermarket-pwa-recovery`, and `retail-sap-quotation-app`.
 - Open Graph generation is wired with `nuxt-og-image`, with a local template override.
 - JSON-LD is live via `nuxt-schema-org` (`Person`/`WebSite`/`WebPage` globally and `Article` on blog detail pages).
 
@@ -66,7 +66,7 @@ Keep the existing avatar and the GitHub/LinkedIn icons.
 
 **Add a new "Featured Case Studies" section** between hero and "What I do":
 - 3 cards. Same component as current Latest Articles, different data source.
-- First entries: Daka e-commerce rescue · Biomercados PWA · Daka SAP quotation app.
+- First entries:  Retail Client e-commerce rescue ·  Supermarket Client PWA ·  Retail Client SAP quotation app.
 
 **Keep "What I do and how I work" tabs**, but:
 - Reorder tabs so the senior-signal ones lead: `Tech Skills` → `Pricing & Timelines` → `Uses` → `Languages`.
@@ -74,9 +74,9 @@ Keep the existing avatar and the GitHub/LinkedIn icons.
 
 **Work Experience timeline:** keep, but rewrite each entry's one-liner to match the LinkedIn draft:
 - Crazy Imagine — *Building unified support + KB tooling on Laravel/Vue/Inertia.*
-- Tiendas Daka — *Led 15 engineers and 6+ rescues across e-commerce, mobile, and SAP.*
+-  Retail Client (LatAm) — *Led 15 engineers and 6+ rescues across e-commerce, mobile, and SAP.*
 - Freelance — *Restored multi-tenant CS-Cart and modernized WooCommerce/Nuxt stores.*
-- Biomercados — *Recovered a stalled e-commerce project; shipped PWA + apps to 30k+ users.*
+-  Supermarket Client — *Recovered a stalled e-commerce project; shipped PWA + apps to high-volume users.*
 
 **Latest Articles:** keep as-is. Existing posts already align well.
 
@@ -96,9 +96,9 @@ Don't delete the existing 3 projects; reclassify and add to them.
 - BCV Scraper → `Side Project` + `Full-Stack Architecture`
 
 **Add new case studies (in priority order):**
-1. **Daka — Rescuing a NestJS + Strapi e-commerce platform** *(Full-Stack Architecture)*
-2. **Biomercados — Shipping a 30k-user PWA from a stalled project** *(Platform & DevOps)*
-3. **Daka — Nationwide mobile sales-quotation app with SAP** *(Full-Stack Architecture)*
+1. ** Retail Client — Rescuing a NestJS + Strapi e-commerce platform** *(Full-Stack Architecture)*
+2. ** Supermarket Client — Shipping a high-scale PWA from a stalled project** *(Platform & DevOps)*
+3. ** Retail Client — Nationwide mobile sales-quotation app with SAP** *(Full-Stack Architecture)*
 4. **Crazy Imagine — Support + Knowledge Base on Laravel/Vue/Inertia** *(Full-Stack Architecture)*
 5. **Freelance — Restoring a multi-tenant CS-Cart deployment** *(Full-Stack Architecture)*
 
@@ -117,7 +117,7 @@ Frontmatter to add to the Nuxt content collection:
 
 ```yaml
 title: "Stabilizing a failing e-commerce platform inherited from a third party"
-client: "Tiendas Daka"
+client: " Retail Client (LatAm)"
 year: 2025
 pillar: "Full-Stack Architecture"
 type: "recovery"       # recovery | greenfield | side-project
@@ -126,7 +126,7 @@ team_size: 4
 role: "Tech Lead"
 outcome_headline: "Turned a fragile third-party storefront into a predictable, releasable system"
 featured: true          # surfaces on home
-ogImage: "/blog/case-studies/daka-ecommerce-rescue/featuredImage.jpg"
+ogImage: "/blog/case-studies/retail-ecommerce-core/featuredImage.jpg"
 ```
 
 ---
@@ -174,7 +174,7 @@ Inspired by [nownownow.com/about](https://nownownow.com/about). Single page, upd
 - Generative AI for Software Developers (IBM).
 
 ## Shipping next
-- First case study: Daka NestJS + Strapi e-commerce rescue.
+- First case study:  Retail Client NestJS + Strapi e-commerce rescue.
 - One open-source repo (Laravel ↔ BigQuery sync — TBD).
 
 ## Available for
@@ -240,7 +240,7 @@ Current site is EN with an ES CV. Recommend adding ES content via Nuxt i18n only
 Order:
 1. ES home + about (high-traffic, easy).
 2. ES `/now`.
-3. Translate top 2 case studies (Daka e-commerce rescue + Biomercados PWA).
+3. Translate top 2 case studies ( Retail Client e-commerce rescue +  Supermarket Client PWA).
 4. Mark ES-only posts in `/blog` with a flag; don't force translation parity.
 
 ---
@@ -260,7 +260,7 @@ Order:
 - [ ] Add pillar filter chips.
 - [ ] Tag existing 3 projects.
 - [ ] Add Featured Case Studies row to home (empty state OK).
-- [x] Publish **the Daka e-commerce pair** (`daka-ecommerce-recovery` + `daka-ecommerce-rebuild`) using the 6-section template, with a "📎 Part of a pair" callout cross-linking the two.
+- [x] Publish **the  Retail Client e-commerce pair** (`retail-ecommerce-recovery` + `retail-ecommerce-rebuild`) using the 6-section template, with a "📎 Part of a pair" callout cross-linking the two.
 
 ### Sprint 3 — Now + about + uses
 - [x] Build `/now` page + first quarterly entry.
@@ -270,7 +270,7 @@ Order:
 - [x] Promote `/uses` to its own page.
 
 ### Sprint 4 — Volume + polish
-- [x] Publish case studies #2 and #3 (Biomercados PWA, Daka SAP quotation).
+- [x] Publish case studies #2 and #3 ( Supermarket Client PWA,  Retail Client SAP quotation).
 - [x] Backfill the 6-section template on existing 3 projects.
 - [ ] Run Lighthouse — gate at perf ≥ 95, a11y ≥ 95.
 
@@ -347,7 +347,7 @@ Your job, in this order, one PR per sprint:
 3. **Sprint 2 — Case studies foundation** (per §6 Sprint 2).
   Keep case studies under `/blog`, add pillar filters, tag existing projects, add the
   Featured Case Studies row to the home, and publish the first new
-  case study (Daka NestJS e-commerce rescue) using the 6-section template
+  case study ( Retail Client NestJS e-commerce rescue) using the 6-section template
    from §2.2 with frontmatter.
 
 4. **Sprint 3 — `/now`, `/about` restructure, `/uses` split,

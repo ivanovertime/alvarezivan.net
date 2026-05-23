@@ -7,7 +7,7 @@ description: "Full-stack engineer based in Valencia, Venezuela. I enjoy improvin
 
 I'm a full-stack engineer based in Valencia, Venezuela. Most of my work has been on platforms that needed help — e-commerce stores under load, SAP integrations with limited documentation, and deployment processes that needed recovery. I enjoy that kind of work: reading the code, talking to the people, and leaving things in a healthier state than I found them.
 
-Over the last four years I've helped recover and re-architect platforms serving up to 30,000 users, worked with teams of various sizes (sometimes leading, sometimes contributing), and shipped six-plus production systems across e-commerce, mobile, and enterprise integration. Right now I'm learning data platforms on Google Cloud — see [/now](/now) for what that looks like this quarter.
+Over the last four years I've helped recover and re-architect platforms serving high-volume user bases, worked with teams of various sizes (sometimes leading, sometimes contributing), and shipped multiple production systems across e-commerce, mobile, and enterprise integration. Right now I'm learning data platforms on Google Cloud — see [/now](/now) for what that looks like this quarter.
 
 I'm just as happy joining a strong team as a senior IC as I am leading one. The constant is the work itself.
 
@@ -22,14 +22,14 @@ I'm curious by nature. You'll often find me exploring cinema, cooking, or learni
 **Dec 2025 – Present · Crazy Imagine Software · Senior Full Stack Engineer (Remote)**
 Building a unified support and notification system on Laravel + Vue + Inertia.js, integrated with HubSpot. Companion Knowledge Base on Inertia.js + Laravel Nova.
 
-**Oct 2024 – Dec 2025 · Tiendas Daka · Software Development Consultant**
+**Oct 2024 – Dec 2025 ·  Retail Client (LatAm) · Software Development Consultant**
 Worked with a team of around 15 engineers on six-plus rescues and greenfield builds — e-commerce platforms, a nationwide SAP-integrated quotation app, a multi-stack support platform, and a captive-portal solution. See the [case studies](/blog?category=case-study).
 
 **Dec 2022 – Sep 2024 · Freelance · Full-Stack Developer**
 Restored a multi-tenant CS-Cart deployment, modernized WooCommerce + Nuxt stores, and worked with cross-functional teams on coding standards.
 
-**Oct 2021 – Nov 2022 · Biomercados (Alimentos FM, C.A.) · Programmer**
-Recovered a stalled e-commerce project and shipped a [PWA + mobile apps to 30,000+ customers](/blog/case-studies/biomercados-pwa). Stood up the Docker registry and CI/CD pipeline that made continuous delivery possible.
+**Oct 2021 – Nov 2022 ·  Supermarket Client (LatAm) · Programmer**
+Recovered an inherited e-commerce project and shipped a [PWA + mobile apps for a high-volume customer base](/blog/case-studies/supermarket-pwa-recovery). Stood up the Docker registry and CI/CD pipeline that made continuous delivery possible.
 
 **Sep 2016 – Jul 2020 · Universidad Nacional Experimental de los Llanos Centrales 'Rómulo Gallegos'**
 Engineer's degree, Informatics.
