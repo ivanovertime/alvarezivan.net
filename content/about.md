@@ -22,14 +22,14 @@ I'm curious by nature. You'll often find me exploring cinema, cooking, or learni
 **Dec 2025 – Present · Crazy Imagine Software · Senior Full Stack Engineer (Remote)**
 Building a unified support and notification system on Laravel + Vue + Inertia.js, integrated with HubSpot. Companion Knowledge Base on Inertia.js + Laravel Nova.
 
-**Oct 2024 – Dec 2025 ·  Retail Client (LatAm) · Software Development Consultant**
-Worked with a team of around 15 engineers on six-plus rescues and greenfield builds — e-commerce platforms, a nationwide SAP-integrated quotation app, a multi-stack support platform, and a captive-portal solution. See the [case studies](/blog?category=case-study).
+**Oct 2024 – Dec 2025 · Tiendas Daka · Software Development Consultant**
+Worked with a team of around 15 engineers on six-plus rescues and greenfield builds at a Venezuelan retail chain — e-commerce platforms, a nationwide SAP-integrated quotation app, a multi-stack support platform, and a captive-portal solution. See the [case studies](/blog?category=case-study).
 
 **Dec 2022 – Sep 2024 · Freelance · Full-Stack Developer**
 Restored a multi-tenant CS-Cart deployment, modernized WooCommerce + Nuxt stores, and worked with cross-functional teams on coding standards.
 
-**Oct 2021 – Nov 2022 ·  Supermarket Client (LatAm) · Programmer**
-Recovered an inherited e-commerce project and shipped a [PWA + mobile apps for a high-volume customer base](/blog/case-studies/supermarket-pwa-recovery). Stood up the Docker registry and CI/CD pipeline that made continuous delivery possible.
+**Oct 2021 – Nov 2022 · Biomercados (Alimentos FM, C.A.) · Programmer**
+Recovered an inherited e-commerce project at a Venezuelan supermarket chain and shipped a [PWA + mobile apps for a high-volume customer base](/blog/case-studies/supermarket-pwa-recovery). Stood up the Docker registry and CI/CD pipeline that made continuous delivery possible.
 
 **Sep 2016 – Jul 2020 · Universidad Nacional Experimental de los Llanos Centrales 'Rómulo Gallegos'**
 Engineer's degree, Informatics.

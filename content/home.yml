@@ -28,9 +28,9 @@ experience:
     - position: "Software Development Consultant"
       date: "Oct 2024 – Dec 2025"
       company:
-        name: " Retail Client (LatAm)"
+        name: "Tiendas Daka C.A."
         logo: "i-lucide-building-2"
-        url: "#"
+        url: "https://www.tiendasdaka.com/"
         color: "#facc15"
     - position: "Freelance Full-Stack Developer"
       date: "Dec 2022 – Sep 2024"
@@ -42,7 +42,7 @@ experience:
     - position: "Programmer"
       date: "Oct 2021 – Nov 2022"
       company:
-        name: " Supermarket Client (LatAm)"
+        name: "Biomercados (Alimentos FM)"
         logo: "i-lucide-store"
         url: "#"
         color: "#0f766e"
