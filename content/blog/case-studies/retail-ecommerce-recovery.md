@@ -25,117 +25,94 @@ author:
     src: "/avatar.jpg"
     alt: "Iván Álvarez"
 description: >
-  A recovery-shaped engagement on an inherited NestJS + Strapi
-  storefront: stabilize the runtime, contain the SAP integration
-  behind a single boundary, containerize the deploy path, and keep
-  Strapi to editorial content. This is the recovery half of a
-  paired engagement; the rebuild that followed is its own story.
+  Act 1 of a two-part e-commerce engagement: stabilize an inherited
+  NestJS + Strapi stack, isolate SAP behind one boundary, and restore
+  a predictable release path before considering a rebuild.
 ---
 
-> :u-icon{name="i-lucide-paperclip" class="inline mr-1 align-[-2px]"} **Part of a pair.** This is Act 1 of two consecutive e-commerce engagements with the same retail organization. The follow-on — the from-scratch rebuild on NestJS + Next.js + Medusa — is here: [*Rebuilding an e-commerce platform in three months*](/blog/case-studies/retail-ecommerce-rebuild).
+> :u-icon{name="i-lucide-paperclip" class="inline mr-1 align-[-2px]"} **Part of a pair.** This is Act 1 (fix first). Act 2 (rebuild when ready) is [*Rebuilding an e-commerce platform in three months*](/blog/case-studies/retail-ecommerce-rebuild).
 
 ## TL;DR
 
-- Joined as tech lead on an inherited **NestJS + Strapi** e-commerce stack with a SAP source of truth.
-- With a team of 4 we **stabilized the runtime first**, **contained SAP behind a single integration boundary**, **containerized the deploy path**, and **kept Strapi to editorial content** rather than letting it drift into a control plane for business logic.
-- The result was a release cadence the team was comfortable shipping on, and an integration boundary clean enough to carry forward into the [rebuild case study](/blog/case-studies/retail-ecommerce-rebuild).
+- Inherited **NestJS + Strapi** storefront with SAP as system of record and a release path the team did not trust.
+- We fixed first: stabilized runtime, moved SAP calls behind one typed boundary, and standardized deployment with containers + CI/CD.
+- Result: a predictable shipping cadence and a reusable integration contract that made the [rebuild case study](/blog/case-studies/retail-ecommerce-rebuild) viable.
 
-## Context
+## Situation
 
-This engagement was with a large retail organization in Venezuela. The shape of the work is familiar to anyone who has done platform-recovery work:
+- Inherited platform: **NestJS + Strapi**, with SAP as source of truth for catalog, pricing, and inventory.
+- Main risk: integration behavior was spread across the codebase, so each release carried surprise risk.
+- Constraints: team of 4, one quarter, storefront had to stay online, and no full rewrite.
 
-- An inherited NestJS + Strapi codebase, with SAP behind it as the source of truth for catalog, pricing, and inventory.
-- A release path that the team didn't fully trust, in the way platforms tend to drift when they've been built by hands no longer on the keyboard.
-- A SAP integration spread across the codebase, each call site with its own retry logic and failure modes — a common shape, not specific to any one client.
-- A roadmap that the team wanted to be able to plan against with confidence again.
-
-The brief was simple to state and harder to do: *make this safe to release on a cadence.*
-
-<!-- > ⚠️ **Author note (please confirm before publishing):** a scale indicator for the platform at the time — orders/week, GMV, MAU, anything you can share — would strengthen the Context. Even a rough order of magnitude beats adjectives. -->
-
-## Constraints
-
-| Constraint | Reality |
-|---|---|
-| Team size | 4 engineers, with me as tech lead |
-| Calendar | One quarter to show measurable stability |
-| Inherited stack | NestJS + Strapi |
-| Source of truth | SAP — for catalog, pricing, inventory |
-| Off-limits | A full rewrite. The storefront had to keep serving customers throughout. |
-| Safety net | Whatever automated coverage we wanted to lean on, we'd be building as we went. |
-
-The non-negotiable: **keep the storefront online for customers, every day, throughout the recovery.**
+The job was not to build something new. The job was to make this one safe to ship again.
 
 ## Decisions
 
 ### Decision 1 — Stabilize the runtime before touching features
 
-The first two weeks were diagnosis only. We wrote down what we found, what we'd touch, and what we'd explicitly leave alone.
+We used the first two weeks for diagnosis and instrumentation only.
 
 | Option | Trade-off | Chose |
 |---|---|---|
-| Fix the highest-priority bug list first | Visible to stakeholders, but every fix on an unfamiliar runtime is its own risk | |
-| Freeze features for two weeks, audit and instrument the runtime | Feels slow to the business; pays back the moment the next change lands | <DecisionCheck /> |
+| Fix bug backlog immediately | Looks faster, but compounds risk on an unfamiliar runtime | |
+| Freeze features briefly, audit and instrument first | Slower first impression, faster and safer every week after | <DecisionCheck /> |
 
-We bought predictability before we bought velocity. Every subsequent change landed on a runtime we actually understood.
+Predictability came first. Velocity followed.
 
 ### Decision 2 — Contain SAP integration behind a single explicit boundary
 
-The SAP integration was the highest-leverage place to invest. Catalog and pricing reads were spread across the codebase, each call site with its own retry logic, timeouts, and failure modes — a pattern any engineer who has worked alongside an ERP will recognise.
+The highest-leverage move was to centralize SAP integration behavior.
 
 | Option | Trade-off | Chose |
 |---|---|---|
-| Refactor the integration in place, file by file | Low blast radius per PR, but no clear "done" line | |
-| Introduce a single integration module with a typed interface and route every call through it | Higher up-front cost; produces one place to harden, log, and (later) cache | <DecisionCheck /> |
+| Refactor call sites piecemeal | Small PR risk, but no clear finish line | |
+| Route all calls through one typed integration module | Higher up-front cost; one place to harden, observe, and cache | <DecisionCheck /> |
 
-The module became the seam that made everything else easier — observability, retries, caching. It also turned out to be the single most reusable artifact of the whole engagement: it survived the rebuild that followed, and the [SAP quotation app](/blog/case-studies/retail-sap-quotation-app) reused the same pattern.
+That boundary became the reusable asset: it survived the rebuild and informed the [SAP quotation app](/blog/case-studies/retail-sap-quotation-app).
 
 ### Decision 3 — Containerize the deploy path, don't rebuild the platform
 
-Rather than chase a new platform target during recovery, we containerized the existing services and standardized the deploy path.
+We avoided a second migration during recovery and standardized delivery first.
 
 | Option | Trade-off | Chose |
 |---|---|---|
-| Migrate to a managed PaaS in the middle of a recovery | Modern, but introduces a second migration on top of an unstable baseline | |
-| Containerize in place + a thin CI/CD pipeline | Familiar tooling, fast payoff, leaves the door open for Kubernetes or Cloud Run later | <DecisionCheck /> |
+| Migrate platform target mid-recovery | Adds migration risk to existing runtime risk | |
+| Containerize in place + thin CI/CD | Fast payoff now, portability later | <DecisionCheck /> |
 
-The recurring pattern in this kind of work: **fewer moving parts at first, more options later.**
+Rule of thumb: **fewer moving parts now, more options later.**
 
 ### Decision 4 — Make Strapi a content tool, not a control plane
 
-Strapi had drifted into being used for things it isn't good at — pricing rules, inventory flags, business logic that lived behind editorial fields. Every content edit was, accidentally, a code change.
+Strapi had drifted into business logic and pricing behavior, which made content edits risky.
 
 | Option | Trade-off | Chose |
 |---|---|---|
-| Leave the responsibilities where they were and document them | Cheaper now; pays the same incident tax forever | |
-| Pull business logic back into NestJS; restrict Strapi to editorial content | More work now; clears a category of surprise entirely | <DecisionCheck /> |
+| Leave responsibilities mixed and document them | Cheaper now; keeps incident risk | |
+| Move business logic back to NestJS; keep Strapi editorial-only | More work now; removes a recurring failure mode | <DecisionCheck /> |
 
-This bought breathing room and — as it turned out — clarified what a follow-on rebuild would and would not need to replace.
+This clarified what a future rebuild would actually need to replace.
 
 ## Outcome
 
 By the end of the engagement:
 
-- The storefront shipped on a **predictable, repeatable cadence**.
-- Every SAP read and write flowed through the **single integration module**, which became the one place to harden, log, and cache.
-- **Deployments became reproducible** — same artifact, same path, every time.
-- The product team had a platform they could plan a roadmap against.
-- The integration-module pattern became the **most reusable asset** of the engagement, carried forward into the rebuild and into the [SAP quotation app](/blog/case-studies/retail-sap-quotation-app).
+- Releases became **predictable and repeatable**.
+- SAP reads and writes moved behind **one integration boundary**.
+- Deployments became **reproducible**.
+- The team had enough stability to plan with confidence again.
 
-The deeper outcome was the one that made Act 2 possible at all: with the runtime stable, the business asked the more interesting question — *"if you had three months, how would you build this from scratch?"* That answer is its own case study: [*Rebuilding an e-commerce platform in three months*](/blog/case-studies/retail-ecommerce-rebuild).
+Most importantly, recovery created the preconditions for Act 2: *rebuild by choice, not by panic.* See [*Rebuilding an e-commerce platform in three months*](/blog/case-studies/retail-ecommerce-rebuild).
 
 ## What I'd do on GCP today
 
-Same brief in 2026, same inherited stack. The architectural instincts wouldn't change — the platform underneath would.
+Same strategy, less platform toil:
 
-- **Runtime:** containerize for **Cloud Run** rather than self-managed Docker hosts. Same artifact, no host-management work.
-- **SAP integration:** keep the single-module pattern, and put **Pub/Sub** between SAP events and the NestJS consumer so the storefront degrades gracefully when SAP is slow.
-- **Catalog & pricing reads:** project SAP data into **Firestore** (or a small Postgres on Cloud SQL) for hot reads, with SAP staying the system of record. Stops the storefront from being coupled to SAP's response time.
-- **Observability:** wire **Cloud Logging + Cloud Trace** from day one. The first thing a recovery needs is a working flashlight.
-- **Delivery:** **GitHub Actions → Cloud Run**, with a preview environment per PR. The same predictability we earned manually, but for free.
-
-The pattern is the same. The leverage is higher.
+- **Cloud Run** for runtime and deploy consistency.
+- **Pub/Sub** in front of SAP-driven events for resilience.
+- **Firestore or Cloud SQL** for hot reads, with SAP still as source of truth.
+- **Cloud Logging + Cloud Trace** from day one.
+- **GitHub Actions → Cloud Run** with preview environments per PR.
 
 ---
 
-*If you're staring at an inherited platform that feels too risky to release and too expensive to rewrite, the answer is rarely either-or. Recover first, then earn the right to rebuild. Happy to talk through it — [get in touch](/contact).*
+*If your platform feels too risky to release and too expensive to replace, start with recovery. Rebuild after you earn the right. Happy to talk through it — [get in touch](/contact).*
