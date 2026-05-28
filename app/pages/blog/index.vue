@@ -13,7 +13,7 @@ if (!page.value) {
   })
 }
 const { data: posts } = await useAsyncData('blogs', () =>
-  queryCollection('blog').order('date', 'DESC').all()
+  queryCollection('blog').where('hidden', '=', false).order('date', 'DESC').all()
 )
 if (!posts.value) {
   throw createError({

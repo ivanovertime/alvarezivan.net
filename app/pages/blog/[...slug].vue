@@ -9,14 +9,30 @@ const withBase = (url: string) =>
   url?.startsWith('http') ? url : `${baseUrl.value}${url?.startsWith('/') ? '' : '/'}${url}`
 
 const { data: page } = await useAsyncData(route.path, () =>
-  queryCollection('blog').path(route.path).first()
+  queryCollection('blog').where('hidden', '=', false).path(route.path).first()
 )
 if (!page.value) throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
-const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
-  queryCollectionItemSurroundings('blog', route.path, {
-    fields: ['description']
-  })
+const { data: visiblePosts } = await useAsyncData('visible-blog-posts', () =>
+  queryCollection('blog').where('hidden', '=', false).order('date', 'DESC').all()
 )
+
+const surround = computed(() => {
+  const posts = visiblePosts.value ?? []
+  const currentIndex = posts.findIndex(post => post.path === route.path)
+  if (currentIndex === -1) return []
+
+  // UContentSurround expects [previous, next]. With DESC dates,
+  // previous is an older post and next is a newer post.
+  const previous = posts[currentIndex + 1] ?? null
+  const next = posts[currentIndex - 1] ?? null
+  return [previous, next]
+    .filter((item): item is NonNullable<typeof item> => item !== null && !!item.path)
+    .map(item => ({
+      title: item.title,
+      description: item.description,
+      path: item.path as string
+    }))
+})
 
 const title = page.value?.seo?.title || page.value?.title
 const description = page.value?.seo?.description || page.value?.description

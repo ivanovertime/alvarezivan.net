@@ -1,6 +1,7 @@
 ---
 title: "Stabilizing an inherited e-commerce platform on NestJS + Strapi"
 date: "2026-05-15"
+hidden: true
 category: "case-study"
 client: " Retail Client (LatAm)"
 year: 2025

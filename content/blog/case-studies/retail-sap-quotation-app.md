@@ -1,6 +1,7 @@
 ---
 title: "A nationwide mobile sales-quotation app, integrated with SAP"
 date: "2026-05-15"
+hidden: true
 category: "case-study"
 client: " Retail Client (LatAm)"
 year: 2025

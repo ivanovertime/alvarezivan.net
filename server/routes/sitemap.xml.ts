@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
 
   const [pages, posts] = await Promise.all([
     queryCollection(event, 'pages').all() as Promise<ContentEntry[]>,
-    queryCollection(event, 'blog').all() as Promise<ContentEntry[]>
+    queryCollection(event, 'blog').where('hidden', '=', false).all() as Promise<ContentEntry[]>
   ])
 
   const staticRoutes: ContentEntry[] = [

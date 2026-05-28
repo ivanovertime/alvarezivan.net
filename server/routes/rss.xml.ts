@@ -27,7 +27,7 @@ const toRssDate = (value?: string | Date) => {
 export default defineEventHandler(async (event) => {
   const siteUrl = 'https://alvarezivan.net'
 
-  const posts = await queryCollection(event, 'blog').all() as BlogEntry[]
+  const posts = await queryCollection(event, 'blog').where('hidden', '=', false).all() as BlogEntry[]
 
   posts.sort((a, b) => {
     const aDate = new Date((a.date ?? a.updated ?? 0) as string | Date).getTime()

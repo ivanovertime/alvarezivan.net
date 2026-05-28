@@ -1,6 +1,7 @@
 ---
 title: "Rebuilding an e-commerce platform on NestJS + Next.js + Medusa in three months"
 date: "2026-05-14"
+hidden: true
 category: "case-study"
 client: " Retail Client (LatAm)"
 year: 2025

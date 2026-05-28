@@ -4,6 +4,7 @@ date: "2026-05-15"
 category: "case-study"
 client: " Supermarket Client (LatAm)"
 year: 2022
+hidden: true
 tags:
   - "e-commerce"
   - "platform-recovery"
@@ -28,7 +29,6 @@ description: >
   recovered, and shipped end-to-end as a PWA and mobile apps for
   a high-volume customer base — with a Docker registry and CI/CD pipeline that
   made continuous delivery possible for the team that came after.
----
 
 ## TL;DR
 
