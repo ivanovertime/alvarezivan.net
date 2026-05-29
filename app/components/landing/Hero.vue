@@ -112,7 +112,7 @@ defineProps<{
           class="flex w-full flex-col items-center gap-2 sm:w-auto sm:flex-row"
         >
           <UButton
-            class="w-full sm:w-auto"
+            class="w-auto min-w-[12rem] justify-center"
             data-analytics-event="cta_click"
             data-analytics-category="conversion"
             data-analytics-label="hero_primary"
@@ -122,7 +122,7 @@ defineProps<{
           <UButton
             :color="global.available ? 'success' : 'error'"
             variant="ghost"
-            class="gap-2 w-full sm:w-auto"
+            class="gap-2 w-auto min-w-[12rem] justify-center"
             :data-analytics-event="global.available ? 'meeting_click' : 'availability_click'"
             data-analytics-category="conversion"
             data-analytics-label="hero_availability"
