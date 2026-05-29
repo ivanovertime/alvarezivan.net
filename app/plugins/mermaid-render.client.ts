@@ -9,6 +9,7 @@ export default defineNuxtPlugin(() => {
   let mermaid: Mermaid | null = null
   let sequence = 0
   let pending = false
+  let appMounted = false
   let htmlClassObserver: MutationObserver | null = null
 
   const currentTheme = () => document.documentElement.classList.contains('dark') ? 'dark' : 'default'
@@ -73,10 +74,15 @@ export default defineNuxtPlugin(() => {
   }
 
   const scheduleRender = () => {
+    if (!appMounted) return
     if (pending) return
     pending = true
 
-    queueMicrotask(async () => {
+    const defer = window.requestAnimationFrame
+      ? window.requestAnimationFrame
+      : (callback: FrameRequestCallback) => window.setTimeout(callback, 16)
+
+    defer(async () => {
       pending = false
       cleanupRenderedBlocks()
       await renderMermaidBlocks()
@@ -101,7 +107,8 @@ export default defineNuxtPlugin(() => {
     })
   }
 
-  onNuxtReady(() => {
+  nuxtApp.hook('app:mounted', () => {
+    appMounted = true
     watchThemeChanges()
     scheduleRender()
   })
