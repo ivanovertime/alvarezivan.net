@@ -29,7 +29,7 @@ Worked with a team of around 15 engineers on six-plus rescues and greenfield bui
 Restored a multi-tenant CS-Cart deployment, modernized WooCommerce + Nuxt stores, and worked with cross-functional teams on coding standards.
 
 **Oct 2021 – Nov 2022 · Biomercados (Alimentos FM, C.A.) · Programmer**
-Recovered an inherited e-commerce project at a Venezuelan supermarket chain and shipped a PWA + mobile apps for a high-volume customer base. Stood up the Docker registry and CI/CD pipeline that made continuous delivery possible.
+Recovered an inherited e-commerce project at a Venezuelan supermarket chain and shipped a [PWA + mobile apps for a high-volume customer base](/blog/case-studies/supermarket-pwa-recovery). Stood up the Docker registry and CI/CD pipeline that made continuous delivery possible.
 
 **Sep 2016 – Jul 2020 · Universidad Nacional Experimental de los Llanos Centrales 'Rómulo Gallegos'**
 Engineer's degree, Informatics.

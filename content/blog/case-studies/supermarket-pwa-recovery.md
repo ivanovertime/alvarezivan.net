@@ -4,7 +4,6 @@ date: "2026-05-15"
 category: "case-study"
 client: " Supermarket Client (LatAm)"
 year: 2022
-hidden: true
 tags:
   - "e-commerce"
   - "platform-recovery"
@@ -29,6 +28,7 @@ description: >
   recovered, and shipped end-to-end as a PWA and mobile apps for
   a high-volume customer base — with a Docker registry and CI/CD pipeline that
   made continuous delivery possible for the team that came after.
+---
 
 ## TL;DR
 
@@ -59,6 +59,54 @@ The brief was simple in one sentence and hard in practice: *finish it and ship i
 | Adjacent work | Customer segmentation and exchange-rate ingestion were also on the table |
 
 The non-negotiable: ship something customers could use, then build the platform underneath that made the next thing easy.
+
+## Architecture at a glance
+
+Based on the original delivery architecture (simplified from the internal diagram), this is the flow we shipped:
+
+```mermaid
+flowchart LR
+  classDef ext fill:#e5e7eb,stroke:#6b7280,color:#282a30
+  classDef svc fill:#dbeafe,stroke:#0f4c5c,color:#282a30
+  classDef data fill:#d1fae5,stroke:#0f766e,color:#282a30
+  classDef client fill:#fef3c7,stroke:#f59e0b,color:#282a30
+
+  ERP[(ERP / iDempiere)]
+  M2[(Magento 2)]
+
+  subgraph Integration[Integration Layer]
+    INT[Integrator]
+    MS[Catalog Sync Microservice]
+  end
+  class INT,MS svc
+
+  DB[(MongoDB)]
+
+  subgraph APIs[Platform APIs]
+    PROC[Process API\nCatalog, prices, tags, stock]
+    APP[App API\nOrders, profile, addresses]
+  end
+  class PROC,APP svc
+
+  subgraph Clients[Customer Surface]
+    PWA[PWA Storefront]
+    MOB[Mobile App]
+  end
+  class PWA,MOB client
+  class ERP,M2 ext
+  class DB data
+
+  ERP --> INT
+  M2 --> INT
+  INT --> MS
+  MS --> DB
+  DB --> PROC
+  PROC --> PWA
+  PROC --> MOB
+  PWA --> APP
+  MOB --> APP
+  APP --> M2
+```
 
 ## Decisions
 

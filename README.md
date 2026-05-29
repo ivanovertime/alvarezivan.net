@@ -18,6 +18,27 @@ Personal website of Ivan Alvarez, built with Nuxt 4, Nuxt UI, and Nuxt Content.
 
 Site content lives in [content/](content/) and is mostly authored as YAML and Markdown.
 
+### Mermaid Diagrams in Markdown
+
+Mermaid fenced code blocks are auto-rendered as diagrams in Markdown content.
+
+Use it like this inside any `.md` file in `content/`:
+
+```md
+```mermaid
+flowchart LR
+  U[User] --> PWA[PWA Frontend]
+  PWA --> API[API Service]
+  API --> DB[(Database)]
+```
+```
+
+Notes:
+
+- Use a `mermaid` fenced block.
+- Diagrams are rendered client-side and adapt to light/dark mode.
+- If syntax is invalid, the page shows a small inline error message.
+
 ## Setup
 
 Install dependencies:

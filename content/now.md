@@ -27,6 +27,7 @@ Next up (Q3): **Google Cloud Professional Data Engineer** and **DataOps: Automat
 ## :u-icon{name="i-lucide-rocket" class="mr-2 align-[-2px]"} Shipping next
 
 - **A case-study series (in progress)** focused on platform recovery and rebuild patterns from recent retail engagements.
+- **The Biomercados case study** — [high-scale PWA recovery](/blog/case-studies/supermarket-pwa-recovery).
 - **One open-source repo** to publish this quarter — likely a small, useful tool at the intersection of Laravel and BigQuery. (TBD; I'd rather ship one good thing than three half-finished ones.)
 - **English CV** added to `/about` alongside the Spanish one.
 
