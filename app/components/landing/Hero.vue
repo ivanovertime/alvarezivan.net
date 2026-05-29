@@ -109,7 +109,7 @@ defineProps<{
       >
         <div
           v-if="page.hero.links"
-          class="flex w-full flex-col items-center gap-2 sm:w-auto sm:flex-row"
+          class="flex w-full flex-col items-center gap-2"
         >
           <UButton
             class="w-auto min-w-[12rem] justify-center"
