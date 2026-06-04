@@ -40,7 +40,7 @@ useSeoMeta({
       :description="page.description"
       orientation="horizontal"
       :ui="{
-        container: 'lg:flex sm:flex-row items-center py-8 sm:py-12',
+        container: 'lg:flex sm:flex-row items-center py-6 sm:py-8 lg:py-12',
         title: '!mx-0 text-left',
         description: '!mx-0 text-left',
         links: 'justify-start'
@@ -75,9 +75,9 @@ useSeoMeta({
               target="_blank"
               rel="noopener noreferrer"
               icon="i-lucide-download"
-              size="lg"
-              color="primary"
-              :variant="index === 0 ? 'solid' : 'outline'"
+              class="w-auto min-w-[12rem] justify-center"
+              color="neutral"
+              :variant="index === 0 ? 'solid' : 'ghost'"
               :label="link.label"
               data-analytics-event="cv_download_click"
               data-analytics-category="conversion"
