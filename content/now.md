@@ -1,4 +1,5 @@
 ---
+locale: en
 title: "Now"
 description: "What I'm working on, learning, shipping, and available for this quarter. Updated quarterly. Inspired by nownownow.com."
 updated: 2026-05-13

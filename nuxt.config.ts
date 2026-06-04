@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/image',
     '@nuxt/ui',
+    '@nuxtjs/i18n',
     '@nuxt/content',
     '@vueuse/nuxt',
     'motion-v/nuxt',
@@ -35,6 +36,12 @@ export default defineNuxtConfig({
     prerender: {
       routes: [
         '/',
+        '/es',
+        '/es/about',
+        '/es/blog',
+        '/es/contact',
+        '/es/now',
+        '/es/uses',
         '/sitemap.xml',
         '/rss.xml'
       ],
@@ -53,6 +60,16 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
+  },
+
+  i18n: {
+    strategy: 'prefix_except_default',
+    defaultLocale: 'en',
+    detectBrowserLanguage: false,
+    locales: [
+      { code: 'en', name: 'English', language: 'en-US' },
+      { code: 'es', name: 'Español', language: 'es-ES' }
+    ]
   },
 
   ogImage: {

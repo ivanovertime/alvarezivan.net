@@ -1,0 +1,109 @@
+locale: es
+seo:
+  title: "Ivan Alvarez · Ingeniero Full-Stack"
+  description: "Ingeniero full-stack enfocado en mejorar sistemas complejos y entregar plataformas confiables."
+title: "Hola, soy Ivan Alvarez"
+description: |
+  Ingeniero full-stack en Valencia, Venezuela. Disfruto mejorar sistemas complejos, construir plataformas que los equipos puedan operar con confianza y aprender continuamente.
+hero:
+  links:
+    - label: "Leer el blog"
+      to: "/es/blog"
+      color: "neutral"
+      trailingIcon: "i-lucide-arrow-right"
+
+about:
+  title: "Sobre mi"
+  description: |
+    En los ultimos anos he trabajado en plataformas que necesitaban recuperacion: tiendas e-commerce, integraciones SAP y herramientas internas. Me gusta ese trabajo: leer codigo, conversar con las personas y dejar los sistemas mejor de como los encontre.
+experience:
+  title: "Experiencia"
+  items:
+    - position: "Full-Stack Developer"
+      date: "Dec 2025 – Actualidad"
+      company:
+        name: "Crazy Imagine Software"
+        logo: "i-lucide-briefcase"
+        url: "https://crazyimagine.com/"
+        color: "#6b7280"
+    - position: "Software Development Consultant"
+      date: "Oct 2024 – Dec 2025"
+      company:
+        name: "Tiendas Daka C.A."
+        logo: "i-lucide-building-2"
+        url: "https://www.tiendasdaka.com/"
+        color: "#facc15"
+    - position: "Freelance Full-Stack Developer"
+      date: "Dec 2022 – Sep 2024"
+      company:
+        name: "Self Employed"
+        logo: "i-lucide-briefcase"
+        url: "https://alvarezivan.net"
+        color: "#6b7280"
+    - position: "Programmer"
+      date: "Oct 2021 – Nov 2022"
+      company:
+        name: "Biomercados (Alimentos FM)"
+        logo: "i-lucide-store"
+        url: "#"
+        color: "#0f766e"
+testimonials: []
+blog:
+  title: "Ultimos articulos"
+  description: "Notas sobre software, datos y aprendizaje continuo."
+faq:
+  title: "Como trabajo"
+  description: "Un resumen de las tecnologias que uso y como suelo colaborar con equipos. La pagina [/es/uses](/es/uses) tiene mas detalle."
+  categories:
+    - title: "Habilidades"
+      questions:
+        - label: "Cloud y DevOps"
+          icon: i-lucide-cloud
+          content: |
+            - Docker
+            - Kubernetes (aprendiendo en profundidad)
+            - CI/CD (GitLab, GitHub Actions)
+            - Proxmox
+            - Ubuntu Server
+            - Windows Server
+        - label: "Backend"
+          icon: i-lucide-server
+          content: |
+            - Laravel
+            - NestJS
+            - Node.js
+            - Express.js
+            - FastAPI
+        - label: "Frontend"
+          icon: i-lucide-layout
+          content: |
+            - Vue.js
+            - Nuxt.js
+            - Angular
+            - PrimeVue
+            - Inertia.js
+            - Filament
+            - Livewire
+            - Flutter
+        - label: "Bases de datos"
+          icon: i-lucide-database
+          content: |
+            - MySQL
+            - PostgreSQL
+            - MongoDB
+            - Redis
+            - BigQuery
+    - title: "Precios y tiempos"
+      questions:
+        - label: "Cuanto cuesta un proyecto?"
+          content: |
+            Depende del alcance, complejidad tecnica e integraciones. Los proyectos suelen iniciar en auditorias especializadas y escalar a implementaciones completas.
+        - label: "Cuales son tus terminos de pago?"
+          content: |
+            Suelo trabajar con un anticipo para reservar la agenda y el pago restante al entregar.
+        - label: "Cuanto tarda un proyecto?"
+          content: |
+            Los tiempos dependen del alcance. Proyectos pequenos pueden tomar semanas y plataformas mas grandes requieren multiples fases.
+        - label: "Ofreces soporte continuo?"
+          content: |
+            Si. Tambien trabajo por retainer mensual para equipos que necesitan desarrollo y mantenimiento continuo.

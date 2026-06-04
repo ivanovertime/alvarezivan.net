@@ -3,12 +3,23 @@ const colorMode = useColorMode()
 const route = useRoute()
 const config = useRuntimeConfig()
 const requestUrl = useRequestURL()
+const { locale } = useI18n()
+const navLinks = useNavLinks()
 
 const color = computed(() => colorMode.value === 'dark' ? '#020618' : 'white')
 const baseUrl = computed(() => config.public.siteUrl || requestUrl.origin)
 const canonicalUrl = computed(() => `${baseUrl.value}${route.path === '/' ? '' : route.path}`)
+const normalizedPath = computed(() => {
+  const path = route.path.replace(/^\/es(?=\/|$)/, '')
+  return path || '/'
+})
+const englishUrl = computed(() => `${baseUrl.value}${normalizedPath.value === '/' ? '' : normalizedPath.value}`)
+const spanishUrl = computed(() => `${baseUrl.value}${normalizedPath.value === '/' ? '/es' : `/es${normalizedPath.value}`}`)
+const hasSpanishVersion = computed(() =>
+  new Set(['/', '/about', '/blog', '/contact', '/now', '/uses']).has(normalizedPath.value)
+)
 
-useHead({
+useHead(() => ({
   meta: [
     { charset: 'utf-8' },
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -22,6 +33,13 @@ useHead({
     { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
     { rel: 'manifest', href: '/site.webmanifest' },
     { rel: 'canonical', href: canonicalUrl },
+    ...(hasSpanishVersion.value
+      ? [
+          { rel: 'alternate', hreflang: 'en', href: englishUrl.value },
+          { rel: 'alternate', hreflang: 'es', href: spanishUrl.value },
+          { rel: 'alternate', hreflang: 'x-default', href: englishUrl.value }
+        ]
+      : []),
     { rel: 'alternate', type: 'application/rss+xml', title: 'Ivan Over Time RSS Feed', href: '/rss.xml' },
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
@@ -42,9 +60,9 @@ useHead({
     }
   ],
   htmlAttrs: {
-    lang: 'en'
+    lang: locale
   }
-})
+}))
 
 useSeoMeta({
   titleTemplate: '%s - Ivan Over Time',

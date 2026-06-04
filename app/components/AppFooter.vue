@@ -1,5 +1,19 @@
 <script setup lang="ts">
 const { footer } = useAppConfig()
+const { locale } = useI18n()
+const localePath = useLocalePath()
+const localeLinks = useLocaleSwitcherLinks()
+const localeSwitch = computed(() => locale.value === 'es'
+  ? {
+      label: 'English',
+      to: localeLinks.value.en,
+      analyticsLabel: 'footer_switch_english'
+    }
+  : {
+      label: 'Español',
+      to: localeLinks.value.es,
+      analyticsLabel: 'footer_switch_spanish'
+    })
 </script>
 
 <template>
@@ -12,24 +26,24 @@ const { footer } = useAppConfig()
         <span>{{ footer.credits }}</span>
         <span class="hidden sm:inline text-default/30">·</span>
         <NuxtLink
-          to="/contact"
-          data-analytics-event="cta_click"
-          data-analytics-category="conversion"
-          data-analytics-label="footer_contact"
+          :to="localeSwitch.to"
+          data-analytics-event="navigation_click"
+          data-analytics-category="navigation"
+          :data-analytics-label="localeSwitch.analyticsLabel"
           data-analytics-location="footer"
-          data-analytics-destination="/contact"
+          :data-analytics-destination="localeSwitch.to"
           class="text-muted hover:text-primary transition-colors"
         >
-          Open to Senior/Lead roles
+          {{ localeSwitch.label }}
         </NuxtLink>
         <span class="hidden sm:inline text-default/30">·</span>
         <NuxtLink
-          to="/uses"
+          :to="localePath('/uses')"
           data-analytics-event="navigation_click"
           data-analytics-category="navigation"
           data-analytics-label="footer_uses"
           data-analytics-location="footer"
-          data-analytics-destination="/uses"
+          :data-analytics-destination="localePath('/uses')"
           class="text-muted hover:text-primary transition-colors"
         >
           /uses
@@ -51,13 +65,13 @@ const { footer } = useAppConfig()
         />
       </template>
       <NuxtLink
-        to="/"
+        :to="localePath('/')"
         aria-label="Ivan Over Time home"
         data-analytics-event="navigation_click"
         data-analytics-category="navigation"
         data-analytics-label="footer_home_logo"
         data-analytics-location="footer"
-        data-analytics-destination="/"
+        :data-analytics-destination="localePath('/')"
         class="inline-flex h-6 items-center justify-center px-1 pb-px opacity-80 hover:opacity-100 transition-opacity"
       >
         <img

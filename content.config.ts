@@ -40,8 +40,12 @@ export default defineContentConfig({
   collections: {
     home: defineCollection({
       type: 'page',
-      source: 'home.yml',
+      source: [
+        { include: 'home.yml' },
+        { include: 'es/home.yml' }
+      ],
       schema: z.object({
+        locale: z.enum(['en', 'es']).default('en'),
         hero: z.object({
           links: z.array(createButtonSchema()),
           images: z.array(createImageSchema()).optional()
@@ -106,9 +110,15 @@ export default defineContentConfig({
         { include: 'blog.md' },
         { include: 'contact.md' },
         { include: 'now.md' },
-        { include: 'uses.md' }
+        { include: 'uses.md' },
+        { include: 'es/about.md' },
+        { include: 'es/blog.md' },
+        { include: 'es/contact.md' },
+        { include: 'es/now.md' },
+        { include: 'es/uses.md' }
       ],
       schema: z.object({
+        locale: z.enum(['en', 'es']).default('en'),
         updated: z.date().optional(),
         ogImage: z.string().optional(),
         links: z.array(createButtonSchema()).optional()

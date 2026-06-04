@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { cvLinks as canonicalCvLinks } from '~/utils/links'
 
+const route = useRoute()
+const { locale } = useI18n()
+
 const { data: page } = await useAsyncData('about', () => {
-  return queryCollection('pages').path('/about').first()
+  return queryCollection('pages').path(route.path).first()
+}, {
+  watch: [() => route.path]
 })
 if (!page.value) {
   throw createError({
@@ -14,22 +19,22 @@ if (!page.value) {
 
 const { global } = useAppConfig()
 
-const cvLinks = [
+const cvLinks = computed(() => [
   {
-    label: 'Download CV (English)',
+    label: locale.value === 'es' ? 'Descargar CV (Ingles)' : 'Download CV (English)',
     to: canonicalCvLinks.en
   },
   {
-    label: 'Descargar CV (Espanol)',
+    label: locale.value === 'es' ? 'Descargar CV (Espanol)' : 'Download CV (Spanish)',
     to: canonicalCvLinks.es
   }
-]
+])
 
 useSeoMeta({
-  title: page.value?.seo?.title || page.value?.title,
-  ogTitle: page.value?.seo?.title || page.value?.title,
-  description: page.value?.seo?.description || page.value?.description,
-  ogDescription: page.value?.seo?.description || page.value?.description
+  title: () => page.value?.seo?.title || page.value?.title,
+  ogTitle: () => page.value?.seo?.title || page.value?.title,
+  description: () => page.value?.seo?.description || page.value?.description,
+  ogDescription: () => page.value?.seo?.description || page.value?.description
 })
 </script>
 

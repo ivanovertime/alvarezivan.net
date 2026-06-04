@@ -1,9 +1,12 @@
 <script setup lang="ts">
 const route = useRoute()
 const router = useRouter()
+const { locale } = useI18n()
 
 const { data: page } = await useAsyncData('blog-page', () => {
-  return queryCollection('pages').path('/blog').first()
+  return queryCollection('pages').path(route.path).first()
+}, {
+  watch: [() => route.path]
 })
 if (!page.value) {
   throw createError({
@@ -88,12 +91,20 @@ const clearTags = () => {
   router.push({ path: route.path, query })
 }
 
-const filters: Array<{ key: CategoryFilter, label: string, icon: string }> = [
-  { key: 'all', label: 'All', icon: 'i-lucide-layout-grid' },
-  { key: 'side-project', label: 'Side Project', icon: 'i-lucide-flask-conical' },
-  { key: 'case-study', label: 'Case Study', icon: 'i-lucide-briefcase-business' },
-  { key: 'article', label: 'Article', icon: 'i-lucide-newspaper' }
-]
+const filters = computed<Array<{ key: CategoryFilter, label: string, icon: string }>>(() =>
+  locale.value === 'es'
+    ? [
+        { key: 'all', label: 'Todo', icon: 'i-lucide-layout-grid' },
+        { key: 'side-project', label: 'Proyecto Personal', icon: 'i-lucide-flask-conical' },
+        { key: 'case-study', label: 'Caso de Estudio', icon: 'i-lucide-briefcase-business' },
+        { key: 'article', label: 'Articulo', icon: 'i-lucide-newspaper' }
+      ]
+    : [
+        { key: 'all', label: 'All', icon: 'i-lucide-layout-grid' },
+        { key: 'side-project', label: 'Side Project', icon: 'i-lucide-flask-conical' },
+        { key: 'case-study', label: 'Case Study', icon: 'i-lucide-briefcase-business' },
+        { key: 'article', label: 'Article', icon: 'i-lucide-newspaper' }
+      ])
 
 const filteredPosts = computed(() => {
   const all = posts.value ?? []
@@ -106,10 +117,10 @@ const filteredPosts = computed(() => {
 })
 
 useSeoMeta({
-  title: page.value?.seo?.title || page.value?.title,
-  ogTitle: page.value?.seo?.title || page.value?.title,
-  description: page.value?.seo?.description || page.value?.description,
-  ogDescription: page.value?.seo?.description || page.value?.description
+  title: () => page.value?.seo?.title || page.value?.title,
+  ogTitle: () => page.value?.seo?.title || page.value?.title,
+  description: () => page.value?.seo?.description || page.value?.description,
+  ogDescription: () => page.value?.seo?.description || page.value?.description
 })
 </script>
 
@@ -168,7 +179,7 @@ useSeoMeta({
           color="neutral"
           variant="ghost"
           size="xs"
-          label="Clear tags"
+          :label="locale === 'es' ? 'Limpiar tags' : 'Clear tags'"
           @click="clearTags"
         />
       </div>
@@ -209,7 +220,7 @@ useSeoMeta({
                   variant="soft"
                   size="xs"
                   icon="i-lucide-newspaper"
-                  label="Article"
+                  :label="locale === 'es' ? 'Articulo' : 'Article'"
                 />
                 <UBadge
                   v-if="post.category === 'case-study'"
@@ -217,7 +228,7 @@ useSeoMeta({
                   variant="soft"
                   size="xs"
                   icon="i-lucide-briefcase-business"
-                  label="Case Study"
+                  :label="locale === 'es' ? 'Caso de Estudio' : 'Case Study'"
                 />
                 <UBadge
                   v-if="post.category === 'side-project'"
@@ -225,7 +236,7 @@ useSeoMeta({
                   variant="soft"
                   size="xs"
                   icon="i-lucide-flask-conical"
-                  label="Side Project"
+                  :label="locale === 'es' ? 'Proyecto Personal' : 'Side Project'"
                 />
                 <BlogTag
                   v-for="tag in (post.tags ?? []).slice(0, 2)"
@@ -250,7 +261,7 @@ useSeoMeta({
         v-if="!filteredPosts.length"
         class="text-sm text-muted"
       >
-        No posts match these filters yet.
+        {{ locale === 'es' ? 'No hay publicaciones para estos filtros.' : 'No posts match these filters yet.' }}
       </p>
     </UPageSection>
   </UPage>

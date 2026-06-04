@@ -8,15 +8,20 @@ defineProps({
   }
 })
 
+const { locale } = useI18n()
+const navLinks = useNavLinks()
+
 useHead({
   htmlAttrs: {
-    lang: 'en'
+    lang: locale
   }
 })
 
 useSeoMeta({
-  title: 'Page not found',
-  description: 'We are sorry but this page could not be found.'
+  title: locale.value === 'es' ? 'Pagina no encontrada' : 'Page not found',
+  description: locale.value === 'es'
+    ? 'Lo sentimos, pero no pudimos encontrar esta pagina.'
+    : 'We are sorry but this page could not be found.'
 })
 
 const [{ data: navigation }, { data: files }] = await Promise.all([

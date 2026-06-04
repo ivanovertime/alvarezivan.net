@@ -1,4 +1,5 @@
 ---
+locale: en
 title: "Contact"
 description: "The fastest ways to reach me — calendar, email, LinkedIn, GitHub."
 ogImage: "/og/contact.png"

@@ -1,4 +1,5 @@
 ---
+locale: en
 title: "Uses"
 description: "The hardware, OS, and software I actually use day to day."
 ---

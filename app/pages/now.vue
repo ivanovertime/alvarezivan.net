@@ -1,6 +1,10 @@
 <script setup lang="ts">
+const route = useRoute()
+
 const { data: page } = await useAsyncData('now', () => {
-  return queryCollection('pages').path('/now').first()
+  return queryCollection('pages').path(route.path).first()
+}, {
+  watch: [() => route.path]
 })
 if (!page.value) {
   throw createError({
@@ -11,10 +15,10 @@ if (!page.value) {
 }
 
 useSeoMeta({
-  title: page.value?.seo?.title || page.value?.title,
-  ogTitle: page.value?.seo?.title || page.value?.title,
-  description: page.value?.seo?.description || page.value?.description,
-  ogDescription: page.value?.seo?.description || page.value?.description
+  title: () => page.value?.seo?.title || page.value?.title,
+  ogTitle: () => page.value?.seo?.title || page.value?.title,
+  description: () => page.value?.seo?.description || page.value?.description,
+  ogDescription: () => page.value?.seo?.description || page.value?.description
 })
 </script>
 

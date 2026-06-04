@@ -1,4 +1,5 @@
 ---
+locale: en
 title: "About"
 description: "Full-stack engineer based in Valencia, Venezuela. I enjoy improving complex systems and shipping platforms teams can actually run."
 ---

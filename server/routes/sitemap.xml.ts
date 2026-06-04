@@ -31,7 +31,8 @@ export default defineEventHandler(async (event) => {
   ])
 
   const staticRoutes: ContentEntry[] = [
-    { path: '/' }
+    { path: '/' },
+    { path: '/es' }
   ]
 
   const mergedRoutes = [...staticRoutes, ...pages, ...posts]

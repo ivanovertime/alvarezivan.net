@@ -2,6 +2,7 @@
 const route = useRoute()
 const config = useRuntimeConfig()
 const requestUrl = useRequestURL()
+const { locale } = useI18n()
 
 const baseUrl = computed(() => config.public.siteUrl || requestUrl.origin)
 const canonicalUrl = computed(() => `${baseUrl.value}${route.path === '/' ? '' : route.path}`)
@@ -87,7 +88,8 @@ useSchemaOrg([
 const articleLink = computed(() => canonicalUrl.value)
 
 const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString('en-US', {
+  const localeTag = locale.value === 'es' ? 'es-ES' : 'en-US'
+  return new Date(dateString).toLocaleDateString(localeTag, {
     year: 'numeric',
     month: 'short',
     day: 'numeric'
@@ -119,7 +121,7 @@ const formatDate = (dateString: string) => {
               variant="soft"
               size="xs"
               icon="i-lucide-newspaper"
-              label="Article"
+              :label="locale === 'es' ? 'Articulo' : 'Article'"
             />
             <UBadge
               v-if="page.category === 'case-study'"
@@ -127,7 +129,7 @@ const formatDate = (dateString: string) => {
               variant="soft"
               size="xs"
               icon="i-lucide-briefcase-business"
-              label="Case Study"
+              :label="locale === 'es' ? 'Caso de Estudio' : 'Case Study'"
             />
             <UBadge
               v-if="page.category === 'side-project'"
@@ -135,7 +137,7 @@ const formatDate = (dateString: string) => {
               variant="soft"
               size="xs"
               icon="i-lucide-flask-conical"
-              label="Side Project"
+              :label="locale === 'es' ? 'Proyecto Personal' : 'Side Project'"
             />
             <BlogTag
               v-for="tag in postTags"
@@ -150,7 +152,7 @@ const formatDate = (dateString: string) => {
               -
             </span>
             <span v-if="page.minRead">
-              {{ page.minRead }} MIN READ
+              {{ page.minRead }} {{ locale === 'es' ? 'MIN DE LECTURA' : 'MIN READ' }}
             </span>
           </div>
           <NuxtImg
@@ -199,7 +201,7 @@ const formatDate = (dateString: string) => {
               color="neutral"
               variant="soft"
               icon="i-lucide-github"
-              label="View Repository"
+              :label="locale === 'es' ? 'Ver Repositorio' : 'View Repository'"
             />
           </div>
           <div
@@ -246,13 +248,13 @@ const formatDate = (dateString: string) => {
               size="sm"
               variant="link"
               color="neutral"
-              label="Copy link"
+              :label="locale === 'es' ? 'Copiar enlace' : 'Copy link'"
               data-analytics-event="copy_link_click"
               data-analytics-category="engagement"
               :data-analytics-label="page.title"
               data-analytics-location="blog_post"
               :data-analytics-destination="articleLink"
-              @click="copyToClipboard(articleLink, 'Article link copied to clipboard')"
+              @click="copyToClipboard(articleLink, locale === 'es' ? 'Enlace copiado al portapapeles' : 'Article link copied to clipboard')"
             />
           </div>
           <UContentSurround :surround />
