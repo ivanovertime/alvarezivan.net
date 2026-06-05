@@ -1,10 +1,13 @@
 <script setup lang="ts">
+const route = useRoute()
 const { locale } = useI18n()
 
-const { data: page } = await useAsyncData('home', () => {
+const pageKey = computed(() => `home:${route.path}:${locale.value}`)
+
+const { data: page } = await useAsyncData(pageKey, () => {
   return queryCollection('home').where('locale', '=', locale.value).first()
 }, {
-  watch: [locale]
+  watch: [() => route.path, locale]
 })
 if (!page.value) {
   throw createError({

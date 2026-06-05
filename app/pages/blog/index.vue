@@ -3,7 +3,9 @@ const route = useRoute()
 const router = useRouter()
 const { locale } = useI18n()
 
-const { data: page } = await useAsyncData('blog-page', () => {
+const pageKey = computed(() => `page:${route.path}`)
+
+const { data: page } = await useAsyncData(pageKey, () => {
   return queryCollection('pages').path(route.path).first()
 }, {
   watch: [() => route.path]

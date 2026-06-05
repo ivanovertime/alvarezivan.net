@@ -1,7 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
 
-const { data: page } = await useAsyncData('now', () => {
+const pageKey = computed(() => `page:${route.path}`)
+
+const { data: page } = await useAsyncData(pageKey, () => {
   return queryCollection('pages').path(route.path).first()
 }, {
   watch: [() => route.path]

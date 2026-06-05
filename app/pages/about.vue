@@ -4,7 +4,9 @@ import { cvLinks as canonicalCvLinks } from '~/utils/links'
 const route = useRoute()
 const { locale } = useI18n()
 
-const { data: page } = await useAsyncData('about', () => {
+const pageKey = computed(() => `page:${route.path}`)
+
+const { data: page } = await useAsyncData(pageKey, () => {
   return queryCollection('pages').path(route.path).first()
 }, {
   watch: [() => route.path]
