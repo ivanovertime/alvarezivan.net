@@ -22,6 +22,8 @@ I ran into an issue on NixOS 25.11 that took me a while to understand: Google Dr
 
 > "Location is not mountable"
 
+![GNOME Files showing the "Unable to access — Location is not mountable" error dialog](/blog/fixing-gnome-google-drive-mounts-on-nixos/featuredImage.png)
+
 This post shares the fix that worked for me and got Drive mounts working reliably on my system.
 
 ## The problem
