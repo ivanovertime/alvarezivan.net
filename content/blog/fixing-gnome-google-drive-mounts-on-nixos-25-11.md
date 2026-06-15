@@ -2,6 +2,7 @@
 title: "Fixing GNOME Google Drive Mounts on NixOS 25.11"
 description: "How I fixed the 'Location is not mountable' error by enabling GVFS Google support and related GNOME services on NixOS 25.11."
 date: "2026-05-31"
+image: "/blog/fixing-gnome-google-drive-mounts-on-nixos/featuredImage.png"
 category: "article"
 minRead: 4
 author:
