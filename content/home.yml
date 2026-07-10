@@ -1,10 +1,10 @@
 locale: en
 seo:
   title: "Iván Álvarez · Full-Stack Engineer"
-  description: "Full-stack engineer who enjoys improving complex systems and shipping platforms teams can run with confidence. Multiple platforms shipped, including high-volume systems. Now learning GCP DataOps."
-title: "Hi, I'm Iván Álvarez"
+  description: "Full-stack engineer specializing in platform recovery and e-commerce rescue. Docker, Kubernetes, Laravel, NestJS. Building toward GCP DataOps."
+title: "Iván Álvarez"
 description: |
-  Full-stack engineer based in Valencia, Venezuela. I enjoy improving complex systems, shipping things teams can actually run, and learning alongside good people. Lately I'm focused on data platforms on Google Cloud.
+  Full-stack engineer based in Valencia, Venezuela. I build and recover platforms that have outgrown their original design — e-commerce, SAP integrations, deployment pipelines. Right now I'm doing it on Google Cloud.
 hero:
   links:
     - label: "Read the blog"
@@ -15,7 +15,7 @@ hero:
 about:
   title: "About"
   description: |
-    I've spent the last few years on platforms that needed help — e-commerce stores, SAP integrations, internal tools — and I've come to enjoy that kind of work: read the code, talk to the people, leave it in a healthier state than I found it. I'm just as happy contributing to a strong team as I am leading one.
+    I've spent the last few years on platforms that other people abandoned — e-commerce stores under load, SAP integrations with missing docs, deploys that scared everyone. My job is to walk in, read the code, fix the thing, and leave the team in better shape than I found them.
 experience:
   title: Work Experience
   items:

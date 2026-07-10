@@ -1,20 +1,18 @@
 ---
 locale: en
 title: "About"
-description: "Full-stack engineer based in Valencia, Venezuela. I enjoy improving complex systems and shipping platforms teams can actually run."
+description: "Platform recovery, e-commerce rescue, and GCP-bound data engineering. Full-stack engineer based in Valencia, Venezuela."
 ---
 
 ## The short version
 
-I'm a full-stack engineer based in Valencia, Venezuela. Most of my work has been on platforms that needed help — e-commerce stores under load, SAP integrations with limited documentation, and deployment processes that needed recovery. I enjoy that kind of work: reading the code, talking to the people, and leaving things in a healthier state than I found them.
+I'm a full-stack engineer based in Valencia, Venezuela. Most of my work has been on platforms that someone else started and nobody wanted to inherit — e-commerce stores under load, SAP integrations with limited documentation, deployment processes held together with hope. I like walking into that. Read the code, talk to the people, leave it in better shape than I found it.
 
-Over the last four years I've helped recover and re-architect platforms serving high-volume user bases, worked with teams of various sizes (sometimes leading, sometimes contributing), and shipped multiple production systems across e-commerce, mobile, and enterprise integration. Right now I'm learning data platforms on Google Cloud — see [/now](/now) for what that looks like this quarter.
-
-I'm just as happy joining a strong team as a senior IC as I am leading one. The constant is the work itself.
+Four years of production platforms — recovered, re-architected, and shipped across e-commerce, mobile, and enterprise integration. Teams from solo to 15 engineers. I've led and I've contributed; the work is the constant. Right now I'm moving toward data platforms on Google Cloud. See [/now](/now) for this quarter's detail.
 
 ## Beyond code
 
-I'm curious by nature. You'll often find me exploring cinema, cooking, or learning Japanese — currently somewhere on the long road between "comfortable with kana" and "comfortable with kanji."
+I'm curious by nature. You'll often find me exploring cinema, cooking, or picking up languages — currently somewhere on the long road between "comfortable with kana" and "comfortable with kanji" in Japanese, and somewhere between "can order food" and "can read the news" in Portuguese.
 
 ---
 
