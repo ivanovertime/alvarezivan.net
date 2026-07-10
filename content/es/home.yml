@@ -1,10 +1,10 @@
 locale: es
 seo:
   title: "Iván Álvarez · Ingeniero Full-Stack"
-  description: "Ingeniero full-stack enfocado en mejorar sistemas complejos y entregar plataformas confiables."
-title: "Hola, soy Iván Álvarez"
+  description: "Ingeniero full-stack especializado en recuperación de plataformas y rescate de e-commerce. Docker, Kubernetes, Laravel, NestJS. En camino hacia GCP DataOps."
+title: "Iván Álvarez"
 description: |
-  Ingeniero full-stack en Valencia, Venezuela. Disfruto mejorar sistemas complejos, construir plataformas que los equipos puedan operar con confianza y aprender continuamente.
+  Ingeniero full-stack en Valencia, Venezuela. Construyo y recupero plataformas que crecieron más allá de su diseño original — e-commerce, integraciones SAP, pipelines de despliegue. Ahora lo hago sobre Google Cloud.
 hero:
   links:
     - label: "Leer el blog"
@@ -15,7 +15,7 @@ hero:
 about:
   title: "Sobre mí"
   description: |
-    En los últimos años he trabajado en plataformas que necesitaban recuperación: tiendas e-commerce, integraciones SAP y herramientas internas. Me gusta ese trabajo: leer código, conversar con las personas y dejar los sistemas mejor de como los encontré.
+    En los últimos años he trabajado en plataformas que otros abandonaron — tiendas e-commerce bajo carga, integraciones SAP con documentación perdida, despliegues que nadie quería tocar. Mi trabajo es entrar, leer el código, arreglarlo y dejar al equipo mejor de como lo encontré.
 experience:
   title: "Experiencia"
   items:

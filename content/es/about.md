@@ -1,20 +1,18 @@
 ---
 locale: es
 title: "Sobre mi"
-description: "Ingeniero full-stack en Valencia, Venezuela. Me enfoco en mejorar sistemas complejos y entregar plataformas confiables."
+description: "Recuperación de plataformas, rescate de e-commerce e ingeniería de datos en GCP. Ingeniero full-stack en Valencia, Venezuela."
 ---
 
-## Version corta
+## La versión corta
 
-Soy ingeniero full-stack en Valencia, Venezuela. Gran parte de mi trabajo ha sido en plataformas que necesitaban rescate: e-commerce bajo carga, integraciones SAP con documentacion limitada y procesos de despliegue que requerian recuperacion.
+Soy ingeniero full-stack en Valencia, Venezuela. Gran parte de mi trabajo ha sido en plataformas que alguien más empezó y nadie quería heredar — e-commerce bajo carga, integraciones SAP con documentación limitada, procesos de despliegue sostenidos con voluntad. Me gusta entrar en eso. Leer el código, hablar con el equipo, dejar el sistema mejor de como lo encontré.
 
-Me gusta ese tipo de trabajo: entender el codigo, hablar con el equipo y dejar el sistema en mejor estado.
+Cuatro años de plataformas en producción — recuperadas, reconstruidas y entregadas en e-commerce, apps móviles e integraciones empresariales. Equipos de uno a 15 ingenieros. He liderado y he sido parte del equipo; el trabajo es la constante. Ahora me estoy orientando hacia plataformas de datos en Google Cloud. Detalle actualizado en [/es/now](/es/now).
 
-## Trayectoria
+## Más allá del código
 
-Durante los ultimos anos he participado en rescates, reconstrucciones y proyectos nuevos en e-commerce, apps moviles e integraciones empresariales.
-
-Hoy estoy fortaleciendo mi perfil en plataformas de datos sobre Google Cloud, sin perder el enfoque full-stack y DevOps.
+Soy curioso por naturaleza. Sueles encontrarme explorando cine, cocinando o aprendiendo idiomas — actualmente en algún punto del largo camino entre "cómodo con kana" y "cómodo con kanji" en japonés, y entre "puedo pedir comida" y "puedo leer el periódico" en portugués.
 
 ## Actualmente estudio
 
