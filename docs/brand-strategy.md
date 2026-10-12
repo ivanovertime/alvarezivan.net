@@ -127,7 +127,7 @@ Structure as a **portfolio of rescues**, not a resume.
 ## 8. 90-Day Rollout
 
 - **Weeks 1–2** — Rewrite LinkedIn headline + About. Pick accent color. Set up `/now` page.
-- **Weeks 3–6** — Publish 2 case studies ( Retail Client e-commerce rescue,  Supermarket Client PWA). Start 2×/week posting cadence.
+- **Weeks 3–6** — Publish the paired  Retail Client e-commerce case studies (recovery + rebuild) and  Supermarket Client PWA. Start 2×/week posting cadence.
 - **Weeks 7–10** — Finish DevOps K8s + CI/CD modules; post a build log per week. Launch one open-source repo.
 - **Weeks 11–13** — Publish first GCP-flavored case study ("How I'd rebuild  Supermarket Client on BigQuery + Cloud Run"). Update `/about` with new positioning.
 

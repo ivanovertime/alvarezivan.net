@@ -1,32 +1,43 @@
 ---
 locale: es
 title: "Ahora"
-description: "En que estoy trabajando, aprendiendo y publicando este trimestre."
-updated: 2026-05-13
+description: "En qué estoy trabajando, aprendiendo y publicando este trimestre. Se actualiza cada trimestre."
+updated: 2026-10-11
 ---
 
-# Ahora - Q2 2026
+# Ahora — Q4 2026
 
-_Ultima actualizacion: 13 de mayo de 2026._
+_Última actualización: 11 de octubre de 2026._
 
-## Trabajando en
+## :u-icon{name="i-lucide-hammer" class="mr-2 align-[-2px]"} Trabajando en
 
-- **Crazy Imagine Software (tiempo completo, remoto).** Desarrollo un sistema unificado de soporte y notificaciones con Laravel + Vue + Inertia.js.
+- **[Semantichelp](https://semantichelp.com/)** — una base de conocimiento SaaS multi-tenant con un chatbot RAG encima: los equipos suben sus documentos, preguntan y reciben respuestas que citan los pasajes de donde salieron. Nuxt 4 + shadcn-vue sobre Cloudflare Workers (D1, R2, Vectorize), con proveedor y clave de IA por tenant.
+- **Las preguntas sin responder se vuelven respuestas** — cuando el catálogo no ayuda, la pregunta escala al dueño de esa área y su respuesta se escribe de vuelta como documento citable. La v1 está en producción con un primer tenant real; ahora estoy con la validación de entrada y un reset de contraseña autoservicio.
 
-## Aprendiendo
+## :u-icon{name="i-lucide-book-open" class="mr-2 align-[-2px]"} Aprendiendo
 
-- Certificacion de IBM DevOps & Software Engineering (modulos de Containers, Kubernetes y CI/CD).
-- Generative AI for Software Developers (IBM).
-- Laboratorios iniciales en Google Cloud con Cloud Run y BigQuery.
+- **IBM DevOps and Software Engineering Professional Certificate** — en curso; ahora en los módulos de Containers & Kubernetes y CI/CD.
 
-## Publicando
+## :u-icon{name="i-lucide-rocket" class="mr-2 align-[-2px]"} Publicando
 
-- Serie de casos de estudio sobre rescate y reconstruccion de plataformas.
-- Herramienta open source pequena enfocada en Laravel y BigQuery.
+- El par de **casos de estudio de Daka** — recuperación y reconstrucción, enlazados entre sí. Ambos ya están escritos; la [recuperación de la PWA de Biomercados](/blog/case-studies/supermarket-pwa-recovery) ya está publicada.
+- Un post corto sobre **el patrón de módulo de integración** — el límite único, tipado, observable y con reintentos que uso cada vez que un sistema tiene que hablar con SAP o con una pasarela de pago.
+- Un repo open source, todavía por definir — prefiero publicar una cosa buena que tres a medias.
 
-## Disponible para
+## :u-icon{name="i-lucide-book-marked" class="mr-2 align-[-2px]"} Leyendo y viendo
 
-Estoy a tiempo completo, pero abierto a conversaciones para roles senior o consultoria fraccional.
+- Releyendo el **Google SRE Workbook**, los capítulos de SLO y toil — se leen muy distinto después de unos años de guardia.
+- Avanzando despacio con el japonés — en parte para leer más, en parte porque la repetición espaciada es el bucle de aprendizaje más honesto que conozco.
 
-- [Agenda una llamada de 30 minutos](https://calendar.app.google/mdouT7hy7xS8XUcd9)
-- [Escribeme por contacto](/es/contact)
+## :u-icon{name="i-lucide-briefcase" class="mr-2 align-[-2px]"} Disponible para
+
+Estoy totalmente disponible y **abierto a conversar** sobre:
+
+- **Roles senior IC o Tech Lead** — remoto. Plataforma / DevOps, tooling interno, o recuperación de plataformas de e-commerce con integración SAP.
+- **Colaboraciones fraccionales** y **auditorías de código o arquitectura** sobre plataformas de e-commerce o con integración SAP.
+
+En cualquier caso, **[agenda una llamada de 30 minutos](https://calendar.app.google/mdouT7hy7xS8XUcd9)** o [escríbeme por contacto](/es/contact).
+
+---
+
+*Esta página sigue la [convención /now](https://nownownow.com/about). Se actualiza cada trimestre — si la lees más de tres meses después de la fecha de arriba, asume que está desactualizada y revisa [/es/contact](/es/contact).*

@@ -366,3 +366,76 @@ Start by confirming you've read all three docs, summarize the current
 site structure as you understand it from the repo, and wait for my
 "go" before opening Sprint 0.
 ````
+
+---
+
+## 10. Refresh 2026-10 — catch up with the Curriculums positioning pass
+
+Upstream repo: `~/Source/Curriculums` (canonical). The site's last content commit was
+`2cc1d8e` (2026-07-10). Curriculums landed a positioning pass on 2026-10-10/11 that the site
+never picked up.
+
+### What changed upstream
+
+| # | Change | Source |
+|---|---|---|
+| 1 | **JuegaEnLínea is the current role** (Aug 2026 – Present); Crazy Imagine **closed Jun 2026** (Dec 2025 – Jun 2026) | `feat(cv): JuegaEnLínea becomes the current role` |
+| 2 | **Positioning flipped** to *internal platforms, back offices, design systems* (Svelte, Laravel, Cloudflare). GCP is demoted from headline to learning track | `docs(linkedin): the drafts drop the marketing phrasing` |
+| 3 | **Location is Naguanagua, Carabobo** (was Las Chimeneas, Valencia) | `fix(cv): the location is Naguanagua, Carabobo` |
+| 4 | **Industry framing dropped** — JuegaEnLínea is "a multi-brand company", not an online gaming operator | `docs(reference): the site and drafts leave the gaming framing` |
+| 5 | **Skills regrouped**; Svelte, SvelteKit, Cloudflare and Nginx added | `feat(cv): the skills list gains real groups` |
+| 6 | **Cert track is IBM DevOps + GCP Associate Cloud Engineer** (PCA planned), not Professional Data Engineer | `now-q4-2026.md`, `education.tex` |
+| 7 | **Anti-hype rule** — no self-service / no-code / three-weeks / 3–7-day claims | `docs(linkedin): …` |
+| 8 | **ES style pass** — calques out, sentence case, impersonal | `style(cv): the Spanish reads as Spanish` |
+| 9 | **CV PDFs regenerated 2026-10-11**, 12 variants per language under `out/ivan/pdf/` | `build(cv): the PDFs land in one folder` |
+
+### Batches
+
+**Batch 1 — facts & positioning**
+- `content/home.yml`, `content/es/home.yml` — experience[0] → JuegaEnLínea; Crazy Imagine →
+  Dec 2025 – Jun 2026; `seo.description` + `description` → platform positioning; drop
+  "Right now I'm doing it on Google Cloud".
+- Tech Skills FAQ (both locales) — add Svelte/SvelteKit, Cloudflare (Workers, Pages, R2), Nginx;
+  Proxmox under Cloud & DevOps; ES gains the Integrations / Languages / AI groups EN has.
+- `content/about.md`, `content/es/about.md` — Naguanagua; new timeline entry; education dates
+  → 2016 – 2021 + Magna Cum Laude; studying → IBM DevOps + GCP ACE; certs + stack aligned with
+  `people/ivan/lang/en/skills.tex`.
+- `content/now.md`, `content/es/now.md` — rewritten from `reference/ivan/now-q4-2026.md`,
+  `updated: 2026-10-10`.
+- `content/contact.md`, `content/es/contact.md` — employer + locality.
+
+**Batch 2 — artifacts**
+- `public/files/cv/ivan-alvarez-{en,es}.pdf` ← `out/ivan/pdf/ivan_{en,es}-full-stack-general.pdf`
+  (decision: general pair only; existing URLs and `public/_redirects` stay).
+- `docs/{brand-strategy,linkedin-profile-draft,personal-site-plan}.md` re-synced from
+  Curriculums, keeping the client anonymization (" Retail Client", " Supermarket Client").
+
+**Batch 3 — consistency**
+- ES copy pass across `content/es/*` — missing accents (`Sobre mí`, `más`, `última`, `pequeña`,
+  `También`, `rápida`, `Español`), sentence-case headings.
+- Case studies' *"What I'd do on GCP today"* aligned to the honest ACE framing.
+- RSS + Lighthouse gate (still open from §6 Sprint 4).
+
+### Decisions locked (2026-10)
+
+- **CV files:** general pair only — `ivan-en-full-stack-general` / `ivan-es-full-stack-general`.
+- **GCP:** demoted to a learning note (one "currently studying" mention), matching
+  `linkedin-profile-draft.md` §4/§6.
+- **Pricing & Timelines FAQ:** left untouched (out of scope for this pass).
+
+### Known deviations from the upstream drafts (confirm)
+
+- The `/about` timeline and `content/now.md` say "multi-domain landing page generator" rather
+  than "self-service landing-page generator" (`about-page.md`, `now-q4-2026.md` still carry
+  "self-service"). The CV bullet — the most fact-checked artifact — dropped the term.
+- Certifications drop "Google Cloud Professional Data Engineer" and list
+  **ACE (in progress) → PCA (planned)** instead, per `about-page.md` and `now-q4-2026.md`.
+- JuegaEnLínea's `company.url` is `"#"` pending a canonical URL (same as Biomercados).
+
+### Verification gate
+
+```bash
+rg -n "Valencia|Crazy Imagine Software|Professional Data Engineer|GCP DataOps" content/
+npm run typecheck && npm run build
+```
+- CV URLs return 200; `/now` shows Q4 2026.

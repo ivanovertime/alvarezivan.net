@@ -80,7 +80,7 @@ What I reach for from the terminal, beyond the editor:
 - **Languages & runtimes:** Node.js (via `pnpm` / `corepack`), PHP, Python — pinned per-project through Nix flakes when it matters.
 - **Package managers:** `pnpm`, `composer`, `nix`.
 - **Containers & orchestration:** `docker`, `docker compose`, `kubectl`, `helm`.
-- **Cloud CLIs:** `gcloud` (current focus), `wrangler` (Cloudflare Pages / Workers).
+- **Cloud CLIs:** `wrangler` (Cloudflare Pages / Workers).
 - **Version control:** Git, with the GitHub CLI (`gh`) for PR/issue work.
 <!--
 - **Database clients:** TODO (e.g. `psql`, DBeaver, TablePlus)

@@ -28,58 +28,54 @@ Suggested composition:
 ## 4. Headline (220 char max)
 **Primary (recommended):**
 
-> Senior Full-Stack Engineer · E-commerce Rescue & Platform Recovery · DevOps + GCP (in progress) · Laravel · NestJS · Kubernetes · Open to Senior IC / Tech Lead roles
+> Senior Full-Stack Engineer · Internal platforms, back offices & design systems · Svelte · Laravel · Cloudflare · E-commerce recovery · Open to Senior IC / Tech Lead roles
 
 **Alternate (more outcome-led):**
 
-> I help recover complex e-commerce platforms and evolve them cloud-native · 6+ projects shipped · DevOps + GCP DataOps in progress · Laravel / NestJS / K8s
+> I build and stabilize the platforms teams run on · internal tooling, back offices, design systems · Svelte · Laravel · Cloudflare · 6+ production systems shipped
 
 ---
 
 ## 5. Current Position (shown under name)
 - **Title:** Senior Full Stack Engineer
-- **Company:** Crazy Imagine Software
+- **Company:** JuegaEnLínea
 - **Location:** Naguanagua, Carabobo, Venezuela (Remote)
 
 ---
 
-## 6. About / Summary (2,600 char max — draft is ~2,100)
+## 6. About / Summary (2,600 char max — draft is ~1,750)
 
 ```
-I usually work with teams where e-commerce platforms are under pressure,
-SAP integration is brittle, and deployment workflows need to be clarified.
-I help recover the system, containerize it, and hand back an automated
-platform the team can actually run.
+I’m a Senior Full-Stack Engineer who builds the internal platforms teams run
+on — back-office systems, design systems, and the tooling around them.
 
-Over the last four years I've worked on e-commerce rescue and platform recovery,
-on platforms serving high-volume users, alongside teams of up to 15 developers
-(sometimes leading, sometimes contributing), and shipped more than six
-production systems across e-commerce, mobile, and enterprise integration:
+Recent work: a shared Svelte design system, a back-office base over a reusable
+Laravel 13 API, and a multi-domain generator of landing pages and ad creatives
+served from Cloudflare Workers, Pages and R2. Before that, four years on the
+harder side of e-commerce: recovering platforms under pressure, untangling SAP
+integrations, and rebuilding deploy stories that had stopped being trustworthy.
 
-• At  Retail Client (LatAm), I led a team of 15 and delivered 6 complex projects —
-  stabilizing a NestJS/Strapi e-commerce platform, architecting a nationwide
-  Laravel/Filament sales-quotation app with SAP integration, and rebuilding
-  a multi-stack support platform spanning Flutter, Laravel, Express, and
-  Livewire.
-• At  Supermarket Client, I recovered a stalled e-commerce project and shipped
-  a PWA + mobile apps used by high-volume customers, while standing up the
-  Docker registry and CI/CD pipeline that made continuous delivery possible.
-• As a freelance consultant, I restored multi-tenant CS-Cart and
-  WooCommerce/Nuxt platforms for clients who'd been told their systems
-  needed careful stabilization work.
+Over the last 4 years, I’ve shipped 6+ production systems across internal
+tooling, e-commerce, mobile, and enterprise integration:
 
-My toolkit: Laravel, NestJS, Vue, Angular, Filament, Docker, Kubernetes,
-CI/CD, Proxmox, Ubuntu / Windows Server, SAP integration, and a working
-fluency with Gemini and AI-augmented engineering workflows.
+•  Retail Client: led 15 engineers, recovered and rebuilt a critical e-commerce
+  platform (NestJS + Next.js + Medusa); delivered a nationwide SAP-integrated
+  quotation app on Laravel + Filament.
+•  Supermarket Client: maintained a 30,000+ user Magento 2 + Angular + Express stack,
+  and implemented Docker + Nginx CI/CD.
+• Freelance: stabilized WordPress/WooCommerce, Nuxt, and CS-Cart platforms
+  for teams that needed predictable delivery.
 
-What's next: I'm deepening Google Cloud (Professional Data Engineer)
-and DataOps so I can bring the same rescue-and-automate approach to
-data platforms — BigQuery, Vertex AI, Airflow, and the reliability
-practices that keep them honest.
+Core stack: Svelte, SvelteKit, Laravel, NestJS, Next.js, Vue, Angular, Docker,
+CI/CD, Proxmox, Ubuntu/Windows Server, and SAP integration.
 
-I'm open to Senior Full-Stack, Platform / DevOps, or Tech Lead
-roles — remote-first, ideally with teams already on or moving
-to GCP. Just as happy joining a strong team as a senior IC.
+I’m currently deepening DevOps and Google Cloud — the IBM DevOps and Software
+Engineering certificate and the Google Cloud Associate Cloud Engineer path,
+both in progress.
+I value clear communication, shared ownership, and pragmatic engineering over heroics.
+
+Open to Senior Full-Stack, Platform/DevOps, or Tech Lead roles (remote-first),
+and just as comfortable contributing as a senior IC on a strong team.
 
 📬  alvarezlopezivanenrique@gmail.com
 🌐  alvarezivan.net
@@ -90,8 +86,8 @@ to GCP. Just as happy joining a strong team as a senior IC.
 
 ## 7. Featured Section (pin 3 items)
 1. **Personal site** — `https://alvarezivan.net` (custom thumbnail with positioning statement).
-2. **Case study —  Retail Client NestJS + Strapi e-commerce rescue** — link to `/blog/case-studies/retail-ecommerce-recovery`.
-3. **Case study —  Supermarket Client high-scale PWA** — link to `/blog/case-studies/supermarket-pwa-recovery`.
+2. **Case study —  Retail Client e-commerce: recovery → rebuild** — link to `/case-studies/retail-ecommerce-recovery` (and cross-linked to `/case-studies/retail-ecommerce-rebuild`).
+3. **Case study —  Supermarket Client 30k-user PWA** — link to `/blog/case-studies/supermarket-pwa`.
 
 *(Rotate in the open-source repo and the  Retail Client SAP quotation case study once each is ready to be the lead.)*
 
@@ -99,29 +95,41 @@ to GCP. Just as happy joining a strong team as a senior IC.
 
 ## 8. Experience
 
-### 8.1 Crazy Imagine Software — Senior Full Stack Engineer
-**Dec 2025 – Present · Remote**
+### 8.1 JuegaEnLínea — Senior Full Stack Engineer
+**Aug 2026 – Present · Remote**
+Stack: Svelte 5, SvelteKit, Laravel 13, Cloudflare Workers · Pages · R2, PostgreSQL, JSON Schema.
+
+```
+Building the internal platform layer a multi-brand company runs on: the
+operator admin of its white-label payment gateway, a shared UI system for
+every back office, and Lienzo, its generator of landing pages and ad creatives.
+
+• Built the operator admin for the white-label payment gateway (Svelte).
+• Consolidated the back offices onto one Svelte component library and a shared
+  Laravel 13 API.
+• Led the build of a multi-domain landing page generator served from Cloudflare
+  Workers, Pages and R2.
+```
+
+### 8.2 Crazy Imagine Software — Senior Full Stack Engineer
+**Dec 2025 – Jun 2026 · Remote · Client: Little Taller**
 Stack: Laravel, Vue, Inertia.js, Laravel Nova, HubSpot API, Markdown.
 
 ```
 Building internal tooling that replaces fragmented workflows with
 unified, searchable systems.
 
-• Designed and shipped a support + notification system in Laravel and
-  Vue, cutting response time and consolidating previously siloed
-  team comms.
-• Integrated the platform with HubSpot, automating ticket → CRM
-  handoff and removing manual data entry.
-• Built a Knowledge Base on Inertia.js and Nova with full-text search
-  and Markdown-driven content authoring, making documentation a
-  first-class product surface.
+• Built a support and notification system in Laravel + Vue, integrated with
+  HubSpot.
+• Delivered an Inertia.js + Nova knowledge base with full-text search and
+  Markdown authoring.
 
 Stack: Laravel · Vue · Inertia.js · Laravel Nova · HubSpot API.
 ```
 
-### 8.2  Retail Client (LatAm) — Software Development Consultant
+### 8.3  Retail Client — Software Development Consultant
 **Oct 2024 – Dec 2025 · Naguanagua, Venezuela · Hybrid**
-Stack: Laravel, Filament, NestJS, PrimeVue, Strapi, Nuxt, Odoo, Flutter, Livewire, SAP, Unifi, TP-Link.
+Stack: NestJS, Next.js, Medusa, Laravel, Filament, Express, Livewire, Flutter, SAP.
 
 ```
 Technical leadership across 6+ concurrent platforms for one of
@@ -132,58 +140,52 @@ business stakeholders, infrastructure teams, and 15 developers.
   discovery to production.
 • Drove stakeholder consultations to define scope, architecture, and
   roadmap — keeping technical decisions tied to revenue outcomes.
-• Stabilized a critical e-commerce platform (NestJS backend, Strapi CMS),
-  resolving scalability bottlenecks and integration debt with a team
-  of 4.
+• Recovered and rebuilt a critical e-commerce platform with
+  NestJS, Next.js, and Medusa, replacing a failing implementation
+  with a maintainable architecture.
 • Architected a nationwide, mobile-first sales-quotation app
   (Laravel + Filament) integrated with SAP, leading 3 developers from
   blueprint to rollout.
-• Engineered a SPA in PrimeVue + NestJS that integrated with SAP to
-  automate core organizational payment workflows.
 • Recovered and re-architected a multifaceted technical-support
   platform spanning a Flutter mobile app, Laravel/Express backend,
   Livewire frontend, and SAP integration.
-• Modernized a headless e-commerce stack — Nuxt frontend, Odoo
-  backend — replacing a brittle legacy implementation.
-• Designed a captive-portal solution on Unifi and TP-Link in close
-  collaboration with telecom and infrastructure teams.
 • Mentored teams on server setup (Ubuntu, Windows Server), application
   design, and deployment practices.
 ```
 
-### 8.3 Freelance — Full-Stack Developer
+### 8.4 Freelance — Full-Stack Developer
 **Dec 2022 – Sep 2024 · Remote**
-Stack: WordPress, WooCommerce, Nuxt, CS-Cart.
+Stack: WordPress, WooCommerce, Nuxt, CS-Cart, Odoo.
 
 ```
 Independent engagements focused on stabilizing and modernizing
 e-commerce platforms that other teams had walked away from.
 
-• Built and optimized WordPress + WooCommerce stores with Nuxt
-  storefronts, improving Core Web Vitals and conversion paths.
-• Restored a multi-tenant CS-Cart deployment, resolving performance
-  and scalability issues that had blocked the client for months.
+• Improved performance and stability across WordPress + WooCommerce,
+  Nuxt, and CS-Cart projects.
+• Evaluated and recovered a headless e-commerce stack with an
+  Odoo (Python) backend and a Nuxt frontend.
 • Worked with cross-functional teams on coding standards and project
   practices that kept delivery predictable.
 ```
 
-### 8.4  Supermarket Client (LatAm) — Programmer
-**Oct 2021 – Nov 2022 · Carabobo, Venezuela**
-Stack: Node.js, Angular, Docker, PWA, mobile.
+### 8.5  Supermarket Client — Full Stack Developer / Programmer
+**Oct 2021 – Nov 2022 · Valencia, Venezuela**
+Stack: Magento 2 (headless), Angular PWA, Express API, Docker, Nginx, CI/CD.
 
 ```
-Took over a stalled e-commerce initiative and shipped it end-to-end
-to a customer base of high-volume.
+Maintained and evolved a multi-platform headless e-commerce serving
+30,000+ users, and built the delivery and analytics surfaces
+around it.
 
-• Stabilized and completed an e-commerce project, deploying a PWA and
-  mobile apps used by high-volume customers.
-• Designed and ran a Docker build pipeline and private image
-  registry, enabling continuous delivery for Node.js and Angular
-  services.
-• Ran RFM analysis to segment customers and inform targeted
-  marketing campaigns.
+• Maintained a multi-platform e-commerce (30,000+ users) with a
+  headless Magento 2 architecture, an Angular PWA, and an Express API.
+• Designed and deployed CI/CD with Docker and Nginx for the Express
+  APIs and the Angular PWA.
+• Performed RFM analysis on order data using SQL to inform customer
+  segmentation and commercial decisions.
 • Automated daily exchange-rate ingestion via web scraping,
-  replacing manual entry and improving the accuracy of financial
+  replacing manual entry and improving the accuracy of pricing
   decisions.
 ```
 
@@ -191,9 +193,9 @@ to a customer base of high-volume.
 
 ## 9. Education
 
-### Universidad Nacional Experimental de los Llanos Centrales 'Rómulo Gallegos'
-- **Degree:** Engineer's degree, Informatics
-- **Dates:** Sep 2016 – Jul 2020
+### Universidad Nacional Experimental Rómulo Gallegos (UNERG)
+- **Degree:** Information Engineer — Magna Cum Laude
+- **Dates:** 2016 – 2021
 
 ---
 
@@ -220,11 +222,11 @@ Planned (add as completed, per `study-plan.md`):
 ## 11. Skills (order matters — first 3 weighted heaviest)
 
 **Top 3 (pin these):**
-1. Kubernetes
-2. Google Cloud Platform (GCP)
+1. Laravel
+2. NestJS
 3. DevOps
 
-**Platform & DevOps:** Docker · CI/CD · GitLab CI · GitHub Actions · Proxmox · Linux (Ubuntu) · Windows Server · Nginx · Infrastructure as Code
+**Platform & DevOps:** Docker · CI/CD · Proxmox · Linux (Ubuntu) · Windows Server · Nginx · AWS (S3, RDS, ElastiCache)
 
 **Cloud & Data:** Google Cloud Platform · BigQuery · Vertex AI · Cloud Run · Airflow · DataOps · Data Modeling · RFM Analysis · Web Scraping
 
@@ -274,7 +276,7 @@ Description (700 char max):
 ```
 I help teams stabilize and modernize e-commerce, SaaS, and data
 platforms. Specialties: rescuing legacy stacks, containerizing and
-automating delivery on Docker/Kubernetes, integrating with SAP, and
+automating delivery on Docker/CI/CD, integrating with SAP, and
 building full-stack apps in Laravel, NestJS, Vue, and Angular. Now
 extending into GCP DataOps (BigQuery, Vertex AI, Airflow). Available
 for fractional architecture, code audits, and end-to-end delivery.
@@ -284,9 +286,9 @@ for fractional architecture, code audits, and end-to-end delivery.
 
 ## 16. Recommendations Strategy
 Request 3 within the first 30 days, one from each chapter:
-1. ** Retail Client** — a stakeholder or peer who saw the e-commerce rescue.
-2. ** Supermarket Client** — someone who can speak to the high-scale PWA launch.
-3. **Crazy Imagine** — current colleague, vouch for the support/KB system.
+1. ** Retail Client** — a stakeholder or peer who saw the e-commerce recovery and rebuild.
+2. ** Supermarket Client** — someone who can speak to the 30k-user PWA launch.
+3. **JuegaEnLínea** — current colleague, vouch for the gateway admin and Lienzo work.
 
 Suggested ask template:
 ```
@@ -305,12 +307,12 @@ Per `brand-strategy.md` — 2 short posts/week + 1 build log/week.
 
 Suggested first 8 posts (in order):
 1. **Intro / re-introduction post** — announce the new positioning.
-2. **Case study teaser** — 1 paragraph on the  Retail Client NestJS rescue.
-3. **Build log #1** — finishing the IBM DevOps K8s module.
+2. **Case study teaser** — 1 paragraph on the  Retail Client e-commerce recovery (with the rebuild as the follow-on link).
+3. **Build log #1** — finishing the IBM DevOps container orchestration module.
 4. **Decision-and-trade-off post** — "When to rescue vs. rebuild an e-commerce platform."
 5. **Carousel** — "5 signs your e-commerce platform needs a rescue, not a refactor."
 6. **Build log #2** — first GCP lab (Cloud Run + BigQuery).
-7. **Long-form article** — "Rescuing a high-scale platform: what I'd do differently on GCP today."
+7. **Long-form article** — "Rescuing a 30k-user platform: what I'd do differently on GCP today."
 8. **Open-source announcement** — first repo published.
 
 ---
@@ -329,4 +331,3 @@ Suggested first 8 posts (in order):
 - [ ] Custom URL confirmed: `linkedin.com/in/ialvarez93`
 - [ ] Personal site + GitHub added under Contact Info
 - [ ] First intro post published
-```

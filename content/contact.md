@@ -7,7 +7,7 @@ ogImage: "/og/contact.png"
 
 # Contact
 
-The fastest way to talk is to **book a 30-minute call**. Email and LinkedIn DMs work too — I read every message and usually reply **within two business days**. I'm currently full-time at Crazy Imagine Software and **selectively open** to senior engagements around e-commerce rescue, platform recovery, and the GCP DataOps work I'm growing into.
+The fastest way to talk is to **book a 30-minute call**. Email and LinkedIn DMs work too — I read every message and usually reply **within two business days**. I'm **available now** and open to senior engagements around internal platforms, e-commerce platform recovery, and SAP integration.
 
 ## :u-icon{name="i-lucide-link" class="mr-2 align-[-2px]"} Direct links
 
@@ -18,7 +18,7 @@ The fastest way to talk is to **book a 30-minute call**. Email and LinkedIn DMs 
 
 ## :u-icon{name="i-lucide-handshake" class="mr-2 align-[-2px]"} What I'm open to
 
-- **Senior Full-Stack, Platform / DevOps, or Tech Lead roles** — remote-first, ideally with teams already on or moving to GCP. Happy to join a strong team as a senior IC.
+- **Senior Full-Stack, Platform / DevOps, or Tech Lead roles** — remote-first, ideally on internal tooling or platform work. Happy to join a strong team as a senior IC.
 - **Fractional engagements** — typically 1–3 days a week for a defined window (e-commerce rescue/recovery, migration, or platform stand-up).
 - **Code or architecture audits** on e-commerce or SAP-integrated platforms — a focused 1–2 week deliverable.
 - **Advisory** for founders or small teams making early platform or data-stack decisions.
@@ -32,7 +32,7 @@ The fastest way to talk is to **book a 30-minute call**. Email and LinkedIn DMs 
 
 ## :u-icon{name="i-lucide-info" class="mr-2 align-[-2px]"} Practical info
 
-- :u-icon{name="i-lucide-globe" class="mr-1 align-[-2px]"} **Based in** Valencia, Venezuela — timezone **VET (UTC−4)**, comfortable working with EU and Americas teams.
+- :u-icon{name="i-lucide-globe" class="mr-1 align-[-2px]"} **Based in** Naguanagua, Carabobo, Venezuela — timezone **VET (UTC−4)**, comfortable working with EU and Americas teams.
 - :u-icon{name="i-lucide-languages" class="mr-1 align-[-2px]"} **Languages:** English (professional) and Spanish (native).
 - :u-icon{name="i-lucide-clock" class="mr-1 align-[-2px]"} **Response time:** within two business days, usually less.
 - :u-icon{name="i-lucide-shield-check" class="mr-1 align-[-2px]"} **NDAs / contracts:** happy to sign before any sensitive details are shared.

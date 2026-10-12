@@ -30,7 +30,7 @@ Este es el stack que uso para trabajar todos los dias.
 - **Editor:** VS Code
 - **Notas:** Obsidian
 - **Contenedores:** Docker, docker compose, kubectl, helm
-- **Nube:** gcloud y wrangler
+- **Nube:** wrangler
 - **CI/CD:** GitHub Actions
 
 La referencia completa de mi entorno esta en [mi configuracion de NixOS](https://github.com/ivanovertime/nixos).

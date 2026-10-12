@@ -1,14 +1,14 @@
 ---
 locale: en
 title: "About"
-description: "Platform recovery, e-commerce rescue, and GCP-bound data engineering. Full-stack engineer based in Valencia, Venezuela."
+description: "Senior full-stack engineer building internal platforms, back offices, and design systems. Background in e-commerce recovery and SAP integration. Based in Naguanagua, Venezuela."
 ---
 
 ## The short version
 
-I'm a full-stack engineer based in Valencia, Venezuela. Most of my work has been on platforms that someone else started and nobody wanted to inherit — e-commerce stores under load, SAP integrations with limited documentation, deployment processes held together with hope. I like walking into that. Read the code, talk to the people, leave it in better shape than I found it.
+I'm a senior full-stack engineer based in Naguanagua, Venezuela. I build the internal platforms teams run on — back-office systems, design systems, and the tooling around them — and before that spent four years on the harder side of e-commerce: platforms under load, SAP integrations with limited documentation, deployment processes held together with hope. I like walking into that. Read the code, talk to the people, leave it in better shape than I found it.
 
-Four years of production platforms — recovered, re-architected, and shipped across e-commerce, mobile, and enterprise integration. Teams from solo to 15 engineers. I've led and I've contributed; the work is the constant. Right now I'm moving toward data platforms on Google Cloud. See [/now](/now) for this quarter's detail.
+Four years of production platforms — recovered, re-architected, and shipped across e-commerce, mobile, and enterprise integration. Teams from solo to 15 engineers. I've led and I've contributed; the work is the constant. Alongside that, I'm working through the IBM DevOps and Software Engineering certificate — see [/now](/now) for this quarter's detail.
 
 ## Beyond code
 
@@ -18,7 +18,10 @@ I'm curious by nature. You'll often find me exploring cinema, cooking, or pickin
 
 ## Timeline
 
-**Dec 2025 – Present · Crazy Imagine Software · Senior Full Stack Engineer (Remote)**
+**Aug 2026 – Present · JuegaEnLínea · Senior Full Stack Engineer (Remote)**
+Internal platforms for a multi-brand company: the operator admin of its white-label payment gateway, a shared Svelte design system over a reusable Laravel 13 API, and a multi-domain landing page generator served from Cloudflare Workers, Pages and R2.
+
+**Dec 2025 – Jun 2026 · Crazy Imagine Software · Senior Full Stack Engineer (Remote)**
 Building a unified support and notification system on Laravel + Vue + Inertia.js, integrated with HubSpot. Companion Knowledge Base on Inertia.js + Laravel Nova.
 
 **Oct 2024 – Dec 2025 · Tiendas Daka · Software Development Consultant**
@@ -30,25 +33,14 @@ Restored a multi-tenant CS-Cart deployment, modernized WooCommerce + Nuxt stores
 **Oct 2021 – Nov 2022 · Biomercados (Alimentos FM, C.A.) · Programmer**
 Recovered an inherited e-commerce project at a Venezuelan supermarket chain and shipped a [PWA + mobile apps for a high-volume customer base](/blog/case-studies/supermarket-pwa-recovery). Stood up the Docker registry and CI/CD pipeline that made continuous delivery possible.
 
-**Sep 2016 – Jul 2020 · Universidad Nacional Experimental de los Llanos Centrales 'Rómulo Gallegos'**
-Engineer's degree, Informatics.
+**2016 – 2021 · Universidad Nacional Experimental de los Llanos Centrales 'Rómulo Gallegos' (UNERG)**
+Engineer in Systems Engineering — Magna Cum Laude.
 
 ---
 
 ## Currently studying
 
-A sequenced study plan toward data engineering on GCP, while keeping the full-stack and DevOps fluency I already have. Always-current detail on [/now](/now).
-
-This quarter (Q2 2026):
-
-- IBM DevOps & Software Engineering — Containers & Kubernetes, CI/CD modules.
-- Generative AI for Software Developers (IBM).
-- First scoped GCP labs on Cloud Run + BigQuery.
-
-Next (Q3 2026):
-
-- Google Cloud Professional Data Engineer.
-- DataOps: Automation & Reliability Specialization.
+Alongside the day job, I'm working through the **IBM DevOps and Software Engineering Professional Certificate** — currently on the Containers & Kubernetes and CI/CD modules. Always-current detail on [/now](/now).
 
 ---
 
@@ -62,14 +54,9 @@ Next (Q3 2026):
 - Continuous Integration and Continuous Delivery with GitLab
 - AI for Brainstorming and Planning
 
-**In progress / planned**
+**In progress**
 
 - IBM DevOps and Software Engineering Professional Certificate
-- Generative AI for Software Developers (IBM)
-- Google Cloud Professional Data Engineer
-- DataOps: Automation & Reliability Specialization
-- IBM Java Developer Professional Certificate
-- Advanced Data Modeling for AI and Analytics
 
 ---
 
@@ -77,13 +64,13 @@ Next (Q3 2026):
 
 A short, opinionated list — not exhaustive.
 
-- **Backend:** Laravel · NestJS · Node.js · PHP
-- **Frontend:** Vue · Nuxt · Angular · Inertia.js · Filament · Livewire
-- **Mobile:** Progressive Web Apps · Flutter
-- **Platform:** Docker · Kubernetes (learning at depth) · CI/CD on GitLab and GitHub Actions · Proxmox · Ubuntu / Windows Server
-- **Cloud & data (current focus):** Google Cloud · BigQuery · Cloud Run · Vertex AI · Airflow
-- **Integration:** SAP · Odoo · HubSpot
-- **AI in the loop:** Google Gemini · Claude · Generative AI for Developers
+- **Backend:** Laravel · NestJS · Node.js · Express · PHP
+- **Frontend & mobile:** Svelte · SvelteKit · Vue · Nuxt · Angular · Inertia.js · Filament · Livewire · Flutter
+- **Commerce:** Medusa · Magento 2 · WooCommerce · CS-Cart
+- **Data & integration:** SAP · Odoo · HubSpot · payment gateways · PostgreSQL · MySQL · MS SQL Server · MongoDB · Redis
+- **Platform:** Docker · Nginx · CI/CD on GitLab and GitHub Actions · Cloudflare Workers, Pages and R2 · Proxmox · Ubuntu / Windows Server
+- **Learning at depth:** Kubernetes
+- **AI in the loop:** Claude · GitHub Copilot · Google Gemini
 
 ---
 
