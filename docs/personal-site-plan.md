@@ -439,3 +439,84 @@ rg -n "Valencia|Crazy Imagine Software|Professional Data Engineer|GCP DataOps" c
 npm run typecheck && npm run build
 ```
 - CV URLs return 200; `/now` shows Q4 2026.
+
+---
+
+## 11. Case study plan — Semantichelp (Vertex Plus Group)
+
+Status: **planned, not written** (2026-10-11).
+
+- Client: **Vertex Plus Group LLC** — `https://vertexplusgroup.com/` (confirmed 2026-10-11).
+- Product: `https://semantichelp.com/` — live, HTTP 200.
+- Source repo: `~/Source/semantichelp` (private). Facts come from `PRODUCT.md`, `docs/PLAN.md`,
+  `docs/HANDOFF.md` and the git history (154 commits since 2026-08-01; the first commit is
+  2026-07-13).
+- Slot: `content/blog/case-studies/semantichelp-rag-knowledge-base.md` — live (no `hidden: true`),
+  `featured: true`.
+
+### Frontmatter
+
+```yaml
+title: "Semantichelp — a knowledge base that answers with sources"
+date: "2026-10-11"
+category: "case-study"
+client: "Vertex Plus Group"
+year: 2026
+type: "greenfield"
+tags: ["rag", "multi-tenant", "cloudflare", "ai", "product"]
+stack: ["Nuxt 4", "Cloudflare Workers", "D1", "R2", "Vectorize", "Vercel AI SDK"]
+team_size: 1
+role: "Product, design and build"
+outcome_headline: "A multi-tenant RAG knowledge base where unanswered questions become citable answers"
+ogImage: "/blog/case-studies/semantichelp-rag-knowledge-base/featuredImage.png"
+image: "/blog/case-studies/semantichelp-rag-knowledge-base/featuredImage.png"
+```
+
+### Structure
+
+Same spine as `supermarket-pwa-recovery.md` (~1,400 words), **except the closing section**: the
+product is already Cloudflare-native, so there is no honest "What I'd do on GCP today" to write.
+It becomes "What's still missing".
+
+| § | Content |
+|---|---|
+| TL;DR | What it is · the differentiator (an unanswerable question escalates to the owner and comes back as a citable document) · status: v1 in production, one real tenant |
+| Context | The failure mode of "chat with your docs" — it answers or it shrugs, and a shrug is a dead end. That shrug is the product surface here |
+| Constraints | Solo build · edge-only, no always-on server · D1 (SQLite) + Vectorize, no pgvector · no mail infrastructure · stateless 24 h JWT · per-tenant cost ceilings · tenant isolation is a product promise |
+| Architecture at a glance | Mermaid: upload → R2 + D1 → queue → extract → chunk → embed → Vectorize → retrieve → stream + citations → escalation → owner answer → Q&A doc → re-ingest |
+| Decisions | The five below, each with its trade-off |
+| Outcome | Honest: what v1 contains (auth, onboarding, catalog, queue ingestion, streaming cited chat, RBAC, escalations + write-back, en/es, custom domains, cost guardrails), live with a first real tenant. **No customers, no metrics, no testimonials** — `PRODUCT.md` explicitly forbids fabricating them |
+| What's still missing | No self-service password reset (a locked-out user is an operator running `wrangler d1 … --remote`, and the real fix needs `users.sessionsValidAfter` because the stateless JWT cannot be revoked) · large documents can hit execution limits · no billing · no platform super-admin role |
+
+### The five decisions
+
+1. **D1 + Vectorize instead of Postgres + pgvector** — edge-native, no VM to run; the price is
+   SQLite's limits and a second index to keep honest.
+2. **Queue-based ingestion** (extract → chunk → embed → vectorize) — with the real cost stated:
+   a freshly written-back Q&A document is not retrievable for ~30–60 s.
+3. **Citations are part of the answer, not decoration** — every claim opens the source passage.
+4. **The escalation write-back loop** — the owner's answer lands in the catalog as a normal,
+   readable, downloadable Q&A document. The one thing "chat with your docs" cannot claim.
+5. **Cost discipline** — a context-keyed, self-healing answer cache counted in `usage_counters`;
+   token caps on history, output and retrieved context; a per-plan question quota; BYO-key
+   first-class so inference cost sits with the tenant. Plus the model bake-off that kept the
+   default and pinned follow-ups to a small model, with cost tiers in the picker.
+
+### Assets
+
+- `featuredImage` — real Chrome screenshot of the catalog and a chat answer with citations, from
+  the live demo tenant (`browser_read` with `shot`).
+- The architecture diagram is Mermaid text, matching the existing case study.
+
+### Link-in work
+
+- `/now` → the Semantichelp bullet links to the case study instead of only the product root.
+- The home Featured row picks it up via `featured: true`.
+
+### Open questions before writing
+
+1. **Anonymise the client or not?** Every other case study anonymises (`client: " Retail Client
+   (LatAm)"`). `client: "Vertex Plus Group"` names it openly — confirm which convention wins here.
+2. How candid should "What's still missing" be — name the password-reset gap, the execution-limit
+   ceiling and the absent billing, or soften?
+3. Does the TL;DR link out to `semantichelp.com`?
