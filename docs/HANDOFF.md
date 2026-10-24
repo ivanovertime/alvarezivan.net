@@ -40,6 +40,18 @@ observability / preview-per-PR; Cloudflare Pages named only where already true.
 and in the built `dist/` blog pages; `Information Engineer` / `Ingeniero en Informática` present in
 the built about payloads. Dist regenerated.
 
+**NDA pass (2026-10-24):** Daka must not be publicly attributable. The three Daka case studies
+are anonymized as `client: "Retail Client (LatAm)"` (leading-space artifact fixed on all four
+case studies) and **hidden again** (`hidden: true`) — final user call: they stay as private
+writes-in-storage, not public pages. So nothing may link to them; the /now link to the SAP post
+was removed again to keep the prerender clean. They become public by removing `hidden: true`. Home + about (both locales) drop "Tiendas Daka C.A." / the
+tiendasdaka.com link / "Venezuelan retail chain" / "nationwide" and read "Retail Client (LatAm)"
+with the URL `#`. The CV PDFs still name TIENDAS DAKA C.A. and stay downloadable from `/about`
+— accepted by the user. **/now drift pass:** `updated` bumped to 2026-10-24 (both locales),
+Semantichelp line corrected (change-password shipped Oct 4; only locked-out reset open), Daka pair
+bullet removed. Learning gains the **CU Boulder Technical Communication specialization (Coursera)**, both locales. `npm run typecheck` +
+`npm run build` clean; zero `daka|tiendasdaka` strings in `content/` or `app/`.
+
 **Still open from Batch 3:** ES copy pass on untouched `content/es/*` files, RSS feed, Lighthouse
 gate (§6 Sprint 4), the items the user declined above, and the **CV location sync to Valencia**
 (Curriculums i18n.yml + PDF regeneration — deferred by the user). `develop` still unpushed.
