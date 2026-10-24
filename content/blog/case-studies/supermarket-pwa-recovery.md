@@ -2,7 +2,7 @@
 title: "Shipping a high-scale PWA from an inherited e-commerce project"
 date: "2026-05-15"
 category: "case-study"
-client: " Supermarket Client (LatAm)"
+client: "Supermarket Client (LatAm)"
 year: 2022
 tags:
   - "e-commerce"
