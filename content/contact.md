@@ -32,7 +32,7 @@ The fastest way to talk is to **book a 30-minute call**. Email and LinkedIn DMs 
 
 ## :u-icon{name="i-lucide-info" class="mr-2 align-[-2px]"} Practical info
 
-- :u-icon{name="i-lucide-globe" class="mr-1 align-[-2px]"} **Based in** Naguanagua, Carabobo, Venezuela — timezone **VET (UTC−4)**, comfortable working with EU and Americas teams.
+- :u-icon{name="i-lucide-globe" class="mr-1 align-[-2px]"} **Based in** Valencia, Carabobo, Venezuela — timezone **VET (UTC−4)**, comfortable working with EU and Americas teams.
 - :u-icon{name="i-lucide-languages" class="mr-1 align-[-2px]"} **Languages:** English (professional) and Spanish (native).
 - :u-icon{name="i-lucide-clock" class="mr-1 align-[-2px]"} **Response time:** within two business days, usually less.
 - :u-icon{name="i-lucide-shield-check" class="mr-1 align-[-2px]"} **NDAs / contracts:** happy to sign before any sensitive details are shared.

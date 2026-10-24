@@ -23,11 +23,11 @@ const { global } = useAppConfig()
 
 const cvLinks = computed(() => [
   {
-    label: locale.value === 'es' ? 'Descargar CV (Ingles)' : 'Download CV (English)',
+    label: locale.value === 'es' ? 'Descargar CV (Inglés)' : 'Download CV (English)',
     to: canonicalCvLinks.en
   },
   {
-    label: locale.value === 'es' ? 'Descargar CV (Espanol)' : 'Download CV (Spanish)',
+    label: locale.value === 'es' ? 'Descargar CV (Español)' : 'Download CV (Spanish)',
     to: canonicalCvLinks.es
   }
 ])

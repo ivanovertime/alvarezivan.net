@@ -59,6 +59,6 @@ Feature-wise, the useful pieces were:
 - Bilingual copy in ES/EN.
 - ISR caching for the feed endpoint.
 
-## What I'd do on GCP today
+## What I'd do differently today
 
-If this needed to scale further, I would keep the feed endpoint cached with ISR-style behavior, move the integrations behind a small server layer, and host the front end on Cloud Run or Firebase Hosting with preview environments per pull request.
+If this needed to scale further, I would keep the feed endpoint cached with ISR-style behavior, move the integrations behind a small server layer, and host the front end on a managed edge platform with preview deployments per pull request.

@@ -104,15 +104,15 @@ By the end of the engagement:
 
 Most importantly, recovery created the preconditions for Act 2: *rebuild by choice, not by panic.* See [*Rebuilding an e-commerce platform in three months*](/blog/case-studies/retail-ecommerce-rebuild).
 
-## What I'd do on GCP today
+## What I'd do differently today
 
 Same strategy, less platform toil:
 
-- **Cloud Run** for runtime and deploy consistency.
-- **Pub/Sub** in front of SAP-driven events for resilience.
-- **Firestore or Cloud SQL** for hot reads, with SAP still as source of truth.
-- **Cloud Logging + Cloud Trace** from day one.
-- **GitHub Actions → Cloud Run** with preview environments per PR.
+- **A managed runtime** for compute and deploy consistency.
+- **A queue in front of SAP-driven events** for resilience and retries.
+- **Read models** for hot reads, with SAP still as source of truth.
+- **Logs, traces and metrics from day one** — provided by the platform instead of assembled afterward.
+- **Preview environment per PR**, wired through CI.
 
 ---
 

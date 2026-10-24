@@ -126,16 +126,16 @@ By rollout:
 
 This was the build where the integration-module pattern proved generalizable: write the SAP boundary once, reuse it across products.
 
-## What I'd do on GCP today
+## What I'd do differently today
 
 Same brief today, same constraints, same SAP. The architecture instincts wouldn't change; the platform underneath would.
 
-- **Back-office runtime:** containerize the Laravel app for **Cloud Run**. Same artifact, no host-management work.
-- **SAP integration:** keep the single-module pattern. Move the writes onto **Pub/Sub** so the app never blocks on SAP, and the integration module becomes a Pub/Sub consumer with retries and a dead-letter topic.
-- **Catalog + pricing projection:** sync from SAP into **BigQuery** (analytics) and **Firestore** or **Cloud SQL** (hot reads). The mobile app reads from the projection; SAP stays the system of record.
-- **Mobile surface:** the same PWA, hosted on **Firebase Hosting** with offline caching via service workers. Optionally wrapped with Capacitor and shipped through **Firebase App Distribution** for staged rollouts.
-- **Real-time demand view:** stream quote events into BigQuery and surface them in **Looker Studio** for the business — the data surface that was a side-effect on-prem becomes a first-class deliverable.
-- **Delivery:** **GitHub Actions → Cloud Run + Firebase**, preview environment per PR. The same predictability we earned manually, but for free.
+- **Back-office runtime:** the same Laravel artifact on a managed container runtime — no host-management work.
+- **SAP integration:** keep the single-module pattern. Move the writes onto a managed queue so the app never blocks on SAP, and the integration module becomes a queue consumer with retries and a dead-letter queue.
+- **Catalog + pricing projection:** sync from SAP into a hosted analytics store and a hot-read model. The mobile app reads from the projection; SAP stays the system of record.
+- **Real-time demand view:** stream quote events into the analytics store and surface them to the business through a dashboard — what used to be a side-effect on-prem becomes a first-class deliverable.
+- **Mobile surface:** the same PWA with offline caching via service workers, optionally wrapped with Capacitor for staged rollouts.
+- **Delivery:** CI with a preview environment per PR. The same predictability we earned manually, now bought off the shelf.
 
 The shape of the work is the same as the rescues — a boring framework, a single integration boundary, an offline-first surface, and observability from day one — but the platform underneath does most of the heavy lifting.
 

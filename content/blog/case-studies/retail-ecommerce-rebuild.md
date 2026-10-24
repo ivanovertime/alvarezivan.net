@@ -102,15 +102,15 @@ By the end of three months:
 
 Core lesson: **fix first, then rebuild when conditions are ready**. Recovery earned this timeline.
 
-## What I'd do on GCP today
+## What I'd do differently today
 
 Same strategy, faster execution:
 
-- **Cloud Run** for backend and storefront runtime.
-- **Pub/Sub** for SAP event buffering and retries.
-- **Firestore + BigQuery** for read models and analytics.
-- **Cloud Logging + Trace + Error Reporting** from week one.
-- **GitHub Actions → Cloud Run/Firebase** with preview environments and blue-green cutover.
+- **Managed runtime** for backend and storefront, with blue-green cutover by design.
+- **A queue for SAP event buffering and retries** instead of ad-hoc polling.
+- **Read models + a hosted analytics sink** instead of hand-rolled projections.
+- **Logs, traces and error reporting from week one**, built into the platform rather than added later.
+- **Preview environment per PR**, wired through CI.
 
 ---
 

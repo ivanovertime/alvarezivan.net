@@ -25,7 +25,7 @@ La forma más rápida de hablar conmigo es **agendar una llamada de 30 minutos**
 
 ## Información práctica
 
-- **Ubicación:** Naguanagua, Carabobo, Venezuela — zona horaria **VET (UTC−4)**, cómodo trabajando con equipos de Europa y América.
+- **Ubicación:** Valencia, Carabobo, Venezuela — zona horaria **VET (UTC−4)**, cómodo trabajando con equipos de Europa y América.
 - **Idiomas:** inglés (profesional) y español (nativo).
 - **Tiempo de respuesta:** menos de dos días hábiles, normalmente menos.
 - **NDAs / contratos:** firmo sin problema antes de compartir cualquier detalle sensible.

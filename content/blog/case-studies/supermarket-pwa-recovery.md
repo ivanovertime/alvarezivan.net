@@ -167,18 +167,18 @@ By the end of the engagement:
 
 In hindsight, the sequencing mattered more than the headcount: getting the deploy path in place before chasing the feature backlog is what made the rest of it shippable by a small team.
 
-## What I'd do on GCP today
+## What I'd do differently today
 
 Same brief today, same team size, same constraints. The instincts wouldn't change; the targets would.
 
-- **Frontend:** ship the PWA the same way, but host it on **Firebase Hosting** or **Cloudflare Pages** with a CDN edge in front. Lighthouse perf as a CI gate, not an afterthought.
-- **Backend:** containerize the Node.js services for **Cloud Run**. No private registry to maintain — **Artifact Registry** comes with the platform.
-- **CI/CD:** **GitHub Actions → Cloud Run**, preview environment per PR. The pipeline I hand-built in 2022 is now ten lines of YAML.
-- **RFM and segmentation:** land the orders in **BigQuery** via a Cloud Run job, run the RFM query as a scheduled view, and surface the segments to marketing through **Looker Studio** instead of a CSV. Same analysis, no engineer in the loop after week one.
-- **Exchange-rate ingestion:** **Cloud Scheduler → Cloud Run job → Pub/Sub → BigQuery + the storefront cache**. The scraper still runs; everything around it stops being a cron on a single VM.
-- **Mobile apps:** Capacitor or PWABuilder wrapping the same PWA, signed and shipped through **Firebase App Distribution** for staged rollouts.
+- **Frontend:** ship the PWA the same way, but host it on **Cloudflare Pages** (or any managed static host with a CDN edge). Lighthouse perf as a CI gate, not an afterthought.
+- **Backend:** the same Node.js services on a managed container runtime — no private registry to run and patch.
+- **CI/CD:** a preview environment per PR wired through CI. The pipeline I hand-built in 2022 is now ten lines of YAML, give or take.
+- **RFM and segmentation:** land the orders in a hosted analytics store via a scheduled job, run the RFM query as a scheduled view, and surface the segments to marketing through a dashboard instead of a CSV. Same analysis, no engineer in the loop after week one.
+- **Exchange-rate ingestion:** scheduled job → managed queue → analytics store + the storefront cache. The scraper still runs; everything around it stops being a cron on a single VM.
+- **Mobile apps:** Capacitor or PWABuilder wrapping the same PWA, signed and shipped with staged rollouts.
 
-The shape of the work stays the same — deploy path first, customer surface next, the smaller automations after that. GCP just removes a lot of the platform plumbing that used to be the job.
+The shape of the work stays the same — deploy path first, customer surface next, the smaller automations after that. A managed platform just removes a lot of the plumbing that used to be part of the job.
 
 ---
 

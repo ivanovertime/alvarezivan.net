@@ -1,12 +1,12 @@
 ---
 locale: en
 title: "About"
-description: "Senior full-stack engineer building internal platforms, back offices, and design systems. Background in e-commerce recovery and SAP integration. Based in Naguanagua, Venezuela."
+description: "Senior full-stack engineer building internal platforms, back offices, and design systems. Background in e-commerce recovery and SAP integration. Based in Valencia, Venezuela."
 ---
 
 ## The short version
 
-I'm a senior full-stack engineer based in Naguanagua, Venezuela. I build the internal platforms teams run on — back-office systems, design systems, and the tooling around them — and before that spent four years on the harder side of e-commerce: platforms under load, SAP integrations with limited documentation, deployment processes held together with hope. I like walking into that. Read the code, talk to the people, leave it in better shape than I found it.
+I'm a senior full-stack engineer based in Valencia, Venezuela. I build the internal platforms teams run on — back-office systems, design systems, and the tooling around them — and before that spent four years on the harder side of e-commerce: platforms under load, SAP integrations with limited documentation, deployment processes held together with hope. I like walking into that. Read the code, talk to the people, leave it in better shape than I found it.
 
 Four years of production platforms — recovered, re-architected, and shipped across e-commerce, mobile, and enterprise integration. Teams from solo to 15 engineers. I've led and I've contributed; the work is the constant. Alongside that, I'm working through the IBM DevOps and Software Engineering certificate — see [/now](/now) for this quarter's detail.
 
@@ -33,8 +33,8 @@ Restored a multi-tenant CS-Cart deployment, modernized WooCommerce + Nuxt stores
 **Oct 2021 – Nov 2022 · Biomercados (Alimentos FM, C.A.) · Programmer**
 Recovered an inherited e-commerce project at a Venezuelan supermarket chain and shipped a [PWA + mobile apps for a high-volume customer base](/blog/case-studies/supermarket-pwa-recovery). Stood up the Docker registry and CI/CD pipeline that made continuous delivery possible.
 
-**2016 – 2021 · Universidad Nacional Experimental de los Llanos Centrales 'Rómulo Gallegos' (UNERG)**
-Engineer in Systems Engineering — Magna Cum Laude.
+**2016 – 2021 · Universidad Nacional Experimental Rómulo Gallegos (UNERG)**
+Information Engineer — Magna Cum Laude.
 
 ---
 

@@ -1,12 +1,12 @@
 ---
 locale: es
 title: "Sobre mí"
-description: "Ingeniero full-stack senior que construye plataformas internas, back offices y sistemas de diseño. Base en recuperación de e-commerce e integración SAP. En Naguanagua, Venezuela."
+description: "Ingeniero full-stack senior que construye plataformas internas, back offices y sistemas de diseño. Base en recuperación de e-commerce e integración SAP. En Valencia, Venezuela."
 ---
 
 ## La versión corta
 
-Soy ingeniero full-stack senior en Naguanagua, Venezuela. Construyo las plataformas internas sobre las que trabaja el equipo — back offices, sistemas de diseño y el tooling que los rodea — y antes pasé cuatro años en la parte dura del e-commerce: plataformas bajo carga, integraciones SAP con documentación limitada, procesos de despliegue sostenidos con voluntad. Me gusta entrar en eso. Leer el código, hablar con la gente, dejar el sistema mejor de como lo encontré.
+Soy ingeniero full-stack senior en Valencia, Venezuela. Construyo las plataformas internas sobre las que trabaja el equipo — back offices, sistemas de diseño y el tooling que los rodea — y antes pasé cuatro años en la parte dura del e-commerce: plataformas bajo carga, integraciones SAP con documentación limitada, procesos de despliegue sostenidos con voluntad. Me gusta entrar en eso. Leer el código, hablar con la gente, dejar el sistema mejor de como lo encontré.
 
 Cuatro años de plataformas en producción — recuperadas, reconstruidas y entregadas en e-commerce, apps móviles e integraciones empresariales. Equipos de uno a 15 ingenieros. He liderado y he sido parte del equipo; el trabajo es la constante. En paralelo avanzo con el certificado de DevOps de IBM — el detalle del trimestre está en [/es/now](/es/now).
 
@@ -33,8 +33,8 @@ Recuperé un despliegue multi-tenant de CS-Cart, modernicé tiendas WooCommerce 
 **Oct 2021 – Nov 2022 · Biomercados (Alimentos FM, C.A.) · Programador**
 Recuperé un proyecto de e-commerce heredado en una cadena de supermercados venezolana y entregué una [PWA + apps móviles para una base de clientes de alto volumen](/blog/case-studies/supermarket-pwa-recovery). Levanté el registro Docker y el pipeline de CI/CD que hizo posible la entrega continua.
 
-**2016 – 2021 · Universidad Nacional Experimental de los Llanos Centrales 'Rómulo Gallegos' (UNERG)**
-Ingeniería en Sistemas — Magna Cum Laude.
+**2016 – 2021 · Universidad Nacional Experimental Rómulo Gallegos (UNERG)**
+Ingeniero en Informática — Magna Cum Laude.
 
 ---
 
