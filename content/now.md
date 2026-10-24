@@ -2,25 +2,25 @@
 locale: en
 title: "Now"
 description: "What I'm working on, learning, shipping, and available for this quarter. Updated quarterly. Inspired by nownownow.com."
-updated: 2026-10-11
+updated: 2026-10-24
 ---
 
 # Now — Q4 2026
 
-_Last updated: October 11, 2026._
+_Last updated: October 24, 2026._
 
 ## :u-icon{name="i-lucide-hammer" class="mr-2 align-[-2px]"} Working on
 
 - **[Semantichelp](https://semantichelp.com/)** — a multi-tenant SaaS knowledge base with a RAG chatbot on top: teams upload their documents, ask questions, and get answers that cite the passages they came from. Nuxt 4 + shadcn-vue on Cloudflare Workers (D1, R2, Vectorize), with a per-tenant AI provider and key.
-- **Unanswered questions become answers** — when the catalog can't help, the question escalates to the owner of that area and their reply is written back as a citable document. v1 is in production with a first real tenant; right now I'm on input validation and a self-service password reset.
+- **Unanswered questions become answers** — when the catalog can't help, the question escalates to the owner of that area and their reply is written back as a citable document. v1 is in production with a first real tenant; the signed-in change-password flow is shipped, and right now I'm on a self-service reset for locked-out users.
 
 ## :u-icon{name="i-lucide-book-open" class="mr-2 align-[-2px]"} Learning
 
 - **IBM DevOps and Software Engineering Professional Certificate** — in progress, currently on the Containers & Kubernetes and CI/CD modules.
+- **Technical Communication specialization (CU Boulder, on Coursera)** — communication skills for engineering leaders: listening, feedback, writing, presentations.
 
 ## :u-icon{name="i-lucide-rocket" class="mr-2 align-[-2px]"} Shipping next
 
-- The published **paired Daka e-commerce case studies** — recovery and rebuild, cross-linked. Both are already drafted; the [Biomercados PWA recovery](/blog/case-studies/supermarket-pwa-recovery) is live.
 - A short post on **the integration-module pattern** — the single typed, observable, retry-aware boundary I keep reaching for whenever a system has to talk to SAP or a payment processor.
 - One open-source repo, still TBD — I'd rather ship one good thing than three half-finished ones.
 
