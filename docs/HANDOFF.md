@@ -52,6 +52,11 @@ Semantichelp line corrected (change-password shipped Oct 4; only locked-out rese
 bullet removed. Learning gains the **CU Boulder Technical Communication specialization (Coursera)**, both locales. `npm run typecheck` +
 `npm run build` clean; zero `daka|tiendasdaka` strings in `content/` or `app/`.
 
+**Next small task (untouched):** home FAQ — render the Tech Skills bullet lists in two columns.
+Two routes scoped: (1) CSS-only `[&>ul]:columns-2` on the FAQ.vue MDC body, gated to the Tech
+Skills tab; (2) restructure `home.yml` (both locales) to structured data + a real grid in FAQ.vue.
+Start with (1) as a spike.
+
 **Still open from Batch 3:** ES copy pass on untouched `content/es/*` files, RSS feed, Lighthouse
 gate (§6 Sprint 4), the items the user declined above, and the **CV location sync to Valencia**
 (Curriculums i18n.yml + PDF regeneration — deferred by the user). `develop` still unpushed.
