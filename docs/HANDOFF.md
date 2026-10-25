@@ -30,7 +30,8 @@ drops the layout.
 ## Follow-up session (2026-10-17) — CV ↔ site message matching
 
 Same goal, second pass: evaluate the CV PDF diff from `94cc074` and close the remaining message
-gaps between the CVs and the site. Nothing committed.
+gaps between the CVs and the site. Nothing committed. **Superseded — this landed as `13ead3b`; the
+"uncommitted, 8 files" list below is history, not working-tree state.**
 
 **Evaluated (report only):** old vs new CV PDFs extracted with `pdftotext` — summary flip to
 *internal platforms + design systems, moving toward DevOps and Cloud*, +Svelte/SvelteKit/Cloudflare,
@@ -82,16 +83,22 @@ bullet removed. Learning gains the **CU Boulder Technical Communication speciali
 
 **Still open from Batch 3:** ES copy pass on untouched `content/es/*` files, RSS feed, Lighthouse
 gate (§6 Sprint 4), the items the user declined above, and the **CV location sync to Valencia**
-(Curriculums i18n.yml + PDF regeneration — deferred by the user). `develop` still unpushed.
+(Curriculums i18n.yml + PDF regeneration — deferred by the user).
 
 ## Goal
 
-Catch the live site up with the Curriculums positioning pass (2026-10-10/11), then re-point `/now`
-at Semantichelp.
+Write the **Semantichelp case study** (§11 of `docs/personal-site-plan.md`) — the one case study the
+site is still missing — then keep closing the §10 Batch 3 leftovers. The Oct refresh, the CV ↔ site
+match and the Daka NDA pass are done and live.
 
 ## Done and committed
 
-`94cc074` on `develop` (**not pushed**) — *"content: the Oct refresh lands — JuegaEnLínea is the
+`develop` **through `ce982af` is pushed and live** (Cloudflare Pages builds from the repo,
+`wrangler.toml` → `dist`, so a push *is* the production deploy). That covers the Oct refresh
+(`94cc074`), the CV ↔ site message match (`13ead3b`), the Daka NDA pass (`6242bbb`) and the Q4
+`/now` drift (`0d03fc1`).
+
+`94cc074` — *"content: the Oct refresh lands — JuegaEnLínea is the
 current role, Semantichelp leads /now, and the GCP track is gone"*. 15 files, +401/−216.
 `git show 94cc074` for the full detail.
 
@@ -100,7 +107,9 @@ current role, Semantichelp leads /now, and the GCP track is gone"*. 15 files, +4
 - Positioning leads with internal platforms, back offices and design systems (Svelte, Laravel,
   Cloudflare) instead of e-commerce rescue plus GCP DataOps.
 - Skills gain Svelte, SvelteKit, Cloudflare and Nginx; the ES groups catch up with EN.
-- Location is Naguanagua, Carabobo; education reads 2016 – 2021 with Magna Cum Laude.
+- Location is Naguanagua, Carabobo — **changed to Valencia, Carabobo in `13ead3b`; the site says
+  Valencia, the CV PDFs still say Naguanagua on purpose**; education reads 2016 – 2021 with Magna
+  Cum Laude.
 - `/now`'s Working-on section is now Semantichelp; `/now` and `/contact` state the availability
   plainly.
 - The whole Google Cloud credential track is removed: ACE and the Planned block out of
@@ -128,8 +137,9 @@ current role, Semantichelp leads /now, and the GCP track is gone"*. 15 files, +4
 
 ## Unverified / open
 
-- **Nothing is pushed.** `develop` is ahead of `origin/develop` by 4. Cloudflare Pages builds from
-  the repo (`wrangler.toml` → `dist`), so the push *is* the production deploy.
+- **Five commits are unpushed** — `08afeff` (Java reads as refreshing), `480be6f` (the two-column
+  skills lists) and three `docs(handoff)` notes. `origin/develop` is at `ce982af`. Cloudflare Pages
+  builds from the repo (`wrangler.toml` → `dist`), so pushing them *is* the production deploy.
 - **The Semantichelp case study is planned, not written** — §11 of `personal-site-plan.md`. Three
   questions are open there (client anonymisation, how candid the closing section should be, whether
   the TL;DR links out).
