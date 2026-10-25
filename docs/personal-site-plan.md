@@ -444,7 +444,16 @@ npm run typecheck && npm run build
 
 ## 11. Case study plan — Semantichelp (Vertex Plus Group)
 
-Status: **planned, not written** (2026-10-11).
+Status: **written** (2026-10-25) — `content/blog/case-studies/semantichelp-rag-knowledge-base.md`,
+live and `featured: true`. English only: no blog post in this repo has an ES counterpart, so none
+was invented. The three open questions below were answered: **name Vertex Plus Group** (the product
+is public and `/now` already names it, so anonymising the client protects nothing), **full candour**
+in "What's still missing" (one sentence of mechanism per gap — the page's credibility rests on the
+no-invented-numbers rule), and **yes, link out** to `semantichelp.com`. One correction to the plan
+as written: ingestion is on a Cloudflare Queue now (`shared/ingestQueue.ts`), with an inline
+`waitUntil` fallback, so Decision 2 is "queue + the ~30-60 s Vectorize lag", not "queue instead of
+inline" — `PRODUCT.md`'s "not a queue" line is the stale one. Featured image is a real Chrome
+screenshot of the demo tenant (cited chat answer + catalog), composed on a blue gradient.
 
 - Client: **Vertex Plus Group LLC** — `https://vertexplusgroup.com/` (confirmed 2026-10-11).
 - Product: `https://semantichelp.com/` — live, HTTP 200.

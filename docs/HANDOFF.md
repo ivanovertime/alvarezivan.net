@@ -2,154 +2,127 @@
 
 _Updated 2026-10-25. Authoritative state for the next session._
 
-## Session (2026-10-25) — Tech Skills in two columns
+## Session (2026-10-25, second) — the Semantichelp case study is written
 
-The queued route-1 spike, landed: `26f55dc`'s next task, done. `app/components/landing/FAQ.vue`
-gains a `twoColumnTabs` set (`tech skills` / `habilidades`) and puts
+The §11 goal, done. `content/blog/case-studies/semantichelp-rag-knowledge-base.md` is live (no
+`hidden`), `featured: true`, English only — **no blog post in this repo has an ES counterpart**, so
+none was invented.
+
+**The three §11 questions, answered by the user:**
+1. **Client named** — `client: "Vertex Plus Group"`, linked to `https://vertexplusgroup.com/` in the
+   TL;DR. The product is public and `/now` already names it, so anonymising the client protects
+   nothing.
+2. **Full candour** in "What's still missing" — one sentence of mechanism per gap. Checked against
+   the source first: no `forgot-password`/`reset-password` route, no `sessionsValidAfter` anywhere in
+   code, no billing code, no `isPlatformAdmin`. The four gaps are the reset flow / billing /
+   platform super-admin / the per-attempt ingestion ceiling.
+3. **Links out** — `semantichelp.com` in the TL;DR, the Outcome, and the closing line.
+
+**One correction to the §11 plan:** ingestion is on a **Cloudflare Queue** now
+(`shared/ingestQueue.ts`: 3 retries, 30 s apart, a dead-letter queue, a 20-minute stuck sweeper)
+with an inline `waitUntil` fallback when the binding is absent. So Decision 2 is "queue + the
+~30–60 s Vectorize lag", not "queue instead of inline" — `PRODUCT.md`'s "not a queue" line is the
+stale one.
+
+**Featured image** — real Chrome screenshots of the demo tenant (`demo.semantichelp.com`): a cited
+chat answer plus the catalog, composed with `sharp` on a blue gradient at 1920×1280. Regenerate by
+re-running the composition script pattern if the demo UI changes.
+
+**Link-in:** `/now`, both locales — the second Semantichelp bullet is now the case study link.
+
+### User-directed changes in the same session (these override the NDA pass)
+
+- **Tiendas Daka C.A. is named again on the work-experience row and the `/about` timeline, both
+  locales** — "like in the CV". The row is `Software Development Consultant · Tiendas Daka C.A. ·
+  Oct 2024 – Dec 2025`, the home card links to `https://www.tiendasdaka.com/`, and the `/about`
+  prose reads "builds at Tiendas Daka". The NDA now applies to the **case studies only**: they stay
+  `hidden: true` and `client: "Retail Client (LatAm)"`.
+- **"See the case studies" / "Ver los casos de estudio" removed** from the `/about` Daka paragraph
+  (both locales) — it pointed at a filtered blog page the hidden Daka studies can't fill.
+- **JuegaEnLínea's icon is `i-lucide-briefcase`** (was `i-lucide-layers`), both locales.
+
+**Observed, not fixed:** ` ```mermaid ` fences render as syntax-highlighted **code blocks**, not
+diagrams — `MermaidDiagram.vue` never fires because fenced code isn't mapped to it. This is
+pre-existing and identical on `supermarket-pwa-recovery`, so the new post matches the existing case
+studies. Fixing it is a site-wide change (component mapping or `::mermaid` MDC syntax), not a post
+edit.
+
+**Verified:** `npm run typecheck` + `npm run build` clean. `dist/` contains the post, the home
+featured row links it, `/now` links it in both locales, `Tiendas Daka C.A.` appears in
+`dist/{index,es,about,es/about}.html` with the `tiendasdaka.com` href, the "casos de estudio"
+sentence is gone, and four `briefcase` icons replace the old `layers` one on the home page.
+
+## Earlier session (2026-10-25) — Tech Skills in two columns
+
+`480be6f`: `app/components/landing/FAQ.vue` gains a `twoColumnTabs` set (off the lowercased tab
+title, so renaming the tab silently drops the layout) and puts
 `sm:[&>ul]:columns-2 sm:[&>ul]:gap-x-8 [&>li]:break-inside-avoid` on the MDC body of those tabs
-only. Six lines, one file.
+only. `sm:` because the longest entry needs 277px. Route 2 (structured data + a real grid) was
+scoped and **declined** — revisit only if per-list control is wanted.
 
-**Why `sm:` and not unconditional** — measured in Chrome: the longest entry ("Payment Gateways
-(PayPal, Stripe, Merchant)") needs 277px. At a 358px container two columns give ~123px each and that
-entry wraps to **7 lines**; at `sm` (640px) it wraps to 2; above ~770px nothing wraps at all.
+## Session (2026-10-17) — CV ↔ site message matching, and the Oct refresh
 
-**Verified:** `npm run typecheck` + `npm run build` clean. `column-count:2` and `column-gap:2rem`
-land inside `@media(min-width:40rem)`, `break-inside:avoid` on the `li`. Both locales prerender 8
-gated lists (the whole Tech Skills category); `Pricing & Timelines` is prose-only and untouched.
-Runtime geometry at 951px: 2 columns at x=109/496, balanced heights (8 items → 139px ≈ 4+4).
+Landed as `13ead3b` on top of the Oct refresh `94cc074` (*"the Oct refresh lands — JuegaEnLínea is
+the current role, Semantichelp leads /now, and the GCP track is gone"*).
 
-**Route 2 declined for now** (user call, 2026-10-25): restructure both `home.yml` locales to
-structured data + a real grid. It lands the same visual result and would flip the reading order from
-column-major to row-major, and would mean hand-copying the prose utility classes out of MDC. Worth
-it only if per-list control is ever wanted.
+- JuegaEnLínea (Aug 2026 – Present) is the current role; Crazy Imagine reads Dec 2025 – Jun 2026.
+- Positioning leads with internal platforms, back offices and design systems (Svelte, Laravel,
+  Cloudflare) instead of e-commerce rescue plus GCP DataOps. The whole Google Cloud credential track
+  is removed — IBM DevOps is the only credential in progress.
+- The four case studies' "What I'd do on GCP today" became cloud-agnostic "What I'd do differently
+  today" reframes. Degree reads "Information Engineer" / "Ingeniero en Informática".
+- **Location → Valencia, Carabobo, Venezuela (site only).** The CV PDFs and `~/Source/Curriculums`
+  **still say Naguanagua on purpose** until the user runs the Curriculums pass — do not "fix" them
+  here. The Daka job row keeps "Naguanagua, Venezuela" when a location is shown: that is the
+  employer's location.
 
-**Blemishes, accepted:** 3- and 5-item lists split 1|2 and 2|3 (CSS balancing with
-`break-inside: avoid`); the gate keys off the lowercased tab title, so renaming the tab silently
-drops the layout.
+## Session (2026-10-24) — the Daka NDA pass
 
-## Follow-up session (2026-10-17) — CV ↔ site message matching
-
-Same goal, second pass: evaluate the CV PDF diff from `94cc074` and close the remaining message
-gaps between the CVs and the site. Nothing committed. **Superseded — this landed as `13ead3b`; the
-"uncommitted, 8 files" list below is history, not working-tree state.**
-
-**Evaluated (report only):** old vs new CV PDFs extracted with `pdftotext` — summary flip to
-*internal platforms + design systems, moving toward DevOps and Cloud*, +Svelte/SvelteKit/Cloudflare,
-−Proxmox/ChatGPT, +JuegaEnLínea, Crazy Imagine closed, Freelance and Biomercados date windows
-widened/corrected, ES "Desarrollo de…" style.
-
-**Decisions taken (user):**
-- GCP closers → **cloud-agnostic reframe** (not Cloudflare-specific, not deleted).
-- Degree → **follow the CV**: "Information Engineer" / "Ingeniero en Informática" + CV university wording.
-- Only the **ES blog accent fix** from the small-copy menu. Declined: hero availability label change
-  ("Available for new projects" stays hardcoded in `Hero.vue`) and the blog "data" blurb.
-- **Location → Valencia, Carabobo, Venezuela (site only, 2026-10-17).** Naguanagua is part of the
-  Valencia metro area; Valencia is the recognizable anchor for remote/international recruiters.
-  The Daka job rows keep "Naguanagua, Venezuela" — that's the employer's location. The CV PDFs and
-  `~/Source/Curriculums` sources, plus the `docs/` LinkedIn mirror synced from them, **still say
-  Naguanagua on purpose** until the user runs the Curriculums pass — do not "fix" them here.
-
-**Changed (uncommitted, 8 files):**
-- `content/blog/jp-landing.md` + the four case studies — "What I'd do on GCP today" → "What I'd do
-differently today", rewritten around managed runtime / queues / read models / platform
-observability / preview-per-PR; Cloudflare Pages named only where already true.
-- `content/about.md`, `content/es/about.md` — degree title and university name per CV.
-- `content/es/blog.md` — missing accents.
-- `content/home.yml`, `content/about.md`, `content/contact.md` + their `content/es/` counterparts —
-  location → Valencia, Carabobo (site only; CV later).
-- `public/files/cv/ivan-alvarez-{en,es}.pdf` — re-synced from Curriculums' **2026-10-23** general
-  full-stack builds (MD5-verified; adds the AI & LLM skills row, Cloudflare D1/Vectorize/Queues,
-  Livewire on the frontend line). Still carry the Naguanagua header per the deferred location fit.
-- `app/pages/about.vue` — ES button accents: "Inglés" / "Español".
-
-**Verified:** `npm run typecheck` and `npm run build` clean; zero GCP vendor strings in `content/`
-and in the built `dist/` blog pages; `Information Engineer` / `Ingeniero en Informática` present in
-the built about payloads. Dist regenerated.
-
-**NDA pass (2026-10-24):** Daka must not be publicly attributable. The three Daka case studies
-are anonymized as `client: "Retail Client (LatAm)"` (leading-space artifact fixed on all four
-case studies) and **hidden again** (`hidden: true`) — final user call: they stay as private
-writes-in-storage, not public pages. So nothing may link to them; the /now link to the SAP post
-was removed again to keep the prerender clean. They become public by removing `hidden: true`. Home + about (both locales) drop "Tiendas Daka C.A." / the
-tiendasdaka.com link / "Venezuelan retail chain" / "nationwide" and read "Retail Client (LatAm)"
-with the URL `#`. The CV PDFs still name TIENDAS DAKA C.A. and stay downloadable from `/about`
-— accepted by the user. **/now drift pass:** `updated` bumped to 2026-10-24 (both locales),
-Semantichelp line corrected (change-password shipped Oct 4; only locked-out reset open), Daka pair
-bullet removed. Learning gains the **CU Boulder Technical Communication specialization (Coursera)**, both locales. `npm run typecheck` +
-`npm run build` clean; zero `daka|tiendasdaka` strings in `content/` or `app/`.
-
-**Next small task:** home FAQ — render the Tech Skills bullet lists in two columns. **Done
-(2026-10-25)** via route 1; see the top block. Route 2 was scoped and declined.
-
-**Still open from Batch 3:** ES copy pass on untouched `content/es/*` files, RSS feed, Lighthouse
-gate (§6 Sprint 4), the items the user declined above, and the **CV location sync to Valencia**
-(Curriculums i18n.yml + PDF regeneration — deferred by the user).
-
-## Goal
-
-Write the **Semantichelp case study** (§11 of `docs/personal-site-plan.md`) — the one case study the
-site is still missing — then keep closing the §10 Batch 3 leftovers. The Oct refresh, the CV ↔ site
-match and the Daka NDA pass are done and live.
+`6242bbb`: the three Daka case studies were anonymised as `client: "Retail Client (LatAm)"` and
+**hidden again** (`hidden: true`) — final user call: private writes-in-storage, not public pages, so
+nothing may link to them. The CV PDFs still name TIENDAS DAKA C.A. and stay downloadable from
+`/about` — accepted. `/now` drifted to the Q4 state (`0d03fc1`) and gained the CU Boulder Technical
+Communication specialization. **Superseded in part** by the 2026-10-25 session above: the naming
+ban now covers the case studies only.
 
 ## Done and committed
 
 `develop` **through `ce982af` is pushed and live** (Cloudflare Pages builds from the repo,
-`wrangler.toml` → `dist`, so a push *is* the production deploy). That covers the Oct refresh
-(`94cc074`), the CV ↔ site message match (`13ead3b`), the Daka NDA pass (`6242bbb`) and the Q4
-`/now` drift (`0d03fc1`).
-
-`94cc074` — *"content: the Oct refresh lands — JuegaEnLínea is the
-current role, Semantichelp leads /now, and the GCP track is gone"*. 15 files, +401/−216.
-`git show 94cc074` for the full detail.
-
-- JuegaEnLínea (Aug 2026 – Present) replaces Crazy Imagine as the current role on the home Work
-  Experience list and the `/about` timeline; Crazy Imagine reads Dec 2025 – Jun 2026.
-- Positioning leads with internal platforms, back offices and design systems (Svelte, Laravel,
-  Cloudflare) instead of e-commerce rescue plus GCP DataOps.
-- Skills gain Svelte, SvelteKit, Cloudflare and Nginx; the ES groups catch up with EN.
-- Location is Naguanagua, Carabobo — **changed to Valencia, Carabobo in `13ead3b`; the site says
-  Valencia, the CV PDFs still say Naguanagua on purpose**; education reads 2016 – 2021 with Magna
-  Cum Laude.
-- `/now`'s Working-on section is now Semantichelp; `/now` and `/contact` state the availability
-  plainly.
-- The whole Google Cloud credential track is removed: ACE and the Planned block out of
-  Certifications, the ACE/PCA lines out of "Currently studying" and `/now`, BigQuery out of the
-  skill list, `gcloud` out of `/uses`. IBM DevOps is the only credential in progress.
-- CV PDFs are the 2026-10-11 general builds; the `docs/` mirrors of `brand-strategy` and
-  `linkedin-profile-draft` are re-synced from Curriculums with the client anonymisation re-applied.
-- `docs/personal-site-plan.md` carries §10 (the refresh) and §11 (the case-study plan).
+`wrangler.toml` → `dist`, so a push *is* the production deploy). That covers the Oct refresh, the
+CV ↔ site match, the Daka NDA pass and the Q4 `/now` drift.
 
 ## Decisions locked
 
-- **CV files:** the general pair only — `ivan_{en,es}-full-stack-general`.
-- **GCP:** removed entirely, not demoted. IBM DevOps is the only credential in progress.
-- **Availability:** Ivan is leaving JuegaEnLínea, so `/now` and `/contact` say fully available /
-  disponible desde ya. The employer stays only in the factual Work Experience and timeline entries.
+- **Daka:** work-experience rows and the `/about` timeline **name Tiendas Daka C.A.** (2026-10-25,
+  matching the CV). The three Daka **case studies** stay `hidden: true` and anonymised as
+  `Retail Client (LatAm)`; nothing may link to them. They become public by removing `hidden: true`.
+- **CV files:** the general pair only — `ivan_{en,es}-full-stack-general`. They still carry the
+  Naguanagua header.
+- **GCP:** removed entirely, not demoted; closers are cloud-agnostic reframes.
+- **Availability:** `/now` and `/contact` say fully available / disponible desde ya. The employer
+  stays only in the factual Work Experience and timeline entries.
 - **Pricing & Timelines FAQ** on the home page: left untouched.
-- **One commit** for the whole refresh, not a split one.
-
-## Verified
-
-- `npm run typecheck` and `npm run build` clean.
-- No `GCP|Google Cloud|gcloud|BigQuery|DataOps|Cloud Run` strings in any prerendered non-blog page.
-- CV MD5s match `~/Source/Curriculums/out/ivan/pdf/ivan_{en,es}-full-stack-general.pdf`.
-- `docs/` mirrors differ from their Curriculums originals only by client names.
+- **Semantichelp case study:** client named, full candour, links out. No invented metrics,
+  customers or testimonials — `PRODUCT.md` forbids them.
 
 ## Unverified / open
 
-- **Five commits are unpushed** — `08afeff` (Java reads as refreshing), `480be6f` (the two-column
-  skills lists) and three `docs(handoff)` notes. `origin/develop` is at `ce982af`. Cloudflare Pages
-  builds from the repo (`wrangler.toml` → `dist`), so pushing them *is* the production deploy.
-- **The Semantichelp case study is planned, not written** — §11 of `personal-site-plan.md`. Three
-  questions are open there (client anonymisation, how candid the closing section should be, whether
-  the TL;DR links out).
-- **Batch 3 of §10 is open:** the four case studies' GCP closers are **done (2026-10-17)** as
-  cloud-agnostic reframes; the ES copy pass on files not already touched, RSS feed, and Lighthouse
-  gate remain open.
-- `docs/brand-strategy.md` §1–2 still pivots on "GCP & DataOps 30%" and contradicts the new
-  positioning. Authoring job, not a sync.
+- **Five commits are unpushed** (`08afeff` Java reads as refreshing, `480be6f` two-column skills,
+  and `4f86112` + `0bf186e` + `26f55dc` handoff notes). `origin/develop` is at `ce982af`; pushing
+  them *is* the production deploy.
+- **This session's work is uncommitted** in the working tree: the case study + its image, the
+  `/now` link-ins (both locales), the Daka naming and the briefcase icon. Nothing was committed or
+  pushed because it was not asked for — commit it as `content(blog): …`, `content(home,about): …`
+  and `docs(handoff): …` when the user asks.
+- **§10 Batch 3 leftovers:** the ES copy pass on files not already touched, the RSS feed, the
+  Lighthouse gate (§6 Sprint 4).
+- **CV location sync to Valencia** — Curriculums `i18n.yml` + PDF regeneration, deferred by the user.
+- `docs/brand-strategy.md` §1–2 still pivots on "GCP & DataOps 30%" and contradicts the positioning.
+  Authoring job, not a sync.
 - JuegaEnLínea's `company.url` is `"#"` pending a canonical URL.
+- The Mermaid-fence issue above, if it is ever worth fixing.
 
 ## Next step
 
-Answer the three questions in §11, then write `semantichelp-rag-knowledge-base.md`.
+Nothing in flight. Pick the next §10 Batch 3 item — the cheapest is the ES copy pass — or the
+Lighthouse gate, which has the most user-visible payoff.
