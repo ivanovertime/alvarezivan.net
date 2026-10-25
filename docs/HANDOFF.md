@@ -39,7 +39,13 @@ re-running the composition script pattern if the demo UI changes.
   `hidden: true` and `client: "Retail Client (LatAm)"`.
 - **"See the case studies" / "Ver los casos de estudio" removed** from the `/about` Daka paragraph
   (both locales) — it pointed at a filtered blog page the hidden Daka studies can't fill.
-- **JuegaEnLínea's icon is `i-lucide-briefcase`** (was `i-lucide-layers`), both locales.
+- **JuegaEnLínea's icon is `i-lucide-briefcase`** (was `i-lucide-layers`) and its
+  `company.url` is `https://juegaenlinea.net/` (was `#`), both locales. The bare host 403s to
+  `curl` behind bot protection and redirects to `www.` in a browser; the href is left as the user
+  gave it.
+- **`nuxt` was added to the Semantichelp case study** (it is a Nuxt 4 build), so the tag now
+  appears on three visible posts — the chip is unchanged and the card shows `ai`, `cloudflare`.
+  The post's tag order is `ai`, `cloudflare`, `nuxt`; the card prints the first two plus `+1`.
 
 ### The blog tag row was 19 chips for 9 posts — now 5
 
@@ -132,7 +138,6 @@ CV ↔ site match, the Daka NDA pass and the Q4 `/now` drift.
 - **CV location sync to Valencia** — Curriculums `i18n.yml` + PDF regeneration, deferred by the user.
 - `docs/brand-strategy.md` §1–2 still pivots on "GCP & DataOps 30%" and contradicts the positioning.
   Authoring job, not a sync.
-- JuegaEnLínea's `company.url` is `"#"` pending a canonical URL.
 - The Mermaid-fence issue above, if it is ever worth fixing.
 
 ## Next step

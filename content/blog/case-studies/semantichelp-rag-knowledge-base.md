@@ -8,6 +8,7 @@ type: "greenfield"
 tags:
   - "ai"
   - "cloudflare"
+  - "nuxt"
 stack: ["Nuxt 4", "Cloudflare Workers", "D1", "R2", "Vectorize", "Vercel AI SDK"]
 team_size: 1
 role: "Product, design and build"
