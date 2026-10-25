@@ -14,7 +14,6 @@ author:
     alt: "Iván Álvarez"
 tags:
    - "nuxt"
-   - "platform-recovery"
 type: "side-project"
 stack: ["Hugo", "Nuxt", "Vue", "Tailwind CSS", "Cloudflare Pages"]
 repoUrl: "https://github.com/ivanovertime/alvarezivan.net"

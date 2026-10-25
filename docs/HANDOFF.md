@@ -50,8 +50,12 @@ the frontmatter at the same time: the one-off keywords are gone — `nixos`/`gno
 `gvfs` → `linux`, `google-workspace`/`time-tracking` → `google-workspace` (card label only),
 `rag`/`multi-tenant`/`product` → `ai` + `cloudflare`, `nestjs` dropped (it is in `stack`), and the
 `side-project` tag dropped because it duplicates the category filter. Remaining chips: e-commerce,
-linux, nuxt, platform-recovery, venezuela. Tags still print on the post cards (`BlogTag`, first two);
-a tag used once is a label, not a browse axis.
+linux, nuxt, venezuela. Tags still print on the post cards (`BlogTag`, first two); a tag used once is
+a label, not a browse axis. `platform-recovery` also came off `from-nuxt-to-hugo`, where it described
+this site's own Nuxt → Hugo → Nuxt history rather than a rescue — the tag now applies only to
+`supermarket-pwa-recovery` (the Daka recoveries are hidden), so it has no chip. The remaining
+single-use tags are card labels on purpose: `google-workspace` (ChronoCal), `ai` + `cloudflare`
+(Semantichelp), `devops` (supermarket), `integrations` (BCV).
 
 **Observed, not fixed:** ` ```mermaid ` fences render as syntax-highlighted **code blocks**, not
 diagrams — `MermaidDiagram.vue` never fires because fenced code isn't mapped to it. This is
