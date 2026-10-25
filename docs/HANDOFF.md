@@ -107,13 +107,10 @@ CV ↔ site match, the Daka NDA pass and the Q4 `/now` drift.
 
 ## Unverified / open
 
-- **Five commits are unpushed** (`08afeff` Java reads as refreshing, `480be6f` two-column skills,
-  and `4f86112` + `0bf186e` + `26f55dc` handoff notes). `origin/develop` is at `ce982af`; pushing
-  them *is* the production deploy.
-- **This session's work is uncommitted** in the working tree: the case study + its image, the
-  `/now` link-ins (both locales), the Daka naming and the briefcase icon. Nothing was committed or
-  pushed because it was not asked for — commit it as `content(blog): …`, `content(home,about): …`
-  and `docs(handoff): …` when the user asks.
+- **Nothing is unpushed.** `origin/develop` is at `b5b9727`, deployed by Cloudflare Pages and
+  verified live: `/blog/case-studies/semantichelp-rag-knowledge-base` answers 200, the blog index
+  lists it, both `/now` locales link it, the home hero card links it, and `/about` + `/es/about`
+  name Tiendas Daka C.A. with the `tiendasdaka.com` href on the home experience card.
 - **§10 Batch 3 leftovers:** the ES copy pass on files not already touched, the RSS feed, the
   Lighthouse gate (§6 Sprint 4).
 - **CV location sync to Valencia** — Curriculums `i18n.yml` + PDF regeneration, deferred by the user.
