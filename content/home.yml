@@ -23,7 +23,7 @@ experience:
       date: "Aug 2026 – Present"
       company:
         name: "JuegaEnLínea"
-        logo: "i-lucide-layers"
+        logo: "i-lucide-briefcase"
         url: "#"
         color: "#0284c7"
     - position: "Senior Full Stack Engineer"
@@ -36,9 +36,9 @@ experience:
     - position: "Software Development Consultant"
       date: "Oct 2024 – Dec 2025"
       company:
-        name: "Retail Client (LatAm)"
+        name: "Tiendas Daka C.A."
         logo: "i-lucide-building-2"
-        url: "#"
+        url: "https://www.tiendasdaka.com/"
         color: "#facc15"
     - position: "Freelance Full-Stack Developer"
       date: "Dec 2022 – Sep 2024"

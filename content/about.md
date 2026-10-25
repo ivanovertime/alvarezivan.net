@@ -24,8 +24,8 @@ Internal platforms for a multi-brand company: the operator admin of its white-la
 **Dec 2025 – Jun 2026 · Crazy Imagine Software · Senior Full Stack Engineer (Remote)**
 Building a unified support and notification system on Laravel + Vue + Inertia.js, integrated with HubSpot. Companion Knowledge Base on Inertia.js + Laravel Nova.
 
-**Oct 2024 – Dec 2025 · Retail Client (LatAm) · Software Development Consultant**
-Worked with a team of around 15 engineers on six-plus rescues and greenfield builds at a LatAm retail chain — e-commerce platforms, a SAP-integrated quotation app, a multi-stack support platform, and a captive-portal solution. See the [case studies](/blog?category=case-study).
+**Oct 2024 – Dec 2025 · Tiendas Daka C.A. · Software Development Consultant**
+Worked with a team of around 15 engineers on six-plus rescues and greenfield builds at Tiendas Daka — e-commerce platforms, a SAP-integrated quotation app, a multi-stack support platform, and a captive-portal solution.
 
 **Dec 2022 – Sep 2024 · Freelance · Full-Stack Developer**
 Restored a multi-tenant CS-Cart deployment, modernized WooCommerce + Nuxt stores, and worked with cross-functional teams on coding standards.
