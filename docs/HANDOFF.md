@@ -1,6 +1,31 @@
 # Handoff — alvarezivan.net
 
-_Updated 2026-10-17. Authoritative state for the next session._
+_Updated 2026-10-25. Authoritative state for the next session._
+
+## Session (2026-10-25) — Tech Skills in two columns
+
+The queued route-1 spike, landed: `26f55dc`'s next task, done. `app/components/landing/FAQ.vue`
+gains a `twoColumnTabs` set (`tech skills` / `habilidades`) and puts
+`sm:[&>ul]:columns-2 sm:[&>ul]:gap-x-8 [&>li]:break-inside-avoid` on the MDC body of those tabs
+only. Six lines, one file.
+
+**Why `sm:` and not unconditional** — measured in Chrome: the longest entry ("Payment Gateways
+(PayPal, Stripe, Merchant)") needs 277px. At a 358px container two columns give ~123px each and that
+entry wraps to **7 lines**; at `sm` (640px) it wraps to 2; above ~770px nothing wraps at all.
+
+**Verified:** `npm run typecheck` + `npm run build` clean. `column-count:2` and `column-gap:2rem`
+land inside `@media(min-width:40rem)`, `break-inside:avoid` on the `li`. Both locales prerender 8
+gated lists (the whole Tech Skills category); `Pricing & Timelines` is prose-only and untouched.
+Runtime geometry at 951px: 2 columns at x=109/496, balanced heights (8 items → 139px ≈ 4+4).
+
+**Route 2 declined for now** (user call, 2026-10-25): restructure both `home.yml` locales to
+structured data + a real grid. It lands the same visual result and would flip the reading order from
+column-major to row-major, and would mean hand-copying the prose utility classes out of MDC. Worth
+it only if per-list control is ever wanted.
+
+**Blemishes, accepted:** 3- and 5-item lists split 1|2 and 2|3 (CSS balancing with
+`break-inside: avoid`); the gate keys off the lowercased tab title, so renaming the tab silently
+drops the layout.
 
 ## Follow-up session (2026-10-17) — CV ↔ site message matching
 
@@ -52,10 +77,8 @@ Semantichelp line corrected (change-password shipped Oct 4; only locked-out rese
 bullet removed. Learning gains the **CU Boulder Technical Communication specialization (Coursera)**, both locales. `npm run typecheck` +
 `npm run build` clean; zero `daka|tiendasdaka` strings in `content/` or `app/`.
 
-**Next small task (untouched):** home FAQ — render the Tech Skills bullet lists in two columns.
-Two routes scoped: (1) CSS-only `[&>ul]:columns-2` on the FAQ.vue MDC body, gated to the Tech
-Skills tab; (2) restructure `home.yml` (both locales) to structured data + a real grid in FAQ.vue.
-Start with (1) as a spike.
+**Next small task:** home FAQ — render the Tech Skills bullet lists in two columns. **Done
+(2026-10-25)** via route 1; see the top block. Route 2 was scoped and declined.
 
 **Still open from Batch 3:** ES copy pass on untouched `content/es/*` files, RSS feed, Lighthouse
 gate (§6 Sprint 4), the items the user declined above, and the **CV location sync to Valencia**
@@ -105,7 +128,7 @@ current role, Semantichelp leads /now, and the GCP track is gone"*. 15 files, +4
 
 ## Unverified / open
 
-- **Nothing is pushed.** `develop` is ahead of `origin/develop` by 1. Cloudflare Pages builds from
+- **Nothing is pushed.** `develop` is ahead of `origin/develop` by 4. Cloudflare Pages builds from
   the repo (`wrangler.toml` → `dist`), so the push *is* the production deploy.
 - **The Semantichelp case study is planned, not written** — §11 of `personal-site-plan.md`. Three
   questions are open there (client anonymisation, how candid the closing section should be, whether
