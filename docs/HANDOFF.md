@@ -47,6 +47,21 @@ re-running the composition script pattern if the demo UI changes.
   appears on three visible posts — the chip is unchanged and the card shows `ai`, `cloudflare`.
   The post's tag order is `ai`, `cloudflare`, `nuxt`; the card prints the first two plus `+1`.
 
+### Brand colours now carry the identity, not the company name (2026-10-25)
+
+User asked whether brand-matching colours were a good idea. Answer: **yes as an identity cue, no as
+text colour.** Five coloured company names in one list encode nothing, compete with the site's own
+accent, and the brightest brands fail contrast on a light background (Crazy Imagine's lime `#b1d600`
+is **1.68:1** on white; Daka's yellow `#facc15` is **1.60:1**). So `WorkExperience.vue` now paints the
+**icon only** and leaves the name in `text-highlighted`, with one scoped rule:
+`.company-mark { color: color-mix(in oklab, var(--brand) 62%, #0b1220) }` and `.dark … { color:
+var(--brand) }` — light mode mixes the hue toward black (lime → **4.2:1**, yellow → **3.9:1**, both
+above the 3:1 bar for graphics), dark mode gets the pure hue (11:1+). Colours were re-derived from the
+brands themselves: JuegaEnLínea `#e43a10` (their CTA orange, was sky-blue `#0284c7`), Crazy Imagine
+`#b1d600` (their lime, was grey `#6b7280`). Daka `#facc15` and Biomercados `#0f766e` were already
+right and only gained the light-mode mix. `content/es/home.yml` links Crazy Imagine to
+`https://crazyimagine.com/es`; the English entry keeps the root.
+
 ### The blog tag row was 19 chips for 9 posts — now 5
 
 User call: both halves. `app/pages/blog/index.vue`'s `availableTags` now counts tags across the

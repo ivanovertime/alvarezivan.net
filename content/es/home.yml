@@ -25,14 +25,14 @@ experience:
         name: "JuegaEnLínea"
         logo: "i-lucide-briefcase"
         url: "https://juegaenlinea.net/"
-        color: "#0284c7"
+        color: "#e43a10"
     - position: "Senior Full Stack Engineer"
       date: "Dec 2025 – Jun 2026"
       company:
         name: "Crazy Imagine Software"
         logo: "i-lucide-briefcase"
-        url: "https://crazyimagine.com/"
-        color: "#6b7280"
+        url: "https://crazyimagine.com/es"
+        color: "#b1d600"
     - position: "Software Development Consultant"
       date: "Oct 2024 – Dec 2025"
       company:

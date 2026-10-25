@@ -40,10 +40,10 @@ defineProps<{
               {{ experience.position }}
             </span>
             <div
-              class="inline-flex items-center gap-1"
-              :style="{ color: experience.company.color }"
+              class="company-mark inline-flex items-center gap-1"
+              :style="{ '--brand': experience.company.color }"
             >
-              <span class="font-medium">{{ experience.company.name }}</span>
+              <span class="font-medium text-highlighted">{{ experience.company.name }}</span>
               <UIcon :name="experience.company.logo" />
             </div>
           </ULink>
@@ -54,5 +54,16 @@ defineProps<{
 </template>
 
 <style scoped>
-
+/*
+ * The brand hue is a cue, not information: it belongs on the small icon, never on the
+ * company name — five coloured names compete with the site's own accent and the brightest
+ * brands (lime, yellow) cannot be read as text on a light background. In light mode the hue
+ * is mixed toward black so a lime or yellow mark stays visible; dark mode gets the pure hue.
+ */
+.company-mark {
+  color: color-mix(in oklab, var(--brand) 62%, #0b1220);
+}
+.dark .company-mark {
+  color: var(--brand);
+}
 </style>
