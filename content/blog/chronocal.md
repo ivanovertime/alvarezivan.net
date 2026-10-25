@@ -14,7 +14,6 @@ author:
     alt: "Iván Álvarez"
 tags:
   - "google-workspace"
-  - "time-tracking"
 type: "side-project"
 stack: ["Google Apps Script", "JavaScript", "Google Calendar API", "Google Sheets API"]
 repoUrl: "https://github.com/ivanovertime/ChronoCal"

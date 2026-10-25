@@ -14,7 +14,6 @@ author:
     alt: "Iván Álvarez"
 tags:
   - "nuxt"
-  - "side-project"
 type: "side-project"
 stack: ["Nuxt", "Vue", "Tailwind CSS"]
 repoUrl: "https://github.com/ivanovertime/jp-landing"

@@ -41,6 +41,18 @@ re-running the composition script pattern if the demo UI changes.
   (both locales) — it pointed at a filtered blog page the hidden Daka studies can't fill.
 - **JuegaEnLínea's icon is `i-lucide-briefcase`** (was `i-lucide-layers`), both locales.
 
+### The blog tag row was 19 chips for 9 posts — now 5
+
+User call: both halves. `app/pages/blog/index.vue`'s `availableTags` now counts tags across the
+visible posts and renders a chip only when **more than one** post carries it (a selected tag always
+renders, so `/blog?tags=ai` still shows its chip and "Clear tags"). The taxonomy was consolidated in
+the frontmatter at the same time: the one-off keywords are gone — `nixos`/`gnome`/`google-drive`/
+`gvfs` → `linux`, `google-workspace`/`time-tracking` → `google-workspace` (card label only),
+`rag`/`multi-tenant`/`product` → `ai` + `cloudflare`, `nestjs` dropped (it is in `stack`), and the
+`side-project` tag dropped because it duplicates the category filter. Remaining chips: e-commerce,
+linux, nuxt, platform-recovery, venezuela. Tags still print on the post cards (`BlogTag`, first two);
+a tag used once is a label, not a browse axis.
+
 **Observed, not fixed:** ` ```mermaid ` fences render as syntax-highlighted **code blocks**, not
 diagrams — `MermaidDiagram.vue` never fires because fenced code isn't mapped to it. This is
 pre-existing and identical on `supermarket-pwa-recovery`, so the new post matches the existing case

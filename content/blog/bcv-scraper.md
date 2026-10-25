@@ -15,6 +15,7 @@ author:
 tags:
   - "venezuela"
   - "integrations"
+  - "e-commerce"
 type: "side-project"
 stack: ["Python", "FastAPI", "Web Scraping", "REST API"]
 repoUrl: "https://github.com/ivanovertime/bcv_scraper"

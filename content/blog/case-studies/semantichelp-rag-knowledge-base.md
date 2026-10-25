@@ -6,11 +6,8 @@ client: "Vertex Plus Group"
 year: 2026
 type: "greenfield"
 tags:
-  - "rag"
-  - "multi-tenant"
-  - "cloudflare"
   - "ai"
-  - "product"
+  - "cloudflare"
 stack: ["Nuxt 4", "Cloudflare Workers", "D1", "R2", "Vectorize", "Vercel AI SDK"]
 team_size: 1
 role: "Product, design and build"

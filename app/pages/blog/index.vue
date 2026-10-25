@@ -49,14 +49,20 @@ const parseTags = (value: unknown): string[] => {
 
 const activeTags = computed<TagFilter[]>(() => parseTags(route.query.tags))
 
+// A tag earns a filter chip only when more than one visible post carries it — a
+// single-use keyword is a label on a card, not a way to browse. A selected tag always
+// renders, so a `/blog?tags=…` URL can still be cleared from the row.
 const availableTags = computed(() => {
-  const tagSet = new Set<string>()
+  const counts = new Map<string, number>()
   for (const post of posts.value ?? []) {
     for (const tag of post.tags ?? []) {
-      tagSet.add(tag)
+      counts.set(tag, (counts.get(tag) ?? 0) + 1)
     }
   }
-  return [...tagSet].sort((a, b) => a.localeCompare(b))
+  return [...counts.entries()]
+    .filter(([tag, count]) => count > 1 || activeTags.value.includes(tag))
+    .map(([tag]) => tag)
+    .sort((a, b) => a.localeCompare(b))
 })
 
 const setCategory = (category: CategoryFilter) => {

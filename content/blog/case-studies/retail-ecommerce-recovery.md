@@ -9,7 +9,6 @@ tags:
   - "e-commerce"
   - "platform-recovery"
   - "integrations"
-  - "nestjs"
 type: "recovery"
 stack: ["NestJS", "Strapi", "Docker", "SAP", "CI/CD"]
 team_size: 4

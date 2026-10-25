@@ -7,7 +7,6 @@ client: "Retail Client (LatAm)"
 year: 2025
 tags:
   - "e-commerce"
-  - "nestjs"
   - "nuxt"
 type: "greenfield"
 stack: ["NestJS", "Next.js", "Medusa", "Docker", "SAP", "CI/CD"]

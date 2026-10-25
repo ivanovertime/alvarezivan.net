@@ -13,10 +13,7 @@ author:
     src: "/avatar.jpg"
     alt: "Iván Álvarez"
 tags:
-  - "nixos"
-  - "gnome"
-  - "google-drive"
-  - "gvfs"
+  - "linux"
 featured: false
 ---
 I ran into an issue on NixOS 25.11 that took me a while to understand: Google Drive would appear in GNOME Files after signing in with GNOME Online Accounts, but trying to open it failed with:
