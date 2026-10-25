@@ -15,6 +15,9 @@ const items = computed(() => {
   })
 })
 
+// Tech Skills is the one tab long enough to earn a second column.
+const twoColumnTabs = new Set(['tech skills', 'habilidades'])
+
 const ui = {
   root: 'flex items-center gap-4 w-full',
   list: 'relative flex bg-transparent dark:bg-transparent gap-2 px-0',
@@ -70,6 +73,9 @@ const ui = {
                 :value="_item.content"
                 unwrap="p"
                 class="px-4"
+                :class="twoColumnTabs.has(item.key)
+                  ? 'sm:[&>ul]:columns-2 sm:[&>ul]:gap-x-8 [&>li]:break-inside-avoid'
+                  : ''"
               />
             </template>
           </UAccordion>
