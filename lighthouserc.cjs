@@ -40,8 +40,10 @@ module.exports = {
         'largest-contentful-paint': ['error', { maxNumericValue: 10000 }],
         'total-blocking-time': ['error', { maxNumericValue: 500 }],
         'cumulative-layout-shift': ['error', { maxNumericValue: 0.1 }],
-        // 2.21:1 on the "Available for new projects" pill — a warning until the
-        // contrast fix lands, so home a11y (97) still passes the ≥ 0.95 gate.
+        // Contrast had two failures — the 2.21:1 availability pill and the
+        // 4.27:1 active blog filter; both are fixed, so this scores 1 today.
+        // Kept as a warning, not an error, so a lone future regression is
+        // visible without taking the whole gate down.
         'color-contrast': ['warn', { minScore: 1 }]
       }
     },

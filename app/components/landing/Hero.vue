@@ -120,7 +120,7 @@ defineProps<{
             v-bind="page.hero.links[0]"
           />
           <UButton
-            :color="global.available ? 'success' : 'error'"
+            color="neutral"
             variant="ghost"
             class="gap-2 w-auto min-w-[12rem] justify-center"
             :data-analytics-event="global.available ? 'meeting_click' : 'availability_click'"
