@@ -88,9 +88,9 @@ collections, Nuxt Image, `nuxt-og-image` for social cards, `motion-v` for entran
 **Constraints:**
 
 - **Two live clients stay anonymous.** Daka and the supermarket client appear as `Retail Client
-  (LatAm)` and `Supermarket Client (LatAm)`, and on Spanish pages as `Cliente minorista (LatAm)` and
-  `Cliente de supermercados (LatAm)`. Their case studies ship without names. Do not invent client
-  names, logos, or quotes.
+  (LatAm)` and `Supermarket Client (LatAm)`, and on Spanish pages as `Cadena de supermercados (LatAm)`
+  (public) and `Empresa reconocida en el sector de retail (LatAm)` (the three hidden Daka studies).
+  Their case studies ship without names. Do not invent client names, logos, or quotes.
 - **No fabricated proof.** No testimonials exist (`testimonials: []` in `content/home.yml`), so none
   may be rendered. Same for metrics that were never measured.
 - **Availability is a real, current signal.** Both roles and project work are on offer right now.

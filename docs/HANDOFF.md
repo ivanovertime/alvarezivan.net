@@ -14,8 +14,9 @@ is dirty on purpose until the user decides what to commit.
 ### What shipped
 
 - **`client:` is Spanish on the Spanish case studies.** Only four posts carry the field and only one is
-  public: `supermarket-pwa-recovery` → `Cliente de supermercados (LatAm)`; the three hidden Daka
-  studies → `Cliente minorista (LatAm)`. `Vertex Plus Group` stays as-is — it is a real name.
+  public: `supermarket-pwa-recovery` → `Cadena de supermercados (LatAm)`; the three hidden Daka
+  studies → `Empresa reconocida en el sector de retail (LatAm)`. `Vertex Plus Group` stays as-is — it
+  is a real name. The English labels are unchanged, so the two locales deliberately differ.
 - **`· Team of N` is locale-aware.** It was hardcoded English in
   `app/pages/blog/[...slug].vue:218`; now `Equipo de` / `Team of`. That line was the *only* place
   `client:` renders anywhere in the app (checked: no JSON-LD, OG image or search-index consumer).
@@ -30,8 +31,8 @@ dev server:
 
 | post | labels | reachable |
 |---|---|---|
-| `supermarket-pwa-recovery` | `Supermarket Client` / `Cliente de supermercados (LatAm)` | **public**, both locales |
-| `retail-ecommerce-recovery`, `retail-ecommerce-rebuild`, `retail-sap-quotation-app` | `Retail Client` / `Cliente minorista (LatAm)` | `hidden: true` → **404 on both locales**, absent from indices + RSS |
+| `supermarket-pwa-recovery` | `Supermarket Client` / `Cadena de supermercados (LatAm)` | **public**, both locales |
+| `retail-ecommerce-recovery`, `retail-ecommerce-rebuild`, `retail-sap-quotation-app` | `Retail Client` / `Empresa reconocida en el sector de retail (LatAm)` | `hidden: true` → **404 on both locales**, absent from indices + RSS |
 
 So the Daka label never reaches a reader. The CV boundary holds as PRODUCT.md states it: `/about` and
 `/es/about` name **Tiendas Daka C.A.** and **Biomercados (Alimentos FM)** in the timeline, and
@@ -40,8 +41,9 @@ only.
 
 ### Verified
 
-- Dev server, both locales: ES renders `2022 · Cliente de supermercados (LatAm) · Programador ·
-  Equipo de 2`; EN still renders `2022 · Supermarket Client (LatAm) · Programmer · Team of 2`.
+- Dev server, both locales: ES renders `2022 · Cadena de supermercados (LatAm) · Programador ·
+  Equipo de 2`; EN still renders `2022 · Supermarket Client (LatAm) · Programmer · Team of 2`. The
+  Daka descriptor cannot be verified by rendering — all three routes 404 (re-checked).
 - No other English leak in the ES meta line (`Team of`, `View Repository`, `Copy link`, `MIN READ`,
   `Read Article` → 0 matches on `/es/blog/case-studies/supermarket-pwa-recovery`).
 - `npm run lint`, `npm run typecheck` clean. 12 EN / 12 ES posts, identical slug trees (verified).
@@ -133,8 +135,9 @@ tree makes every later diff unreadable. Then ask which to take: the **Lighthouse
 (the numbers are already measured, above), or **one of the recorded defects** (the prerendered
 `opacity: 0` remains the prior pick). The push is still a user decision.
 
-One copy judgement to confirm: `Cliente de supermercados (LatAm)` is my literal translation of the
-English label; `Cadena de supermercados (LatAm)` would echo the Spanish body copy instead.
+The copy judgement is settled: `Cadena de supermercados (LatAm)` (echoes the Spanish body copy) and,
+for the hidden Daka studies only, `Empresa reconocida en el sector de retail (LatAm)`. Both locales are
+allowed to differ on purpose — the English labels stay `Retail Client` / `Supermarket Client`.
 
 ## Session (2026-10-26, third) — the Spanish feed, and the durable record is tracked
 
@@ -176,7 +179,7 @@ Two user calls opened the session: take the cheapest §10 Batch 3 item (**`/es/r
   pick but was never started because the RSS item won.
 - **The ES client strings** — ~~`client: "Retail Client (LatAm)"` / `"Supermarket Client (LatAm)"`
   are still English on the Spanish pages~~ **Resolved in the fourth session** (see above): the Spanish
-  labels are `Cliente minorista (LatAm)` / `Cliente de supermercados (LatAm)`.
+  labels are `Cadena de supermercados (LatAm)` / `Empresa reconocida en el sector de retail (LatAm)`.
 
 ### Next step
 
