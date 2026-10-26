@@ -2,14 +2,76 @@
 
 _Updated 2026-10-26. Authoritative state for the next session._
 
+## Session (2026-10-26, fifth) — the Lighthouse gate is real: a measured floor, not the plan's bar
+
+The one call that opened the session: take the **Lighthouse gate thresholds** (§6 Sprint 4) rather than
+one of the recorded defects. The push stayed **held** again. The decision the last session deferred —
+"measure, then propose" — is now **made and asserted**: the gate exists and passes from the built
+artifact.
+
+### What shipped (one commit, `43785b8`, still unpushed)
+
+- **`scripts/serve-dist.mjs`** — a Pages-faithful static server for `dist/` (gzip + `dist/_headers`
+cache rules) that maps `/foo` → `foo.html`. This is the piece `@lhci/cli`'s built-in `staticDistDir`
+lacks: Nitro writes `about.html`, not `about/index.html`, so the built-in server 404s every page.
+- **`lighthouserc.cjs`** (mobile) and **`lighthouserc.desktop.cjs`**. The plan's §6 bar is perf ≥ 95,
+a11y ≥ 95 — met on desktop, nowhere near on mobile (57–67). So the gate is a **floor plus an
+aspiration**, not a rewritten target:
+  - hard anywhere: a11y ≥ 0.95, best-practices ≥ 0.90, SEO ≥ 0.90, TBT ≤ 500 ms, CLS ≤ 0.1, LCP ≤ 10 s;
+  - mobile perf hard floor **≥ 0.50** (catastrophe guard), `FCP ≤ 2.5 s` and colour contrast as **warnings**;
+  - desktop: perf ≥ 0.90, LCP ≤ 2.5 s hard.
+- **`npm run lh`** builds, then runs both configs; `lh:mobile` / `lh:desktop` assume a fresh `dist/`.
+`.lighthouseci/` is gitignored. **Local-only by choice** — the repo still has no `.github/workflows`,
+and deploy is Cloudflare Pages.
+
+### Verified (Lighthouse 12.6.1, 3 runs each, on the built `dist/` via the new server)
+
+| URL | perf | a11y | BP | SEO | LCP | FCP | TBT | CLS | bytes |
+|---|---|---|---|---|---|---|---|---|---|
+| `/` mobile | 65 | 97 | 96 | 100 | 6.14 s | 3.92 s | 85 ms | 0 | 671 KiB |
+| `/blog` mobile | 67 | **96** | 96 | 100 | 6.01 s | 3.35 s | 167 ms | 0 | 958 KiB |
+| case study mobile | 57 | 100 | 96 | 100 | 6.93 s | 4.54 s | 279 ms | 0 | 874 KiB |
+| `/` desktop | 97 | 97 | 96 | 100 | 1.23 s | 0.73 s | 6 ms | 0 | 664 KiB |
+
+`npm run lh` and `npm run lh:desktop` both exit **0**; the only output is the FCP and colour-contrast
+warnings. `npm run lint` and `npm run typecheck` clean. Two `maxLength`-vs-`maxNumericValue` notes worth
+keeping: LHCI's `maxLength` counts `details.items.length`, so LCP/TBT/CLS/FCP **must** use
+`maxNumericValue` (the first draft silently asserted "items ≤ 0.1" and failed CLS).
+
+### New finding, recorded not fixed
+
+**`/blog` a11y is 96, not the 100 the previous session recorded.** The verdict is a
+`<span data-slot="label" class="truncate">` at **4.27:1** (needs 4.5) — a *second* contrast defect,
+distinct from the 2.21:1 "Available for new projects" pill on `/`. Both are `warn` in the gate, which
+is why the ≥ 0.95 floor still passes. Worth folding into whatever fix takes the 2.21:1 pill.
+
+### Open decisions
+
+- **The push.** Now **eleven commits of work** on `develop` (`ca114eb` … `43785b8`, plus this handoff
+commit) are unpushed; a push is the production deploy. Held deliberately again.
+- **The five remaining recorded defects** — #3 (card `aria-label`) is fixed; the prerendered
+`opacity: 0` is still the prior pick, then multiple `h1`s per post, the orphan `# References` in
+`bcv-scraper.md`, the hidden metrics placeholder in `supermarket-pwa-recovery.md`, and the Mermaid
+fence.
+- **Three other recorded failures** — the 2.21:1 pill / now also the 4.27:1 label, `valid-source-maps`
+on first-party JS, and the blog hydration mismatch. Mobile perf stays 57–67 because the JS bundle
+dominates (FCP 3.3–4.5 s), not images.
+
+### Next step
+
+Start fresh on a clean tree. Ask which to take: one of the **five recorded defects** (the prerendered
+`opacity: 0` is the prior pick), the **colour-contrast pair** (2.21:1 pill + 4.27:1 label) so home and
+blog a11y can reach 100, or one of the other two recorded failures. The gate no longer needs a decision;
+it is committed and reproducible with `npm run lh`. The push stays a user decision.
+
 ## Session (2026-10-26, fourth) — the Spanish meta line, and a false alarm about icons
 
 Two user calls opened the session: run the **Lighthouse gate** (§6 Sprint 4) first, then — after that
 turned up the copy question — take the **ES meta line copy**. The push stayed **held** on purpose.
 
-The perf half produced three real fixes that are **in the working tree and uncommitted** (see "Perf
-work" below), plus an installed-but-unconfigured `@lhci/cli` harness. Nothing was reverted; the tree
-is dirty on purpose until the user decides what to commit.
+The perf half produced three real fixes plus an installed `@lhci/cli` harness. **Update from the fifth
+session: those three fixes were committed as `a906ce2`, the tree is clean, and the harness is now a
+working gate (`43785b8`). The "uncommitted" wording below is historical.**
 
 ### What shipped
 
@@ -69,7 +131,7 @@ What was established, so it is not re-litigated:
   runtime request to the worker (which fetches the collection from jsdelivr). It works, but it is one
   worker bug away from a site-wide icon outage.
 
-### Perf work — measured, in the working tree, **uncommitted**
+### Perf work — measured (committed as `a906ce2` after this session)
 
 Baseline and result, Lighthouse 12.2.1, mobile unless noted, against the built `dist/` served
 statically with gzip + the `dist/_headers` cache rules (a Pages-faithful stand-in):
@@ -103,10 +165,9 @@ Three fixes, all in the tree:
    sqlite/dump request on page load, and the dialog still opens (ctrl+K on Linux — Nuxt UI remaps
    `meta_k`) and returns real sections.
 
-**Harness, not yet a gate.** `@lhci/cli` 0.15.1 is a devDependency, but there is **no `lighthouserc`, no
-`lh` script and no thresholds** — nothing asserts anything yet. The user chose "measure, then propose",
-so the next session should bring the numbers above back as a proposal rather than assume the strict bar
-(perf ≥ 90, LCP < 2.5 s mobile) was agreed. Note `lhci`'s built-in `staticDistDir` server will **404**
+**Harness, not yet a gate (superseded by the fifth session).** `@lhci/cli` 0.15.1 was a devDependency
+with no `lighthouserc`, no `lh` script and no thresholds. The user chose "measure, then propose"; the
+fifth session delivered the gate — a floor-plus-aspiration bar, not the plan's strict 95. Note `lhci`'s built-in `staticDistDir` server will **404**
 `/about` and friends: Nitro writes `about.html`, not `about/index.html`, and express.static does not map
 one to the other — the gate needs a ~40-line static server that does (or `wrangler pages dev dist`).
 
@@ -119,21 +180,18 @@ Two "failures" are **sandbox artifacts, not site bugs**: GTM does not resolve in
 
 ### Open decisions
 
-- **The push.** Six commits sit on `develop` (`ca114eb`, `33dc8de`, `de1603d`, `e272889`, plus handoff
-  commits). A push is the production deploy. Held again this session.
-- **The uncommitted perf work** — three fixes plus a new `server/routes/search.json.ts`, a `nuxt.config.ts`
-  change and an `@lhci/cli` devDependency. Commit, split, or drop: user's call.
-- **The Lighthouse gate thresholds** — measured, not agreed (above).
+- ~~**The push.**~~ Superseded: eleven commits by the fifth session, still held.
+- ~~**The uncommitted perf work**~~ Committed as `a906ce2`.
+- ~~**The Lighthouse gate thresholds**~~ Delivered as the gate in `43785b8`.
 - **The six recorded defects** — #3 is fixed in the tree; the other five are untouched, except the
   prerendered `opacity: 0` was re-confirmed on the local static build (a blank page body when the
   in-view animations never fire) and remains the strongest candidate.
 
 ### Next step
 
-Start fresh on a clean tree: decide what to do with the uncommitted perf work first, since a dirty
-tree makes every later diff unreadable. Then ask which to take: the **Lighthouse gate thresholds**
-(the numbers are already measured, above), or **one of the recorded defects** (the prerendered
-`opacity: 0` remains the prior pick). The push is still a user decision.
+*(Superseded by the fifth session.)* The perf work is committed (`a906ce2`), the tree was clean, and
+the Lighthouse gate was taken and delivered (`43785b8`). The live next step is the one at the top of
+this file.
 
 The copy judgement is settled: `Cadena de supermercados (LatAm)` (echoes the Spanish body copy) and,
 for the hidden Daka studies only, `Empresa reconocida en el sector de retail (LatAm)`. Both locales are
