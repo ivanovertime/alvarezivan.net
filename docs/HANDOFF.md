@@ -44,6 +44,13 @@ Two user calls opened the session: take the cheapest §10 Batch 3 item (**`/es/r
   are still English on the Spanish pages. Reviewed, not resolved — PRODUCT.md records the
   anonymisation as a fixed decision, so translating the label is a copy call the user still owes.
 
+### Next step
+
+Start fresh. Ask which to take: the **Lighthouse gate** (§6 Sprint 4), or **one of the six recorded
+ defects** (the prerendered `opacity: 0` was the prior pick, deferred by this session's RSS item).
+Both are separate deliverables. The five unpushed commits and the ES client-string copy call remain
+user decisions; nothing was pushed.
+
 ## Session (2026-10-26, second) — the ES copy pass lands
 
 `/impeccable harden` scoped to the ES copy pass: the §10 Batch 3 leftover that PRODUCT.md sharpened
