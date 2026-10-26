@@ -43,7 +43,8 @@ export default defineNuxtConfig({
         '/es/now',
         '/es/uses',
         '/sitemap.xml',
-        '/rss.xml'
+        '/rss.xml',
+        '/es/rss.xml'
       ],
       crawlLinks: true,
       // Emit `dist/about.html` instead of `dist/about/index.html`.

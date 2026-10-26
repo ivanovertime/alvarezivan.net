@@ -38,7 +38,13 @@ useHead(() => ({
           { rel: 'alternate', hreflang: 'x-default', href: englishUrl.value }
         ]
       : []),
-    { rel: 'alternate', type: 'application/rss+xml', title: 'Ivan Over Time RSS Feed', href: '/rss.xml' },
+    ...(locale.value === 'es'
+      ? [
+          { rel: 'alternate', type: 'application/rss+xml', title: 'Ivan Over Time — Feed (Español)', href: '/es/rss.xml' }
+        ]
+      : [
+          { rel: 'alternate', type: 'application/rss+xml', title: 'Ivan Over Time RSS Feed', href: '/rss.xml' }
+        ]),
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
     {

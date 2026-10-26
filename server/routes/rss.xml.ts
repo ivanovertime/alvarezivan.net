@@ -1,76 +1,8 @@
-import { queryCollection } from '@nuxt/content/server'
 import { defineEventHandler, setHeader } from 'h3'
-
-type BlogEntry = {
-  title: string
-  description?: string
-  path?: string
-  locale?: string
-  date?: string | Date
-  updated?: string | Date
-}
-
-const escapeXml = (value: string) =>
-  value
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll('\'', '&apos;')
-
-const toRssDate = (value?: string | Date) => {
-  if (!value) return undefined
-  const date = value instanceof Date ? value : new Date(value)
-  if (Number.isNaN(date.getTime())) return undefined
-  return date.toUTCString()
-}
+import { buildRssFeed } from '../utils/rss'
 
 export default defineEventHandler(async (event) => {
-  const siteUrl = 'https://alvarezivan.net'
-
-  // This feed declares <language>en-US</language> and is subscribed to by English
-  // readers, so it lists the English posts only: the Spanish translations live at
-  // `/es/blog/…` and must not appear here as duplicate items. Tracked in the
-  // handoff as an open decision — an `/es/rss.xml` is the parity fix, not this one.
-  const posts = (await queryCollection(event, 'blog').where('hidden', '=', false).all() as BlogEntry[])
-    .filter(post => (post.locale ?? 'en') === 'en')
-
-  posts.sort((a, b) => {
-    const aDate = new Date((a.date ?? a.updated ?? 0) as string | Date).getTime()
-    const bDate = new Date((b.date ?? b.updated ?? 0) as string | Date).getTime()
-    return bDate - aDate
-  })
-
-  const items = posts
-    .filter(post => !!post.path)
-    .map((post) => {
-      const link = `${siteUrl}${post.path}`
-      const pubDate = toRssDate(post.date ?? post.updated)
-
-      return [
-        '  <item>',
-        `    <title>${escapeXml(post.title)}</title>`,
-        `    <link>${escapeXml(link)}</link>`,
-        `    <guid>${escapeXml(link)}</guid>`,
-        ...(post.description ? [`    <description>${escapeXml(post.description)}</description>`] : []),
-        ...(pubDate ? [`    <pubDate>${pubDate}</pubDate>`] : []),
-        '  </item>'
-      ].join('\n')
-    })
-    .join('\n')
-
-  const xml = [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    '<rss version="2.0">',
-    '  <channel>',
-    '    <title>Ivan Over Time</title>',
-    '    <link>https://alvarezivan.net/blog</link>',
-    '    <description>Case studies, side projects, and engineering notes by Iván Álvarez.</description>',
-    '    <language>en-US</language>',
-    ...(items ? [items] : []),
-    '  </channel>',
-    '</rss>'
-  ].join('\n')
+  const xml = await buildRssFeed(event, 'en')
 
   setHeader(event, 'content-type', 'application/xml; charset=utf-8')
   return xml
