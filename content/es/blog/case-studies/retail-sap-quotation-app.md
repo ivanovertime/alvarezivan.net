@@ -4,7 +4,7 @@ title: "Una aplicación móvil de cotizaciones para ventas en todo el país, int
 date: "2026-05-15"
 hidden: true
 category: "case-study"
-client: "Retail Client (LatAm)"
+client: "Cliente minorista (LatAm)"
 year: 2025
 tags:
   - "e-commerce"

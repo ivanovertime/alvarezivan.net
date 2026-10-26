@@ -4,7 +4,7 @@ title: "Estabilizar una plataforma de e-commerce heredada sobre NestJS + Strapi"
 date: "2026-05-15"
 hidden: true
 category: "case-study"
-client: "Retail Client (LatAm)"
+client: "Cliente minorista (LatAm)"
 year: 2025
 tags:
   - "e-commerce"

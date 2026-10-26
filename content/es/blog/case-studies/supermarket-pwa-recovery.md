@@ -3,7 +3,7 @@ locale: "es"
 title: "Entregar una PWA de alto volumen a partir de un proyecto de e-commerce heredado"
 date: "2026-05-15"
 category: "case-study"
-client: "Supermarket Client (LatAm)"
+client: "Cliente de supermercados (LatAm)"
 year: 2022
 tags:
   - "e-commerce"

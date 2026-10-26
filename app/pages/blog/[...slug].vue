@@ -217,7 +217,7 @@ const formatDate = (dateString: string) => {
             <span v-if="page.year">{{ page.year }}</span>
             <span v-if="page.client">· {{ page.client }}</span>
             <span v-if="page.role">· {{ page.role }}</span>
-            <span v-if="page.team_size">· Team of {{ page.team_size }}</span>
+            <span v-if="page.team_size">· {{ locale === 'es' ? 'Equipo de' : 'Team of' }} {{ page.team_size }}</span>
           </div>
           <div
             v-if="page.stack?.length"

@@ -4,7 +4,7 @@ title: "Reconstruir una plataforma de e-commerce sobre NestJS + Next.js + Medusa
 date: "2026-05-14"
 hidden: true
 category: "case-study"
-client: "Retail Client (LatAm)"
+client: "Cliente minorista (LatAm)"
 year: 2025
 tags:
   - "e-commerce"
