@@ -9,7 +9,10 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "lh": "npm run build && npm run lh:mobile && npm run lh:desktop",
+    "lh:mobile": "lhci autorun --config=lighthouserc.cjs",
+    "lh:desktop": "lhci autorun --config=lighthouserc.desktop.cjs"
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.82",

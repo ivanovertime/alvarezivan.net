@@ -12,6 +12,9 @@ dist
 # Node dependencies
 node_modules
 
+# Lighthouse CI reports
+.lighthouseci
+
 # Logs
 logs
 *.log
