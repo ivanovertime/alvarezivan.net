@@ -82,8 +82,12 @@ export default defineContentConfig({
     }),
     blog: defineCollection({
       type: 'page',
-      source: 'blog/**/*.md',
+      source: [
+        { include: 'blog/**/*.md' },
+        { include: 'es/blog/**/*.md' }
+      ],
       schema: z.object({
+        locale: z.enum(['en', 'es']).default('en'),
         hidden: z.boolean().default(false),
         minRead: z.number().optional(),
         date: z.date(),

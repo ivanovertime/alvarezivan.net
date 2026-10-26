@@ -5,6 +5,7 @@ type BlogEntry = {
   title: string
   description?: string
   path?: string
+  locale?: string
   date?: string | Date
   updated?: string | Date
 }
@@ -27,7 +28,12 @@ const toRssDate = (value?: string | Date) => {
 export default defineEventHandler(async (event) => {
   const siteUrl = 'https://alvarezivan.net'
 
-  const posts = await queryCollection(event, 'blog').where('hidden', '=', false).all() as BlogEntry[]
+  // This feed declares <language>en-US</language> and is subscribed to by English
+  // readers, so it lists the English posts only: the Spanish translations live at
+  // `/es/blog/…` and must not appear here as duplicate items. Tracked in the
+  // handoff as an open decision — an `/es/rss.xml` is the parity fix, not this one.
+  const posts = (await queryCollection(event, 'blog').where('hidden', '=', false).all() as BlogEntry[])
+    .filter(post => (post.locale ?? 'en') === 'en')
 
   posts.sort((a, b) => {
     const aDate = new Date((a.date ?? a.updated ?? 0) as string | Date).getTime()

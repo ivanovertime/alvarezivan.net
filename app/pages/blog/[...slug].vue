@@ -13,12 +13,18 @@ const { data: page } = await useAsyncData(route.path, () =>
   queryCollection('blog').where('hidden', '=', false).path(route.path).first()
 )
 if (!page.value) throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+// Surround links stay inside the post's own language, so a Spanish post never points
+// the reader at an English neighbour. Filtered in JS: the schema's `locale` default is
+// not materialised in the column a `.where('locale', '=', …)` would match against.
 const { data: visiblePosts } = await useAsyncData('visible-blog-posts', () =>
   queryCollection('blog').where('hidden', '=', false).order('date', 'DESC').all()
 )
+const siblings = computed(() =>
+  (visiblePosts.value ?? []).filter(post => (post.locale ?? 'en') === locale.value)
+)
 
 const surround = computed(() => {
-  const posts = visiblePosts.value ?? []
+  const posts = siblings.value
   const currentIndex = posts.findIndex(post => post.path === route.path)
   if (currentIndex === -1) return []
 
@@ -121,7 +127,7 @@ const formatDate = (dateString: string) => {
               variant="soft"
               size="xs"
               icon="i-lucide-newspaper"
-              :label="locale === 'es' ? 'Articulo' : 'Article'"
+              :label="locale === 'es' ? 'Artículo' : 'Article'"
             />
             <UBadge
               v-if="page.category === 'case-study'"

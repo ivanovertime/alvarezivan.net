@@ -1,12 +1,12 @@
 ---
 locale: es
 title: "Uso"
-description: "El hardware, sistema operativo y software que uso en mi dia a dia."
+description: "El hardware, sistema operativo y software que uso en mi día a día."
 ---
 
 # Uso
 
-Este es el stack que uso para trabajar todos los dias.
+Este es el stack que uso para trabajar todos los días.
 
 ## Hardware
 
@@ -33,4 +33,4 @@ Este es el stack que uso para trabajar todos los dias.
 - **Nube:** wrangler
 - **CI/CD:** GitHub Actions
 
-La referencia completa de mi entorno esta en [mi configuracion de NixOS](https://github.com/ivanovertime/nixos).
+La referencia completa de mi entorno está en [mi configuración de NixOS](https://github.com/ivanovertime/nixos).

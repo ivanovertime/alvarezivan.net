@@ -12,7 +12,7 @@ _Última actualización: 24 de octubre de 2026._
 ## :u-icon{name="i-lucide-hammer" class="mr-2 align-[-2px]"} Trabajando en
 
 - **[Semantichelp](https://semantichelp.com/)** — una base de conocimiento SaaS multi-tenant con un chatbot RAG encima: los equipos suben sus documentos, preguntan y reciben respuestas que citan los pasajes de donde salieron. Nuxt 4 + shadcn-vue sobre Cloudflare Workers (D1, R2, Vectorize), con proveedor y clave de IA por tenant.
-- **[Las preguntas sin responder se vuelven respuestas](/blog/case-studies/semantichelp-rag-knowledge-base)** — cuando el catálogo no ayuda, la pregunta escala al dueño de esa área y su respuesta se escribe de vuelta como documento citable. La v1 está en producción con un primer tenant real; el cambio de contraseña ya está publicado y ahora estoy con el reset autoservicio para usuarios bloqueados.
+- **[Las preguntas sin responder se vuelven respuestas](/es/blog/case-studies/semantichelp-rag-knowledge-base)** — cuando el catálogo no ayuda, la pregunta escala al dueño de esa área y su respuesta se escribe de vuelta como documento citable. La v1 está en producción con un primer tenant real; el cambio de contraseña ya está publicado y ahora estoy con el reset autoservicio para usuarios bloqueados.
 
 ## :u-icon{name="i-lucide-book-open" class="mr-2 align-[-2px]"} Aprendiendo
 

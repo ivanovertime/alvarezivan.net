@@ -31,7 +31,7 @@ Trabajé con un equipo de unos 15 ingenieros en más de seis rescates y proyecto
 Recuperé un despliegue multi-tenant de CS-Cart, modernicé tiendas WooCommerce + Nuxt y trabajé con equipos multidisciplinarios en estándares de código.
 
 **Oct 2021 – Nov 2022 · Biomercados (Alimentos FM, C.A.) · Programador**
-Recuperé un proyecto de e-commerce heredado en una cadena de supermercados venezolana y entregué una [PWA + apps móviles para una base de clientes de alto volumen](/blog/case-studies/supermarket-pwa-recovery). Levanté el registro Docker y el pipeline de CI/CD que hizo posible la entrega continua.
+Recuperé un proyecto de e-commerce heredado en una cadena de supermercados venezolana y entregué una [PWA + apps móviles para una base de clientes de alto volumen](/es/blog/case-studies/supermarket-pwa-recovery). Levanté el registro Docker y el pipeline de CI/CD que hizo posible la entrega continua.
 
 **2016 – 2021 · Universidad Nacional Experimental Rómulo Gallegos (UNERG)**
 Ingeniero en Informática — Magna Cum Laude.

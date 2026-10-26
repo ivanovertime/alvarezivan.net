@@ -18,9 +18,9 @@ useHead({
 })
 
 useSeoMeta({
-  title: locale.value === 'es' ? 'Pagina no encontrada' : 'Page not found',
+  title: locale.value === 'es' ? 'Página no encontrada' : 'Page not found',
   description: locale.value === 'es'
-    ? 'Lo sentimos, pero no pudimos encontrar esta pagina.'
+    ? 'Lo sentimos, pero no pudimos encontrar esta página.'
     : 'We are sorry but this page could not be found.'
 })
 

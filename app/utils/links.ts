@@ -17,6 +17,15 @@ const toLocalizedPath = (path: string, locale: 'en' | 'es') => {
   return path === '/' ? '/es' : `/es${path}`
 }
 
+// Every shell route has a Spanish counterpart, and so does every blog path: a post
+// ships with `content/es/blog/…` beside it. Keep that invariant, or this claims an
+// `/es/blog/<slug>` URL that was never generated — the blog index already refuses to
+// list a post that has no Spanish version, so the two stay consistent.
+export const hasSpanishCounterpart = (path: string) => {
+  const normalized = normalizeRoute(path)
+  return localizedRoutes.has(normalized) || normalized.startsWith('/blog/')
+}
+
 export const useNavLinks = () => {
   const localePath = useLocalePath()
   const { locale } = useI18n()
@@ -26,7 +35,7 @@ export const useNavLinks = () => {
         home: 'Inicio',
         blog: 'Blog',
         now: 'Ahora',
-        about: 'Sobre mi',
+        about: 'Sobre mí',
         contact: 'Contacto'
       }
     : {
@@ -66,7 +75,7 @@ export const useLocaleSwitcherLinks = () => {
 
   return computed(() => {
     const fallback = currentPath.value
-    if (!localizedRoutes.has(currentPath.value)) {
+    if (!hasSpanishCounterpart(currentPath.value)) {
       return {
         en: fallback,
         es: fallback

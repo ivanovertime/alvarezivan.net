@@ -17,16 +17,24 @@ if (!page.value) {
     fatal: true
   })
 }
-const { data: posts } = await useAsyncData('blogs', () =>
+const { data: allPosts } = await useAsyncData('blogs', () =>
   queryCollection('blog').where('hidden', '=', false).order('date', 'DESC').all()
 )
-if (!posts.value) {
+if (!allPosts.value) {
   throw createError({
     statusCode: 404,
     statusMessage: 'blogs posts not found',
     fatal: true
   })
 }
+
+// Only posts in the reader's language: the Spanish index lists what has actually
+// been translated, never an English body behind a Spanish route. Filtered here
+// rather than in the query — the schema's `locale` default is not materialised in
+// the column a `.where('locale', '=', …)` would match against.
+const posts = computed(() =>
+  (allPosts.value ?? []).filter(post => (post.locale ?? 'en') === locale.value)
+)
 
 type CategoryFilter = 'all' | 'article' | 'case-study' | 'side-project'
 type TagFilter = string
@@ -105,7 +113,7 @@ const filters = computed<Array<{ key: CategoryFilter, label: string, icon: strin
         { key: 'all', label: 'Todo', icon: 'i-lucide-layout-grid' },
         { key: 'side-project', label: 'Proyecto Personal', icon: 'i-lucide-flask-conical' },
         { key: 'case-study', label: 'Caso de Estudio', icon: 'i-lucide-briefcase-business' },
-        { key: 'article', label: 'Articulo', icon: 'i-lucide-newspaper' }
+        { key: 'article', label: 'Artículo', icon: 'i-lucide-newspaper' }
       ]
     : [
         { key: 'all', label: 'All', icon: 'i-lucide-layout-grid' },
@@ -162,7 +170,7 @@ useSeoMeta({
           data-analytics-category="content_discovery"
           :data-analytics-label="filter.key"
           data-analytics-location="blog_index"
-          :data-analytics-destination="filter.key === 'all' ? '/blog' : `/blog?category=${filter.key}`"
+          :data-analytics-destination="filter.key === 'all' ? route.path : `${route.path}?category=${filter.key}`"
           @click="setCategory(filter.key)"
         />
       </div>
@@ -179,7 +187,7 @@ useSeoMeta({
           data-analytics-category="content_discovery"
           :data-analytics-label="tag"
           data-analytics-location="blog_index"
-          :data-analytics-destination="`/blog?tags=${tag}`"
+          :data-analytics-destination="`${route.path}?tags=${tag}`"
           @click="setTag(tag)"
         />
         <UButton
@@ -187,7 +195,7 @@ useSeoMeta({
           color="neutral"
           variant="ghost"
           size="xs"
-          :label="locale === 'es' ? 'Limpiar tags' : 'Clear tags'"
+          :label="locale === 'es' ? 'Limpiar etiquetas' : 'Clear tags'"
           @click="clearTags"
         />
       </div>
@@ -228,7 +236,7 @@ useSeoMeta({
                   variant="soft"
                   size="xs"
                   icon="i-lucide-newspaper"
-                  :label="locale === 'es' ? 'Articulo' : 'Article'"
+                  :label="locale === 'es' ? 'Artículo' : 'Article'"
                 />
                 <UBadge
                   v-if="post.category === 'case-study'"

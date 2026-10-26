@@ -15,9 +15,7 @@ const normalizedPath = computed(() => {
 })
 const englishUrl = computed(() => `${baseUrl.value}${normalizedPath.value === '/' ? '' : normalizedPath.value}`)
 const spanishUrl = computed(() => `${baseUrl.value}${normalizedPath.value === '/' ? '/es' : `/es${normalizedPath.value}`}`)
-const hasSpanishVersion = computed(() =>
-  new Set(['/', '/about', '/blog', '/contact', '/now', '/uses']).has(normalizedPath.value)
-)
+const hasSpanishVersion = computed(() => hasSpanishCounterpart(normalizedPath.value))
 
 useHead(() => ({
   meta: [

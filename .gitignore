@@ -1,3 +1,6 @@
+# Impeccable design-skill artifacts — regenerable, never shipped
+.impeccable/
+
 # Nuxt dev/build outputs
 .output
 .data
