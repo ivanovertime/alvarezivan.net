@@ -2,6 +2,83 @@
 
 _Updated 2026-10-26. Authoritative state for the next session._
 
+## Session (2026-10-26, seventh) — motion polish: the blog flicker is dead, the Once Rule survives
+
+The one call that opened the session: the user reported a **flicker when the blog cards appear on
+scroll** and asked for a motion polish pass while at it. The push stays **held** (user's call).
+
+### Root cause (measured, not guessed)
+
+Live-site rAF sampling showed three cooperating defects, all in the framer `while-in-view` pattern:
+
+1. **The list-index stagger was the flicker.** `:transition="{ delay: 0.1 * index }"` delays each
+   card by its position in the whole list (up to 1.2s). After a scroll burst, cards popped in on a
+   100ms cascade — several fully in view or already passed — reading exactly as a flicker.
+2. **Cards could strand invisible.** A fast jump skips IntersectionObserver enter events; one card
+   stayed `opacity: 0` for the whole 6.5s sampled run, with `once: true` never firing.
+3. **Prerendered `opacity: 0`.** The whole list shipped invisible until hydration — the recorded
+   no-JS defect, and the reason the first screen of cards popped in after load.
+
+### What shipped (two commits, unpushed)
+
+- **`app/components/RevealOnce.vue`** — the new system's single reveal mechanism, replacing framer
+  `while-in-view` on the blog index, `WorkExperience`, `FAQ` and `/about`:
+  - prerendered HTML is the **visible resting state** — no inline `opacity: 0` ships with content;
+  - on mount, only content below `fold + max(5%·vh, 48px)` goes hidden (the buffer absorbs
+    font/layout settling, so fold-adjacent content is never re-hidden — this exact bug burned a
+    first draft in dev);
+  - a bare `IntersectionObserver` (threshold 0.05, bottom `rootMargin` 64px) fires just before
+    entry; the reveal is a 450ms `cubic-bezier(0.16, 1, 0.3, 1)` fade with a 12px rise;
+  - stagger is local and capped (`70ms × index ≤ 210ms` for the experience rows; no delay on blog
+    cards — entry timing is the stagger);
+  - `prefers-reduced-motion` skips the entrance entirely (content stays visible).
+- **`app.vue`** wraps the app in `MotionConfig reduced-motion="user"`, so the framer-driven hero
+  respects the OS setting (framer jumps positional keys, keeps opacity).
+- **Hover fix found along the way:** `ui.root` passed a bare `group`, which tailwind-merge keeps
+  over the theme's `group/blog-post`, silently killing every `group-hover/blog-post:` compound
+  (the card image zoom among them). Root now `group/blog-post`; the image got
+  `transition-transform duration-300` so the zoom isn't a snap.
+- **Hero** keeps its authored entrance, now on `ease [0.16, 1, 0.3, 1]`; it remains SSR-hidden on
+  purpose — that is the one gesture the system claims.
+- **`DESIGN.md`** — the Motion section now documents `RevealOnce` semantics, the Once Rule's
+  “already-visible content never animates” addition, and the named-group hover trap.
+
+### Verified
+
+- rAF samplers against the built `dist/` (served Pages-faithfully): cards reveal in one 450ms ramp
+  the moment their edge approaches the fold (0.53 → 0.64 → 0.90 → 0.98 → 1 over ~300ms sampled),
+  no cascade, no pop-while-fully-visible; after scrolling back to the top everything stays
+  `opacity: 1` — revealed content never re-hides (Once Rule intact). SSR ships zero hidden cards
+  on `/blog` (the only `opacity: 0` in `dist/blog.html` is the `reveal-pending` CSS rule).
+- Home: 6 `reveal-once` wrappers (5 experience rows + FAQ), first-viewport one visible, rest
+  pending below the fold.
+- `npm run lint` and `npm run typecheck` clean; `impeccable detect --json` → `[]`.
+- Lighthouse probe (1 run each config, the quick mode): `/` 65/100/96/100 mobile, 97 desktop;
+  `/blog` 61 mobile; a11y 100 and CLS 0 everywhere — the SSR-visible change shifted nothing.
+  Full 3-run gate not re-run this session.
+- Screenshots were taken but this session's model cannot view them; the telemetry above is the
+  visual evidence. Worth one human look after deploy.
+
+### Recorded, not fixed
+
+- **Reduced-motion path is code-verified only** — the test browser couldn't force the OS setting.
+- The **blog hydration mismatch** (console error, pre-existing) is still open and unrelated to the
+  reveal change.
+- The four other recorded defects (multiple `h1`s, orphan `# References`, hidden metrics
+  placeholder, Mermaid fence), plus `valid-source-maps`, remain open.
+- The recorded “prerendered `opacity: 0`” defect is **closed by this session**.
+
+### Open decisions
+
+- **The push.** Two commits (`9fe083e`, `49bbbb9`) are unpushed; a push is the production deploy.
+  Held deliberately.
+
+### Next step
+
+Start fresh on a clean tree. Ask which to take: the **blog hydration mismatch** (now the most
+user-visible of the failures), one of the four remaining recorded defects (`opacity: 0` is dead;
+multiple `h1`s is the next smallest), or `valid-source-maps`. The push stays a user decision.
+
 ## Session (2026-10-26, sixth) — the contrast pair is fixed: a11y is 100 wherever it is measured
 
 The one call that opened the session: take the **colour-contrast pair** over a recorded defect. The
@@ -71,6 +148,9 @@ images. Colour contrast is no longer a gate warning; performance still is what i
   neither was touched.
 
 ### Next step
+
+*(Superseded by the seventh session, which took the flicker/motion report and closed the
+prerendered `opacity: 0` defect. Kept as the record of what was open that day.)*
 
 Start fresh on a clean tree. Ask which to take: the **prerendered `opacity: 0`** (prior pick), one of
 **four other recorded defects** (multiple `h1`s, orphan `# References`, hidden metrics placeholder,
