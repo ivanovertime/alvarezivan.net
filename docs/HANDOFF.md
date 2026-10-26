@@ -2,6 +2,68 @@
 
 _Updated 2026-10-26. Authoritative state for the next session._
 
+## Session (2026-10-26, eighth) — the hydration mismatch was a timezone, not a template
+
+The one call that opened the session: take the **blog hydration mismatch**, the most user-visible
+remaining failure. The push stays a user decision.
+
+### Root cause (measured, not guessed)
+
+Content dates are date-only values (`date: "2026-06-15"`) that Content parses to a `Date` at **UTC
+midnight**. Both the post page's `formatDate` and `UBlogPost`'s internal reka-ui `useDateFormatter`
+formatted that instant in the **runtime's own timezone**. Cloudflare's build prerendered in UTC; the
+reader's browser uses theirs, so in any negative-offset timezone the two formatted the adjacent
+calendar day. Vue reports that as a hydration **text** mismatch, and production's only symptom is
+the generic `Hydration completed but contains mismatches.` — the same message the earlier sessions
+recorded, with no details to explain it.
+
+This reproduced on the live site but never against a local build, because a local prerender and the
+test browser share the machine's `America/Caracas` offset. Forcing a foreign browser timezone
+(`playwright-core` + the installed Chrome, `timezoneId: 'UTC'`) surfaced it immediately:
+`rendered on server: "Jun 14, 2026" / expected on client: "Jun 15, 2026"`.
+
+### What shipped (one commit, unpushed)
+
+- **`app/utils/date.ts`** — `formatPostDate(date, locale)`, an `Intl.DateTimeFormat` pinned to
+  `timeZone: 'UTC'`. Date-only content is a calendar date, not an instant; formatting it in UTC
+  always renders the authored day. Locale is `es-ES` / `en-US`.
+- The three date render sites now use it: the blog-index card (`#date` slot on `UBlogPost`, whose
+  built-in formatter cannot be told a timezone), the home blog preview (`#date` slot,
+  `app/components/landing/Blog.vue`, which now calls `useI18n`), and the post-page header
+  (`app/pages/blog/[...slug].vue`, its local `formatDate` deleted).
+- `UBlogPost` still receives `:date` for the `<time datetime>` attribute — `toISOString()` is
+  timezone-independent, so that attribute never mismatched.
+
+### Verified
+
+- Production build (no debug flag), client TZ `UTC`, `Pacific/Kiritimati` (+14) and
+  `America/Caracas` (−04), **all 17 primary routes and locales**: zero hydration output. This is the
+  exact condition that broke before the fix (server prerendered in −04, client in UTC).
+- Card and post dates identical across every timezone (`Oct 25, 2026`, `Jun 15, 2026`); prerendered
+  HTML carries the authored day with `datetime` intact.
+- `npm run lint` and `npm run typecheck` clean; `npm run lh` **passes (0 errors)** — desktop `/`
+  perf 96–97, a11y 100, best-practices 96, SEO 100; `impeccable detect --json` → `[]`.
+
+### Side effect, noted
+
+The `/es` blog index now renders Spanish months (`25 oct 2026`). `UBlogPost`'s own formatter had
+fallen back to English while the post pages already localized; the index now matches the post pages
+and the already-localized category/tag badges.
+
+### Recorded, not fixed
+
+A pre-existing reka-ui **attribute** mismatch on `/`: `id="reka-accordion-trigger-v-0-0-5-…"` on the
+server vs `v-0-0-0-…` on the client (accordion / collapsible / tabs). It is a dev/details-only
+diagnostic — Vue's production bundle does not check attribute mismatches, so it produces **no**
+console error and was not the recorded defect. It survived the date fix.
+
+### Next step
+
+Start fresh on a clean tree. The blog hydration mismatch is closed; the open list is the four
+recorded defects (multiple `h1`s per post body is next-smallest, then the orphan `# References` in
+`bcv-scraper.md`, the hidden metrics placeholder in `supermarket-pwa-recovery.md`, the Mermaid
+fence) and `valid-source-maps` on first-party JS. The push stays a user decision.
+
 ## Session (2026-10-26, seventh) — motion polish: the blog flicker is dead, the Once Rule survives
 
 The one call that opened the session: the user reported a **flicker when the blog cards appear on
