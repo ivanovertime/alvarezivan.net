@@ -2,6 +2,140 @@
 
 _Updated 2026-10-26. Authoritative state for the next session._
 
+## Session (2026-10-26, fourth) — the Spanish meta line, and a false alarm about icons
+
+Two user calls opened the session: run the **Lighthouse gate** (§6 Sprint 4) first, then — after that
+turned up the copy question — take the **ES meta line copy**. The push stayed **held** on purpose.
+
+The perf half produced three real fixes that are **in the working tree and uncommitted** (see "Perf
+work" below), plus an installed-but-unconfigured `@lhci/cli` harness. Nothing was reverted; the tree
+is dirty on purpose until the user decides what to commit.
+
+### What shipped
+
+- **`client:` is Spanish on the Spanish case studies.** Only four posts carry the field and only one is
+  public: `supermarket-pwa-recovery` → `Cliente de supermercados (LatAm)`; the three hidden Daka
+  studies → `Cliente minorista (LatAm)`. `Vertex Plus Group` stays as-is — it is a real name.
+- **`· Team of N` is locale-aware.** It was hardcoded English in
+  `app/pages/blog/[...slug].vue:218`; now `Equipo de` / `Team of`. That line was the *only* place
+  `client:` renders anywhere in the app (checked: no JSON-LD, OG image or search-index consumer).
+- **`PRODUCT.md` records both label sets**, and its "bilingual parity is not achieved … all 12 posts
+  are English-only" constraint — stale since the ES pass landed — now says what is true.
+
+### Where that string actually was (the question that prompted this)
+
+`content/blog/case-studies/*.md` + `content/es/blog/case-studies/*.md` frontmatter, rendered by the
+single `<span v-if="page.client">` in the case-study meta line. Reachability, measured against the
+dev server:
+
+| post | labels | reachable |
+|---|---|---|
+| `supermarket-pwa-recovery` | `Supermarket Client` / `Cliente de supermercados (LatAm)` | **public**, both locales |
+| `retail-ecommerce-recovery`, `retail-ecommerce-rebuild`, `retail-sap-quotation-app` | `Retail Client` / `Cliente minorista (LatAm)` | `hidden: true` → **404 on both locales**, absent from indices + RSS |
+
+So the Daka label never reaches a reader. The CV boundary holds as PRODUCT.md states it: `/about` and
+`/es/about` name **Tiendas Daka C.A.** and **Biomercados (Alimentos FM)** in the timeline, and
+`home.yml` names both in the experience rows — named in the CV surface, anonymous in the case studies
+only.
+
+### Verified
+
+- Dev server, both locales: ES renders `2022 · Cliente de supermercados (LatAm) · Programador ·
+  Equipo de 2`; EN still renders `2022 · Supermarket Client (LatAm) · Programmer · Team of 2`.
+- No other English leak in the ES meta line (`Team of`, `View Repository`, `Copy link`, `MIN READ`,
+  `Read Article` → 0 matches on `/es/blog/case-studies/supermarket-pwa-recovery`).
+- `npm run lint`, `npm run typecheck` clean. 12 EN / 12 ES posts, identical slug trees (verified).
+
+### The icons were not broken — do not chase this again
+
+A user report ("the icons don't show up") was investigated and **is a false alarm about the site**.
+What was established, so it is not re-litigated:
+
+- `@nuxt/icon` 2.1.1 defaults to `mode: 'css'`, so icons are **mask-based spans, never `<svg>`**. An
+  empty `span.iconify` with a `url("data:image/svg+xml…")` `-webkit-mask-image` is a *working* icon.
+  Counting `<svg>` and concluding "0 icons" is simply the wrong test.
+- Against **production**, every icon span on nine pages is painted: `/` 35/35, `/blog` 37/37,
+  the Semantichelp study 31/31, `/about` 17/17, `/uses` 16/16, `/contact` 26/26, `/now` 18/18,
+  `/es` 35/35, `/es/blog` 37/37. A screenshot of the live home page shows the nav sun, the arrow,
+  the GitHub/LinkedIn marks and the accordion glyphs. The dev server renders them too.
+- The *only* place they genuinely 404 is a plain static server over `dist/`: icons resolve through
+  `/api/_nuxt_icon/*`, which the Nitro worker serves in production (200) but a static-only server
+  cannot. **Icon checks must run against the dev server or `npx wrangler pages dev dist`.**
+- Real, recorded-not-fixed fragility underneath it: `@nuxt/icon`'s generated client bundle is
+  `export function init() {}` — `clientBundle.scan` defaults to `false` and this project sets no
+  `icon` config at all, so nothing is bundled and every icon outside the prerendered CSS depends on a
+  runtime request to the worker (which fetches the collection from jsdelivr). It works, but it is one
+  worker bug away from a site-wide icon outage.
+
+### Perf work — measured, in the working tree, **uncommitted**
+
+Baseline and result, Lighthouse 12.2.1, mobile unless noted, against the built `dist/` served
+statically with gzip + the `dist/_headers` cache rules (a Pages-faithful stand-in):
+
+| page | perf | a11y | BP | LCP | TBT | bytes |
+|---|---|---|---|---|---|---|
+| `/` before → after | 56 → **65** | 93 → **97** | 96 → 96 | 11.5 → **6.1 s** | 260 → **80 ms** | 1709 → **671 KiB** |
+| `/blog` before → after | 53 → **65** | 100 | 89 → **96** | 19.6 → **7.3 s** | 510 → **210 ms** | 6937 → **1175 KiB** |
+| case study before → after | 54 → **58** | 100 | 89 → **96** | 8.9 → **8.2 s** | 440 → **340 ms** | 1562 → **1380 KiB** |
+| `/` desktop before → after | 89 → **96** | 93 → **97** | 96 → 96 | 2.1 → **1.2 s** | 0 | 1709 → **664 KiB** |
+
+`/es/blog` measures the same as `/blog` (64 perf), so locale parity holds.
+
+Three fixes, all in the tree:
+
+1. **Card markup.** `v-bind="post"` → explicit `:title/:description/:date/:image` in
+   `app/pages/blog/index.vue` and `app/components/landing/Blog.vue`. It was leaking all frontmatter
+   onto the `<a>` (`role="Engineer"`, `category`, `client`, `team_size`, `__hash__` …), which is
+   **recorded defect #3** and was also the source of the `aria-roles` Lighthouse failure. Fixed here.
+2. **Images.** `nuxt.config.ts` gains `image: { provider: 'ipxStatic', quality: 80 }` and the index
+   cards pass a `sizes` preset (`sm:92vw md:50vw xl:620px`) plus `format: 'webp'`. The home cards drop
+   the image entirely — `ui.header` was already `hidden`, so they were downloading ~500 KiB nobody
+   saw. `ipxStatic` was verified to generate `dist/_ipx/**` for the `cloudflare_pages` preset; plain
+   `ipx` **cannot** work there (sharp does not run in a Worker). Note `widths` is not a NuxtImg v2
+   prop — `sizes` is the preset string that drives both the media queries and the srcset variants.
+3. **The content client DB.** `app/app.vue` ran `queryCollectionSearchSections('blog')` inside
+   `useLazyAsyncData(…, { server: false })`, i.e. **in the browser on every page load** — which is what
+   dragged in `sqlite3.wasm` (~380 KiB), every collection's `sql_dump.txt` (~75 KiB) and a main-thread
+   SQLite boot. Replaced by a prerendered `server/routes/search.json.ts` (170 KiB raw, ~48 KiB gzipped)
+   fetched the first time the ⌘K dialog opens via `useContentSearch().open`. Verified: no
+   sqlite/dump request on page load, and the dialog still opens (ctrl+K on Linux — Nuxt UI remaps
+   `meta_k`) and returns real sections.
+
+**Harness, not yet a gate.** `@lhci/cli` 0.15.1 is a devDependency, but there is **no `lighthouserc`, no
+`lh` script and no thresholds** — nothing asserts anything yet. The user chose "measure, then propose",
+so the next session should bring the numbers above back as a proposal rather than assume the strict bar
+(perf ≥ 90, LCP < 2.5 s mobile) was agreed. Note `lhci`'s built-in `staticDistDir` server will **404**
+`/about` and friends: Nitro writes `about.html`, not `about/index.html`, and express.static does not map
+one to the other — the gate needs a ~40-line static server that does (or `wrangler pages dev dist`).
+
+**Still failing, recorded not fixed:** colour contrast **2.21:1** on the "Available for new projects"
+pill (the reason home a11y is 97 and not 100), `valid-source-maps` on first-party JS, and a
+`Hydration completed but contains mismatches` console error on the blog index and post pages. Mobile
+perf stays 58–65 because FCP is ~3.5–3.9 s under 4× CPU: the JS bundle dominates now, not images.
+Two "failures" are **sandbox artifacts, not site bugs**: GTM does not resolve in this environment, and
+`/api/_nuxt_icon/*` 404s on any static-only server.
+
+### Open decisions
+
+- **The push.** Six commits sit on `develop` (`ca114eb`, `33dc8de`, `de1603d`, `e272889`, plus handoff
+  commits). A push is the production deploy. Held again this session.
+- **The uncommitted perf work** — three fixes plus a new `server/routes/search.json.ts`, a `nuxt.config.ts`
+  change and an `@lhci/cli` devDependency. Commit, split, or drop: user's call.
+- **The Lighthouse gate thresholds** — measured, not agreed (above).
+- **The six recorded defects** — #3 is fixed in the tree; the other five are untouched, except the
+  prerendered `opacity: 0` was re-confirmed on the local static build (a blank page body when the
+  in-view animations never fire) and remains the strongest candidate.
+
+### Next step
+
+Start fresh on a clean tree: decide what to do with the uncommitted perf work first, since a dirty
+tree makes every later diff unreadable. Then ask which to take: the **Lighthouse gate thresholds**
+(the numbers are already measured, above), or **one of the recorded defects** (the prerendered
+`opacity: 0` remains the prior pick). The push is still a user decision.
+
+One copy judgement to confirm: `Cliente de supermercados (LatAm)` is my literal translation of the
+English label; `Cadena de supermercados (LatAm)` would echo the Spanish body copy instead.
+
 ## Session (2026-10-26, third) — the Spanish feed, and the durable record is tracked
 
 Two user calls opened the session: take the cheapest §10 Batch 3 item (**`/es/rss.xml`**), and
@@ -40,9 +174,9 @@ Two user calls opened the session: take the cheapest §10 Batch 3 item (**`/es/r
 - **The Lighthouse gate** (§6 Sprint 4) — the other main candidate, most user-visible payoff.
 - **The six recorded defects** — none touched. The prerendered `opacity: 0` was the user's defect
   pick but was never started because the RSS item won.
-- **The ES client strings**: `client: "Retail Client (LatAm)"` / `"Supermarket Client (LatAm)"`
-  are still English on the Spanish pages. Reviewed, not resolved — PRODUCT.md records the
-  anonymisation as a fixed decision, so translating the label is a copy call the user still owes.
+- **The ES client strings** — ~~`client: "Retail Client (LatAm)"` / `"Supermarket Client (LatAm)"`
+  are still English on the Spanish pages~~ **Resolved in the fourth session** (see above): the Spanish
+  labels are `Cliente minorista (LatAm)` / `Cliente de supermercados (LatAm)`.
 
 ### Next step
 

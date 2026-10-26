@@ -88,15 +88,17 @@ collections, Nuxt Image, `nuxt-og-image` for social cards, `motion-v` for entran
 **Constraints:**
 
 - **Two live clients stay anonymous.** Daka and the supermarket client appear as `Retail Client
-  (LatAm)` and `Supermarket Client (LatAm)`. Their case studies ship without names. Do not invent
-  client names, logos, or quotes.
+  (LatAm)` and `Supermarket Client (LatAm)`, and on Spanish pages as `Cliente minorista (LatAm)` and
+  `Cliente de supermercados (LatAm)`. Their case studies ship without names. Do not invent client
+  names, logos, or quotes.
 - **No fabricated proof.** No testimonials exist (`testimonials: []` in `content/home.yml`), so none
   may be rendered. Same for metrics that were never measured.
 - **Availability is a real, current signal.** Both roles and project work are on offer right now.
   Do not soften or strengthen it beyond what `/contact` states.
-- **Bilingual parity is the standing goal**, but it is not achieved: `content/es/` mirrors the page
-  shells (home, about, blog index, contact, now, uses) while all 12 blog posts and case studies are
-  English-only. New UI must not assume an ES body exists behind an ES route.
+- **Bilingual parity is the standing goal.** `content/es/` mirrors the page shells (home, about,
+  blog index, contact, now, uses) and all 12 blog posts and case studies, with the same slugs, dates
+  and hidden flags. New UI must not *assume* an ES body exists behind an ES route, but any new page
+  or post is expected to ship in both locales.
 - **Audience fit is policed on purpose.** `/contact` states what is *not* a fit (junior/mid IC work,
   WordPress/Wix/no-code builds, management without technical work). That bluntness is intentional.
 
