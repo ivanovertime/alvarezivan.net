@@ -2,6 +2,81 @@
 
 _Updated 2026-10-26. Authoritative state for the next session._
 
+## Session (2026-10-26, sixth) — the contrast pair is fixed: a11y is 100 wherever it is measured
+
+The one call that opened the session: take the **colour-contrast pair** over a recorded defect. The
+push stayed **held** again. Both defects the fifth session recorded are now fixed, and the gate's
+`color-contrast` warning is silent.
+
+### What shipped (one commit, unpushed)
+
+- **The availability badge stops being green.** `app/components/landing/Hero.vue` had
+  `:color="global.available ? 'success' : 'error'" variant="ghost"`, so the *label* rendered
+  `#00c950` on white — **2.21:1**. It is now `color="neutral"`, which is what `DESIGN.md`
+  ("Signature: the Availability Badge") already described: a ghost button whose leading icon is the
+  two-layer `bg-success` / `bg-error` dot. The dot is untouched — both spans are still there, so the
+  One Dot rule still holds and the label is body ink. This also silently fixes the latent
+  `Not available at the moment` state, whose red label was low-contrast too.
+- **The active blog filter stops being zinc-on-zinc.** `app/pages/blog/index.vue` renders active
+  filters as `color="primary" variant="soft"` (as DESIGN.md records). The soft fill is
+  `bg-primary/10` (`#f1f1f2`) and the soft label is `text-primary` (`#71717b`), which at the 12px
+  `size="xs"` tag size is **4.27:1**. The two active cases (category and tag) now pass
+  `:ui="{ base: 'text-default' }"`, so the label reads body ink (`neutral-700`, 9.09:1 on that fill)
+  while `bg-primary/10` still carries the accent grey — the fill, not the text, stays the accent.
+  Only the active button changes: `undefined` for the rest, and the diff proves it (old `dist` had
+  33 `text-default` + 1 `text-primary` on /blog; the new render has 34 + 0).
+- `lighthouserc.cjs`'s stale comment is rewritten; the assertion stays **`warn`** — this session does
+  not re-open the gate decision.
+
+### Verified (Lighthouse 12.6.1, `npm run lh` on the built `dist/`, 3 runs each)
+
+| URL | perf | a11y | `color-contrast` |
+|---|---|---|---|
+| `/` mobile | 65 | **97 → 100** | 1 (0 failing nodes) |
+| `/blog` mobile | 62–68 | **96 → 100** | 1 (0 failing nodes) |
+| case study mobile | 56–57 | 100 (was 100) | 1 |
+| `/` desktop | 96 | **97 → 100** | 1 |
+
+`npm run lh` exits 0 on both configs. `npm run lint` and `npm run typecheck` clean.
+`impeccable detect --json` returns `[]`. Against the dev server, both locales check out: the
+availability button is a neutral ghost with its two `bg-success` spans intact and zero
+`text-success` anywhere on `/`; `/blog` and `/es/blog` both render the active filter as
+`bg-primary/10` + `text-default`.
+
+### Recorded not fixed — a wrong line in DESIGN.md
+
+`DESIGN.md` ("Ghost") says a ghost label is `text-muted` (`ink-muted`, `oklch(55.6% 0 0)`). Nuxt UI
+4.3 renders a **neutral** ghost as `text-default` (body ink) — verified in the dev HTML for the
+social links, the colour-mode toggle and the inactive filters, all of which were already
+`text-default` before this session. It is harmless (they pass contrast), but the doc is wrong and was
+not edited here.
+
+### What this did not do
+
+Mobile perf is unchanged at 56–68 with FCP 3.3–4.6 s under 4× CPU — the JS bundle dominates, not
+images. Colour contrast is no longer a gate warning; performance still is what it is.
+
+### Open decisions
+
+- **The push.** Now **fourteen commits** on `develop` (`ca114eb` … this fix, plus the handoff
+  commit) are unpushed; a push is the production deploy. Held deliberately again.
+- **The five remaining recorded defects** — the prerendered `opacity: 0` is the prior pick, then
+  multiple `h1`s per post body, the orphan `# References` in `bcv-scraper.md`, the hidden metrics
+  placeholder in `supermarket-pwa-recovery.md`, and the Mermaid fence.
+- **Two other recorded failures** — `valid-source-maps` on first-party JS, and the blog hydration
+  mismatch. The contrast pair is off this list.
+- **Stale in `PRODUCT.md`**: "A Lighthouse performance gate is discussed but not documented or
+  enforced" is false since `43785b8` (the gate exists and is documented), and "Pillar/filter UX on
+  `/blog` is planned but unbuilt" was already false — the filters ship. Both predate this session;
+  neither was touched.
+
+### Next step
+
+Start fresh on a clean tree. Ask which to take: the **prerendered `opacity: 0`** (prior pick), one of
+**four other recorded defects** (multiple `h1`s, orphan `# References`, hidden metrics placeholder,
+Mermaid fence), the **`valid-source-maps`** failure, or the **blog hydration mismatch**. The push
+stays a user decision.
+
 ## Session (2026-10-26, fifth) — the Lighthouse gate is real: a measured floor, not the plan's bar
 
 The one call that opened the session: take the **Lighthouse gate thresholds** (§6 Sprint 4) rather than
@@ -58,6 +133,9 @@ on first-party JS, and the blog hydration mismatch. Mobile perf stays 57–67 be
 dominates (FCP 3.3–4.5 s), not images.
 
 ### Next step
+
+*(Superseded by the sixth session, which took the colour-contrast pair. Kept as the record of what
+was open that day.)*
 
 Start fresh on a clean tree. Ask which to take: one of the **five recorded defects** (the prerendered
 `opacity: 0` is the prior pick), the **colour-contrast pair** (2.21:1 pill + 4.27:1 label) so home and
