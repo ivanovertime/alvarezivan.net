@@ -44,7 +44,8 @@ export default defineNuxtConfig({
         '/es/uses',
         '/sitemap.xml',
         '/rss.xml',
-        '/es/rss.xml'
+        '/es/rss.xml',
+        '/search.json'
       ],
       crawlLinks: true,
       // Emit `dist/about.html` instead of `dist/about/index.html`.
@@ -71,6 +72,14 @@ export default defineNuxtConfig({
       { code: 'en', name: 'English', language: 'en-US' },
       { code: 'es', name: 'Español', language: 'es-ES' }
     ]
+  },
+
+  image: {
+    // Cloudflare Pages serves static assets only, so there is no sharp at
+    // runtime: the `ipx` provider would emit /_ipx/... URLs that 404 in
+    // production. `ipxStatic` generates every variant at build time instead.
+    provider: 'ipxStatic',
+    quality: 80
   },
 
   ogImage: {

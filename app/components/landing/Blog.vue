@@ -37,8 +37,10 @@ if (!posts.value) {
         :data-analytics-label="post.title"
         data-analytics-location="home_blog"
         :data-analytics-destination="post.path"
-        v-bind="post"
         :to="post.path"
+        :title="post.title"
+        :description="post.description"
+        :date="post.date"
         :ui="{
           root: 'group relative lg:items-start lg:flex ring-0 hover:ring-0',
           body: '!px-0',

@@ -105,23 +105,29 @@ useSchemaOrg([
   defineWebPage()
 ])
 
-const [{ data: navigation }, { data: files }] = await Promise.all([
+const [{ data: navigation }] = await Promise.all([
   useAsyncData('navigation', () => {
     return Promise.all([
       queryCollectionNavigation('blog')
     ])
   }, {
     transform: data => data.flat()
-  }),
-  useLazyAsyncData('search', () => {
-    return Promise.all([
-      queryCollectionSearchSections('blog')
-    ])
-  }, {
-    server: false,
-    transform: data => data.flat()
   })
 ])
+
+// The ⌘K index is a prerendered `/search.json`, fetched the first time the
+// dialog opens. Querying it here instead would run a client-side content query,
+// and that is what makes Nuxt Content download `sqlite3.wasm` plus the
+// collection dumps and boot SQLite on the main thread on every page load.
+const { open: searchOpen } = useContentSearch()
+const { data: files, pending: searchPending, execute: loadSearchIndex } = useLazyAsyncData(
+  'search',
+  () => $fetch<{ title: string, titles: string[], content: string, id: string, level: number }[]>('/search.json'),
+  { server: false, immediate: false }
+)
+watch(searchOpen, (isOpen) => {
+  if (isOpen && !files.value) loadSearchIndex()
+})
 </script>
 
 <template>
@@ -135,6 +141,7 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
     <ClientOnly>
       <LazyUContentSearch
         :files="files"
+        :loading="searchPending"
         :navigation="navigation"
         shortcut="meta_k"
         :links="navLinks"

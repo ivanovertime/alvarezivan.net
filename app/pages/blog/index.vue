@@ -217,7 +217,17 @@ useSeoMeta({
             data-analytics-location="blog_index"
             :data-analytics-destination="post.path"
             :to="post.path"
-            v-bind="post"
+            :title="post.title"
+            :description="post.description"
+            :date="post.date"
+            :image="{
+              src: post.image,
+              alt: post.title,
+              sizes: 'sm:92vw md:50vw xl:620px',
+              format: 'webp',
+              loading: index === 0 ? 'eager' : 'lazy',
+              fetchpriority: index === 0 ? 'high' : 'auto'
+            }"
             :ui="{
               root: 'md:grid md:grid-cols-2 group overflow-visible transition-all duration-300',
               image:
