@@ -202,13 +202,9 @@ useSeoMeta({
         />
       </div>
       <UBlogPosts orientation="vertical">
-        <Motion
+        <RevealOnce
           v-for="(post, index) in filteredPosts"
           :key="post.path"
-          :initial="{ opacity: 0, transform: 'translateY(10px)' }"
-          :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-          :transition="{ delay: 0.1 * index }"
-          :in-view-options="{ once: true }"
         >
           <UBlogPost
             variant="naked"
@@ -231,9 +227,9 @@ useSeoMeta({
               fetchpriority: index === 0 ? 'high' : 'auto'
             }"
             :ui="{
-              root: 'md:grid md:grid-cols-2 group overflow-visible transition-all duration-300',
+              root: 'md:grid md:grid-cols-2 group/blog-post overflow-visible transition-all duration-300',
               image:
-                'group-hover/blog-post:scale-105 rounded-lg shadow-lg border-4 border-muted ring-2 ring-default',
+                'group-hover/blog-post:scale-105 transition-transform duration-300 rounded-lg shadow-lg border-4 border-muted ring-2 ring-default',
               header:
                 index % 2 === 0
                   ? 'sm:-rotate-1 overflow-visible'
@@ -283,7 +279,7 @@ useSeoMeta({
               </div>
             </template>
           </UBlogPost>
-        </Motion>
+        </RevealOnce>
       </UBlogPosts>
       <p
         v-if="!filteredPosts.length"

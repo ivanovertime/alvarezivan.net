@@ -131,22 +131,24 @@ watch(searchOpen, (isOpen) => {
 </script>
 
 <template>
-  <UApp>
-    <NuxtLayout>
-      <UMain class="relative">
-        <NuxtPage />
-      </UMain>
-    </NuxtLayout>
+  <MotionConfig :reduced-motion="'user'">
+    <UApp>
+      <NuxtLayout>
+        <UMain class="relative">
+          <NuxtPage />
+        </UMain>
+      </NuxtLayout>
 
-    <ClientOnly>
-      <LazyUContentSearch
-        :files="files"
-        :loading="searchPending"
-        :navigation="navigation"
-        shortcut="meta_k"
-        :links="navLinks"
-        :fuse="{ resultLimit: 42 }"
-      />
-    </ClientOnly>
-  </UApp>
+      <ClientOnly>
+        <LazyUContentSearch
+          :files="files"
+          :loading="searchPending"
+          :navigation="navigation"
+          shortcut="meta_k"
+          :links="navLinks"
+          :fuse="{ resultLimit: 42 }"
+        />
+      </ClientOnly>
+    </UApp>
+  </MotionConfig>
 </template>

@@ -18,13 +18,10 @@ defineProps<{
   >
     <template #description>
       <div class="flex flex-col gap-2">
-        <Motion
+        <RevealOnce
           v-for="(experience, index) in page.experience.items"
           :key="index"
-          :initial="{ opacity: 0, transform: 'translateY(20px)' }"
-          :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-          :transition="{ delay: 0.4 + 0.2 * index }"
-          :in-view-options="{ once: true }"
+          :delay="Math.min(index * 0.07, 0.21)"
           class="text-muted flex flex-wrap items-center gap-x-2 gap-y-1"
         >
           <p class="text-sm">
@@ -47,7 +44,7 @@ defineProps<{
               <UIcon :name="experience.company.logo" />
             </div>
           </ULink>
-        </Motion>
+        </RevealOnce>
       </div>
     </template>
   </UPageSection>

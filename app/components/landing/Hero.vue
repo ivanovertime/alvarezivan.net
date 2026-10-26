@@ -30,7 +30,8 @@ defineProps<{
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.1
+          delay: 0.1,
+          ease: [0.16, 1, 0.3, 1]
         }"
       >
         <UColorModeAvatar
@@ -58,7 +59,8 @@ defineProps<{
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.1
+          delay: 0.1,
+          ease: [0.16, 1, 0.3, 1]
         }"
       >
         {{ page.title }}
@@ -79,7 +81,8 @@ defineProps<{
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.3
+          delay: 0.3,
+          ease: [0.16, 1, 0.3, 1]
         }"
       >
         <MDC
@@ -104,7 +107,8 @@ defineProps<{
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.5
+          delay: 0.5,
+          ease: [0.16, 1, 0.3, 1]
         }"
       >
         <div
@@ -164,7 +168,8 @@ defineProps<{
           }"
           :transition="{
             duration: 0.6,
-            delay: 0.5 + index * 0.1
+            delay: 0.5 + index * 0.1,
+            ease: [0.16, 1, 0.3, 1]
           }"
         >
           <UButton

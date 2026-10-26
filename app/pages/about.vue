@@ -67,12 +67,7 @@ useSeoMeta({
         container: '!pt-0'
       }"
     >
-      <Motion
-        :initial="{ opacity: 0, transform: 'translateY(20px)' }"
-        :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-        :transition="{ delay: 0.4 }"
-        :in-view-options="{ once: true }"
-      >
+      <RevealOnce>
         <UPageBody class="max-w-3xl mx-auto">
           <div class="mb-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <UButton
@@ -99,7 +94,7 @@ useSeoMeta({
             :value="page"
           />
         </UPageBody>
-      </Motion>
+      </RevealOnce>
     </UPageSection>
   </UPage>
 </template>

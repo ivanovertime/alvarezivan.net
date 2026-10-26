@@ -51,13 +51,8 @@ const ui = {
       orientation="horizontal"
       :ui
     >
-      <template #content="{ item, index }">
-        <Motion
-          :initial="{ opacity: 0, transform: 'translateY(20px)' }"
-          :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-          :transition="{ delay: 0.4 + 0.2 * index }"
-          :in-view-options="{ once: true }"
-        >
+      <template #content="{ item }">
+        <RevealOnce>
           <UAccordion
             trailing-icon="lucide:plus"
             :items="item.questions"
@@ -79,7 +74,7 @@ const ui = {
               />
             </template>
           </UAccordion>
-        </Motion>
+        </RevealOnce>
       </template>
     </UTabs>
   </UPageSection>

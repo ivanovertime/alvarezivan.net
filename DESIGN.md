@@ -326,6 +326,9 @@ not a colour.
   a discrete object (accordion rows, and the `bg-elevated/50` testimonial viewport).
 - **Shadow Strategy:** none on cards. See Elevation & Depth.
 - **Border:** none on cards. Media carries `border-4 border-muted ring-2 ring-default`.
+- **Hover:** the card image deep-zooms `scale-105` over 300ms on card hover. The root must keep
+  `group/blog-post` for that to fire — a bare `group` in a `:ui` override beats the theme's named
+  group through tailwind-merge and silently kills the effect.
 - **Internal Padding:** body content is `!px-0`; the layout is carried by the column and gap, not by
   card padding. Accordion rows use `px-4` with `mb-2` between rows.
 
@@ -362,12 +365,28 @@ only looping animation in the system. Treat both facts as load-bearing.
 
 Motion is an entrance, never a decoration, and it never replays. The hero enters as one gesture:
 avatar, title, description and CTA each animate `scale 1.1 → 1`, `opacity 0 → 1`, `blur(20px) →
-blur(0)` over 600ms at 0.1s / 0.1s / 0.3s / 0.5s. In-view content uses `translateY(20px) → 0`
-with `once: true` at `0.4 + 0.2 × index`; blog cards use a shallower `translateY(10px)` at `0.1 ×
-index`. The one flourish in the system is the theme flip, and the one loop is the availability dot.
+blur(0)` over 600ms at 0.1s / 0.1s / 0.3s / 0.5s on `cubic-bezier(0.16, 1, 0.3, 1)`. The one
+flourish in the system is the theme flip, and the one loop is the availability dot.
 
-**The Once Rule.** Motion is a one-shot entrance: reveal on first in-view (`once: true`), then stop.
-The only looping animation permitted is the availability dot. Nothing may animate in a way that
+Everything below the hero reveals through **one component, `RevealOnce`** (`app/components/RevealOnce.vue`):
+
+- The prerendered HTML is the resting state — content ships **visible**, so a stalled script hides
+  nothing and the first frame never flickers. (This replaced the earlier framer `while-in-view`
+  pattern, which shipped `opacity: 0` markup and replayed late, list-staggered pops on scroll.)
+- On mount, only content below `fold + max(5% · vh, 48px)` goes hidden; anything already painted
+  stays. The buffer absorbs font/layout settling between server and client so a fold-adjacent card
+  is never re-hidden.
+- A bare `IntersectionObserver` (threshold 0.05, `rootMargin: 0px 0px 64px 0px`) fires just before
+  the relevant edge crosses the fold; the reveal is a 450ms `cubic-bezier(0.16, 1, 0.3, 1)` fade
+  with a 12px rise. It starts as the content enters, so it never pops in while fully on screen.
+- The stagger is local, not cumulative: a list of rows delays `70ms × index` capped at 210ms
+  (`WorkExperience`); blog cards carry no delay — their entry timing is the stagger.
+- `prefers-reduced-motion` suppresses the entrance entirely (content simply stays visible); the
+  framer-driven hero additionally respects it through `MotionConfig` in `app.vue`.
+
+**The Once Rule.** Motion is a one-shot entrance: reveal on first in-view, then stop — a revealed
+card never re-hides when scrolled away, and content that was already on screen never animates. The
+only looping animation permitted is the availability dot. Nothing may animate in a way that
 delays content the visitor came for.
 
 ### Unused: PolaroidItem
@@ -388,7 +407,7 @@ framed media rect above.
 - **Do** hold saturation to a single 8px dot in the viewport. The One Dot Rule.
 - **Do** use one type family at every size; differentiate by weight and size only. The Single Voice Rule.
 - **Do** frame photographs (`rounded-lg border-4 border-muted ring-2 ring-default shadow-lg`) and allow at most a 1–4° tilt. The Framed Media Rule.
-- **Do** keep motion to a one-shot entrance: reveal on first in-view (`once: true`), then stop. The hero uses scale 1.1 → 1 with `blur(20px)` → `blur(0)` over 600ms at 0.1/0.3/0.5s; sections use `translateY(20px)` → 0 at `0.4 + 0.2 × index`. The Once Rule.
+- **Do** keep motion to a one-shot entrance: ship content visible, then `RevealOnce` below the fold — reveal on first in-view, 450ms fade + 12px rise, then stop. The hero uses scale 1.1 → 1 with `blur(20px)` → `blur(0)` over 600ms at 0.1/0.3/0.5s. The Once Rule.
 - **Do** write dates, roles and outcomes plainly and in the first person, in the existing warm, unsalesy register.
 
 ### Don't:
@@ -396,7 +415,7 @@ framed media rect above.
 - **Don't** add gradient hero text, stock photography, logo walls, testimonial carousels or "passionate developer" copy — the recruiter/agency template is the confirmed anti-reference.
 - **Don't** drift toward a developer-terminal pastiche: no neon on black, no monospace body copy, no terminal chrome, no matrix greens.
 - **Don't** introduce gradient blobs, giant coloured feature blocks, floating 3D shapes or a metrics bar.
-- **Don't** add decorative animation, auto-playing media, or any motion that delays the content the visitor came for.
+- **Don't** add decorative animation, auto-playing media, or any motion that delays the content the visitor came for — and never ship `opacity: 0` in prerendered markup for content the visitor came to read.
 - **Don't** add a third shadow. Only the floating nav and framed media carry one (the unused `PolaroidItem` is not a licence).
 - **Don't** render testimonials, client logos, or metrics that do not exist — `testimonials` is an empty array and both named clients are anonymised on purpose.
 - **Don't** carry the `theme-color` mismatch forward: if you touch the dark page background, correct `#020618` to match it.
