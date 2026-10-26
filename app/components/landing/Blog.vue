@@ -5,6 +5,8 @@ defineProps<{
   page: HomeCollectionItem
 }>()
 
+const { locale } = useI18n()
+
 const { data: posts } = await useAsyncData('index-blogs', () =>
   queryCollection('blog').where('hidden', '=', false).order('date', 'DESC').limit(3).all()
 )
@@ -47,6 +49,9 @@ if (!posts.value) {
           header: 'hidden'
         }"
       >
+        <template #date>
+          {{ formatPostDate(post.date, locale) }}
+        </template>
         <template #footer>
           <UButton
             size="xs"

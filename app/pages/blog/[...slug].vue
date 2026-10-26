@@ -92,15 +92,6 @@ useSchemaOrg([
 ])
 
 const articleLink = computed(() => canonicalUrl.value)
-
-const formatDate = (dateString: string) => {
-  const localeTag = locale.value === 'es' ? 'es-ES' : 'en-US'
-  return new Date(dateString).toLocaleDateString(localeTag, {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric'
-  })
-}
 </script>
 
 <template>
@@ -152,7 +143,7 @@ const formatDate = (dateString: string) => {
               size="xs"
             />
             <span v-if="page.date">
-              {{ formatDate(page.date) }}
+              {{ formatPostDate(page.date, locale) }}
             </span>
             <span v-if="page.date && page.minRead">
               -

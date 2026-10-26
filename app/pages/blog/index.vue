@@ -236,6 +236,9 @@ useSeoMeta({
                   : 'sm:rotate-1 overflow-visible'
             }"
           >
+            <template #date>
+              {{ formatPostDate(post.date, locale) }}
+            </template>
             <template #title>
               <div class="flex flex-wrap items-center gap-2">
                 <UBadge
