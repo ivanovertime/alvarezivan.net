@@ -2,6 +2,48 @@
 
 _Updated 2026-10-26. Authoritative state for the next session._
 
+## Session (2026-10-26, third) — the Spanish feed, and the durable record is tracked
+
+Two user calls opened the session: take the cheapest §10 Batch 3 item (**`/es/rss.xml`**), and
+**track `PRODUCT.md` + `DESIGN.md`** (yes — the third one-commit decision below). The push was
+**held** on purpose: nothing ships to production until this work + the ES pass go together.
+
+### What shipped (two commits on `develop`, still unpushed)
+
+- **`e272889` — `feat(i18n)`: the Spanish feed.** One feed builder in `server/utils/rss.ts` now
+  serves both channels. `server/routes/rss.xml.ts` is a thin `buildRssFeed(event, 'en')`; the new
+  `server/routes/es/rss.xml.ts` is `buildRssFeed(event, 'es')`. The Spanish channel carries
+  `<language>es-ES</language>`, a translated description, and its own `Ivan Over Time (Español)`
+  title so a reader can tell the two apart. `app.vue` advertises `/es/rss.xml` on Spanish pages
+  and `/rss.xml` elsewhere; `/es/rss.xml` joins the `nuxt.config.ts` prerender list. The locale
+  filter stays in JS — same reason as the ES pass: a Zod `default` is not materialised in the
+  queryable column, so a `.where()` would blank the channel.
+- **`de1603d` — `docs(product,design)`: PRODUCT.md + DESIGN.md are tracked.** This resolves the
+  last standing one-commit decision. `.impeccable/` stays gitignored; the sidecar is regenerable
+  and these two are the durable record.
+
+### Verified
+
+- `npm run lint`, `npm run typecheck`, `npm run build` all clean.
+- **On the built `dist/`**: `dist/rss.xml` and `dist/es/rss.xml` each carry exactly **9 items**
+  (the 3 hidden Daka studies absent in both), correct `<language>` and titles, and **zero**
+  cross-locale link leaks in either direction.
+- **Per-locale `<link rel="alternate">`** present in the prerendered HTML — confirmed in
+  `dist/index.html` + `dist/blog/japanese-input.html` (`/rss.xml`) and `dist/es.html` +
+  `dist/es/blog/japanese-input.html` (`/es/rss.xml`).
+- Live curls against the dev server agreed with the build before the build ran.
+
+### Still open (unchanged by this session)
+
+- **The push.** Five commits now sit on `develop` (`ca114eb`, `33dc8de`, `de1603d`, `e272889`, plus
+  this handoff commit). A push is the production deploy.
+- **The Lighthouse gate** (§6 Sprint 4) — the other main candidate, most user-visible payoff.
+- **The six recorded defects** — none touched. The prerendered `opacity: 0` was the user's defect
+  pick but was never started because the RSS item won.
+- **The ES client strings**: `client: "Retail Client (LatAm)"` / `"Supermarket Client (LatAm)"`
+  are still English on the Spanish pages. Reviewed, not resolved — PRODUCT.md records the
+  anonymisation as a fixed decision, so translating the label is a copy call the user still owes.
+
 ## Session (2026-10-26, second) — the ES copy pass lands
 
 `/impeccable harden` scoped to the ES copy pass: the §10 Batch 3 leftover that PRODUCT.md sharpened
