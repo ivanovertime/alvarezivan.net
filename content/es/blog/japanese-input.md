@@ -15,13 +15,13 @@ author:
 tags:
    - "linux"
 ---
-# Situación
+## Situación
 
 El año pasado, después de un apagón bastante malo, decidí probar los snapshots nativos de Btrfs en openSUSE Tumbleweed y cambiar Ubuntu 22.10 en mi laptop personal. Un cambio siempre trae aprendizaje, pero la mayoría de las respuestas en los foros apuntaban a GNOME.
 
 Estos son los pasos para instalar el método de entrada **fcitx5** y **fcitx5-mozc** para japonés en **openSUSE Tumbleweed**:
 
-# Solución
+## Solución
 
 Abre la terminal e introduce el siguiente comando para instalar **fcitx5** y **fcitx5-mozc**[^1]:
 
@@ -53,7 +53,7 @@ Ya puedes cambiar al método de entrada **Mozc** presionando las teclas **Ctrl +
 
 Avísame si tienes alguna pregunta.
 
-# Referencias
+## Referencias
 
 Foto de <a href="https://unsplash.com/@frederickjmedina?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Frederick Medina</a> en <a href="https://unsplash.com/photos/person-holding-brown-bread-with-yellow-sliced-fruit-6SWHWcLyD-8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 

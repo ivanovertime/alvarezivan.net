@@ -80,7 +80,6 @@ I published a starter implementation in this [repo](https://github.com/ivanovert
 
 Let me know if you have any questions.
 
-# References
 ## Outcome
 
 The BCV scraper is now published as an open-source starter repo. It eliminates a recurring manual task (daily copy-paste of exchange rates) and becomes a building block for any Venezuelan e-commerce or SaaS platform that needs rate compliance. Developers can fork it, customize it for their needs, and deploy it on the infrastructure they already have.

@@ -81,7 +81,6 @@ Publiqué una implementación inicial en este [repositorio](https://github.com/i
 
 Avísame si tienes alguna pregunta.
 
-# Referencias
 ## Resultado
 
 El scraper del BCV está publicado como repositorio inicial open source. Elimina una tarea manual recurrente (el copiar y pegar la tasa de cambio a diario) y se convierte en una pieza base para cualquier plataforma venezolana de e-commerce o SaaS que necesite cumplir con la tasa. Los desarrolladores pueden hacer fork, adaptarlo a sus necesidades y desplegarlo en la infraestructura que ya tienen.

@@ -14,13 +14,13 @@ author:
 tags:
    - "linux"
 ---
-# Situation
+## Situation
 
 Last year, after a pretty bad blackout, I decided to test the native Btrfs snapshots in openSUSE Tumbleweed and switch from Ubuntu 22.10 on my personal laptop. Change always brings learning with it, but most forum answers leaned toward GNOME.
 
 Here are the steps to install **fcitx5** and **fcitx5-mozc** input method for Japanese in **openSUSE Tumbleweed**:
 
-# Solution
+## Solution
 
 Open the terminal and enter the following command to install **fcitx5** and **fcitx5-mozc**[^1]:
 
@@ -52,7 +52,7 @@ You can now switch to the **Mozc** input method by pressing the **Ctrl + Space**
 
 Let me know if you have any questions.
 
-# References
+## References
 
 Photo by <a href="https://unsplash.com/@frederickjmedina?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Frederick Medina</a> on <a href="https://unsplash.com/photos/person-holding-brown-bread-with-yellow-sliced-fruit-6SWHWcLyD-8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
