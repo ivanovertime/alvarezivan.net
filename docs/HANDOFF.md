@@ -70,8 +70,10 @@ Live-site rAF sampling showed three cooperating defects, all in the framer `whil
 
 ### Open decisions
 
-- **The push.** Two commits (`9fe083e`, `49bbbb9`) are unpushed; a push is the production deploy.
-  Held deliberately.
+- **The push — resolved.** Shipped on the session's close: `develop` pushed (1394ea2..32cbac4), Cloudflare
+  Pages deployed within ~6 minutes, and the live `/blog` now serves the `reveal-once` markup with no
+  hidden cards in the prerendered HTML (verified by polling until the build flipped). One human look
+  at the deployed reveal is still pending per the screenshot note above.
 
 ### Next step
 
