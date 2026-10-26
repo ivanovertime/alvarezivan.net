@@ -2,6 +2,54 @@
 
 _Updated 2026-10-26. Authoritative state for the next session._
 
+## Session (2026-10-26, ninth) — one `h1` per post, and the gate's Mermaid-shaped ceiling
+
+The one call that opened the session: take **multiple `h1`s per post body**, the next-smallest of
+the recorded defects. The push stays a user decision.
+
+### Root cause
+
+The four older articles used `#` for their top-level sections, while the post template already
+renders the title as the page's `h1`. So every section heading shipped as a second (and third, and
+fourth) `h1` on the page. The case studies and `jp-landing` already used `##`; the older articles
+predated that convention. `bcv-scraper.md` additionally carried an orphan `# References` sitting
+empty immediately above `## Outcome` — the separately-recorded orphan-heading defect.
+
+### What shipped (one commit, unpushed)
+
+- Eight content files (the four articles × en/es): `from-nuxt-to-hugo`, `intern-movie-torrent`,
+  `japanese-input`, `bcv-scraper`. Top-level sections demoted one level (`#` → `##`, their `##`
+  subsections → `###`), and the orphan `# References` / `# Referencias` line deleted. No code change.
+- Deliberately **not** a render-time `ProseH1 → h2` override: standalone pages (`contact`, `now`,
+  `uses`) render only `ContentRenderer`, so their body `h1` **is** the page's single heading — a
+  blanket override would have left those pages with zero `h1`.
+
+### Verified
+
+- All 18 rendered posts (en + es) now have exactly **one `h1`**; hierarchy descends correctly
+  (`from-nuxt-to-hugo`: 3×`h2` / 5×`h3`; `intern-movie-torrent`: 3×`h2` / 2×`h3`). The extra `h2`
+  “Footnotes” is Content's own.
+- Zero body `h1` left in the blog collections; no internal `#`-anchor links existed, so no deep link
+  broke. `npm run lint` clean; hydration stayed clean (content is payload data, not JS).
+  `impeccable detect --json` → `[]`.
+
+### Newly recorded — the Lighthouse gate's hard `total-blocking-time` now fails
+
+`npm run lh` fails the hard `total-blocking-time ≤ 500ms` assertion on
+`/blog/case-studies/semantichelp-rag-knowledge-base` (medians ~830–890ms over three runs; `/` and
+`/blog` pass). **That page is untouched by this session's diff.** Its TBT is dominated by a **606 KB
+Mermaid + dagre + katex chunk** (`CD5WG4Ry.js`) that loads on it. The same gate passed earlier in
+this session, so the bar is borderline; it failed consistently afterwards. The `h1` fix does not
+regress it — but the gate is not green today.
+
+### Next step
+
+Start fresh on a clean tree. **Priority: the case-study TBT / Mermaid chunk** — it is the only thing
+keeping `npm run lh` red, and it likely overlaps the recorded “Mermaid fence renders as code” defect.
+After that: the orphan `# References` is now closed, so the remaining recorded defects are the hidden
+metrics placeholder in `supermarket-pwa-recovery.md` and the Mermaid fence; plus `valid-source-maps`.
+The push stays a user decision.
+
 ## Session (2026-10-26, eighth) — the hydration mismatch was a timezone, not a template
 
 The one call that opened the session: take the **blog hydration mismatch**, the most user-visible
