@@ -2,6 +2,55 @@
 
 _Updated 2026-10-27. Authoritative state for the next session._
 
+## Session (2026-10-27, eleventh) — the one icon that was fetched at runtime
+
+Opened by a user report while testing locally: **“problems rendering the icons”**. Not a regression
+from the tenth session — the tenth session's diff is one plugin file — but a real defect.
+
+### Root cause (measured, not guessed)
+
+`@nuxt/icon` 2.1.1 runs in Nuxt UI's **CSS-mask mode**: the prerendered HTML carries inline critical
+CSS with `:where(.i-lucide\:arrow-right){--svg:url("data:image/svg+xml,…")}` rules. 34 of the site's
+35 icon spans are baked in that way. Exactly one is not — **`i-lucide:sun`**, Nuxt UI's colour-mode
+toggle glyph. Its name is picked from the *resolved* colour mode, so it is not used at prerender time
+and falls back to `GET /api/_nuxt_icon/lucide.json?icons=sun` at runtime. Sweeping 9 routes and every
+interaction I could reach (theme toggle both ways, mobile menu, ⌘K, accordions, copy buttons) turned
+up exactly **two** runtime icons: `lucide:sun` and `lucide:moon`.
+
+In production that endpoint exists (`dist/_worker.js`) and returns 200, so the only cost was a wasted
+request. Under `scripts/serve-dist.mjs` it 404s, because that server is **static-only** — it has one
+commit in its history and has never had an `/api` route — so the toggle rendered with no glyph. That
+404 was also silently costing the Lighthouse gate's `errors-in-console` audit.
+
+### What shipped (one commit, unpushed)
+
+- **`nuxt.config.ts`** — `icon.clientBundle.icons: ['lucide:sun', 'lucide:moon']`. Deliberately *not*
+  `scan: true`, which would bundle every icon literal in the source and duplicate the 34 already in
+  CSS. The build reports `client bundle consist of 2 icons with 0.61KB(uncompressed)`.
+
+### Verified
+
+- **35/35 icon spans carry a mask locally** (was 34/35); the toggle switches `i-lucide:sun` ⇄
+  `i-lucide:moon` with real masks in both directions; **zero `_nuxt_icon` requests** anywhere.
+- Full `npm run lh` still **zero assertion errors**, mobile TBT medians 283 / 204 / 406. Bonus:
+  **best-practices 96 → 100 on every URL**, because the 404 is gone.
+- `npm run lint` + `npm run typecheck` clean; hydration clean in UTC/+14/−04; `impeccable detect` → `[]`.
+- The tenth session's Mermaid behaviour re-verified unchanged on this build: 0 chunk requests before
+  scroll, exactly 1 render on gradual scroll / fling / client navigation, re-render on theme flip.
+
+### Recorded, not fixed
+
+- Mobile FCP is noisy run to run (medians 3.1–4.4 s across today's runs; it is a `warn`, not the gate).
+- `scripts/serve-dist.mjs` remains static-only: any *future* runtime-resolved icon or Nitro route will
+  404 under it. `npx wrangler pages dev dist` is the fully faithful local server if that is ever needed.
+- `app/components/content/MermaidDiagram.vue` is still dead code.
+
+### Next step
+
+Start fresh on a clean tree. The remaining recorded defects are the hidden metrics placeholder in
+`supermarket-pwa-recovery.md` and the `valid-source-maps` failure on first-party JS. The push stays a
+user decision — four commits are waiting on `develop`.
+
 ## Session (2026-10-27, tenth) — the Mermaid chunk was three bugs, not one
 
 The one call that opened the session: **the case-study TBT / Mermaid chunk**, the handoff's named
