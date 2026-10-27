@@ -6,7 +6,8 @@ import { readFile, stat } from 'node:fs/promises'
 import { gzipSync } from 'node:zlib'
 import { join, extname, resolve } from 'node:path'
 
-const root = resolve(import.meta.dirname, '..', 'dist')
+const projectRoot = resolve(import.meta.dirname, '..')
+const root = join(projectRoot, 'dist')
 const port = Number(process.env.PORT ?? 4174)
 const types = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.mjs': 'text/javascript',
@@ -49,9 +50,43 @@ function cacheControlFor(path) {
 
 const compressible = new Set(['.html', '.js', '.mjs', '.css', '.json', '.svg', '.xml', '.txt', '.webmanifest', '.wasm'])
 
+// `@nuxt/icon` asks its own origin for any icon that was not baked into the
+// prerendered CSS: /api/_nuxt_icon/<collection>.json?icons=a,b. In production
+// that is a Nitro route inside dist/_worker.js; a static server has no routes,
+// so it 404s — and a 404 is the one answer Iconify does not fall back from, so
+// the icon vanishes silently. Serve it from the same installed collection the
+// build reads, the way `serverBundle: 'local'` would.
+const ICON_ROUTE = /^\/api\/_nuxt_icon\/([a-z0-9-]+)\.json$/
+
+async function serveIconRequest(res, collectionName, requested) {
+  if (!requested.length) return notFound(res)
+
+  try {
+    const { getIcons } = await import('@iconify/utils')
+    const file = join(projectRoot, 'node_modules', '@iconify-json', collectionName, 'icons.json')
+    const collection = JSON.parse(await readFile(file, 'utf8'))
+    const body = JSON.stringify(getIcons(collection, requested))
+    res.writeHead(200, { 'content-type': 'application/json', 'content-length': String(body.length) })
+    res.end(body)
+  } catch {
+    notFound(res)
+  }
+}
+
+function notFound(res) {
+  res.writeHead(404, { 'content-type': 'text/html; charset=utf-8' })
+  res.end('<h1>404</h1>')
+}
+
 createServer(async (req, res) => {
   let p = decodeURIComponent(req.url.split('?')[0])
   if (p.length > 1) p = p.replace(/\/+$/, '')
+
+  const iconRoute = p.match(ICON_ROUTE)
+  if (iconRoute) {
+    const requested = (new URL(req.url, 'http://127.0.0.1').searchParams.get('icons') ?? '').split(',').filter(Boolean)
+    return serveIconRequest(res, iconRoute[1], requested)
+  }
 
   const candidates = [join(root, p), join(root, `${p}.html`), join(root, p, 'index.html')]
   for (const c of candidates) {
@@ -74,6 +109,5 @@ createServer(async (req, res) => {
       return
     } catch { /* try next */ }
   }
-  res.writeHead(404, { 'content-type': 'text/html; charset=utf-8' })
-  res.end('<h1>404</h1>')
+  notFound(res)
 }).listen(port, '127.0.0.1', () => console.log(`serve-dist listening on http://127.0.0.1:${port}`))

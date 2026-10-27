@@ -44,20 +44,33 @@ const startViewTransition = (event: MouseEvent) => {
 </script>
 
 <template>
-  <ClientOnly>
-    <UButton
-      :aria-label="`Switch to ${nextTheme} mode`"
-      :icon="`i-lucide-${nextTheme === 'dark' ? 'sun' : 'moon'}`"
-      color="neutral"
-      variant="ghost"
-      size="sm"
-      class="rounded-full"
-      @click="startViewTransition"
-    />
-    <template #fallback>
-      <div class="size-4" />
+  <UButton
+    aria-label="Switch between light and dark mode"
+    color="neutral"
+    variant="ghost"
+    size="sm"
+    class="rounded-full"
+    @click="startViewTransition"
+  >
+    <!--
+      Both glyphs ship in the markup and CSS picks one. A dynamic `:icon` here
+      cannot be prerendered, so it would be fetched from `/api/_nuxt_icon` after
+      hydration — which a static host answers with a 404, and a 404 is the one
+      answer that does not fall back to the Iconify API.
+    -->
+    <template #leading="{ ui }">
+      <UIcon
+        name="i-lucide-sun"
+        data-slot="leadingIcon"
+        :class="[ui.leadingIcon({ active: false }), 'dark:hidden']"
+      />
+      <UIcon
+        name="i-lucide-moon"
+        data-slot="leadingIcon"
+        :class="[ui.leadingIcon({ active: false }), 'hidden dark:inline-block']"
+      />
     </template>
-  </ClientOnly>
+  </UButton>
 </template>
 
 <style>
