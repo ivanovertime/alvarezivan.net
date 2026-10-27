@@ -1,6 +1,88 @@
 # Handoff — alvarezivan.net
 
-_Updated 2026-10-26. Authoritative state for the next session._
+_Updated 2026-10-27. Authoritative state for the next session._
+
+## Session (2026-10-27, tenth) — the Mermaid chunk was three bugs, not one
+
+The one call that opened the session: **the case-study TBT / Mermaid chunk**, the handoff's named
+priority and the only thing keeping `npm run lh` red. The push stays a user decision.
+
+### Root cause (measured, not guessed)
+
+Three independent defects in `app/plugins/mermaid-render.client.ts`, all of them visible in the built
+`dist/` before any edit:
+
+- **The chunk loaded on every route.** `renderMermaidBlocks()` called `await ensureMermaid()` — the
+  dynamic `import('mermaid')` — *before* it queried `pre.language-mermaid`. `/` and `/blog` have no
+  fence, so both paid 140 KB gzip plus parse plus `initialize()` for nothing. Measured with
+  `playwright-core` + the installed Chrome at a 412×915 viewport: the 606 KB raw (`CD5WG4Ry.js`)
+  chunk was requested on `/`, `/blog`, `/blog/from-nuxt-to-hugo` **and** both case studies — 140 KB
+  gzip on all of them. That is why the failing page was only ~57 KB heavier than `/` rather than
+  140 KB lighter.
+- **The diagram rendered twice.** `scheduleRender` set `pending = true` and cleared it *before*
+  awaiting the async render, so `app:mounted` and `page:finish` both got through, both queried
+  `:not([data-mermaid-rendered="true"])` before either had marked the fence, and both rendered it.
+  The page settled with `data-mermaid-generated="true"` × **2** and two `<svg>` — two dagre layouts
+  inside the TBT window.
+- **It ran eagerly.** The render fired in a `requestAnimationFrame` immediately after mount, i.e.
+  squarely inside the FCP→TTI window instead of after it.
+
+The fence sits at y≈3280 on mobile (viewport 915, doc 12659) — about 3.6 screens below the fold — so
+there was no reason for any of this work to happen during load.
+
+### What shipped (one commit, unpushed)
+
+- **Gate:** `renderPass` bails before the import when no fence is due, so a route without a diagram
+  never downloads, parses or initialises mermaid.
+- **De-dupe:** the `pending` flag is replaced by a single-flight `inFlight` promise plus a
+  `rerunRequested` / `resetRequested` queue, so a theme flip or route change landing mid-render
+  joins the pass in flight instead of racing it into a second layout.
+- **Defer:** `dueBlocks()` — fence top above `innerHeight + 1600px` — checked on
+  `scroll` / `resize` / `app:mounted` / `page:finish`, replacing the post-mount rAF.
+
+### The dead end, recorded so it is not re-tried
+
+This was implemented with an `IntersectionObserver` first, and **rejected on measurement**: IO only
+fires on threshold *crossings*, so `window.scrollTo(bottom)` jumps a fence from below the viewport to
+above it with no crossing, and the observer reports nothing — the diagram stayed as code
+permanently (measured: `0` svg, `pre` not hidden). The horizon check treats a fence already *above*
+the viewport as due, which is what fixes that case.
+
+### Verified
+
+- **TBT median on the failing page: ~830–890 ms → 411 ms** (hard cap 500). Full `npm run lh`
+  (build + mobile + desktop) reports **zero assertion errors**. Mobile TBT medians now 277 / 211 /
+  411 for `/`, `/blog`, the case study; desktop `/` TBT 2 ms, perf 93–95, a11y 100, bp 96, seo 100.
+  FCP remains a `warn` (deliberately the aspiration, not the gate).
+- **Mermaid chunk requests before scroll: 0** on `/`, `/blog`, `/blog/from-nuxt-to-hugo` and both
+  locales of both case studies — including the case-study pages themselves, which no longer touch it
+  until the diagram is approached.
+- **Diagrams still render, exactly once** (`1` svg, `pre` hidden, `0` error containers): on gradual
+  scroll, on an instant fling to the bottom, on client-side navigation from `/blog`, and on both
+  locales of both case studies. A theme flip re-renders with a new id and still leaves exactly one
+  container.
+- `npm run lint` + `npm run typecheck` clean; hydration clean across UTC / `Pacific/Kiritimati` /
+  `America/Caracas` on 12 routes; `impeccable detect --json` → `[]`.
+
+### Defect closed
+
+The recorded “Mermaid fence renders as code” item is **closed**. It was logged as “`MermaidDiagram.vue`
+never fires because fenced code isn't mapped to it” — that predates `mermaid-render.client.ts`, which
+handles `pre.language-mermaid` directly. That path now renders once, lazily, in both locales.
+
+### Recorded, not fixed
+
+- A hard fling still has a brief window where the fence is visible as code while the 140 KB chunk
+  loads and lays out. No-JS still shows the highlighted code block by design (progressive
+  enhancement: the fence is the fallback, swapped for a diagram when JS runs).
+- `app/components/content/MermaidDiagram.vue` is **dead code** — no reference anywhere in the repo
+  and no occurrence in the built JS. Left alone; it is the unused second render path.
+
+### Next step
+
+Start fresh on a clean tree. The remaining recorded defects are now the hidden metrics placeholder in
+`supermarket-pwa-recovery.md` and the `valid-source-maps` failure on first-party JS. The push stays a
+user decision.
 
 ## Session (2026-10-26, ninth) — one `h1` per post, and the gate's Mermaid-shaped ceiling
 
