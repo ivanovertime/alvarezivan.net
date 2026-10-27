@@ -94,8 +94,8 @@ only a `minScore: 0.9` guard, so the gate passes either way.
 ### Next step
 
 Start fresh on a clean tree. The remaining recorded defects are the hidden metrics placeholder in
-`supermarket-pwa-recovery.md` and the `valid-source-maps` failure on first-party JS. The push stays a
-user decision — six commits are waiting on `develop`.
+`supermarket-pwa-recovery.md` and the `valid-source-maps` failure on first-party JS. This session's six
+commits were **pushed** to `origin/develop` on 2026-10-27, so the tree starts level.
 
 ## Session (2026-10-27, tenth) — the Mermaid chunk was three bugs, not one
 
