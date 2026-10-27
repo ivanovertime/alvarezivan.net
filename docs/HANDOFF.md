@@ -2,54 +2,100 @@
 
 _Updated 2026-10-27. Authoritative state for the next session._
 
-## Session (2026-10-27, eleventh) — the one icon that was fetched at runtime
+## Session (2026-10-27, eleventh) — icons: three tiers, one unrecoverable answer, no runtime resolution
 
 Opened by a user report while testing locally: **“problems rendering the icons”**. Not a regression
-from the tenth session — the tenth session's diff is one plugin file — but a real defect.
+from the tenth session — that diff is one plugin file — but a real defect. The user then asked for a
+re-evaluation of the whole icon strategy, and the second pass replaced the first fix.
 
-### Root cause (measured, not guessed)
+### The three tiers (all measured)
 
-`@nuxt/icon` 2.1.1 runs in Nuxt UI's **CSS-mask mode**: the prerendered HTML carries inline critical
-CSS with `:where(.i-lucide\:arrow-right){--svg:url("data:image/svg+xml,…")}` rules. 34 of the site's
-35 icon spans are baked in that way. Exactly one is not — **`i-lucide:sun`**, Nuxt UI's colour-mode
-toggle glyph. Its name is picked from the *resolved* colour mode, so it is not used at prerender time
-and falls back to `GET /api/_nuxt_icon/lucide.json?icons=sun` at runtime. Sweeping 9 routes and every
-interaction I could reach (theme toggle both ways, mobile menu, ⌘K, accordions, copy buttons) turned
-up exactly **two** runtime icons: `lucide:sun` and `lucide:moon`.
+- **Prerendered — 34 of 35, plus every content-driven icon.** `@nuxt/icon` 2.1.1 runs in Nuxt UI's
+  **CSS-mask mode**: the prerendered HTML carries inline critical CSS with
+  `:where(.i-lucide\:arrow-right){--svg:url("data:image/svg+xml,…")}` rules. This covers the company
+  logos and service cards from `content/home.yml`, the blog filter icons (`filter.icon`), the footer
+  socials. First paint, zero requests, works with JS off. No change needed.
+- **Client-state — exactly one.** `app/components/ColorModeButton.vue` computed
+  `` `i-lucide-${nextTheme === 'dark' ? 'sun' : 'moon'}` `` inside `<ClientOnly>`, so no icon name
+  exists at prerender time. It cannot be baked. **Correction:** an earlier draft of this section called
+  it “Nuxt UI's colour-mode button”. It is this project's own component.
+- **The fallback chain.** `/api/_nuxt_icon` → the Pages worker (`dist/_worker.js`) → jsDelivr, because
+  `serverBundle: 'auto'` resolves to `remote` on edge targets; and on transport failure the *client*
+  falls back to `api.iconify.design` (`fallbackToApi` defaults to `true`).
 
-In production that endpoint exists (`dist/_worker.js`) and returns 200, so the only cost was a wasted
-request. Under `scripts/serve-dist.mjs` it 404s, because that server is **static-only** — it has one
-commit in its history and has never had an `/api` route — so the toggle rendered with no glyph. That
-404 was also silently costing the Lighthouse gate's `errors-in-console` audit.
+### The one answer that cannot be recovered from
 
-### What shipped (one commit, unpushed)
+Measured by intercepting the route on the live site:
 
-- **`nuxt.config.ts`** — `icon.clientBundle.icons: ['lucide:sun', 'lucide:moon']`. Deliberately *not*
-  `scan: true`, which would bundle every icon literal in the source and duplicate the 34 already in
-  CSS. The build reports `client bundle consist of 2 icons with 0.61KB(uncompressed)`.
+| endpoint result | client falls back | icon appears |
+|---|---|---|
+| abort / timeout / 500 | yes | yes |
+| **404** | **no** | **no — silently** |
+
+Iconify reads a 404 as an authoritative “this icon does not exist”, so it stops. That is why the local
+static server was the only place the icon broke: `scripts/serve-dist.mjs` has no Nitro route, so it
+answered 404 — the one response the system cannot recover from — while production was fine.
+
+### What shipped
+
+- **`app/components/ColorModeButton.vue`** — both glyphs render as static `UIcon`s and CSS picks one
+  (`dark:hidden` / `hidden dark:inline-block`), so both names are literals and both are baked into the
+  prerendered CSS. `ClientOnly` goes with the dynamic name. The `aria-label` is now static (“Switch
+  between light and dark mode”) because a label derived from `nextTheme` would mismatch on hydration.
+  The `#leading` slot keeps the button `square` — a default slot would have set `square: false` and
+  changed the header layout.
+- **`scripts/serve-dist.mjs`** — answers `/api/_nuxt_icon/<collection>.json` from
+  `node_modules/@iconify-json/<collection>/icons.json` using the same `getIcons` helper the Nitro
+  endpoint uses, so local review is no longer the one environment that lies.
+
+### Rejected, with the measurement
+
+- **`icon.clientBundle.icons: ['lucide:sun', 'lucide:moon']`** — the first fix (commit `d1a0fb2`). It
+  worked, but it left a runtime-resolution path in place for no reason. Reverted in favour of making
+  both names static, which removes the path entirely.
+- **`clientBundle.scan: true`** — flagged experimental upstream, and it would *not* have caught this:
+  the scanner matches icon literals in `.vue/.yml/.md`, and `i-lucide-${…}` has no literal name while
+  bare `'sun'`/`'moon'` are not references. It would also duplicate the 34 icons already in CSS.
+- **`serverBundle: 'local'`** — would drop jsDelivr, but `simple-icons` is 4.5 MB raw and `lucide`
+  520 KB against a 4.6 MB / 1.03 MB-gzip worker. With no runtime icon left the endpoint is never
+  reached, so it is insurance not worth the worker size.
 
 ### Verified
 
-- **35/35 icon spans carry a mask locally** (was 34/35); the toggle switches `i-lucide:sun` ⇄
-  `i-lucide:moon` with real masks in both directions; **zero `_nuxt_icon` requests** anywhere.
-- Full `npm run lh` still **zero assertion errors**, mobile TBT medians 283 / 204 / 406. Bonus:
-  **best-practices 96 → 100 on every URL**, because the 404 is gone.
-- `npm run lint` + `npm run typecheck` clean; hydration clean in UTC/+14/−04; `impeccable detect` → `[]`.
+- **Zero `_nuxt_icon` requests and zero missing icons on all 9 swept routes** (was 1 missing).
+- Exactly one glyph visible per theme: `i-lucide:sun` at 16×16 in light, `i-lucide:moon` in dark, the
+  other 0×0 — button still 28×28 and in the header. Both `.i-lucide\:sun` and `.i-lucide\:moon` rules
+  are present in the prerendered CSS.
+- The local route returns **376 bytes for `?icons=sun`, byte-identical to production**; 404 for an
+  unknown collection and 404 with no `icons` param, matching the Nitro endpoint's semantics.
+- Full `npm run lh` **zero assertion errors**; mobile TBT 173 / 164 / 239, desktop `/` perf 96–97,
+  a11y 100, seo 100. lint + typecheck clean, hydration clean in UTC/+14/−04, `impeccable detect` → `[]`.
 - The tenth session's Mermaid behaviour re-verified unchanged on this build: 0 chunk requests before
   scroll, exactly 1 render on gradual scroll / fling / client navigation, re-render on theme flip.
 
+### Corrected claim
+
+The commit that shipped the first fix says best-practices went “96 → 100 on every URL now that the 404
+is gone”. **That is not supported.** `errors-in-console` is also failed by
+`googletagmanager.com/gtag/js` returning `net::ERR_NAME_NOT_RESOLVED` — a DNS failure in the measuring
+environment — and best-practices is **96 again** in the final run with no icon error present at all.
+The icon 404 was one contributor to that audit, not the cause of the 96 → 100 swing. Best-practices is
+only a `minScore: 0.9` guard, so the gate passes either way.
+
 ### Recorded, not fixed
 
-- Mobile FCP is noisy run to run (medians 3.1–4.4 s across today's runs; it is a `warn`, not the gate).
-- `scripts/serve-dist.mjs` remains static-only: any *future* runtime-resolved icon or Nitro route will
-  404 under it. `npx wrangler pages dev dist` is the fully faithful local server if that is ever needed.
+- Mobile FCP is noisy run to run (medians 3.1–4.4 s; a `warn`, not the gate). TBT on this machine is
+  noisy too — the same build has measured 380–406 and 239 on the case study — so the TBT improvement in
+  the final run is **not** fully attributable to this change.
+- `scripts/serve-dist.mjs` now covers `_nuxt_icon`, but any *other* Nitro route would still 404 under
+  it. `npx wrangler pages dev dist` remains the fully faithful local server.
 - `app/components/content/MermaidDiagram.vue` is still dead code.
 
 ### Next step
 
 Start fresh on a clean tree. The remaining recorded defects are the hidden metrics placeholder in
 `supermarket-pwa-recovery.md` and the `valid-source-maps` failure on first-party JS. The push stays a
-user decision — four commits are waiting on `develop`.
+user decision — six commits are waiting on `develop`.
 
 ## Session (2026-10-27, tenth) — the Mermaid chunk was three bugs, not one
 
