@@ -74,6 +74,18 @@ export default defineNuxtConfig({
     ]
   },
 
+  icon: {
+    // The rest of the icons are baked into the prerendered CSS masks. These two
+    // cannot be: Nuxt UI's color-mode button picks `sun` or `moon` from the
+    // resolved color mode, so neither is used at prerender time and both fall
+    // back to a runtime fetch of `/api/_nuxt_icon/lucide.json`. Bundling them
+    // client-side drops that request — and the missing-icon 404 when `dist/` is
+    // served by a static file server with no Nitro route (`scripts/serve-dist.mjs`).
+    clientBundle: {
+      icons: ['lucide:sun', 'lucide:moon']
+    }
+  },
+
   image: {
     // Cloudflare Pages serves static assets only, so there is no sharp at
     // runtime: the `ipx` provider would emit /_ipx/... URLs that 404 in
