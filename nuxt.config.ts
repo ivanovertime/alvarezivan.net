@@ -68,9 +68,16 @@ export default defineNuxtConfig({
     strategy: 'prefix_except_default',
     defaultLocale: 'en',
     detectBrowserLanguage: false,
+    experimental: {
+      // Generate `.nuxt/types/i18n-messages.d.ts` from the default locale catalogue
+      // on dev-server run, so a misspelled `t()` key fails type checks in dev/IDE
+      // instead of rendering as literal text. (v10 generates this in dev only — CI
+      // `nuxt typecheck` does not reference it; the locale codes are still typed.)
+      typedOptionsAndMessages: 'default'
+    },
     locales: [
-      { code: 'en', name: 'English', language: 'en-US' },
-      { code: 'es', name: 'Español', language: 'es-ES' }
+      { code: 'en', name: 'English', language: 'en-US', file: 'en.json' },
+      { code: 'es', name: 'Español', language: 'es-ES', file: 'es.json' }
     ]
   },
 
@@ -78,7 +85,11 @@ export default defineNuxtConfig({
     // Cloudflare Pages serves static assets only, so there is no sharp at
     // runtime: the `ipx` provider would emit /_ipx/... URLs that 404 in
     // production. `ipxStatic` generates every variant at build time instead.
-    provider: 'ipxStatic',
+    // `ipxStatic` is build-time only, though — in `nuxt dev` nothing generates
+    // the variants, so every transformed image 404s and renders as broken.
+    // Dev uses the runtime `ipx` provider (sharp ships in node_modules);
+    // production builds run with NODE_ENV=production and stay `ipxStatic`.
+    provider: process.env.NODE_ENV === 'development' ? 'ipx' : 'ipxStatic',
     quality: 80
   },
 

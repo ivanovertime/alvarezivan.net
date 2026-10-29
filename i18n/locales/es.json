@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "blog": "Blog",
+    "now": "Ahora",
+    "about": "Sobre mí",
+    "contact": "Contacto"
+  },
+  "footer": {
+    "switchTo": "English"
+  },
+  "error": {
+    "title": "Página no encontrada",
+    "description": "Lo sentimos, pero no pudimos encontrar esta página."
+  },
+  "hero": {
+    "available": "Disponible para nuevos proyectos",
+    "unavailable": "No disponible por el momento"
+  },
+  "colorMode": {
+    "toggle": "Cambiar entre modo claro y oscuro"
+  },
+  "blog": {
+    "readArticle": "Leer artículo",
+    "copyLink": "Copiar enlace",
+    "linkCopied": "Enlace copiado al portapapeles",
+    "clearTags": "Limpiar etiquetas",
+    "empty": "No hay publicaciones para estos filtros.",
+    "minRead": "MIN DE LECTURA",
+    "viewRepository": "Ver Repositorio",
+    "teamOf": "Equipo de",
+    "categories": {
+      "all": "Todo",
+      "article": "Artículo",
+      "caseStudy": "Caso de Estudio",
+      "sideProject": "Proyecto Personal"
+    }
+  },
+  "about": {
+    "downloadCvEnglish": "Descargar CV (Inglés)",
+    "downloadCvSpanish": "Descargar CV (Español)"
+  },
+  "rss": {
+    "feedTitle": "Ivan Over Time — Feed (Español)"
+  }
+}

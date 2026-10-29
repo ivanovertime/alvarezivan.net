@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const router = useRouter()
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 
 const pageKey = computed(() => `page:${route.path}`)
 
@@ -17,8 +17,14 @@ if (!page.value) {
     fatal: true
   })
 }
-const { data: allPosts } = await useAsyncData('blogs', () =>
-  queryCollection('blog').where('hidden', '=', false).order('date', 'DESC').all()
+// Locale-dependent payload, locale-bound key — a neutral key would replay the
+// other language's cache on client-side navigation.
+const { data: allPosts } = await useAsyncData(`blogs-${locale.value}`, () =>
+  queryCollection('blog')
+    .where('hidden', '=', false)
+    .where('locale', '=', locale.value)
+    .order('date', 'DESC')
+    .all()
 )
 if (!allPosts.value) {
   throw createError({
@@ -29,12 +35,9 @@ if (!allPosts.value) {
 }
 
 // Only posts in the reader's language: the Spanish index lists what has actually
-// been translated, never an English body behind a Spanish route. Filtered here
-// rather than in the query — the schema's `locale` default is not materialised in
-// the column a `.where('locale', '=', …)` would match against.
-const posts = computed(() =>
-  (allPosts.value ?? []).filter(post => (post.locale ?? 'en') === locale.value)
-)
+// been translated, never an English body behind a Spanish route. The SQL `where`
+// does the real work; the util guards until prod D1 parity is confirmed.
+const posts = computed(() => filterByLocale(allPosts.value ?? [], locale.value))
 
 type CategoryFilter = 'all' | 'article' | 'case-study' | 'side-project'
 type TagFilter = string
@@ -107,20 +110,12 @@ const clearTags = () => {
   router.push({ path: route.path, query })
 }
 
-const filters = computed<Array<{ key: CategoryFilter, label: string, icon: string }>>(() =>
-  locale.value === 'es'
-    ? [
-        { key: 'all', label: 'Todo', icon: 'i-lucide-layout-grid' },
-        { key: 'side-project', label: 'Proyecto Personal', icon: 'i-lucide-flask-conical' },
-        { key: 'case-study', label: 'Caso de Estudio', icon: 'i-lucide-briefcase-business' },
-        { key: 'article', label: 'Artículo', icon: 'i-lucide-newspaper' }
-      ]
-    : [
-        { key: 'all', label: 'All', icon: 'i-lucide-layout-grid' },
-        { key: 'side-project', label: 'Side Project', icon: 'i-lucide-flask-conical' },
-        { key: 'case-study', label: 'Case Study', icon: 'i-lucide-briefcase-business' },
-        { key: 'article', label: 'Article', icon: 'i-lucide-newspaper' }
-      ])
+const filters = computed<Array<{ key: CategoryFilter, label: string, icon: string }>>(() => [
+  { key: 'all', label: t('blog.categories.all'), icon: 'i-lucide-layout-grid' },
+  { key: 'side-project', label: t('blog.categories.sideProject'), icon: 'i-lucide-flask-conical' },
+  { key: 'case-study', label: t('blog.categories.caseStudy'), icon: 'i-lucide-briefcase-business' },
+  { key: 'article', label: t('blog.categories.article'), icon: 'i-lucide-newspaper' }
+])
 
 const filteredPosts = computed(() => {
   const all = posts.value ?? []
@@ -197,7 +192,7 @@ useSeoMeta({
           color="neutral"
           variant="ghost"
           size="xs"
-          :label="locale === 'es' ? 'Limpiar etiquetas' : 'Clear tags'"
+          :label="t('blog.clearTags')"
           @click="clearTags"
         />
       </div>
@@ -247,7 +242,7 @@ useSeoMeta({
                   variant="soft"
                   size="xs"
                   icon="i-lucide-newspaper"
-                  :label="locale === 'es' ? 'Artículo' : 'Article'"
+                  :label="t('blog.categories.article')"
                 />
                 <UBadge
                   v-if="post.category === 'case-study'"
@@ -255,7 +250,7 @@ useSeoMeta({
                   variant="soft"
                   size="xs"
                   icon="i-lucide-briefcase-business"
-                  :label="locale === 'es' ? 'Caso de Estudio' : 'Case Study'"
+                  :label="t('blog.categories.caseStudy')"
                 />
                 <UBadge
                   v-if="post.category === 'side-project'"
@@ -263,7 +258,7 @@ useSeoMeta({
                   variant="soft"
                   size="xs"
                   icon="i-lucide-flask-conical"
-                  :label="locale === 'es' ? 'Proyecto Personal' : 'Side Project'"
+                  :label="t('blog.categories.sideProject')"
                 />
                 <BlogTag
                   v-for="tag in (post.tags ?? []).slice(0, 2)"
@@ -288,7 +283,7 @@ useSeoMeta({
         v-if="!filteredPosts.length"
         class="text-sm text-muted"
       >
-        {{ locale === 'es' ? 'No hay publicaciones para estos filtros.' : 'No posts match these filters yet.' }}
+        {{ t('blog.empty') }}
       </p>
     </UPageSection>
   </UPage>

@@ -1,19 +1,13 @@
 <script setup lang="ts">
 const { footer } = useAppConfig()
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const localePath = useLocalePath()
 const localeLinks = useLocaleSwitcherLinks()
-const localeSwitch = computed(() => locale.value === 'es'
-  ? {
-      label: 'English',
-      to: localeLinks.value.en,
-      analyticsLabel: 'footer_switch_english'
-    }
-  : {
-      label: 'Español',
-      to: localeLinks.value.es,
-      analyticsLabel: 'footer_switch_spanish'
-    })
+const localeSwitch = computed(() => ({
+  label: t('footer.switchTo'),
+  to: locale.value === 'es' ? localeLinks.value.en : localeLinks.value.es,
+  analyticsLabel: locale.value === 'es' ? 'footer_switch_english' : 'footer_switch_spanish'
+}))
 </script>
 
 <template>

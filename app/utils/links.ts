@@ -28,42 +28,26 @@ export const hasSpanishCounterpart = (path: string) => {
 
 export const useNavLinks = () => {
   const localePath = useLocalePath()
-  const { locale } = useI18n()
-
-  const labels = computed(() => locale.value === 'es'
-    ? {
-        home: 'Inicio',
-        blog: 'Blog',
-        now: 'Ahora',
-        about: 'Sobre mí',
-        contact: 'Contacto'
-      }
-    : {
-        home: 'Home',
-        blog: 'Blog',
-        now: 'Now',
-        about: 'About',
-        contact: 'Contact'
-      })
+  const { t } = useI18n()
 
   return computed<NavigationMenuItem[]>(() => [{
-    label: labels.value.home,
+    label: t('nav.home'),
     icon: 'i-lucide-home',
     to: localePath('/')
   }, {
-    label: labels.value.blog,
+    label: t('nav.blog'),
     icon: 'i-lucide-file-text',
     to: localePath('/blog')
   }, {
-    label: labels.value.now,
+    label: t('nav.now'),
     icon: 'i-lucide-radio',
     to: localePath('/now')
   }, {
-    label: labels.value.about,
+    label: t('nav.about'),
     icon: 'i-lucide-user',
     to: localePath('/about')
   }, {
-    label: labels.value.contact,
+    label: t('nav.contact'),
     icon: 'i-lucide-mail',
     to: localePath('/contact')
   }])

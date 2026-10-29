@@ -1,6 +1,73 @@
 # Handoff — alvarezivan.net
 
-_Updated 2026-10-27. Authoritative state for the next session._
+_Updated 2026-10-29. Authoritative state for the next session._
+
+## Session (2026-10-29, twelfth) — i18n catalogue, and locale filtering moves back into SQL
+
+Opened by a user report: `/es` rendered "Available for new projects" in the hero and its home
+blog teaser linked English posts. The fix grew into a UI-string catalogue migration and, after
+direct DB verification, a correction of this file's own SQL claim from the ES-migration session.
+
+### What shipped
+
+- **`i18n/locales/en.json` + `es.json`** — the vue-i18n message catalogue (auto-resolved from
+  `i18n/locales`; only `file:` needed on each locale in `nuxt.config.ts`). All UI copy is off inline
+  `locale === 'es' ? …` ternaries: nav, footer switcher, error SEO, hero availability,
+  colour-mode `aria-label`, RSS link title, blog index filters/badges/empty state, post-page
+  strings, CV buttons, and the home hero/blog labels that opened the session. Net −28 lines.
+- **`app/utils/posts.ts`** — `filterByLocale(items, locale)`, the single predicate for the three
+  blog queries.
+- **Locale filtering is back in SQL.** All three blog queries now `.where('locale', '=', locale)`,
+  and the home teaser's `.limit(3)` is a real SQL limit again. **This corrects the ES-migration
+  session's record** that a Zod `default` is not materialised in the queryable column — that was
+  true under the `@nuxt/content` 3.5.x in force then, and is false under the installed 3.9.0 (evidence
+  below). Do re-check against any future major bump before relying on this.
+- **`useAsyncData` keys are locale-bound** (`index-blogs-${locale}`, `blogs-${locale}`,
+  `visible-blog-posts-${locale}`). Mandatory, not cosmetic: once a query is locale-dependent, a
+  locale-neutral key would replay the other language's cached payload on client-side navigation.
+- **`experimental.typedOptionsAndMessages: 'default'`** in `nuxt.config.ts` (nested under
+  `experimental` in v10) — the dev server generates `.nuxt/types/i18n-messages.d.ts` from
+  `en.json`, typing `t()` keys in dev/IDE. A negative test (misspelled key) proved the enforcement
+  works when the file is in the program. Caveat, measured not assumed: the generation hook only
+  runs in dev mode, and `nuxt typecheck` re-runs prepare without it, so **CI typecheck does not
+  enforce message keys** in v10 — only the locale codes (`"en" | "es"`, always typed). Don't
+  document the option as a CI guard.
+- **`AppFooter.vue`** — the switcher computed collapsed to one object; `label: t('footer.switchTo')`
+  is no longer duplicated per branch.
+- **Broken images in local dev, fixed.** `provider: 'ipxStatic'` is honored in `nuxt dev` too
+  (`@nuxt/image` 2 does not fall back), but it only serves variants generated during prerender — so
+  every transformed `/_ipx/...` URL 404'd and images rendered broken (raw `public/` files like
+  `avatar.jpg` were unaffected). `nuxt.config.ts` now picks `ipx` in dev (`sharp` ships in
+  node_modules) and keeps `ipxStatic` for production builds (`NODE_ENV=production`). Verified: dev
+  serves `/w_384&f_webp&q_80/blog/chronocal/featuredImage.jpg` as `200 image/webp`.
+
+### The corrected claim (measured, not assumed)
+
+- `_content_blog.locale` in `contents.sqlite` is populated for **all 24 rows** — 12 × `'en'` (pure
+  schema default, no explicit frontmatter) and 12 × `'es'`.
+- `dist/dump.blog.sql` (the production D1 seed) carries 12 bare `'en'` and 12 bare `'es'` locale
+  values.
+- The `home` collection already filtered by locale in SQL on production, so D1-side filtering is
+  proven there; `blog` uses the same column and is expected to behave identically, but **production
+  parity is unverified until the next deploy.** Until then `filterByLocale` stays applied after each
+  query as a belt-and-suspenders guard — worst case it empties a section; it can never serve the
+  wrong language.
+
+### Verification
+
+`nuxt typecheck` (now with typed messages), ESLint, and a full prerender build pass. Prerendered
+HTML: `/es` home carries `Leer artículo` / `Disponible para nuevos proyectos` and zero English
+strings, with only `/es/blog/…` links; the EN inverse holds. ES post pages: `MIN DE LECTURA`,
+`Copiar enlace`, `Ver Repositorio`. Sweep of every `es/**` HTML for the old English strings: zero
+hits (the single `AboutPage` match is JSON-LD `@type`, not UI).
+
+### Open
+
+- **`jobTitle: 'Full-Stack Engineer'`** in `app/app.vue`'s Person JSON-LD is English on `/es`
+  (pre-existing; structured data, not visible UI).
+- **Deploy, then re-check `/es` on production** (D1 parity for the `blog` `where`). Confirmed, the
+  `filterByLocale` guards can be dropped.
+- Nothing is committed yet — the whole catalogue + SQL move is one working tree.
 
 ## Session (2026-10-27, eleventh) — icons: three tiers, one unrecoverable answer, no runtime resolution
 

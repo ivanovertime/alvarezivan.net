@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const colorMode = useColorMode()
 
 const nextTheme = computed(() => (colorMode.value === 'dark' ? 'light' : 'dark'))
@@ -45,7 +46,7 @@ const startViewTransition = (event: MouseEvent) => {
 
 <template>
   <UButton
-    aria-label="Switch between light and dark mode"
+    :aria-label="t('colorMode.toggle')"
     color="neutral"
     variant="ghost"
     size="sm"

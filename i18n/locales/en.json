@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "now": "Now",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "footer": {
+    "switchTo": "Español"
+  },
+  "error": {
+    "title": "Page not found",
+    "description": "We are sorry but this page could not be found."
+  },
+  "hero": {
+    "available": "Available for new projects",
+    "unavailable": "Not available at the moment"
+  },
+  "colorMode": {
+    "toggle": "Switch between light and dark mode"
+  },
+  "blog": {
+    "readArticle": "Read Article",
+    "copyLink": "Copy link",
+    "linkCopied": "Article link copied to clipboard",
+    "clearTags": "Clear tags",
+    "empty": "No posts match these filters yet.",
+    "minRead": "MIN READ",
+    "viewRepository": "View Repository",
+    "teamOf": "Team of",
+    "categories": {
+      "all": "All",
+      "article": "Article",
+      "caseStudy": "Case Study",
+      "sideProject": "Side Project"
+    }
+  },
+  "about": {
+    "downloadCvEnglish": "Download CV (English)",
+    "downloadCvSpanish": "Download CV (Spanish)"
+  },
+  "rss": {
+    "feedTitle": "Ivan Over Time RSS Feed"
+  }
+}

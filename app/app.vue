@@ -3,7 +3,7 @@ const colorMode = useColorMode()
 const route = useRoute()
 const config = useRuntimeConfig()
 const requestUrl = useRequestURL()
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const navLinks = useNavLinks()
 
 const color = computed(() => colorMode.value === 'dark' ? '#020618' : 'white')
@@ -38,13 +38,7 @@ useHead(() => ({
           { rel: 'alternate', hreflang: 'x-default', href: englishUrl.value }
         ]
       : []),
-    ...(locale.value === 'es'
-      ? [
-          { rel: 'alternate', type: 'application/rss+xml', title: 'Ivan Over Time — Feed (Español)', href: '/es/rss.xml' }
-        ]
-      : [
-          { rel: 'alternate', type: 'application/rss+xml', title: 'Ivan Over Time RSS Feed', href: '/rss.xml' }
-        ]),
+    { rel: 'alternate', type: 'application/rss+xml', title: t('rss.feedTitle'), href: locale.value === 'es' ? '/es/rss.xml' : '/rss.xml' },
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
     {

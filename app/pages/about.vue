@@ -2,7 +2,7 @@
 import { cvLinks as canonicalCvLinks } from '~/utils/links'
 
 const route = useRoute()
-const { locale } = useI18n()
+const { t } = useI18n()
 
 const pageKey = computed(() => `page:${route.path}`)
 
@@ -23,11 +23,11 @@ const { global } = useAppConfig()
 
 const cvLinks = computed(() => [
   {
-    label: locale.value === 'es' ? 'Descargar CV (Inglés)' : 'Download CV (English)',
+    label: t('about.downloadCvEnglish'),
     to: canonicalCvLinks.en
   },
   {
-    label: locale.value === 'es' ? 'Descargar CV (Español)' : 'Download CV (Spanish)',
+    label: t('about.downloadCvSpanish'),
     to: canonicalCvLinks.es
   }
 ])

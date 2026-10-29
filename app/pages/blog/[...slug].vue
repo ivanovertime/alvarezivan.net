@@ -2,7 +2,7 @@
 const route = useRoute()
 const config = useRuntimeConfig()
 const requestUrl = useRequestURL()
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 
 const baseUrl = computed(() => config.public.siteUrl || requestUrl.origin)
 const canonicalUrl = computed(() => `${baseUrl.value}${route.path === '/' ? '' : route.path}`)
@@ -14,14 +14,16 @@ const { data: page } = await useAsyncData(route.path, () =>
 )
 if (!page.value) throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 // Surround links stay inside the post's own language, so a Spanish post never points
-// the reader at an English neighbour. Filtered in JS: the schema's `locale` default is
-// not materialised in the column a `.where('locale', '=', …)` would match against.
-const { data: visiblePosts } = await useAsyncData('visible-blog-posts', () =>
-  queryCollection('blog').where('hidden', '=', false).order('date', 'DESC').all()
+// the reader at an English neighbour. The SQL `where` does the real work; the util
+// guards until prod D1 parity is confirmed.
+const { data: visiblePosts } = await useAsyncData(`visible-blog-posts-${locale.value}`, () =>
+  queryCollection('blog')
+    .where('hidden', '=', false)
+    .where('locale', '=', locale.value)
+    .order('date', 'DESC')
+    .all()
 )
-const siblings = computed(() =>
-  (visiblePosts.value ?? []).filter(post => (post.locale ?? 'en') === locale.value)
-)
+const siblings = computed(() => filterByLocale(visiblePosts.value ?? [], locale.value))
 
 const surround = computed(() => {
   const posts = siblings.value
@@ -118,7 +120,7 @@ const articleLink = computed(() => canonicalUrl.value)
               variant="soft"
               size="xs"
               icon="i-lucide-newspaper"
-              :label="locale === 'es' ? 'Artículo' : 'Article'"
+              :label="t('blog.categories.article')"
             />
             <UBadge
               v-if="page.category === 'case-study'"
@@ -126,7 +128,7 @@ const articleLink = computed(() => canonicalUrl.value)
               variant="soft"
               size="xs"
               icon="i-lucide-briefcase-business"
-              :label="locale === 'es' ? 'Caso de Estudio' : 'Case Study'"
+              :label="t('blog.categories.caseStudy')"
             />
             <UBadge
               v-if="page.category === 'side-project'"
@@ -134,7 +136,7 @@ const articleLink = computed(() => canonicalUrl.value)
               variant="soft"
               size="xs"
               icon="i-lucide-flask-conical"
-              :label="locale === 'es' ? 'Proyecto Personal' : 'Side Project'"
+              :label="t('blog.categories.sideProject')"
             />
             <BlogTag
               v-for="tag in postTags"
@@ -149,7 +151,7 @@ const articleLink = computed(() => canonicalUrl.value)
               -
             </span>
             <span v-if="page.minRead">
-              {{ page.minRead }} {{ locale === 'es' ? 'MIN DE LECTURA' : 'MIN READ' }}
+              {{ page.minRead }} {{ t('blog.minRead') }}
             </span>
           </div>
           <NuxtImg
@@ -198,7 +200,7 @@ const articleLink = computed(() => canonicalUrl.value)
               color="neutral"
               variant="soft"
               icon="i-lucide-github"
-              :label="locale === 'es' ? 'Ver Repositorio' : 'View Repository'"
+              :label="t('blog.viewRepository')"
             />
           </div>
           <div
@@ -208,7 +210,7 @@ const articleLink = computed(() => canonicalUrl.value)
             <span v-if="page.year">{{ page.year }}</span>
             <span v-if="page.client">· {{ page.client }}</span>
             <span v-if="page.role">· {{ page.role }}</span>
-            <span v-if="page.team_size">· {{ locale === 'es' ? 'Equipo de' : 'Team of' }} {{ page.team_size }}</span>
+            <span v-if="page.team_size">· {{ t('blog.teamOf') }} {{ page.team_size }}</span>
           </div>
           <div
             v-if="page.stack?.length"
@@ -245,13 +247,13 @@ const articleLink = computed(() => canonicalUrl.value)
               size="sm"
               variant="link"
               color="neutral"
-              :label="locale === 'es' ? 'Copiar enlace' : 'Copy link'"
+              :label="t('blog.copyLink')"
               data-analytics-event="copy_link_click"
               data-analytics-category="engagement"
               :data-analytics-label="page.title"
               data-analytics-location="blog_post"
               :data-analytics-destination="articleLink"
-              @click="copyToClipboard(articleLink, locale === 'es' ? 'Enlace copiado al portapapeles' : 'Article link copied to clipboard')"
+              @click="copyToClipboard(articleLink, t('blog.linkCopied'))"
             />
           </div>
           <UContentSurround :surround />

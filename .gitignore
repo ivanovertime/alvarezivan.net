@@ -5,6 +5,7 @@
 .output
 .data
 .nuxt
+*.tsbuildinfo
 .nitro
 .cache
 dist

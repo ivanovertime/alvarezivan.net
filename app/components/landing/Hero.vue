@@ -2,6 +2,11 @@
 import type { HomeCollectionItem } from '@nuxt/content'
 
 const { footer, global } = useAppConfig()
+const { t } = useI18n()
+
+const availabilityLabel = computed(() =>
+  global.available ? t('hero.available') : t('hero.unavailable')
+)
 
 defineProps<{
   page: HomeCollectionItem
@@ -133,7 +138,7 @@ defineProps<{
             data-analytics-location="home_hero"
             :data-analytics-destination="global.available ? global.meetingLink : ''"
             :to="global.available ? global.meetingLink : ''"
-            :label="global.available ? 'Available for new projects' : 'Not available at the moment'"
+            :label="availabilityLabel"
           >
             <template #leading>
               <span class="relative flex size-2">

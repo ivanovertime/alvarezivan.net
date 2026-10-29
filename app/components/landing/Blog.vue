@@ -5,14 +5,26 @@ defineProps<{
   page: HomeCollectionItem
 }>()
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 
-const { data: posts } = await useAsyncData('index-blogs', () =>
-  queryCollection('blog').where('hidden', '=', false).order('date', 'DESC').limit(3).all()
+// The key carries the locale because the query is locale-dependent below: a
+// locale-neutral key would replay the other language's payload on client-side nav.
+const { data: posts } = await useAsyncData(`index-blogs-${locale.value}`, () =>
+  queryCollection('blog')
+    .where('hidden', '=', false)
+    .where('locale', '=', locale.value)
+    .order('date', 'DESC')
+    .limit(3)
+    .all()
 )
 if (!posts.value) {
   throw createError({ statusCode: 404, statusMessage: 'blogs posts not found', fatal: true })
 }
+
+// The SQL `where` does the real work; `filterByLocale` stays as a belt-and-suspenders
+// guard until prod D1 parity is confirmed for the `blog` collection (the `home`
+// collection already filters by locale in SQL on production, so the pattern is proven).
+const latestPosts = computed(() => filterByLocale(posts.value ?? [], locale.value))
 </script>
 
 <template>
@@ -30,7 +42,7 @@ if (!posts.value) {
       class="gap-4 lg:gap-y-4"
     >
       <UBlogPost
-        v-for="(post, index) in posts"
+        v-for="(post, index) in latestPosts"
         :key="index"
         orientation="horizontal"
         variant="naked"
@@ -57,7 +69,7 @@ if (!posts.value) {
             size="xs"
             variant="link"
             class="px-0 gap-0"
-            label="Read Article"
+            :label="t('blog.readArticle')"
           >
             <template #trailing>
               <UIcon
