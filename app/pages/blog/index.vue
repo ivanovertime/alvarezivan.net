@@ -34,10 +34,9 @@ if (!allPosts.value) {
   })
 }
 
-// Only posts in the reader's language: the Spanish index lists what has actually
-// been translated, never an English body behind a Spanish route. The SQL `where`
-// does the real work; the util guards until prod D1 parity is confirmed.
-const posts = computed(() => filterByLocale(allPosts.value ?? [], locale.value))
+// The SQL `where` already scopes lists to the reader's language, so the Spanish
+// index shows what has actually been translated, never an English body behind it.
+const posts = computed(() => allPosts.value ?? [])
 
 type CategoryFilter = 'all' | 'article' | 'case-study' | 'side-project'
 type TagFilter = string

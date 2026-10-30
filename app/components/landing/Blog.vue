@@ -20,11 +20,6 @@ const { data: posts } = await useAsyncData(`index-blogs-${locale.value}`, () =>
 if (!posts.value) {
   throw createError({ statusCode: 404, statusMessage: 'blogs posts not found', fatal: true })
 }
-
-// The SQL `where` does the real work; `filterByLocale` stays as a belt-and-suspenders
-// guard until prod D1 parity is confirmed for the `blog` collection (the `home`
-// collection already filters by locale in SQL on production, so the pattern is proven).
-const latestPosts = computed(() => filterByLocale(posts.value ?? [], locale.value))
 </script>
 
 <template>
@@ -42,7 +37,7 @@ const latestPosts = computed(() => filterByLocale(posts.value ?? [], locale.valu
       class="gap-4 lg:gap-y-4"
     >
       <UBlogPost
-        v-for="(post, index) in latestPosts"
+        v-for="(post, index) in posts"
         :key="index"
         orientation="horizontal"
         variant="naked"

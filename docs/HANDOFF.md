@@ -15,8 +15,9 @@ direct DB verification, a correction of this file's own SQL claim from the ES-mi
   `locale === 'es' ? …` ternaries: nav, footer switcher, error SEO, hero availability,
   colour-mode `aria-label`, RSS link title, blog index filters/badges/empty state, post-page
   strings, CV buttons, and the home hero/blog labels that opened the session. Net −28 lines.
-- **`app/utils/posts.ts`** — `filterByLocale(items, locale)`, the single predicate for the three
-  blog queries.
+- **`filterByLocale`** (`app/utils/posts.ts`, added then removed) — was the single JS predicate for
+  the three blog queries while prod D1 parity was unproven. Production confirmed the SQL filter, so
+  the util and its call sites were removed in the follow-up (see Open).
 - **Locale filtering is back in SQL.** All three blog queries now `.where('locale', '=', locale)`,
   and the home teaser's `.limit(3)` is a real SQL limit again. **This corrects the ES-migration
   session's record** that a Zod `default` is not materialised in the queryable column — that was
@@ -48,10 +49,7 @@ direct DB verification, a correction of this file's own SQL claim from the ES-mi
 - `dist/dump.blog.sql` (the production D1 seed) carries 12 bare `'en'` and 12 bare `'es'` locale
   values.
 - The `home` collection already filtered by locale in SQL on production, so D1-side filtering is
-  proven there; `blog` uses the same column and is expected to behave identically, but **production
-  parity is unverified until the next deploy.** Until then `filterByLocale` stays applied after each
-  query as a belt-and-suspenders guard — worst case it empties a section; it can never serve the
-  wrong language.
+  proven there; `blog` uses the same column and it has since been confirmed on production (see Open).
 
 ### Verification
 
@@ -65,9 +63,10 @@ hits (the single `AboutPage` match is JSON-LD `@type`, not UI).
 
 - **`jobTitle: 'Full-Stack Engineer'`** in `app/app.vue`'s Person JSON-LD is English on `/es`
   (pre-existing; structured data, not visible UI).
-- **Deploy, then re-check `/es` on production** (D1 parity for the `blog` `where`). Confirmed, the
-  `filterByLocale` guards can be dropped.
-- Nothing is committed yet — the whole catalogue + SQL move is one working tree.
+- **Deploy, then re-check `/es` on production** — done (2026-10-29). `/es` hero and blog teaser are
+  Spanish with no English leakage, `/blog` and `/es/blog` each list 10 posts with zero cross-locale
+  links (so the SQL `locale` filter works on D1), hreflang + the localized RSS title are live, and a
+  transformed image variant returns 200. The `filterByLocale` guards were dropped after this check.
 
 ## Session (2026-10-27, eleventh) — icons: three tiers, one unrecoverable answer, no runtime resolution
 

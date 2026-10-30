@@ -13,9 +13,8 @@ const { data: page } = await useAsyncData(route.path, () =>
   queryCollection('blog').where('hidden', '=', false).path(route.path).first()
 )
 if (!page.value) throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
-// Surround links stay inside the post's own language, so a Spanish post never points
-// the reader at an English neighbour. The SQL `where` does the real work; the util
-// guards until prod D1 parity is confirmed.
+// The SQL `where` keeps surround links inside the post's own language, so a Spanish
+// post never points the reader at an English neighbour.
 const { data: visiblePosts } = await useAsyncData(`visible-blog-posts-${locale.value}`, () =>
   queryCollection('blog')
     .where('hidden', '=', false)
@@ -23,7 +22,7 @@ const { data: visiblePosts } = await useAsyncData(`visible-blog-posts-${locale.v
     .order('date', 'DESC')
     .all()
 )
-const siblings = computed(() => filterByLocale(visiblePosts.value ?? [], locale.value))
+const siblings = computed(() => visiblePosts.value ?? [])
 
 const surround = computed(() => {
   const posts = siblings.value
