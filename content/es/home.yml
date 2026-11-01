@@ -1,10 +1,10 @@
 locale: es
 seo:
   title: "Iván Álvarez · Ingeniero Full-Stack"
-  description: "Ingeniero full-stack senior que construye plataformas internas, back offices y sistemas de diseño. Svelte, Laravel, Cloudflare. Base en recuperación de e-commerce e integración SAP."
+  description: "Ingeniero Senior Full Stack entregando plataformas internas, arquitectura edge en Cloudflare e integraciones empresariales resilientes. Enfocado en estabilidad de ejecución en e-commerce de alto tráfico, sistemas multi-tenant y herramientas internas."
 title: "Iván Álvarez"
 description: |
-  Ingeniero full-stack senior en Valencia, Venezuela. Construyo las plataformas internas sobre las que trabaja el equipo — back offices, sistemas de diseño y el tooling que los rodea — y antes pasé cuatro años recuperando plataformas de e-commerce, desenredando integraciones SAP y reconstruyendo despliegues que habían dejado de ser confiables.
+  Ingeniero Senior Full Stack en Valencia, Venezuela. Entregando plataformas internas, arquitectura edge en Cloudflare e integraciones empresariales resilientes. Enfocado en estabilidad de ejecución y velocidad de desarrollo en e-commerce de alto tráfico, sistemas multi-tenant y herramientas internas.
 hero:
   links:
     - label: "Leer el blog"
@@ -26,7 +26,7 @@ experience:
         logo: "i-lucide-briefcase"
         url: "https://juegaenlinea.net/"
         color: "#e43a10"
-    - position: "Senior Full Stack Engineer"
+    - position: "Senior Full Stack Engineer (Contrato)"
       date: "Dec 2025 – Jun 2026"
       company:
         name: "Crazy Imagine Software"

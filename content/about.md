@@ -1,7 +1,7 @@
 ---
 locale: en
 title: "About"
-description: "Senior full-stack engineer building internal platforms, back offices, and design systems. Background in e-commerce recovery and SAP integration. Based in Valencia, Venezuela."
+description: "Senior Full-Stack Engineer delivering internal platforms, Cloudflare edge architecture, and resilient enterprise integrations. Based in Valencia, Venezuela."
 ---
 
 ## The short version
@@ -18,10 +18,10 @@ I'm curious by nature. You'll often find me exploring cinema, cooking, or pickin
 
 ## Timeline
 
-**Aug 2026 – Present · JuegaEnLínea · Senior Full Stack Engineer (Remote)**
-Internal platforms for a multi-brand company: the operator admin of its white-label payment gateway, a shared Svelte design system over a reusable Laravel 13 API, and a multi-domain landing page generator served from Cloudflare Workers, Pages and R2.
+**Aug 2026 – Present · JuegaEnLínea · Senior Full Stack Engineer**
+Internal platforms for a multi-brand company: an automated payout engine with shadow-mode rule evaluation and operator admin for its payment gateway, a 64-component Svelte 5 library and CLI module generator over a shared Laravel 13 API, and a multi-domain landing page engine with edge rendering on Cloudflare Workers, Pages and R2.
 
-**Dec 2025 – Jun 2026 · Crazy Imagine Software · Senior Full Stack Engineer (Remote)**
+**Dec 2025 – Jun 2026 · Crazy Imagine Software · Senior Full Stack Engineer (Contract)**
 Building a unified support and notification system on Laravel + Vue + Inertia.js, integrated with HubSpot. Companion Knowledge Base on Inertia.js + Laravel Nova.
 
 **Oct 2024 – Dec 2025 · Tiendas Daka C.A. · Software Development Consultant**
