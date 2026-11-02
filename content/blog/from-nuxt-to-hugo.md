@@ -23,7 +23,6 @@ year: 2024
 outcome_headline: "Learned the right moment to reach for static, and the value of component systems when they justify their weight"
 featured: false
 ---
-## Situation
 
 ### TL;DR
 

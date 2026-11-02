@@ -25,7 +25,6 @@ year: 2024
 outcome_headline: "Published an open-source scraper that solves daily manual exchange-rate entry for Venezuelan e-commerce teams"
 featured: false
 ---
-## Situation
 
 ## TL;DR
 

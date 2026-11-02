@@ -11,14 +11,14 @@ The fastest way to talk is to **book a 30-minute call**. Email and LinkedIn DMs 
 
 ## :u-icon{name="i-lucide-link" class="mr-2 align-[-2px]"} Direct links
 
-- :u-icon{name="i-lucide-calendar" class="mr-1 align-[-2px]"} **Book a 30-min call** — [calendar](https://calendar.app.google/mdouT7hy7xS8XUcd9)
+- :u-icon{name="i-lucide-calendar" class="mr-1 align-[-2px]"} **Book a 30-min call** — [Google Calendar](https://calendar.app.google/mdouT7hy7xS8XUcd9)
 - :u-icon{name="i-lucide-mail" class="mr-1 align-[-2px]"} **Email** — [alvarezlopezivanenrique@gmail.com](mailto:alvarezlopezivanenrique@gmail.com)
 - :u-icon{name="i-lucide-linkedin" class="mr-1 align-[-2px]"} **LinkedIn** — [linkedin.com/in/ialvarez93](https://www.linkedin.com/in/ialvarez93/)
 - :u-icon{name="i-lucide-github" class="mr-1 align-[-2px]"} **GitHub** — [github.com/ivanovertime](https://github.com/ivanovertime)
 
 ## :u-icon{name="i-lucide-handshake" class="mr-2 align-[-2px]"} What I'm open to
 
-- **Senior Full-Stack, Platform / DevOps, or Tech Lead roles** — remote-first, ideally on internal tooling or platform work. Happy to join a strong team as a senior IC.
+- **Senior Full-Stack, Platform / DevOps, or Tech Lead roles** — remote-first, ideally on internal tooling or platform work. Happy to join a strong team as a senior IC or technical lead.
 - **Fractional engagements** — typically 1–3 days a week for a defined window (e-commerce rescue/recovery, migration, or platform stand-up).
 - **Code or architecture audits** on e-commerce or SAP-integrated platforms — a focused 1–2 week deliverable.
 - **Advisory** for founders or small teams making early platform or data-stack decisions.

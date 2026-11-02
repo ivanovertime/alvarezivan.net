@@ -6,9 +6,9 @@ description: "Senior Full-Stack Engineer delivering internal platforms, Cloudfla
 
 ## The short version
 
-I'm a senior full-stack engineer based in Valencia, Venezuela. I build the internal platforms teams run on — back-office systems, design systems, and the tooling around them — and before that spent four years on the harder side of e-commerce: platforms under load, SAP integrations with limited documentation, deployment processes held together with hope. I like walking into that. Read the code, talk to the people, leave it in better shape than I found it.
+I'm a senior full-stack engineer based in Valencia, Venezuela. I build the internal platforms teams run on — back-office systems, design systems, and the tooling around them — with over five years of production experience across e-commerce platforms under load, SAP integrations with limited documentation, and critical deployment pipelines. I like walking into that: read the code, talk to the people, and leave it in better shape than I found it.
 
-Four years of production platforms — recovered, re-architected, and shipped across e-commerce, mobile, and enterprise integration. Teams from solo to 15 engineers. I've led and I've contributed; the work is the constant. Alongside that, I'm working through the IBM DevOps and Software Engineering certificate — see [/now](/now) for this quarter's detail.
+Over five years of production platforms — recovered, re-architected, and shipped across high-traffic e-commerce, mobile apps, and enterprise integrations. Teams ranging from solo to 15 engineers. I've led technically and I've contributed directly; the work and system reliability are the constant. Alongside that, I'm working through the IBM DevOps and Software Engineering certificate — see [/now](/now) for this quarter's detail.
 
 ## Beyond code
 
@@ -24,14 +24,14 @@ Internal platforms for a multi-brand company: an automated payout engine with sh
 **Dec 2025 – Jun 2026 · Crazy Imagine Software · Senior Full Stack Engineer (Contract)**
 Building a unified support and notification system on Laravel + Vue + Inertia.js, integrated with HubSpot. Companion Knowledge Base on Inertia.js + Laravel Nova.
 
-**Oct 2024 – Dec 2025 · Tiendas Daka C.A. · Software Development Consultant**
-Worked with a team of around 15 engineers on six-plus rescues and greenfield builds at Tiendas Daka — e-commerce platforms, a SAP-integrated quotation app, a multi-stack support platform, and a captive-portal solution.
+**Oct 2024 – Dec 2025 · Tiendas Daka C.A. · Software Development Consultant & Tech Lead**
+Led 15 developers and delivered 6+ key projects in close coordination with stakeholders — recovered and rebuilt a critical e-commerce platform with NestJS, Next.js, and Medusa; architected a technical-support platform (Laravel/Express, Livewire, Flutter) integrated with SAP; and delivered a nationwide sales-quoting app (Laravel/Filament) on mobile and tablets.
 
 **Dec 2022 – Sep 2024 · Freelance · Full-Stack Developer**
 Restored a multi-tenant CS-Cart deployment, modernized WooCommerce + Nuxt stores, and worked with cross-functional teams on coding standards.
 
-**Oct 2021 – Nov 2022 · Biomercados (Alimentos FM, C.A.) · Programmer**
-Recovered an inherited e-commerce project at a Venezuelan supermarket chain and shipped a [PWA + mobile apps for a high-volume customer base](/blog/case-studies/supermarket-pwa-recovery). Stood up the Docker registry and CI/CD pipeline that made continuous delivery possible.
+**Oct 2021 – Nov 2022 · Biomercados (Alimentos FM, C.A.) · Full Stack Developer / Programmer**
+Maintained a multi-platform headless e-commerce (30,000+ users) with Magento 2, an Angular PWA, and Express API. Shipped a [PWA + mobile apps for a high-volume customer base](/blog/case-studies/supermarket-pwa-recovery), stood up the Docker registry and CI/CD pipeline, and performed SQL RFM analysis on order data to inform customer segmentation and commercial decisions.
 
 **2016 – 2021 · Universidad Nacional Experimental Rómulo Gallegos (UNERG)**
 Information Engineer — Magna Cum Laude.

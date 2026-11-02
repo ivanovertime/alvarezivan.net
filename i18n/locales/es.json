@@ -24,9 +24,9 @@
     "readArticle": "Leer artículo",
     "copyLink": "Copiar enlace",
     "linkCopied": "Enlace copiado al portapapeles",
-    "clearTags": "Limpiar etiquetas",
+    "clearTags": "Limpiar filtros",
     "empty": "No hay publicaciones para estos filtros.",
-    "minRead": "MIN DE LECTURA",
+    "minRead": "min de lectura",
     "viewRepository": "Ver Repositorio",
     "teamOf": "Equipo de",
     "categories": {

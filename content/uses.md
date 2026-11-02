@@ -75,7 +75,9 @@ TODO: fill in or delete the rows you don't use.
 - **Design / quick diagrams:** TODO (Excalidraw, Figma, …)
 -->
 
-What I reach for from the terminal, beyond the editor:
+## Terminal & CLI tools
+
+What I reach for from the command line, beyond the editor:
 
 - **Languages & runtimes:** Node.js (via `pnpm` / `corepack`), PHP, Python — pinned per-project through Nix flakes when it matters.
 - **Package managers:** `pnpm`, `composer`, `nix`.

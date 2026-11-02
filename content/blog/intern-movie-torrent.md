@@ -1,6 +1,6 @@
 ---
 title: "The Intern is downloading movies again"
-description: "What happens when you give tech-savvy people eight hours of internet access a day? Welcome to the The Intern is downloading movies again problem."
+description: "What happens when you give tech-savvy people eight hours of internet access a day? Welcome to the \"The Intern is downloading movies again\" problem."
 date: "2024-05-16"
 minRead: 4
 image: "/blog/intern-movie-torrent/featuredImage.jpg"

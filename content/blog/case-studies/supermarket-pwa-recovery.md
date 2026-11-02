@@ -158,12 +158,10 @@ This is the seed of the BCV-scraper work I later wrote about publicly. Small aut
 
 By the end of the engagement:
 
-- The platform shipped as a **PWA + mobile apps used by a high-volume customer base**.
+- The platform shipped as a **PWA + mobile apps used by a high-volume customer base (30,000+ users)**.
 - The company had a **private Docker registry and a working CI/CD pipeline** for Node.js and Angular services — the foundation for everything that came after.
 - Marketing had **RFM-based customer segments** they could act on, drawn from the platform's own data.
 - Pricing ran on an **automated exchange-rate feed** instead of a daily copy-paste.
-
-<!-- > ⚠️ **Author note (placeholder, please confirm):** if you have any of these handy, drop them in to replace this callout — *time-from-takeover-to-launch*, *number of releases per week after CI/CD landed*, *uptime numbers*, or *order volume in the first month*. Even rough numbers from memory beat adjectives. -->
 
 In hindsight, the sequencing mattered more than the headcount: getting the deploy path in place before chasing the feature backlog is what made the rest of it shippable by a small team.
 

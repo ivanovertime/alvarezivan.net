@@ -26,7 +26,6 @@ year: 2024
 outcome_headline: "Publiqué un scraper open source que elimina la carga manual diaria de la tasa de cambio para equipos de e-commerce venezolanos"
 featured: false
 ---
-## Situación
 
 ## TL;DR
 

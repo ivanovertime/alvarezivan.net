@@ -1,10 +1,10 @@
 locale: es
 seo:
-  title: "Iván Álvarez · Ingeniero Full-Stack"
-  description: "Ingeniero Senior Full Stack entregando plataformas internas, arquitectura edge en Cloudflare e integraciones empresariales resilientes. Enfocado en estabilidad de ejecución en e-commerce de alto tráfico, sistemas multi-tenant y herramientas internas."
+  title: "Iván Álvarez · Ingeniero Senior Full Stack"
+  description: "Ingeniero Senior Full Stack entregando plataformas internas, arquitectura edge en Cloudflare e integraciones empresariales resilientes. Enfocado en estabilidad en producción en e-commerce de alto tráfico, sistemas multi-tenant y herramientas internas."
 title: "Iván Álvarez"
 description: |
-  Ingeniero Senior Full Stack en Valencia, Venezuela. Entregando plataformas internas, arquitectura edge en Cloudflare e integraciones empresariales resilientes. Enfocado en estabilidad de ejecución y velocidad de desarrollo en e-commerce de alto tráfico, sistemas multi-tenant y herramientas internas.
+  Ingeniero Senior Full Stack en Valencia, Venezuela. Especializado en plataformas internas, arquitectura edge en Cloudflare e integraciones empresariales resilientes. Enfocado en estabilidad en producción y velocidad de desarrollo en e-commerce de alto tráfico, sistemas multi-tenant y herramientas internas.
 hero:
   links:
     - label: "Leer el blog"
@@ -15,39 +15,39 @@ hero:
 about:
   title: "Sobre mí"
   description: |
-    Construyo las plataformas internas sobre las que trabaja el equipo — back offices, sistemas de diseño y el tooling que los rodea. Antes, cuatro años en plataformas que otros abandonaron: tiendas e-commerce bajo carga, integraciones SAP con documentación perdida, despliegues que nadie quería tocar. Leer el código, arreglar la cosa y dejar al equipo mejor de como lo encontré.
+    Construyo las plataformas internas sobre las que trabaja el equipo — back offices, sistemas de diseño y el tooling que los rodea. Cuento con más de cinco años de experiencia en plataformas en producción: tiendas e-commerce bajo alta concurrencia, integraciones con SAP con documentación escasa y despliegues críticos. Leer el código, resolver los cuellos de botella y dejar al equipo y al sistema en mejor estado de como los encontré.
 experience:
   title: "Experiencia"
   items:
     - position: "Senior Full Stack Engineer"
-      date: "Aug 2026 – Actualidad"
+      date: "Ago 2026 – Actualidad"
       company:
         name: "JuegaEnLínea"
         logo: "i-lucide-briefcase"
         url: "https://juegaenlinea.net/"
         color: "#e43a10"
     - position: "Senior Full Stack Engineer (Contrato)"
-      date: "Dec 2025 – Jun 2026"
+      date: "Dic 2025 – Jun 2026"
       company:
         name: "Crazy Imagine Software"
         logo: "i-lucide-briefcase"
         url: "https://crazyimagine.com/es"
         color: "#b1d600"
-    - position: "Software Development Consultant"
-      date: "Oct 2024 – Dec 2025"
+    - position: "Consultor de Desarrollo de Software y Tech Lead"
+      date: "Oct 2024 – Dic 2025"
       company:
         name: "Tiendas Daka C.A."
         logo: "i-lucide-building-2"
         url: "https://www.tiendasdaka.com/"
         color: "#facc15"
-    - position: "Freelance Full-Stack Developer"
-      date: "Dec 2022 – Sep 2024"
+    - position: "Desarrollador Full-Stack Freelance"
+      date: "Dic 2022 – Sep 2024"
       company:
-        name: "Self Employed"
+        name: "Independiente / Freelance"
         logo: "i-lucide-briefcase"
         url: "https://alvarezivan.net"
         color: "#6b7280"
-    - position: "Programmer"
+    - position: "Desarrollador Full Stack / Programador"
       date: "Oct 2021 – Nov 2022"
       company:
         name: "Biomercados (Alimentos FM)"
@@ -74,7 +74,7 @@ faq:
             - Proxmox
             - Ubuntu Server
             - Windows Server
-            - Kubernetes (aprendiendo en profundidad)
+            - Kubernetes (especialización en curso)
         - label: "Backend"
           icon: i-lucide-server
           content: |
@@ -120,7 +120,7 @@ faq:
             - Odoo ERP
             - HubSpot
             - Pasarelas de pago (PayPal, Stripe, Merchant)
-            - Transportistas (Zoom, MRW)
+            - Servicios de encomienda y logística (Zoom, MRW)
             - APIs REST
             - Web scraping
         - label: "Lenguajes"
@@ -131,24 +131,25 @@ faq:
             - Python
             - Dart
             - SQL
-            - Java (refrescando)
-        - label: "IA en el flujo"
+            - Java (actualizando conocimientos)
+        - label: "Desarrollo asistido por IA"
           icon: i-lucide-sparkles
           content: |
-            - Claude
-            - GitHub Copilot
+            - Claude Code
             - Google Gemini
+            - GitHub Copilot
+            - Pipelines RAG y búsqueda vectorial
     - title: "Precios y tiempos"
       questions:
-        - label: "¿Cuánto cuesta un proyecto?"
+        - label: "¿Cuánto cuesta un proyecto típicamente?"
           content: |
-            Depende del alcance, complejidad técnica e integraciones. Los proyectos suelen iniciar en auditorías especializadas y escalar a implementaciones completas.
+            Los costos varían según el alcance, la complejidad técnica y los sistemas involucrados. Las auditorías técnicas especializadas u optimizaciones inician en $800. La mayoría de los desarrollos de plataformas completas se ubican entre $2.500 y $8.000. Para soporte continuo, automatización DevOps o consultoría a corto plazo, ofrezco tarifas competitivas por hora o por jornada.
         - label: "¿Cuáles son tus términos de pago?"
           content: |
-            Suelo trabajar con un anticipo para reservar la agenda y el pago restante al entregar.
-        - label: "¿Cuánto tarda un proyecto?"
+            Generalmente solicito un 40% de anticipo para reservar la agenda e iniciar el trabajo, con el 60% restante contra entrega. Acepto pagos vía transferencia bancaria o PayPal.
+        - label: "¿Cuánto tarda un proyecto típico?"
           content: |
-            Los tiempos dependen del alcance. Proyectos pequeños pueden tomar semanas y plataformas más grandes requieren múltiples fases.
-        - label: "¿Ofreces soporte continuo?"
+            Los tiempos dependen del alcance y las integraciones. Proyectos enfocados toman entre **2 y 4 semanas**, mientras que plataformas más amplias requieren entre **6 y 12 semanas**. Entrego un cronograma detallado tras la fase de descubrimiento.
+        - label: "¿Ofreces soporte continuo o retainers?"
           content: |
-            Sí. También trabajo por retainer mensual para equipos que necesitan desarrollo y mantenimiento continuo.
+            Sí. Para equipos que necesitan desarrollo continuo de funcionalidades, mantenimiento o rendimiento, ofrezco retainers mensuales adaptados al alcance y tiempo de respuesta.

@@ -24,7 +24,6 @@ year: 2024
 outcome_headline: "Aprendí cuándo conviene ir a por lo estático, y el valor de los sistemas de componentes cuando justifican su peso"
 featured: false
 ---
-## Situación
 
 ### TL;DR
 

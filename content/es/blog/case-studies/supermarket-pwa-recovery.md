@@ -160,12 +160,10 @@ Esta es la semilla del trabajo del scraper del BCV sobre el que después escrib�
 
 Al final del trabajo:
 
-- La plataforma se entregó como **PWA + aplicaciones móviles usadas por una base de clientes de alto volumen**.
+- La plataforma se entregó como **PWA + aplicaciones móviles usadas por una base de clientes de alto volumen (más de 30.000 usuarios)**.
 - La empresa quedó con un **registro Docker privado y un pipeline de CI/CD funcionando** para servicios en Node.js y Angular: la base de todo lo que vino después.
 - Marketing tenía **segmentos de clientes basados en RFM** sobre los que podía actuar, sacados de los propios datos de la plataforma.
 - Los precios corrían sobre un **feed automático de la tasa de cambio** en vez de un copiar y pegar diario.
-
-<!-- > ⚠️ **Author note (placeholder, please confirm):** if you have any of these handy, drop them in to replace this callout — *time-from-takeover-to-launch*, *number of releases per week after CI/CD landed*, *uptime numbers*, or *order volume in the first month*. Even rough numbers from memory beat adjectives. -->
 
 Mirándolo en retrospectiva, la secuencia importó más que el número de personas: tener la ruta de despliegue en su sitio antes de perseguir el backlog de funcionalidad es lo que hizo que el resto fuera entregable por un equipo pequeño.
 

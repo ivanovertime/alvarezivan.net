@@ -1,6 +1,6 @@
 locale: en
 seo:
-  title: "Iván Álvarez · Full-Stack Engineer"
+  title: "Iván Álvarez · Senior Full-Stack Engineer"
   description: "Senior Full-Stack Engineer delivering internal platforms, Cloudflare edge architecture, and resilient enterprise integrations. Focused on runtime stability across high-traffic e-commerce, multi-tenant platforms, and internal tools."
 title: "Iván Álvarez"
 description: |
@@ -15,7 +15,7 @@ hero:
 about:
   title: "About"
   description: |
-    I build the internal platforms teams run on — back offices, design systems, and the tooling around them. Before that, four years on platforms other people had abandoned: e-commerce stores under load, SAP integrations with missing docs, deploys that scared everyone. Read the code, fix the thing, leave the team in better shape than I found them.
+    I build the internal platforms teams run on — back offices, design systems, and the tooling around them. Over five years of production experience across platforms under high traffic, SAP integrations with scarce docs, and critical deployments. Read the code, resolve the bottlenecks, and leave the team and systems in better shape than I found them.
 experience:
   title: Work Experience
   items:
@@ -33,7 +33,7 @@ experience:
         logo: "i-lucide-briefcase"
         url: "https://crazyimagine.com/"
         color: "#b1d600"
-    - position: "Software Development Consultant"
+    - position: "Software Development Consultant & Tech Lead"
       date: "Oct 2024 – Dec 2025"
       company:
         name: "Tiendas Daka C.A."
@@ -43,11 +43,11 @@ experience:
     - position: "Freelance Full-Stack Developer"
       date: "Dec 2022 – Sep 2024"
       company:
-        name: "Self Employed"
+        name: "Freelance / Self-Employed"
         logo: "i-lucide-briefcase"
         url: "https://alvarezivan.net"
         color: "#6b7280"
-    - position: "Programmer"
+    - position: "Full Stack Developer / Programmer"
       date: "Oct 2021 – Nov 2022"
       company:
         name: "Biomercados (Alimentos FM)"
@@ -74,7 +74,7 @@ faq:
             - Proxmox
             - Ubuntu Server
             - Windows Server
-            - Kubernetes (learning at depth)
+            - Kubernetes (ongoing specialization)
         - label: Backend
           icon: i-lucide-server
           content: |
@@ -120,7 +120,7 @@ faq:
             - Odoo ERP
             - HubSpot
             - Payment Gateways (PayPal, Stripe, Merchant)
-            - Shipping Providers (Zoom, MRW)
+            - Logistics & Courier APIs (Zoom, MRW)
             - REST APIs
             - Web Scraping
         - label: Languages
@@ -132,12 +132,13 @@ faq:
             - Dart
             - SQL
             - Java (refreshing)
-        - label: AI in the loop
+        - label: AI-Assisted Development
           icon: i-lucide-sparkles
           content: |
-            - Claude
-            - GitHub Copilot
+            - Claude Code
             - Google Gemini
+            - GitHub Copilot
+            - RAG pipelines & vector search
     - title: Pricing & Timelines
       questions:
         - label: How much does a project typically cost?
