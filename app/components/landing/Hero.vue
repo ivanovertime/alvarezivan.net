@@ -8,6 +8,20 @@ const availabilityLabel = computed(() =>
   global.available ? t('hero.available') : t('hero.unavailable')
 )
 
+// Subtle attention pulse on the call CTA: a breathing shadow, infinite loop.
+const ctaPulse = {
+  boxShadow: [
+    '0 1px 2px rgb(0 0 0 / 0.06), 0 4px 12px rgb(0 0 0 / 0.08)',
+    '0 1px 2px rgb(0 0 0 / 0.06), 0 8px 26px rgb(0 0 0 / 0.18)',
+    '0 1px 2px rgb(0 0 0 / 0.06), 0 4px 12px rgb(0 0 0 / 0.08)'
+  ]
+}
+const ctaPulseTransition = {
+  duration: 3.2,
+  repeat: Infinity,
+  ease: 'easeInOut' as const
+}
+
 defineProps<{
   page: HomeCollectionItem
 }>()
@@ -120,39 +134,53 @@ defineProps<{
           v-if="page.hero.links"
           class="flex w-full flex-col items-center gap-2"
         >
-          <UButton
-            class="w-auto min-w-[12rem] justify-center"
-            data-analytics-event="cta_click"
-            data-analytics-category="conversion"
-            data-analytics-label="hero_primary"
-            data-analytics-location="home_hero"
-            v-bind="page.hero.links[0]"
-          />
+          <p class="flex items-center justify-center gap-2 pb-1 text-sm text-muted">
+            <span class="relative flex size-2.5 items-center justify-center">
+              <span
+                class="absolute inline-flex size-2.5 rounded-full opacity-60 animate-ping"
+                :class="global.available ? 'bg-success' : 'bg-error'"
+              />
+              <span
+                class="relative inline-flex size-1.5 rounded-full"
+                :class="global.available ? 'bg-success' : 'bg-error'"
+              />
+            </span>
+            {{ availabilityLabel }}
+          </p>
+          <MotionConfig reduced-motion="user">
+            <Motion
+              :initial="false"
+              :animate="ctaPulse"
+              :transition="ctaPulseTransition"
+              class="min-w-[12rem]"
+            >
+              <UButton
+                v-if="global.available"
+                block
+                color="neutral"
+                icon="i-lucide-calendar"
+                class="justify-center"
+                :to="global.meetingLink"
+                :label="t('hero.bookCall')"
+                data-analytics-event="meeting_click"
+                data-analytics-category="conversion"
+                data-analytics-label="hero_primary"
+                data-analytics-location="home_hero"
+                :data-analytics-destination="global.meetingLink"
+              />
+            </Motion>
+          </MotionConfig>
           <UButton
             color="neutral"
             variant="ghost"
             class="gap-2 w-auto min-w-[12rem] justify-center"
-            :data-analytics-event="global.available ? 'meeting_click' : 'availability_click'"
-            data-analytics-category="conversion"
-            data-analytics-label="hero_availability"
+            data-analytics-event="cta_click"
+            data-analytics-category="engagement"
+            data-analytics-label="hero_blog"
             data-analytics-location="home_hero"
-            :data-analytics-destination="global.available ? global.meetingLink : ''"
-            :to="global.available ? global.meetingLink : ''"
-            :label="availabilityLabel"
-          >
-            <template #leading>
-              <span class="relative flex size-2">
-                <span
-                  class="absolute inline-flex size-full rounded-full opacity-75"
-                  :class="global.available ? 'bg-success animate-ping' : 'bg-error'"
-                />
-                <span
-                  class="relative inline-flex size-2 scale-90 rounded-full"
-                  :class="global.available ? 'bg-success' : 'bg-error'"
-                />
-              </span>
-            </template>
-          </UButton>
+            :data-analytics-destination="page.hero.links[0]?.to"
+            v-bind="page.hero.links[0]"
+          />
         </div>
       </Motion>
 

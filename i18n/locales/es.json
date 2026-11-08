@@ -14,7 +14,8 @@
     "description": "Lo sentimos, pero no pudimos encontrar esta página."
   },
   "hero": {
-    "available": "Disponible para nuevos proyectos",
+    "available": "Disponible para roles y proyectos",
+    "bookCall": "Agenda una llamada de 30 min",
     "unavailable": "No disponible por el momento"
   },
   "colorMode": {

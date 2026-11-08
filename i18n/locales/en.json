@@ -14,7 +14,8 @@
     "description": "We are sorry but this page could not be found."
   },
   "hero": {
-    "available": "Available for new projects",
+    "available": "Available for roles & projects",
+    "bookCall": "Book a 30-min call",
     "unavailable": "Not available at the moment"
   },
   "colorMode": {

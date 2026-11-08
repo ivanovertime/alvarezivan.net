@@ -36,3 +36,7 @@ logs
 # Nix + direnv
 .direnv
 .pnpm-home
+
+# Browser automation + preview server artifacts
+.playwright-mcp
+.wrangler
